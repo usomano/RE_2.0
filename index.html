@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REINCANTAMENTO</title>
+    <meta name="description" content="Reincantamento is a research and publishing collective exploring technology, radical imagination, and rituality.">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="REINCANTAMENTO">
+    <meta property="og:description" content="A research and publishing collective exploring technology, radical imagination, and rituality.">
+    <meta property="og:type" content="website">
+
+    <link rel="icon" type="image/png" href="assets/images/reinc-eye-nero.png">
+
+    <style>
+        /* ===================== */
+        /* FONTS                 */
+        /* ===================== */
+        /* Display style: Figma "Display" = Redaction 20, 40/44 */
+        @font-face {
+            font-family: 'Redaction20';
+            src: url('assets/fonts/Redaction20-Regular.woff') format('woff');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        /* ===================== */
+        /* VARIABLES             */
+        /* ===================== */
+        :root {
+            --grigio: #d9d9d9;          /* GRIGIO */
+            --grid-line: #ffffff;       /* BIANCO grid lines */
+            --grid-cell: 120px;
+            --blu: #0009ff;             /* BLU */
+            --bianco: #ffffff;          /* BIANCO */
+            --nero: #111111;
+
+            /* Display = Redaction 20 (Figma). Menu/Body/Data = Apfel Grotezk (not bundled — grotesk fallback) */
+            --font-display: 'Redaction20', Georgia, 'Times New Roman', serif;
+            --font-menu: 'Apfel Grotezk', 'Helvetica Neue', Arial, sans-serif;
+
+            --page-margin: clamp(24px, 5vw, 64px);
+        }
+
+        /* ===================== */
+        /* RESET                 */
+        /* ===================== */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            -webkit-text-size-adjust: 100%;
+        }
+
+        body {
+            min-height: 100vh;
+            background-color: var(--grigio);
+            background-image:
+                repeating-linear-gradient(to right, var(--grid-line) 0, var(--grid-line) 1px, transparent 1px, transparent var(--grid-cell)),
+                repeating-linear-gradient(to bottom, var(--grid-line) 0, var(--grid-line) 1px, transparent 1px, transparent var(--grid-cell));
+            color: var(--nero);
+            font-family: var(--font-display);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* ===================== */
+        /* HEADER / NAV          */
+        /* ===================== */
+        .site-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: var(--page-margin);
+            z-index: 100;
+            mix-blend-mode: normal;
+        }
+
+        .brand {
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .brand img {
+            width: 56px;
+            height: auto;
+            image-rendering: pixelated;
+        }
+
+        .main-nav {
+            display: flex;
+            gap: clamp(20px, 4vw, 48px);
+        }
+
+        .main-nav a {
+            font-family: var(--font-menu);
+            font-size: 14px;
+            line-height: 17px;
+            font-weight: 500;          /* Apfel Grotezk "Mittel" */
+            letter-spacing: 0.08em;    /* Figma Menu: 8% */
+            text-transform: uppercase;
+            color: var(--nero);
+            transition: color 0.2s ease;
+        }
+
+        .main-nav a:hover {
+            color: var(--blu);
+        }
+
+        .main-nav a.is-active {
+            color: var(--blu);
+        }
+
+        /* ===================== */
+        /* MAIN STATEMENT        */
+        /* ===================== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: calc(var(--page-margin) * 3) var(--page-margin) calc(var(--page-margin) * 2);
+        }
+
+        .statement {
+            max-width: 980px;
+            font-size: clamp(26px, 3.4vw, 40px);
+            line-height: 1.1;
+            font-weight: 400;
+            color: var(--nero);
+        }
+
+        .statement p + p {
+            margin-top: 1.1em;
+        }
+
+        .statement .hl {
+            color: var(--blu);
+        }
+
+        /* ===================== */
+        /* RESPONSIVE            */
+        /* ===================== */
+        @media (max-width: 768px) {
+            .brand img {
+                width: 44px;
+            }
+
+            .main-nav {
+                gap: 18px;
+            }
+
+            .hero {
+                align-items: flex-start;
+                padding-top: calc(var(--page-margin) * 4.5);
+            }
+
+            .statement {
+                font-size: clamp(24px, 6vw, 30px);
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                transition: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <a class="brand" href="index.html" aria-label="Reincantamento home">
+            <img src="assets/images/reinc-eye-nero.png" alt="Reincantamento">
+        </a>
+        <nav class="main-nav" aria-label="Primary">
+            <a href="about.html">About</a>
+            <a href="drops/index.html" class="is-active" aria-current="page">Works</a>
+            <a href="#info">Info</a>
+        </nav>
+    </header>
+
+    <main class="hero">
+        <div class="statement">
+            <p>Reincantamento is a research and publishing collective exploring technology, radical imagination, and rituality.</p>
+            <p>Through <span class="hl">writing</span>, <span class="hl">publishing</span>, <span class="hl">moving images</span>, <span class="hl">workshops</span> and <span class="hl">talks</span>, the group builds spaces for collective inquiry beyond disciplinary and institutional boundaries.</p>
+        </div>
+    </main>
+
+
+</body>
+</html>
