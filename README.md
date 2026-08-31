@@ -104,7 +104,8 @@ Covers and article images are referenced but optional: the generator emits an
 placeholder block instead of a broken image. Drop the files in and rebuild.
 
 - `assets/images/covers/dropNN.webp` — drop covers
-- `assets/images/publications/<slug>-cover.jpg` — publication covers
+- `assets/images/publications/<slug>-cover.webp` — publication covers
+- `assets/images/publications/<slug>-N.webp` — the four shots on a publication page
 - `assets/images/articles/<slug>-N.webp` — images inside drop pages
 
 The drop images come from the Substack export: each `<figure>` there carries

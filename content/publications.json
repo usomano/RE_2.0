@@ -8,10 +8,11 @@
   "cover_w": 176,
   "cover_h": 250,
   "meta": "176 &#215; 250mm / 92 pages",
-  "abstract": "nCHANT is REINCANTAMENTO&#8217;s monographic magazine &#8212; an oblique optical device for exploring unusual ideas, a polyphonic, anti-disciplinary chorus of voices examining concepts at the membrane between culture and technology.",
+  "abstract": "nCHANT is REINCANTAMENTO&#8217;s new monographic magazine &#8212; an oblique optical device for exploring unusual ideas, a polyphonic, anti-disciplinary chorus of voices examining concepts at the membrane between culture and technology.",
   "intro": [
-   "nCHANT is REINCANTAMENTO&#8217;s monographic magazine &#8212; an oblique optical device for exploring unusual ideas, a polyphonic, anti-disciplinary chorus of voices examining concepts at the membrane between culture and technology.",
-   "The inaugural issue, titled &#8220;On Digital Gardens&#8221;, examines symbolic spaces that embody the desire for a post-capitalist Internet. Digital gardens are realms for autonomous knowledge organization and self-expression, elements that commercial platforms continue to short-circuit. They function as fields of seeded ideas and unfinished thoughts, waiting for their time to flourish, die, and be born again &#8212; a wilder, more personal Web waiting to be rediscovered."
+   "nCHANT is REINCANTAMENTO&#8217;s new monographic magazine. As an oblique optical device for exploring unusual ideas, nCHANT represents a polyphonic, anti-disciplinary chorus of voices examining concepts at the membrane between culture and technology.",
+   "nCHANT&#8217;s inaugural issue, &#8220;On Digital Gardens&#8221;, expands and situates the concept of digital garden: symbolic spaces that embody the desire for a post-capitalist Internet.",
+   "Digital gardens represent realms for autonomous knowledge organization and self-expression, elements that commercial platforms continue to short-circuit. They function as fields of seeded ideas and unfinished thoughts, waiting for their time to flourish, die, and be born again. A wilder, more personal Web waiting to be rediscovered."
   ],
   "credits": [
    ["Contributors", ["Alessandro Y. Longo", "Christopher Dake-Outhet", "Simone Robutti", "Federico Poni", "Elisa Carini", "Marco Mattei", "Edin Barbi Cinti"]],
@@ -23,12 +24,13 @@
   ],
   "sections": [
    ["Contents", [
-    "The 92-page publication includes a research report based on 20+ practitioner interviews from the Trust community in Berlin; essays on fractal software structures; practical self-hosting guides; a philosophical dialogue on desire; and spatial garden analyses."
+    "This 92-page publication features a research report based on interviews with 20+ practitioners from the Trust community in Berlin, alongside thoughts on fractal software structures, practical guides for creating self-hosted digital gardens, philosophical dialogue on desire, and spatial analyses of garden environments."
    ]],
    ["Specifications", [
-    "Dimensions 176 &#215; 250 mm. 92 pages. ISSN 3052-1556. Design by Giorgio Craparo, printed by SkillPress, Venice. Funded by the Trust Community."
+    "Dimensions 176 &#215; 250 mm. 92 pages. ISSN 3052-1556. Graphic design by Giorgio Craparo, printed by SkillPress in Venice, Italy. Funded by the Trust Community."
    ]]
   ],
+  "availability": "Released May 17, 2025 in a limited run of 50. Not available.",
   "buy": "https://reincantamento-publishing.metalabel.com/nchant01"
  },
  {
@@ -37,13 +39,13 @@
   "subtitle": "Esoteric Algorithms &amp; Re-Enchanted Technologies",
   "kind": "Catalogue",
   "date": "2025",
-  "cover_w": 170,
+  "cover_w": 242,
   "cover_h": 240,
   "meta": "170 &#215; 240mm / 68 pages",
   "abstract": "Arcane Affinities brings together two international exhibitions, gathering artworks and essays that explore how esoteric practices can reactivate agency and technological imagination.",
   "intro": [
-   "Arcane Affinities brings together two international exhibitions, gathering artworks and essays that explore how esoteric practices can reactivate agency and technological imagination.",
-   "It functions as a catalogue connecting two exhibitions &#8212; Esoteric Algorithms and Re-Enchanted Technologies at Panke Gallery (Berlin) and Esoteric Ecotechnics at MFRU 25 (Maribor). The publication assembles artworks, essays and experimental methods investigating how hermetic thinking can restore agency."
+   "Arcane Affinities is a catalogue bridging two exhibitions &#8212; Esoteric Algorithms and Re-Enchanted Technologies at Panke Gallery (Berlin) and Esoteric Ecotechnics at MFRU 25 (Maribor).",
+   "Mapping the edges of hermetic practices, Arcane Affinities gathers artworks, essays, and experimental methods exploring how esoteric thinking can restore agency. The catalogue is co-published with servus.at, the legendary Linz-based platform for net culture and critical digital practice."
   ],
   "credits": [
    ["Graphic design", ["Giorgio Craparo"]],
@@ -55,9 +57,10 @@
   ],
   "sections": [
    ["Specifications", [
-    "Dimensions 170 &#215; 240 mm. 68 pages, staple binding. ISBN 978-3-9504200-4-3. Graphic design by Giorgio Craparo, printed by SkillPress, Venice, Italy. Co-published with servus.at."
+    "Dimensions 170 &#215; 240 mm. 68 pages, staple binding. ISBN 978-3-9504200-4-3. Graphic design by Giorgio Craparo, digitally printed by SkillPress, Venice, Italy. Typeset with Ortica Linear and Jacquard 12, on Fedrigoni Materica Terra Gialla 250g and Arena Natural Rough 100g. Co-published with servus.at."
    ]]
   ],
-  "buy": ""
+  "availability": "Released November 18, 2025 in a limited run of 20, at $15 plus $5 shipping. Sold out.",
+  "buy": "https://reincantamento-publishing.metalabel.com/record_2xk7ve9cr6v7stxk7"
  }
 ]

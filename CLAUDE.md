@@ -20,12 +20,17 @@ writing/    publishing/  artworks/    generated from content/
 | Section | Contains |
 |---|---|
 | `writing/` | The DROPS newsletter (53 issues, 2023 →), one page per drop. `writing/archive.html` holds the pre-2023 essays published elsewhere; those cards link out. |
-| `publishing/` | nCHANT #01 and Arcane Affinities. |
+| `publishing/` | nCHANT #01 and Arcane Affinities. Copy, specs, availability and shots come from the Metalabel records. |
 | `artworks/` | Formicaio, Harvesting the Net, Tech Collapse, Dolphinology, Vectorial Baptism. |
 
 Workshops and Talks appear in the nav but have no design or content yet, so they
 are `<span class="nav-off">` on the home shell and `aria-disabled` spans in the
 section header — visible, not links. Swap them for `<a>` when the frames land.
+
+The nav carries About on every page except the home page itself, where the
+corner cell already says ABOUT — that cell reads HOME everywhere else (the blue
+`.about-btn` on the home shell, the punched-out `.grid-header__home` at the end
+of the section band).
 
 ### Content is data, pages are generated
 
@@ -188,10 +193,14 @@ Column spans come from the `.c-*` set in `sections.css` (`.c-wide`, `.c-narrow`,
 `writing/index.html` shows one year of drops at a time (2023 → 2026) and
 `writing/archive.html` one year of the pre-2023 essays (2020 → 2022). Every card
 is in the page carrying a `data-year`; `site.js` hides the rest, so without JS
-both pages simply list everything. The band sits on the five cells under the nav
+both pages simply list everything. The band sits on the five cells at the end of
+the row under the nav
 — arrow, year over two cells, arrow, and a cell crossing to the other page.
 Stepping off either end follows that crossing (`archive.html#2022`,
-`index.html#2023`), so 2020 … 2026 reads as one line across the two pages.
+`index.html#2023`), so 2020 … 2026 reads as one line across the two pages. At
+the two ends of the whole run — 2026 forward, 2020 back — there is nowhere to
+go: that arrow is not drawn at all and the year block takes its cell, so the
+band stays a solid run of squares. `site.js` puts `data-end` on the band.
 
 ### Reading a drop
 
@@ -214,8 +223,9 @@ is whole without JS:
 ## Layout — home
 
 - Fixed header (matches Figma HEADER frame): pixel-eye logo
-  (`assets/images/reinc-eye-nero.png`) top-left, nav top-right with five items
-  all in BLU — WRITING / PUBLISHING / MOVING IMAGES / WORKSHOPS / TALKS. Below 768px
+  (`assets/images/reinc-eye-nero.png`) top-left, nav top-right in BLU — WRITING /
+  PUBLISHING / MOVING IMAGES / WORKSHOPS / TALKS, plus ABOUT on every page but the
+  home one, then the filled corner cell (ABOUT on home, HOME elsewhere). Below 768px
   the nav collapses behind a hamburger toggle (full-screen dropdown panel).
 - Centered serif statement with select words highlighted in BLU.
 - Full-page CSS grid background: two `repeating-linear-gradient`s draw white

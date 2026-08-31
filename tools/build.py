@@ -23,7 +23,8 @@ CHEV_R = '<svg viewBox="0 0 14 22" aria-hidden="true"><polyline points="2,2 11,1
 # resolves on an HTTP server. Opened from disk (file://) the browser shows a
 # directory listing instead, and the site has to work by double-clicking it.
 NAV = [('Writing', 'writing/index.html'), ('Publishing', 'publishing/index.html'),
-       ('Artworks', 'artworks/index.html'), ('Workshops', None), ('Talks', None)]
+       ('Artworks', 'artworks/index.html'), ('Workshops', None), ('Talks', None),
+       ('About', 'about.html')]
 
 
 def load(name):
@@ -79,8 +80,12 @@ def header(current, up):
         <button class="grid-header__menu" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
 
         <nav class="grid-nav" id="primary-nav" aria-label="Primary">
-""" + "\n".join(items) + """
+""" + "\n".join(items) + f"""
         </nav>
+
+        <!-- The way back, in the last cell of the band: the home shell carries
+             the same corner cell, reading ABOUT there and HOME everywhere else. -->
+        <a class="grid-header__home" href="{up}index.html">Home</a>
     </header>
 """
 
@@ -579,7 +584,7 @@ cards = []
 for p in pubs:
     cards.append(f"""                <li class="card">
                     <a href="{p['slug']}.html">
-                        <div class="card__cover"><span style="--cover-w: {p['cover_w']}; --cover-h: {p['cover_h']};">{cover_img('assets/images/publications/%s-cover.jpg' % p['slug'], p['title'])}</span></div>
+                        <div class="card__cover"><span style="--cover-w: {p['cover_w']}; --cover-h: {p['cover_h']};">{cover_img('assets/images/publications/%s-cover.webp' % p['slug'], p['title'])}</span></div>
                         <div class="card__body">
                             <p class="card__kicker">{p['kind']}</p>
                             <h2 class="card__title">{p['title']} &#8212; {p['subtitle']}</h2>
@@ -609,34 +614,47 @@ made.append(page('publishing/index.html', 'REINCANTAMENTO &#8212; Publishing',
                  'nCHANT magazine and Arcane Affinities — printed matter published by Reincantamento.',
                  'Publishing', '../', main))
 
+def pub_figure(p, n, cls, shape):
+    """One of the four figure blocks on a publication page. The image is emitted
+    only when the file is there, so a publication with no shots still draws the
+    flat blocks the frame calls for."""
+    img = cover_img('assets/images/publications/%s-%d.webp' % (p['slug'], n),
+                    '%s &#8212; %s' % (p['title'], shape))
+    return f'            <div class="blk-figure {cls} is-spaced">{img}</div>'
+
+
 for i, p in enumerate(pubs):
     nxt = pubs[(i + 1) % len(pubs)]
-    buy = ''
+    # Availability is the one thing on these pages that changes on its own: a
+    # run of 20 or 50 sells out. It is stated in words and the link goes to the
+    # Metalabel record, which is where the run is actually tracked.
+    lines = [f'                    <p class="blk-text">{p["availability"]}</p>']
     if p['buy']:
-        buy = f"""
+        lines.append(f'                    <p class="blk-text"><a href="{p["buy"]}" '
+                     'target="_blank" rel="noopener">On Metalabel &#8594;</a></p>')
+    body = "\n".join(lines)
+    buy = f"""
 
             <div class="blk-group c-narrow is-spaced">
-                <div class="blk blk--row">
-                    <p class="blk-text"><a href="{p['buy']}" target="_blank" rel="noopener">Purchase &#8594;</a></p>
+                <h2 class="blk blk--row blk-heading">Availability</h2>
+                <div class="blk blk--rows">
+{body}
                 </div>
             </div>"""
     intro = "\n".join(f'                <p class="blk-text">{t}</p>' for t in p['intro'])
-    main = (title_row(p['title'], 'index.html', 'Back to Publishing') + f"""
-            <div class="blk-figure r-12x6 c-wide is-spaced"></div>
+    main = (title_row(p['title'], 'index.html', 'Back to Publishing') + "\n"
+            + pub_figure(p, 1, 'r-12x6 c-wide', 'spread') + f"""
 
             <div class="blk c-right">
 {intro}
             </div>
 
-""" + credit_blocks(p['credits']) + """
-
-            <div class="blk-figure r-4x6 c-l4 is-spaced"></div>
-            <div class="blk-figure r-7x6 c-r7 is-spaced"></div>
-
-""" + text_sections(p['sections']) + buy + """
-
-            <div class="blk-figure r-12x6 c-wide is-spaced"></div>
-""" + next_band('Next publication', nxt['title'], nxt['slug'] + '.html'))
+""" + credit_blocks(p['credits']) + "\n\n"
+            + pub_figure(p, 2, 'r-4x6 c-l4', 'page') + "\n"
+            + pub_figure(p, 3, 'r-7x6 c-r7', 'spread') + "\n\n"
+            + text_sections(p['sections']) + buy + "\n\n"
+            + pub_figure(p, 4, 'r-12x6 c-wide', 'spread') + "\n"
+            + next_band('Next publication', nxt['title'], nxt['slug'] + '.html'))
     made.append(page('publishing/%s.html' % p['slug'],
                      'REINCANTAMENTO &#8212; %s' % p['title'], p['abstract'][:150],
                      'Publishing', '../', main))

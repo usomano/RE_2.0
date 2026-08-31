@@ -256,7 +256,9 @@ img {
     transform: scaleX(1);
 }
 
-/* ---- About button: a solid BLU cell in the top-right corner (after Talks) ---- */
+/* ---- Corner cell: a solid BLU cell in the top-right corner (after the nav) ----
+   It reads ABOUT on the home page and HOME on every other page — the same
+   cell the section pages carry at the end of their header band. */
 .about-btn {
     display: inline-flex;
     align-items: center;
@@ -504,6 +506,7 @@ body.theme-blue .statement .hl {
 }
 
 body.theme-blue .main-nav a,
+body.theme-blue .main-nav .nav-off,   /* blu-on-blu would vanish */
 body.theme-blue .theme-switch {
     color: var(--on-band);
 }
@@ -512,7 +515,7 @@ body.theme-blue .nav-toggle span {
     background: var(--on-band);
 }
 
-/* Current page: invert the About cell so it reads on the blue field */
+/* The About page is blue: invert the corner cell so it still reads as a cell */
 body.theme-blue .about-btn {
     background: var(--bg);
     color: var(--ink);

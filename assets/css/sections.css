@@ -74,7 +74,7 @@
 /* HEADER                */
 /* ===================== */
 /* One grid row tall, filled with --band, its own cell lines painted on top.
-   Logo in the first cell, the five nav items in the last five. */
+   Logo in the first cell, the six nav items next, HOME in the last one. */
 .grid-header {
     position: sticky;
     top: 0;
@@ -101,9 +101,9 @@
 }
 
 .grid-nav {
-    grid-column: -6 / -1;               /* the last five cells */
+    grid-column: -8 / -2;               /* six cells, before the HOME corner */
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(6, 1fr);
 }
 
 .grid-nav__item {
@@ -139,6 +139,31 @@
 .grid-nav__item[aria-disabled="true"] {
     cursor: default;
     pointer-events: none;
+}
+
+/* ---- HOME: the last cell of the band ----
+   The home shell (index / about / lab) carries the same corner cell in its own
+   header, reading ABOUT on the home page and HOME everywhere else. Here it is
+   punched out of the band back to the page fill, like the current section. */
+.grid-header__home {
+    grid-column: -2 / -1;
+    margin: 1px 0 0 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-menu);
+    font-size: 11px;
+    line-height: 14px;
+    font-weight: 500;                   /* Apfel Grotezk Mittel */
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: opacity 0.2s ease;
+}
+
+.grid-header__home:hover {
+    opacity: 0.8;
 }
 
 /* Mobile menu button — hidden until the mobile breakpoint. */
@@ -336,6 +361,13 @@
     height: calc(var(--cover-h) / 360 * 100%);
     aspect-ratio: var(--cover-w) / var(--cover-h);
     background: var(--media);
+}
+
+.card__cover span img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 /* ===================== */
@@ -551,6 +583,12 @@
         grid-column: -3 / -1;           /* the menu cell is 2 columns wide */
     }
 
+    /* Two cells of its own, left of MENU — the panel below covers the rest. */
+    .grid-header__home {
+        grid-column: -5 / -3;
+        z-index: 95;                    /* above the dropdown panel */
+    }
+
     /* Full-screen panel, opened by MENU. Without JS the nav stays a plain row. */
     .js .grid-nav {
         position: fixed;
@@ -582,7 +620,7 @@
         text-underline-offset: 4px;
     }
 
-    /* No-JS fallback: let the five items wrap under the logo row. */
+    /* No-JS fallback: let the six items wrap under the logo row. */
     .grid-nav {
         grid-column: 1 / -1;
         grid-row: 2;
@@ -1077,7 +1115,7 @@
 /* ===================== */
 /* YEAR BAND             */
 /* ===================== */
-/* Under the header, on the same five cells as the nav: an arrow, the year over
+/* Under the header, on the last five cells of the row: an arrow, the year over
    two cells, an arrow, and a cell crossing to the other half of the timeline.
    The drops start in 2023 and the archive ends in 2022, so stepping off either
    end follows that link — 2020 … 2026 reads as one line across two pages.
@@ -1117,12 +1155,15 @@
     opacity: 0.8;
 }
 
-/* At the end of the run in a direction that leads nowhere. */
+/* At the end of the run in a direction that leads nowhere — 2026 forward, 2020
+   back — the arrow is not drawn at all, and the year block takes its cell so
+   the band stays a solid run of squares. site.js marks the end it reached. */
 .year-nav__step[aria-disabled="true"] {
-    opacity: 0.35;
-    cursor: default;
-    pointer-events: none;
+    display: none;
 }
+
+.year-nav[data-end="next"] > :nth-child(2) { grid-column: -5 / -2; }
+.year-nav[data-end="prev"] > :nth-child(2) { grid-column: -6 / -3; }
 
 .year-nav__years {
     gap: 0.6em;
@@ -1157,6 +1198,9 @@
     .year-nav > :nth-child(2) { grid-column: 3 / -5; }
     .year-nav > :nth-child(3) { grid-column: -5 / -4; }
     .year-nav > :nth-child(4) { grid-column: -4 / -2; }
+
+    .year-nav[data-end="next"] > :nth-child(2) { grid-column: 3 / -4; }
+    .year-nav[data-end="prev"] > :nth-child(2) { grid-column: 2 / -5; }
 
     /* One column: the byline runs under the title band instead of beside it. */
     .title-authors {

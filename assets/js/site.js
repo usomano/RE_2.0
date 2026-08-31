@@ -215,14 +215,22 @@
             });
             cards.forEach((c) => { c.hidden = c.dataset.year !== shown; });
             const i = years.indexOf(shown);
+            // The end of the whole timeline (2026 forward, 2020 back): that
+            // arrow is dropped rather than greyed out, and the band records
+            // which side it lost so the year block can take the empty cell.
+            let end = '';
             steps.forEach((btn) => {
                 const dir = Number(btn.dataset.step);
                 const stays = years[i + dir] !== undefined;
                 const crosses = dir === otherDir && !!other;
-                btn.setAttribute('aria-disabled', String(!stays && !crosses));
+                const dead = !stays && !crosses;
+                if (dead) end = dir > 0 ? 'next' : 'prev';
+                btn.setAttribute('aria-disabled', String(dead));
                 btn.setAttribute('href', stays ? '#' + years[i + dir]
                                                : (crosses ? other.getAttribute('href') : '#'));
             });
+            if (end) band.dataset.end = end;
+            else band.removeAttribute('data-end');
         };
 
         const show = (year) => {
