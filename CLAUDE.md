@@ -27,10 +27,11 @@ Workshops and Talks appear in the nav but have no design or content yet, so they
 are `<span class="nav-off">` on the home shell and `aria-disabled` spans in the
 section header — visible, not links. Swap them for `<a>` when the frames land.
 
-The nav carries About on every page except the home page itself, where the
-corner cell already says ABOUT — that cell reads HOME everywhere else (the blue
-`.about-btn` on the home shell, the punched-out `.grid-header__home` at the end
-of the section band).
+About sits in the nav next to Talks on **every** page, so the menu is the same
+run of six items everywhere. The filled corner cell after it is the way out:
+ABOUT on the home page (which has nowhere to go back to) and HOME on every other
+— the blue `.about-btn` on the home shell, the punched-out `.grid-header__home`
+at the end of the section band.
 
 ### Content is data, pages are generated
 
@@ -223,9 +224,9 @@ is whole without JS:
 ## Layout — home
 
 - Fixed header (matches Figma HEADER frame): pixel-eye logo
-  (`assets/images/reinc-eye-nero.png`) top-left, nav top-right in BLU — WRITING /
-  PUBLISHING / MOVING IMAGES / WORKSHOPS / TALKS, plus ABOUT on every page but the
-  home one, then the filled corner cell (ABOUT on home, HOME elsewhere). Below 768px
+  (`assets/images/reinc-eye-nero.png`) top-left, nav top-right with six items all
+  in BLU — WRITING / PUBLISHING / MOVING IMAGES / WORKSHOPS / TALKS / ABOUT — then
+  the filled corner cell (ABOUT on home, HOME elsewhere). Below 768px
   the nav collapses behind a hamburger toggle (full-screen dropdown panel).
 - Centered serif statement with select words highlighted in BLU.
 - Full-page CSS grid background: two `repeating-linear-gradient`s draw white
