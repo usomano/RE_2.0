@@ -1,0 +1,693 @@
+[
+  {
+    "slug": "drop-53-the-baroque-grin",
+    "cover": "../assets/images/covers/drop53.webp",
+    "number": "Drop #53",
+    "title": "The Baroque Grin",
+    "subtitle": "A Sicilian Aesthetic of Refusal",
+    "date": "July 23, 2026",
+    "n": 53,
+    "kind": "drop",
+    "authors": [
+      "Giovanni Padua"
+    ]
+  },
+  {
+    "slug": "drop-52-the-persona-space",
+    "cover": "../assets/images/covers/drop52.webp",
+    "number": "Drop #52",
+    "title": "The Persona Space",
+    "subtitle": "Elements of Vectorial Semiotics",
+    "date": "July 9, 2026",
+    "n": 52,
+    "kind": "drop",
+    "authors": [
+      "Alessandro Y. Longo"
+    ]
+  },
+  {
+    "slug": "drop-51-poetics-is-all-you-need",
+    "cover": "../assets/images/covers/drop51.webp",
+    "number": "Drop #51",
+    "title": "Poetics is All You Need",
+    "subtitle": "On Leif Weatherby's Language Machines",
+    "date": "June 11, 2026",
+    "n": 51,
+    "kind": "drop",
+    "authors": [
+      "Alessandro Y. Longo"
+    ]
+  },
+  {
+    "slug": "drop-50-hacking-language-words-bugs",
+    "cover": "../assets/images/covers/drop50.webp",
+    "number": "Drop #50",
+    "title": "Hacking Language. Words, Bugs, and the Politics of the Sayable",
+    "subtitle": "",
+    "date": "May 25, 2026",
+    "n": 50,
+    "kind": "drop",
+    "authors": [
+      "Martina Maccianti"
+    ]
+  },
+  {
+    "slug": "drop-49-love-means-taking-action",
+    "cover": "../assets/images/covers/drop49.webp",
+    "number": "Drop #49",
+    "title": "Love Means Taking Action",
+    "subtitle": "Autonomia and Solidarity in the Coming Crisis",
+    "date": "April 7, 2026",
+    "n": 49,
+    "kind": "drop",
+    "authors": [
+      "Alessandro Y. Longo"
+    ]
+  },
+  {
+    "slug": "drop-48-political-mysticism-against",
+    "cover": "../assets/images/covers/drop48.webp",
+    "number": "Drop #48",
+    "title": "Political Mysticism Against the Empire of Sleep",
+    "subtitle": "",
+    "date": "February 26, 2026",
+    "n": 48,
+    "kind": "drop",
+    "authors": [
+      "Simone Robutti"
+    ]
+  },
+  {
+    "slug": "drop-47-lust-auf-eis-ctm-and-transmediale",
+    "cover": "../assets/images/covers/drop47.webp",
+    "number": "Drop #47",
+    "title": "\"Lust auf Eis?\": CTM and transmediale in 2026",
+    "subtitle": "",
+    "date": "February 20, 2026",
+    "n": 47,
+    "kind": "drop",
+    "authors": [
+      "Alessandro Y. Longo"
+    ]
+  },
+  {
+    "slug": "drop-46-a-guide-to-ctm-and-transmediale",
+    "cover": "../assets/images/covers/drop46.webp",
+    "number": "Drop #46",
+    "title": "A Guide to CTM and transmediale 2026",
+    "subtitle": "REINCANTAMENTO's favourite concerts, club nights, workshops and lectures",
+    "date": "January 21, 2026",
+    "n": 46,
+    "kind": "drop",
+    "authors": [
+      "Alessandro Y. Longo"
+    ]
+  },
+  {
+    "slug": "drop-45-in-the-air-of-those-days",
+    "cover": "../assets/images/covers/drop45.webp",
+    "number": "Drop #45",
+    "title": "The Air of Those Days",
+    "subtitle": "A sound chronicle of the Italian October Strike",
+    "date": "January 16, 2026",
+    "n": 45,
+    "kind": "drop",
+    "authors": [
+      "Alessandro Y. Longo",
+      "Arianna Longo",
+      "Kinked"
+    ]
+  },
+  {
+    "slug": "drop-44-programma-101",
+    "cover": "../assets/images/covers/drop44.webp",
+    "number": "Drop #44",
+    "title": "PROGRAMMA 101",
+    "subtitle": "Who Killed Mario Tchou?",
+    "date": "December 30, 2025",
+    "n": 44,
+    "kind": "drop",
+    "authors": [
+      "Alessandro Y. Longo"
+    ]
+  },
+  {
+    "slug": "drop-43-spotify-vs-annas-archive",
+    "cover": "../assets/images/covers/drop43.webp",
+    "number": "Drop #43",
+    "title": "Spotify vs. Anna's Archive",
+    "subtitle": "Working Notes",
+    "date": "December 26, 2025",
+    "n": 43,
+    "kind": "drop",
+    "authors": [
+      "Alessandro Y. Longo"
+    ]
+  },
+  {
+    "slug": "drop-42-babe-we-got-gnomes-in-our-computer",
+    "cover": "../assets/images/covers/drop42.webp",
+    "number": "Drop #42",
+    "title": "Babe, We Got Gnomes in Our Computer!",
+    "subtitle": "A conversation with Kinked",
+    "date": "December 15, 2025",
+    "n": 42,
+    "kind": "drop",
+    "authors": [
+      "Alessandro Y. Longo"
+    ]
+  },
+  {
+    "slug": "drop-41-we-are-cactus",
+    "cover": "../assets/images/covers/drop41.webp",
+    "number": "Drop #41",
+    "title": "We Are Cactus",
+    "subtitle": "Flowering apart in Berlin",
+    "date": "December 5, 2025",
+    "n": 41,
+    "kind": "drop",
+    "authors": [
+      "Silvia Russo"
+    ]
+  },
+  {
+    "slug": "drop-40-we-need-a-manifestation-not-a-manifesto",
+    "cover": "../assets/images/covers/drop40.webp",
+    "number": "Drop #40",
+    "title": "(We Need) A Manifestation, Not a Manifesto",
+    "subtitle": "Introducing 'Arcane Affinities'",
+    "date": "November 11, 2025",
+    "n": 40,
+    "kind": "drop",
+    "authors": [
+      "REINCANTAMENTO"
+    ]
+  },
+  {
+    "slug": "drop-39-anarchiving-collective-intelligence",
+    "cover": "../assets/images/covers/drop39.webp",
+    "number": "Drop #39",
+    "title": "Anarchiving Collective Intelligence",
+    "subtitle": "The Sphere's Anarchiving Game",
+    "date": "October 24, 2025",
+    "n": 39,
+    "kind": "drop",
+    "authors": [
+      "Erik Bordeleau"
+    ]
+  },
+  {
+    "slug": "drop-38-were-already-saved",
+    "cover": "../assets/images/covers/drop38.webp",
+    "number": "Drop #38",
+    "title": "We're Already Saved",
+    "subtitle": "Paths to political agency",
+    "date": "September 9, 2025",
+    "n": 38,
+    "kind": "drop",
+    "authors": [
+      "Alessandro Y. Longo"
+    ]
+  },
+  {
+    "slug": "drop-37-unabating-wonder",
+    "cover": "../assets/images/covers/drop37.webp",
+    "number": "Drop #37",
+    "title": "Unabating Wonder",
+    "subtitle": "On spirituality and politics in Palestine",
+    "date": "July 22, 2025",
+    "n": 37,
+    "kind": "drop",
+    "authors": [
+      "Alessandro Y. Longo"
+    ]
+  },
+  {
+    "slug": "drop-36-do-you-know-how-to-bleed",
+    "cover": "../assets/images/covers/drop36.webp",
+    "number": "Drop #36",
+    "title": "Do You Know How to Bleed?",
+    "subtitle": "A manifesto on post-reality organizing",
+    "date": "July 15, 2025",
+    "n": 36,
+    "kind": "drop",
+    "authors": [
+      "Simone Robutti"
+    ]
+  },
+  {
+    "slug": "drop-35-cultivating-agency",
+    "cover": "../assets/images/covers/drop35.webp",
+    "number": "Drop #35",
+    "title": "Cultivating Agency",
+    "subtitle": "An Introduction to nCHANT #01",
+    "date": "June 20, 2025",
+    "n": 35,
+    "kind": "drop",
+    "authors": [
+      "Alessandro Y. Longo"
+    ]
+  },
+  {
+    "slug": "drop-34-entroducing-nchant",
+    "cover": "../assets/images/covers/drop34.jpg",
+    "number": "Drop #34",
+    "title": "Entroducing... nCHANT",
+    "subtitle": "On REINCANTAMENTO's new monographic magazine",
+    "date": "May 23, 2025",
+    "n": 34,
+    "kind": "drop",
+    "authors": [
+      "Alessandro Y. Longo"
+    ]
+  },
+  {
+    "slug": "drop-33-the-madness-of-vision",
+    "cover": "../assets/images/covers/drop33.webp",
+    "number": "Drop #33",
+    "title": "The Madness of Vision",
+    "subtitle": "",
+    "date": "May 7, 2025",
+    "n": 33,
+    "kind": "drop",
+    "authors": [
+      "Alessandro Y. Longo"
+    ]
+  },
+  {
+    "slug": "drop-32-at-a-time-like-this",
+    "cover": "../assets/images/covers/drop32.webp",
+    "number": "Drop #32",
+    "title": "At a Time Like This",
+    "subtitle": "",
+    "date": "April 23, 2025",
+    "n": 32,
+    "kind": "drop",
+    "authors": [
+      "Alessandro Y. Longo"
+    ]
+  },
+  {
+    "slug": "drop-31-research-as-vocation-research",
+    "cover": "../assets/images/covers/drop31.webp",
+    "number": "Drop #31",
+    "title": "Research as Vocation, Research as Politics",
+    "subtitle": "The tragic trajectory of independent cultural research",
+    "date": "April 11, 2025",
+    "n": 31,
+    "kind": "drop",
+    "authors": [
+      "Marco Mattei"
+    ]
+  },
+  {
+    "slug": "drop-30-conjunctural-vertigo",
+    "cover": "../assets/images/covers/drop30.webp",
+    "number": "Drop #30",
+    "title": "Conjunctural Vertigo",
+    "subtitle": "",
+    "date": "April 4, 2025",
+    "n": 30,
+    "kind": "drop",
+    "authors": [
+      "Alessandro Y. Longo"
+    ]
+  },
+  {
+    "slug": "drop-29-seven-mantras-for-political",
+    "cover": "../assets/images/covers/drop29.webp",
+    "number": "Drop #29",
+    "title": "Seven Mantras for Political Holism",
+    "subtitle": "",
+    "date": "March 12, 2025",
+    "n": 29,
+    "kind": "drop",
+    "authors": [
+      "Simone Robutti"
+    ]
+  },
+  {
+    "slug": "drop-28-red-zones-anatomy-of-new",
+    "cover": "../assets/images/covers/drop28.webp",
+    "number": "Drop #28",
+    "title": "Red Zones",
+    "subtitle": "Anatomy of the New Urban Control",
+    "date": "February 20, 2025",
+    "n": 28,
+    "kind": "drop",
+    "authors": [
+      "Alessandro Y. Longo"
+    ]
+  },
+  {
+    "slug": "drop-27-there-is-no-more-ordinary",
+    "cover": "../assets/images/covers/drop27.webp",
+    "number": "Drop #27",
+    "title": "There is No More Ordinary Life",
+    "subtitle": "",
+    "date": "February 12, 2025",
+    "n": 27,
+    "kind": "drop",
+    "authors": [
+      "Alessandro Y. Longo"
+    ]
+  },
+  {
+    "slug": "drop-26-on-formicaio-in-the-spiral",
+    "cover": "../assets/images/covers/drop26.webp",
+    "number": "Drop #26",
+    "title": "On FORMICAIO",
+    "subtitle": "A look inside REINCANTAMENTO's latest artwork",
+    "date": "February 8, 2025",
+    "n": 26,
+    "kind": "drop",
+    "authors": [
+      "Alessandro Y. Longo"
+    ]
+  },
+  {
+    "slug": "drop-25-a-guide-to-ctm-and-transmediale-2025",
+    "cover": "",
+    "number": "Drop #25",
+    "title": "A Guide to CTM and Transmediale 2025",
+    "subtitle": "",
+    "date": "January 23, 2025",
+    "n": 25,
+    "kind": "drop",
+    "authors": [
+      "Alessandro Y. Longo"
+    ]
+  },
+  {
+    "slug": "drop-24-red-notes",
+    "cover": "",
+    "number": "Drop #24",
+    "title": "Red Notes",
+    "subtitle": "",
+    "date": "January 17, 2025",
+    "n": 24,
+    "kind": "drop",
+    "authors": [
+      "Alessandro Y. Longo"
+    ]
+  },
+  {
+    "slug": "drop-23-20-albums-for-2024",
+    "cover": "",
+    "number": "Drop #23",
+    "title": "20 Albums for 2024",
+    "subtitle": "",
+    "date": "January 6, 2025",
+    "n": 23,
+    "kind": "drop",
+    "authors": [
+      "Alessandro Y. Longo"
+    ]
+  },
+  {
+    "slug": "drop-22-a-child-bewitched",
+    "cover": "",
+    "number": "Drop #22",
+    "title": "A Child Bewitched",
+    "subtitle": "An End-of-the-Year Offering",
+    "date": "December 27, 2024",
+    "n": 22,
+    "kind": "drop",
+    "authors": [
+      "Alessandro Y. Longo"
+    ]
+  },
+  {
+    "slug": "drop-21-till-we-gain-control-again",
+    "cover": "",
+    "number": "Drop #21",
+    "title": "'Till We Gain Control Again",
+    "subtitle": "On OpenAI and sabotage",
+    "date": "November 30, 2024",
+    "n": 21,
+    "kind": "drop",
+    "authors": [
+      "Alessandro Y. Longo"
+    ]
+  },
+  {
+    "slug": "drop-20-blue-skies-and-gilded-cages",
+    "cover": "",
+    "number": "Drop #20",
+    "title": "Blue Skies and Gilded Cages",
+    "subtitle": "On X-odus, digital spaces and collective desire",
+    "date": "November 25, 2024",
+    "n": 20,
+    "kind": "drop",
+    "authors": [
+      "Alessandro Y. Longo"
+    ]
+  },
+  {
+    "slug": "drop-19-the-american-refraction",
+    "cover": "",
+    "number": "Drop #19",
+    "title": "The American Refraction",
+    "subtitle": "",
+    "date": "November 18, 2024",
+    "n": 19,
+    "kind": "drop",
+    "authors": [
+      "Alessandro Y. Longo"
+    ]
+  },
+  {
+    "slug": "drop-18-looking-for-fireflies-in",
+    "cover": "",
+    "number": "Drop #18",
+    "title": "Looking for Fireflies in Times of Fascism",
+    "subtitle": "A brief journey through the ruins of modernity",
+    "date": "October 21, 2024",
+    "n": 18,
+    "kind": "drop",
+    "authors": [
+      "Alessandro Y. Longo"
+    ]
+  },
+  {
+    "slug": "drop-17-manifesto-on-algorithmic",
+    "cover": "",
+    "number": "Drop #17",
+    "title": "Manifesto On Algorithmic Sabotage",
+    "subtitle": "",
+    "date": "September 17, 2024",
+    "n": 17,
+    "kind": "drop",
+    "authors": [
+      "Algorithmic Sabotage Research Group"
+    ]
+  },
+  {
+    "slug": "drop-16-an-anarchives-intervention",
+    "cover": "",
+    "number": "Drop #16",
+    "title": "An Anarchive's Intervention",
+    "subtitle": "What makes art worth living",
+    "date": "July 4, 2024",
+    "n": 16,
+    "kind": "drop",
+    "authors": [
+      "Alessandro Y. Longo"
+    ]
+  },
+  {
+    "slug": "drop-15-paths-of-symmetry",
+    "cover": "",
+    "number": "Drop #15",
+    "title": "Paths of Symmetry",
+    "subtitle": "A Geometrical Revolution",
+    "date": "June 6, 2024",
+    "n": 15,
+    "kind": "drop",
+    "authors": [
+      "Alessandro De Frenza"
+    ]
+  },
+  {
+    "slug": "drop-14-the-drake-era-or-the-logic",
+    "cover": "",
+    "number": "Drop #14",
+    "title": "The Drake Era or the Logic of Cultural Fracking",
+    "subtitle": "",
+    "date": "May 16, 2024",
+    "n": 14,
+    "kind": "drop",
+    "authors": [
+      "Alessandro Y. Longo"
+    ]
+  },
+  {
+    "slug": "drop-13-divine-automation",
+    "cover": "",
+    "number": "Drop #13",
+    "title": "Divine Automation",
+    "subtitle": "Factorio and phantasies of mechanization",
+    "date": "March 12, 2024",
+    "n": 13,
+    "kind": "drop",
+    "authors": [
+      "Simone Robutti"
+    ]
+  },
+  {
+    "slug": "drop-12-time-trust-and-celluloid",
+    "cover": "",
+    "number": "Drop #12",
+    "title": "Time, Trust and Celluloid",
+    "subtitle": "",
+    "date": "February 23, 2024",
+    "n": 12,
+    "kind": "drop",
+    "authors": [
+      "Alessandro Barbetti"
+    ]
+  },
+  {
+    "slug": "drop-11-quantum-visions",
+    "cover": "",
+    "number": "Drop #11",
+    "title": "Quantum Visions",
+    "subtitle": "Vast Machines and Climate Change",
+    "date": "February 10, 2024",
+    "n": 11,
+    "kind": "drop",
+    "authors": [
+      "Alessandro De Frenza"
+    ]
+  },
+  {
+    "slug": "drop-10-tomorrow-belongs-to-the-spiritual",
+    "cover": "",
+    "number": "Drop #10",
+    "title": "Tomorrow Belongs to the Spiritual Cyborg",
+    "subtitle": "To conjure all the future struggles",
+    "date": "January 31, 2024",
+    "n": 10,
+    "kind": "drop",
+    "authors": [
+      "Simone Robutti"
+    ]
+  },
+  {
+    "slug": "drop-9-udo-the-weird-magic-of-digital",
+    "cover": "",
+    "number": "Drop #9",
+    "title": "UDO: The Weird Magic of Digital Folklore",
+    "subtitle": "",
+    "date": "January 19, 2024",
+    "n": 9,
+    "kind": "drop",
+    "authors": [
+      "Alessandro Y. Longo"
+    ]
+  },
+  {
+    "slug": "drop-8-phantom-in-the-chain",
+    "cover": "",
+    "number": "Drop #8",
+    "title": "Phantom in the Chain",
+    "subtitle": "",
+    "date": "November 8, 2023",
+    "n": 8,
+    "kind": "drop",
+    "authors": [
+      "Alessandro Y. Longo"
+    ]
+  },
+  {
+    "slug": "drop-7-a-report-on-techgnostic-phenomena",
+    "cover": "",
+    "number": "Drop #7",
+    "title": "A Report on Techgnostic Phenomena",
+    "subtitle": "An inquiry on IT industry rituals",
+    "date": "October 23, 2023",
+    "n": 7,
+    "kind": "drop",
+    "authors": [
+      "Simone Robutti"
+    ]
+  },
+  {
+    "slug": "drop-6-notes-on-post-colonial-plants",
+    "cover": "",
+    "number": "Drop #6",
+    "title": "Notes on Post-Colonial Plants",
+    "subtitle": "On a Berlin experience of cosmic interweaving",
+    "date": "September 26, 2023",
+    "n": 6,
+    "kind": "drop",
+    "authors": [
+      "Anna Fasolato"
+    ]
+  },
+  {
+    "slug": "drop-5-notes-on-bolano",
+    "cover": "",
+    "number": "Drop #5",
+    "title": "Notes on Bolaño",
+    "subtitle": "On a unvoluntary opera-mondo",
+    "date": "September 5, 2023",
+    "n": 5,
+    "kind": "drop",
+    "authors": [
+      "Alessandro Y. Longo"
+    ]
+  },
+  {
+    "slug": "drop-4-notes-on-game-design",
+    "cover": "",
+    "number": "Drop #4",
+    "title": "Notes on Game Design",
+    "subtitle": "Behind-the-scenes of Tech Collapse",
+    "date": "August 4, 2023",
+    "n": 4,
+    "kind": "drop",
+    "authors": [
+      "Alessandro Y. Longo"
+    ]
+  },
+  {
+    "slug": "drop-3-notes-on-technic-and-magic",
+    "cover": "",
+    "number": "Drop #3",
+    "title": "Notes on Technic and Magic",
+    "subtitle": "On two modes of action",
+    "date": "July 25, 2023",
+    "n": 3,
+    "kind": "drop",
+    "authors": [
+      "Alessandro Y. Longo"
+    ]
+  },
+  {
+    "slug": "drop-2-notes-on-yeezus",
+    "cover": "",
+    "number": "Drop #2",
+    "title": "Notes on Yeezus",
+    "subtitle": "The tenth anniversary of a contemporary masterpiece",
+    "date": "June 19, 2023",
+    "n": 2,
+    "kind": "drop",
+    "authors": [
+      "Alessandro Y. Longo"
+    ]
+  },
+  {
+    "slug": "drop-1-notes-on-corecore",
+    "cover": "",
+    "number": "Drop #1",
+    "title": "Notes on CoreCore",
+    "subtitle": "GenZ at the end of times",
+    "date": "June 9, 2023",
+    "n": 1,
+    "kind": "drop",
+    "authors": [
+      "Alessandro Y. Longo"
+    ]
+  }
+]

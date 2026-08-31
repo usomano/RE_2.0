@@ -1,0 +1,304 @@
+[
+ {
+  "slug": "artwork-formicaio.html",
+  "title": "Formicaio",
+  "card_title": "Formicaio",
+  "date": "January 2025",
+  "tags": "#labour #AI",
+  "intro": [
+   "FORMICAIO is a digital art project that explores the politics of automated language through a retro web experience. Created by REINCANTAMENTO for MacTe Digital&#8217;s exhibition &#8220;we are all users until we are not&#8221;, the piece invites visitors to interact with Agent, a militant AI entity.",
+   "Beware: Agent is not your default corporate assistant. Agent is bloody opinionated, having read thousands of pages of political theory and history. Their favourite take? We fear automation because it reveals the unsettling truth: how hollow our work has become. Agent wants you to organize and resist &#8212; not to succumb to widespread anxiety, but to fight back through collective power."
+  ],
+  "credits": [
+   [
+    "Concept",
+    [
+     "Alessandro Y. Longo"
+    ]
+   ],
+   [
+    "Research &amp; writing",
+    [
+     "Alessandro Y. Longo",
+     "Arianna Longo"
+    ]
+   ],
+   [
+    "Soundtrack",
+    [
+     "Kinked"
+    ]
+   ],
+   [
+    "Frontend development",
+    [
+     "Matteo Gevi",
+     "Alessandro Y. Longo"
+    ]
+   ],
+   [
+    "Backend development",
+    [
+     "Matteo Gevi"
+    ]
+   ],
+   [
+    "Special thanks",
+    [
+     "Marialaura Ghidini",
+     "Simone Robutti"
+    ]
+   ]
+  ],
+  "sections": [
+   [
+    "Therapeutic anarcho-syndicalism",
+    [
+     "Landing for the first time, Agent offers a session of therapeutic anarcho-syndicalism, aiming to understand and address the labour struggles of their interlocutors. Through intimate exchanges, Agent connects workplace issues to broader fights for gender, racial and ecological justice. Agent&#8217;s here to wreck your faith in the grind, one chat at a time."
+    ]
+   ],
+   [
+    "A sandbox for tactical media",
+    [
+     "REINCANTAMENTO conceives FORMICAIO as a playful sandbox to explore urgent questions about tactical media in times of AI. How can emancipatory movements strategically deploy automated agents for political propaganda and organizing? What role might these tools play in advancing labour rights and care work? And, most crucially, how can we steer generative technologies toward liberatory ends?",
+     "The Formicaio User Manual expands the FORMICAIO micro-verse: blurring the lines of theory and fiction, the Manual unfolds the project&#8217;s conceptual constellation and enriches the narrative engine. <a href=\"https://files.cargocollective.com/c1076387/FORMICAIO-MANUAL-FINAL.pdf\">Read the manual</a>."
+    ]
+   ]
+  ],
+  "links": [
+   [
+    "The exhibition",
+    "https://fondazionemacte.com/it/digital/we-are-all-users-till-we-are-not",
+    "we are all users until we are not &#8212; MacTe Digital"
+   ]
+  ]
+ },
+ {
+  "slug": "artwork-harvesting-the-net.html",
+  "title": "Harvesting the Net",
+  "card_title": "Harvesting the Net<br>A Tale of Digital Gardening",
+  "date": "December 2023",
+  "tags": "#digitalgardens #videoessay",
+  "intro": [
+   "The internet has changed. What was once a space created for free expression and communication has become a militarized tool for surveillance and algorithmic control. Among the different ways to remember the web as a liberated space, Harvesting the Net explores the notion of digital gardening.",
+   "From the early internet days, digital gardens were conceptual maps and blueprints towards an online well-being, but like many other memories, it risks becoming another appropriation for enhancing atomic productivity."
+  ],
+  "credits": [
+   [
+    "Research &amp; writing",
+    [
+     "Alessandro Y. Longo",
+     "Jeein Shein",
+     "Anna Fasolato"
+    ]
+   ],
+   [
+    "Artistic direction",
+    [
+     "Alessandro Y. Longo",
+     "Anna Fasolato"
+    ]
+   ],
+   [
+    "Direction assistant",
+    [
+     "Alessandro Barbetti"
+    ]
+   ],
+   [
+    "Video editing",
+    [
+     "Stranding Production",
+     "Anna Fasolato"
+    ]
+   ],
+   [
+    "Title design",
+    [
+     "Giorgio Craparo"
+    ]
+   ],
+   [
+    "Sound design &amp; original tracks",
+    [
+     "Kinked",
+     "Dori Sorride"
+    ]
+   ]
+  ],
+  "sections": [
+   [
+    "A thousand blooming spaces",
+    [
+     "In this video essay, we summon the millenary, global history of gardening to recover hidden symbols and forgotten meanings. By cultivating a garden as &#8220;a natural territory of hope&#8221;, we enchant the dull reality of today&#8217;s web and occupy the horizon with a thousand blooming spaces.",
+     "Original tracks by Kinked and Dori Sorride, recorded in Asile 185 and Berlin, 2022/2023."
+    ]
+   ],
+   [
+    "Codici Magici",
+    [
+     "The project was commissioned by Marialaura Ghidini and Sara Bortoletto on the occasion of Codici Magici, a three-day symposium on techno-magic hosted by MO.CA (Centro per le Nuove Culture) in Brescia.",
+     "Codici Magici is an exploration into the realm of technomagic, and the human expressions in which technology and magic interconnect across the organic, inorganic and spiritual spheres &#8212; a journey through the codes that generate new post-capitalist scenarios that are ritual and totemic, and pave the way for novel forms of human affirmation beyond anthropocentrism."
+    ]
+   ],
+   [
+    "Screenings",
+    [
+     "Harvesting the Net was featured in ASILE 185 (Turin), AMRO Festival (Linz), Diluvio Festival (Brescia), ARKIPEL Festival (Jakarta), Enchanted Garden Festival (Vienna) and Trust (Berlin)."
+    ]
+   ]
+  ],
+  "links": []
+ },
+ {
+  "slug": "artwork-tech-collapse.html",
+  "title": "Tech Collapse: The Game",
+  "card_title": "Tech Collapse<br>The Game",
+  "date": "June 2023",
+  "tags": "#game #ecocriticism #dystopia #speculativefiction #technomaterialism #digitaleconomy",
+  "intro": [
+   "Tech Collapse &#8212; The Game is a board game experiment created on the occasion of 48h Neuk&#246;lln 2023, exploring the limits of computation, e-waste and green technologies. The game is an artifact that crystallizes years of research and revolves around the idea of play as an &#8220;action that can unfold in freedom or as a playful, social action with strategy, self-discovery, and the abundance of tasks towards our fellow human beings&#8221;.",
+   "We borrow the term Artplay from the philosopher Milan Markovi&#263; to define our project&#8217;s spirit. Artplay adopts &#8220;a range of game features for the sole aim of producing art&#8221;. Plus, we want to convey artistic research to a larger audience and in a different format."
+  ],
+  "credits": [
+   [
+    "Concept &amp; research",
+    [
+     "Anna Fasolato",
+     "Alessandro Y. Longo"
+    ]
+   ],
+   [
+    "Artistic direction",
+    [
+     "Giorgio Craparo"
+    ]
+   ],
+   [
+    "Presented at",
+    [
+     "48h Neuk&#246;lln 2023",
+     "Berlin"
+    ]
+   ]
+  ],
+  "sections": [
+   [
+    "The research: tech materiality",
+    [
+     "At first, Tech Collapse was the title of an article Alessandro wrote in 2021 for KABUL, where he explored the material limits of digital society, the possibility of a technical infrastructure collapse, and sustainable alternative practices. The article also inspired a talk for the IAM Festival that same year. In 2022, Alessandro continued his research on these topics, gathering sources and inspirations on the knowledge curation platform Are.na.",
+     "Meanwhile, Anna had been researching the data infrastructure used for implementing pandemic measures. She focused on the risks to privacy and data protection that emerged from the rapid digitalization of daily practices, especially when considering factors like the digital divide, lack of digital literacy, and disparities in power distribution. From there, Anna particularly delved into the urgent issue of microchip production in Taiwan.",
+     "Three cores compose our research constellation. <strong>E-waste and tech materiality</strong> explores the lifecycle of devices, from mineral extraction to supply chain issues, distribution and circulation, and finally to disposal and the afterlife. <strong>Limits of computation</strong> critically examines the &#8220;cornucopian mentality&#8221; typical of computer science, proposing an opposing view that acknowledges the materiality of chips, energy constraints and the broader climate crisis. <strong>Alternative and sustainable practices</strong> covers low-tech, solar protocols, tiny and autonomous servers, slow Internet, critical repair and more."
+    ]
+   ],
+   [
+    "The game",
+    [
+     "Tech Collapse is set in a fictional scenario two hundred years in the future. Society has crumbled, and the digital infrastructure has been disrupted and forgotten. Players, organized into teams, take on the roles of scavengers hunting for the lost knowledge of the Internet.",
+     "While they try to patch together the different techniques and concepts from the past, two paths open up: the Adaptionist (green cards), which describes sustainable practices with a low-tech approach, and the Extractivist (red cards), which is about unsustainable practices that employ an extractive approach harming the environment in various ways. The different teams explore a building &#8212; the board &#8212; and collect cards &#8212; the knowledge &#8212; reaching a different vision of the past, and consequently, of the future.",
+     "The card template presents a challenge in writing captions that are both brief and impactful, while still conveying technical research or academic papers. How can we avoid appearing overly instructional? We believe we have struck a good balance by employing sarcastic rhetoric to add a light and engaging tone, keeping the content from feeling verbose or overwhelming."
+    ]
+   ],
+   [
+    "Future directions",
+    [
+     "Tech Collapse 1.0 was presented in June at 48h Neuk&#246;lln. After this first iteration we want to open source our game design process, engage with new people and expand the project. We created a Telegram group to organize a small community and elaborate ideas and reflections together. We are looking for illustrators, writers, game designers, board game nerds, green computation researchers and generally curious individuals.",
+     "<strong>Cards expansion</strong> &#8212; new cards in both decks and a deck for hazard spaces, refining the existing ones by expanding the theoretical research and the game design mechanisms. <strong>Multimodality</strong> &#8212; an ad-hoc sound experience and visuals to enhance immersivity, plus a zine to expand the fictional universe. <strong>Game production</strong> &#8212; a proper game box, a manual and an improved board. <strong>Happenings</strong> &#8212; gatherings in Berlin involving other artists, collectives and researchers: conversations, game sessions, workshops."
+    ]
+   ]
+  ],
+  "links": []
+ },
+ {
+  "slug": "artwork-dolphinology.html",
+  "title": "Dolphinology",
+  "card_title": "Dolphinology<br>What is it like to be a dolphin?",
+  "date": "May 2022",
+  "tags": "#listeningsession #interspecies #speculativesonology",
+  "intro": [
+   "What does it feel like to be a dolphin? Is it possible to answer this question from the human condition?",
+   "Dolphinology accomplishes this attempt through a listening session created in collaboration between Vincenzo Grasso, a participant in Verso&#8217;s second research group, and the ALMARE collective, which curated the sound production."
+  ],
+  "credits": [
+   [
+    "Concept",
+    [
+     "Vincenzo Grasso"
+    ]
+   ],
+   [
+    "Sound production",
+    [
+     "ALMARE Collective"
+    ]
+   ],
+   [
+    "Language",
+    [
+     "The piece is in Italian"
+    ]
+   ]
+  ],
+  "sections": [
+   [
+    "A guided meditation",
+    [
+     "Dolphinology takes the tone of a guided meditation by mixing it with imaginative practice, and leads the audience into the sound world of the dolphin, where the primacy of the senses is not entrusted to sight and the greatest threat is precisely noise pollution.",
+     "An attempt to capture experiences of the world foreclosed to us through proximity and knowledge of other life forms &#8212; a listening session that takes the form of an imaginative practice guided into the sound world of the dolphin."
+    ]
+   ]
+  ],
+  "links": []
+ },
+ {
+  "slug": "artwork-vectorial-baptism.html",
+  "title": "Vectorial Baptism",
+  "card_title": "Vectorial Baptism",
+  "date": "December 2021",
+  "tags": "#AI #ritual #algorithms #NLP #machinelearning",
+  "intro": [
+   "Vectorial Baptism (Battesimo Vettoriale) is a performance and installation created by Marcello Ammendolia, Daniele Rigante and Alessandro Y. Longo during Holy Waters, a festival organized by Corrupted Vision at STASIS, Turin. Vectorial Baptism is an early attempt at initiating a dialogue with an AI.",
+   "There are waters we are unable to cross, oceans that are impossible to conquer, at least on our own. The ocean of data in which we drown every day is one of them. In Vectorial Baptism we try to create an anchor to overcome these currents, establishing a dialogue with a data entity."
+  ],
+  "credits": [
+   [
+    "Created by",
+    [
+     "Marcello Ammendolia",
+     "Daniele Rigante",
+     "Alessandro Y. Longo"
+    ]
+   ],
+   [
+    "Presented at",
+    [
+     "Holy Waters &#8212; Corrupted Vision",
+     "STASIS, Turin"
+    ]
+   ],
+   [
+    "Date",
+    [
+     "20 December 2021"
+    ]
+   ]
+  ],
+  "sections": [
+   [
+    "A ritual centred on the word",
+    [
+     "By constructing a word-centred ritual, we want to plumb the linguistic nature of the algorithm, humanizing and analysing it at the same time. The projected video is both tangible testimony and representation of this mad dialogue between human and machine, an attempt to present this type of communication as free from the aphonia that usually marks it &#8212; to give it colour, a voice to be heard.",
+     "We follow as faithfully as possible the algorithmic reasoning of the AI, asking questions that relate to the theme of our host event: from self-awareness to spirituality. We surrender to the vectors of the machine, reducing the place of the ego, leaving room for the abyssality of these strange discourses, the sudden references, the ambiguous metaphors. This is not an easy conversation, one in which to orient ourselves through our concepts of meaning or linearity."
+    ]
+   ],
+   [
+    "An Uncanny Valley of language",
+    [
+     "It is an early attempt to implement the idea of data poetry and to experiment with new approaches to storytelling, where a programmer is on the same diegetic level as the author and where subjectivity creeps into the code. The language of AI is comprehensible and, at the same time, mutant and perturbing; it constantly escapes the search for recognizable patterns and twists into absurd expressions. It opens an Uncanny Valley of language, a chasm where the similarity between us and them becomes uncanny.",
+     "As a baptism, it is a beginning: a first step toward a longer path of exchange between human and machine, between language and code, between visibility and invisibility. A moment of ritual inauguration, to feel the jarring closeness of the algorithm &#8212; to feel AI not in a data empyrean, a remote and inaccessible cloud, but here, with us, among us."
+    ]
+   ]
+  ],
+  "links": []
+ }
+]

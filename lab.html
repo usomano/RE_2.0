@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REINCANTAMENTO — Lab</title>
+    <meta name="robots" content="noindex"><!-- prototype page, not for indexing -->
+
+    <link rel="icon" href="assets/images/REINC-LOGO.svg" type="image/svg+xml">
+    <link rel="icon" href="assets/images/reinc-eye-nero.png" type="image/png">
+
+    <link rel="preload" href="assets/fonts/ApfelGrotezk-Mittel.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/lab.css">
+
+    <!-- Not deferred: applies the stored palette before first paint. -->
+    <script src="assets/js/theme.js"></script>
+</head>
+<body>
+
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+        <a class="brand" href="index.html" aria-label="Reincantamento home">
+            <img src="assets/images/REINC-LOGO.svg" alt="Reincantamento" width="53" height="25">
+        </a>
+
+        <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav">
+            <span></span><span></span><span></span>
+        </button>
+
+        <nav class="main-nav" id="primary-nav" aria-label="Primary">
+            <a href="writing/index.html">Writing</a>
+            <a href="publishing/index.html">Publishing</a>
+            <a href="artworks/index.html">Artworks</a>
+            <!-- No design yet — shown, not linked. -->
+            <span class="nav-off">Workshops</span>
+            <span class="nav-off">Talks</span>
+            <button class="theme-switch" type="button" aria-pressed="false" aria-label="Acid mode" title="Acid mode">&#9791;</button>
+        </nav>
+
+    </header>
+
+    <main class="hero" id="main" tabindex="-1">
+        <div class="statement">
+            <p>Reincantamento is a research and publishing group<br>
+            exploring technology, radical imagination and rituality.</p>
+            <p>Through <span class="hl" data-word="writing">writing</span>, <span class="hl" data-word="publishing">publishing</span>, <span class="hl" data-word="artworks">artworks</span>, <span class="hl" data-word="workshops">workshops</span><br>
+            and <span class="hl" data-word="talks">talks</span>, we build spaces for collective inquiry<br>
+            beyond disciplinary and institutional boundaries.</p>
+        </div>
+    </main>
+
+    <!-- Animation playground: JS fills this real CSS grid with .tile elements.
+         "Bloom" wave flips them in from the eye; "Declassified" reveals on hover. -->
+    <div class="grid-layer" id="playground" aria-hidden="true"></div>
+
+    <script src="assets/js/main.js" defer></script>
+    <script src="assets/js/lab.js" defer></script>
+</body>
+</html>

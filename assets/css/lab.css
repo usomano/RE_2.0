@@ -1,0 +1,221 @@
+/* =====================================================================
+   LAB — homepage tile animation prototype  ·  WEIRD MODE (300%)
+   Possessed self-declassifying grid: multi-axis bloom, glitch jitter,
+   ritual CJK glyphs, a colour-inverting scanline, hover freak-out.
+   Scoped to lab.html; reuses .grid-layer from styles.css as the grid.
+   ===================================================================== */
+
+#playground .tile { pointer-events: auto; }
+
+.tile {
+    position: relative;
+    perspective: 700px;
+    cursor: crosshair;
+}
+
+/* The flipping card. Bloom auto-plays on load; axis varies per tile
+   (--ax classes). Overshoots + scales for a wrong-machine feel. */
+.tile__inner {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    background: var(--grigio);
+    transform-origin: center;
+    will-change: transform, opacity, filter;
+    animation: bloom-y 0.75s cubic-bezier(0.2, 1.1, 0.2, 1.2) var(--delay, 0ms) both;
+}
+.tile--axx .tile__inner { animation-name: bloom-x; }
+.tile--axz .tile__inner { animation-name: bloom-z; }
+
+@keyframes bloom-y {
+    0%   { transform: rotateY(90deg)  scale(0.55); opacity: 0; filter: hue-rotate(180deg); }
+    70%  { transform: rotateY(-14deg) scale(1.12); opacity: 1; }
+    100% { transform: rotateY(0)      scale(1);    opacity: 1; }
+}
+@keyframes bloom-x {
+    0%   { transform: rotateX(90deg)  scale(0.55); opacity: 0; filter: invert(1); }
+    70%  { transform: rotateX(-16deg) scale(1.14); opacity: 1; }
+    100% { transform: rotateX(0)      scale(1);    opacity: 1; }
+}
+@keyframes bloom-z {
+    0%   { transform: rotate(200deg) scale(0);    opacity: 0; }
+    60%  { transform: rotate(-18deg) scale(1.18); opacity: 1; }
+    100% { transform: rotate(0)      scale(1);    opacity: 1; }
+}
+
+.tile__media {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ---- Tile flavours ---- */
+.tile--eye .tile__media {
+    object-fit: contain;
+    padding: 14%;
+    background: var(--grigio);
+    image-rendering: pixelated;
+    animation: eye-pulse 1.7s steps(5) infinite alternate;
+}
+@keyframes eye-pulse {
+    from { transform: scale(0.86) rotate(-3deg); filter: none; }
+    to   { transform: scale(1.18) rotate(4deg);  filter: invert(1) hue-rotate(80deg); }
+}
+
+.tile--video .tile__media { mix-blend-mode: difference; filter: hue-rotate(40deg) saturate(1.6); }
+
+.tile--blu .tile__inner { background: var(--blu); }
+
+.tile--duo .tile__inner {
+    background:
+        radial-gradient(130% 130% at 0% 0%, var(--blu), transparent 62%),
+        linear-gradient(135deg, #1414cc, #6a6aff);
+    animation-name: bloom-z, duo-shift;
+    animation-duration: 0.75s, 3.3s;
+    animation-iteration-count: 1, infinite;
+    animation-timing-function: cubic-bezier(0.2, 1.1, 0.2, 1.2), steps(6);
+}
+@keyframes duo-shift { from { filter: hue-rotate(0); } to { filter: hue-rotate(360deg); } }
+
+/* Ritual CJK glyphs — 再魔術 ("re-enchantment"), 霊 網 夢 儀 式 … */
+.tile--glyph .tile__inner {
+    background: var(--blu);
+    display: grid;
+    place-items: center;
+}
+.tile--glyph .glyph {
+    font-family: var(--font-display);
+    color: var(--bianco);
+    font-size: clamp(40px, 7vw, 70px);
+    line-height: 1;
+    animation: glyph-flick 1.3s steps(2) infinite;
+}
+@keyframes glyph-flick {
+    0%, 100% { opacity: 1; transform: none; }
+    50%      { opacity: 0.15; transform: translateY(-5px) scaleX(-1); }
+}
+
+/* Some tiles invert whatever they overlap */
+.tile--blend { mix-blend-mode: difference; }
+
+/* ---- Declassified: BLU redaction, erodes on hover/focus OR when "possessed" ---- */
+.tile__redaction {
+    position: absolute;
+    inset: 0;
+    background: var(--blu);
+    clip-path: inset(0 0 0 0);
+    transition: clip-path 0.4s cubic-bezier(0.7, 0, 0.2, 1);
+}
+.tile:hover .tile__redaction,
+.tile:focus-visible .tile__redaction,
+.tile.is-open .tile__redaction {
+    clip-path: inset(0 0 100% 0);
+}
+
+/* ---- Ambient possession: random tiles glitch on their own ---- */
+.tile.is-glitch .tile__inner {
+    animation: glitch 0.3s steps(3) 1;
+}
+@keyframes glitch {
+    0%   { transform: translate(0, 0); }
+    20%  { transform: translate(-9%, 3%) skewX(10deg);  filter: invert(1) hue-rotate(90deg); }
+    45%  { transform: translate(7%, -5%) skewX(-12deg); filter: hue-rotate(-70deg) saturate(3); }
+    70%  { transform: translate(-5%, 4%) scale(1.1);    filter: contrast(2.2); }
+    100% { transform: none; filter: none; }
+}
+
+/* ---- Hover freak-out ---- */
+.tile:hover {
+    z-index: 6;
+}
+.tile:hover .tile__inner {
+    transform: scale(1.22) rotate(3deg);
+    filter: saturate(2.4) contrast(1.3);
+}
+
+.tile:focus-visible {
+    outline: 2px solid var(--blu);
+    outline-offset: 2px;
+}
+
+/* ---- Colour-inverting scanline sweeping the whole page ---- */
+.scan {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: var(--grid-cell, 90px);
+    background: var(--blu);
+    mix-blend-mode: difference;
+    pointer-events: none;
+    z-index: 60;
+    animation: sweep 4.5s linear infinite;
+}
+@keyframes sweep {
+    from { transform: translateY(-120%); }
+    to   { transform: translateY(100vh); }
+}
+
+/* ---- Reduced motion: calm everything down ---- */
+@media (prefers-reduced-motion: reduce) {
+    .tile__inner,
+    .tile--eye .tile__media,
+    .tile--duo .tile__inner,
+    .tile--glyph .glyph {
+        animation: none;
+        transform: none;
+        opacity: 1;
+        filter: none;
+    }
+    .tile__redaction { display: none; }
+    .scan { display: none; }
+    .narrator .caret { animation: none; }
+}
+
+/* ---- The unreliable narrator ---- */
+.narrator {
+    position: fixed;
+    left: var(--page-margin, 32px);
+    bottom: calc(var(--grid-cell, 90px) * 0.45);
+    max-width: min(48ch, 72vw);
+    z-index: 70;
+    font-family: var(--font-menu);
+    font-size: 13px;
+    line-height: 1.55;
+    letter-spacing: 0.01em;
+    color: var(--nero);
+    pointer-events: none;
+    text-shadow: 0 0 6px var(--grigio), 0 0 2px var(--grigio);  /* lift off tiles */
+}
+.narrator .line { margin-top: 3px; }
+.narrator .line.contradiction { color: var(--blu); }
+.narrator .strike { text-decoration: line-through; opacity: 0.4; }
+.narrator .real {
+    font-family: ui-monospace, Menlo, monospace;
+    background: var(--blu);
+    color: var(--bianco);
+    padding: 0 0.3em;
+    font-size: 0.92em;
+    text-shadow: none;
+}
+.narrator .caret {
+    display: inline-block;
+    width: 0.5ch;
+    height: 1.05em;
+    background: var(--blu);
+    margin-left: 2px;
+    vertical-align: -0.18em;
+    animation: caret-blink 0.7s steps(1) infinite;
+}
+@keyframes caret-blink { 50% { opacity: 0; } }
+
+/* glyph stopped mid-meaning → a real token instead */
+.glyph.token {
+    font-family: ui-monospace, Menlo, monospace;
+    font-size: clamp(10px, 1.4vw, 15px);
+    letter-spacing: -0.02em;
+    word-break: break-all;
+    text-align: center;
+    padding: 0 4px;
+}

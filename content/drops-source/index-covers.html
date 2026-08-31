@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DROPS - REINCANTAMENTO</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica', Arial, sans-serif;
+            background: #fff;
+            color: #000;
+            overflow-x: hidden;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: #fff;
+            z-index: 100;
+            padding: 20px 40px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2em;
+            font-weight: 400;
+            letter-spacing: -0.02em;
+        }
+
+        .view-toggle {
+            display: flex;
+            gap: 15px;
+        }
+
+        .view-toggle a {
+            color: #999;
+            text-decoration: none;
+            font-size: 0.9em;
+            transition: color 0.2s;
+        }
+
+        .view-toggle a:hover {
+            color: #000;
+        }
+
+        .view-toggle a.active {
+            color: #000;
+            font-weight: 500;
+        }
+
+        .cover-scroll {
+            margin-top: 100px;
+            padding: 40px;
+            display: flex;
+            gap: 30px;
+            overflow-x: auto;
+            overflow-y: hidden;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
+            scrollbar-color: #ddd #fff;
+        }
+
+        .cover-scroll::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .cover-scroll::-webkit-scrollbar-track {
+            background: #fff;
+        }
+
+        .cover-scroll::-webkit-scrollbar-thumb {
+            background: #ddd;
+            border-radius: 4px;
+        }
+
+        .cover-scroll::-webkit-scrollbar-thumb:hover {
+            background: #bbb;
+        }
+
+        .cover-card {
+            min-width: 400px;
+            width: 400px;
+            height: 400px;
+            flex-shrink: 0;
+            scroll-snap-align: start;
+            position: relative;
+            background: #f5f5f5;
+            border: 3px solid black;
+            border-radius: 35px 45px 40px 38px / 42px 38px 45px 35px;
+            padding: 35px;
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .cover-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .cover-header {
+            margin-bottom: auto;
+        }
+
+        .cover-title {
+            font-size: 1.8em;
+            font-weight: 400;
+            font-style: italic;
+            line-height: 1.1;
+            margin-bottom: 12px;
+        }
+
+        .cover-subtitle {
+            font-size: 0.95em;
+            font-style: italic;
+            color: #666;
+            padding: 6px 12px;
+            border: 2px solid black;
+            border-radius: 20px;
+            display: inline-block;
+            max-width: fit-content;
+        }
+
+        .cover-content {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 1em;
+            line-height: 1.4;
+            padding: 20px 0;
+            color: #666;
+        }
+
+        .cover-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .cover-drop {
+            font-size: 1.5em;
+            font-weight: 700;
+        }
+
+        .cover-meta {
+            font-size: 0.85em;
+            color: #999;
+        }
+
+        /* Dark variant */
+        .cover-card.dark {
+            background: #000;
+            color: #fff;
+            border-color: #fff;
+        }
+
+        .cover-card.dark .cover-subtitle {
+            border-color: #fff;
+            color: #ccc;
+        }
+
+        .cover-card.dark .cover-content {
+            color: #ccc;
+        }
+
+        .cover-card.dark .cover-meta {
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 20px;
+            }
+
+            .logo {
+                font-size: 1.5em;
+            }
+
+            .cover-scroll {
+                padding: 20px;
+                gap: 20px;
+            }
+
+            .cover-card {
+                min-width: 300px;
+                width: 300px;
+                height: 300px;
+                padding: 25px;
+            }
+
+            .cover-title {
+                font-size: 1.4em;
+            }
+
+            .cover-subtitle {
+                font-size: 0.85em;
+            }
+
+            .cover-drop {
+                font-size: 1.2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="logo">DROPS</h1>
+        <div class="view-toggle">
+            <a href="index-covers.html" class="active">Covers</a>
+            <a href="index.html">List</a>
+        </div>
+    </header>
+
+    <div class="cover-scroll">
+        <a href="drop-45-in-the-air-of-those-days.html" class="cover-card">
+            <div class="cover-header">
+                <h2 class="cover-title">In The Air of Those Days</h2>
+                <div class="cover-subtitle">A sound chronicle of the Italian October Strike</div>
+            </div>
+            <div class="cover-content">
+                <p>A chronicle of the general strikes<br>in solidarity with Gaza</p>
+            </div>
+            <div class="cover-footer">
+                <div class="cover-drop">Drop<br>#45</div>
+                <div class="cover-meta">Jan 2026</div>
+            </div>
+        </a>
+
+        <a href="drop-44-programma-101.html" class="cover-card dark">
+            <div class="cover-header">
+                <h2 class="cover-title">PROGRAMMA 101</h2>
+                <div class="cover-subtitle">Who Killed Mario Tchou?</div>
+            </div>
+            <div class="cover-content">
+                <p>Italy's forgotten<br>computer revolution</p>
+            </div>
+            <div class="cover-footer">
+                <div class="cover-drop">Drop<br>#44</div>
+                <div class="cover-meta">Dec 2025</div>
+            </div>
+        </a>
+
+        <a href="drop-43-spotify-vs-annas-archive.html" class="cover-card">
+            <div class="cover-header">
+                <h2 class="cover-title">Spotify vs. Anna's Archive</h2>
+                <div class="cover-subtitle">Working Notes</div>
+            </div>
+            <div class="cover-content">
+                <p>17 million tracks<br>300 GB</p>
+            </div>
+            <div class="cover-footer">
+                <div class="cover-drop">Drop<br>#43</div>
+                <div class="cover-meta">Dec 2025</div>
+            </div>
+        </a>
+
+        <a href="drop-42-babe-we-got-gnomes-in-our-computer.html" class="cover-card">
+            <div class="cover-header">
+                <h2 class="cover-title">Babe, We Got Gnomes in Our Computer!</h2>
+                <div class="cover-subtitle">A conversation with Kinked</div>
+            </div>
+            <div class="cover-content">
+                <p>On digital spirits and<br>technological enchantment</p>
+            </div>
+            <div class="cover-footer">
+                <div class="cover-drop">Drop<br>#42</div>
+                <div class="cover-meta">Dec 2025</div>
+            </div>
+        </a>
+
+        <a href="drop-41-we-are-cactus.html" class="cover-card">
+            <div class="cover-header">
+                <h2 class="cover-title">We Are Cactus</h2>
+                <div class="cover-subtitle">Flowering apart in Berlin</div>
+            </div>
+            <div class="cover-content">
+                <p>Was it a mistake<br>not to run away from<br>home?</p>
+            </div>
+            <div class="cover-footer">
+                <div class="cover-drop">Drop<br>#41</div>
+                <div class="cover-meta">Dec 2025</div>
+            </div>
+        </a>
+
+        <a href="drop-40-we-need-a-manifestation-not-a-manifesto.html" class="cover-card">
+            <div class="cover-header">
+                <h2 class="cover-title">(We Need) A Manifestation, Not a Manifesto</h2>
+                <div class="cover-subtitle">Introducing 'Arcane Affinities'</div>
+            </div>
+            <div class="cover-content">
+                <p>A new framework for<br>collective organizing</p>
+            </div>
+            <div class="cover-footer">
+                <div class="cover-drop">Drop<br>#40</div>
+                <div class="cover-meta">Nov 2025</div>
+            </div>
+        </a>
+
+        <a href="drop-39-anarchiving-collective-intelligence.html" class="cover-card">
+            <div class="cover-header">
+                <h2 class="cover-title">Anarchiving Collective Intelligence</h2>
+                <div class="cover-subtitle">The Sphere's Anarchiving Game</div>
+            </div>
+            <div class="cover-content">
+                <p>Experiments in collective<br>knowledge creation</p>
+            </div>
+            <div class="cover-footer">
+                <div class="cover-drop">Drop<br>#39</div>
+                <div class="cover-meta">Oct 2025</div>
+            </div>
+        </a>
+
+        <a href="drop-38-were-already-saved.html" class="cover-card">
+            <div class="cover-header">
+                <h2 class="cover-title">We're Already Saved</h2>
+                <div class="cover-subtitle">Paths to political agency</div>
+            </div>
+            <div class="cover-content">
+                <p>Finding power in<br>uncertain times</p>
+            </div>
+            <div class="cover-footer">
+                <div class="cover-drop">Drop<br>#38</div>
+                <div class="cover-meta">Sep 2025</div>
+            </div>
+        </a>
+
+        <a href="drop-37-unabating-wonder.html" class="cover-card">
+            <div class="cover-header">
+                <h2 class="cover-title">Unabating Wonder</h2>
+                <div class="cover-subtitle">On spirituality and politics in Palestine</div>
+            </div>
+            <div class="cover-content">
+                <p>Solidarity beyond<br>the symbolic</p>
+            </div>
+            <div class="cover-footer">
+                <div class="cover-drop">Drop<br>#37</div>
+                <div class="cover-meta">Jul 2025</div>
+            </div>
+        </a>
+
+        <a href="drop-36-do-you-know-how-to-bleed.html" class="cover-card dark">
+            <div class="cover-header">
+                <h2 class="cover-title">Do You Know How to Bleed?</h2>
+                <div class="cover-subtitle">A manifesto on post-reality organizing</div>
+            </div>
+            <div class="cover-content">
+                <p>Beyond representation<br>toward embodiment</p>
+            </div>
+            <div class="cover-footer">
+                <div class="cover-drop">Drop<br>#36</div>
+                <div class="cover-meta">Jul 2025</div>
+            </div>
+        </a>
+
+        <a href="drop-35-cultivating-agency.html" class="cover-card">
+            <div class="cover-header">
+                <h2 class="cover-title">Cultivating Agency</h2>
+                <div class="cover-subtitle">An Introduction to nCHANT #01</div>
+            </div>
+            <div class="cover-content">
+                <p>On digital gardens and<br>technological desire</p>
+            </div>
+            <div class="cover-footer">
+                <div class="cover-drop">Drop<br>#35</div>
+                <div class="cover-meta">Jun 2025</div>
+            </div>
+        </a>
+
+        <a href="drop-34-entroducing-nchant.html" class="cover-card">
+            <div class="cover-header">
+                <h2 class="cover-title">Entroducing... nCHANT</h2>
+                <div class="cover-subtitle">On REINCANTAMENTO's new monographic magazine</div>
+            </div>
+            <div class="cover-content">
+                <p>A new publication<br>on culture and technology</p>
+            </div>
+            <div class="cover-footer">
+                <div class="cover-drop">Drop<br>#34</div>
+                <div class="cover-meta">May 2025</div>
+            </div>
+        </a>
+
+        <a href="drop-33-the-madness-of-vision.html" class="cover-card">
+            <div class="cover-header">
+                <h2 class="cover-title">The Madness of Vision</h2>
+                <div class="cover-subtitle"></div>
+            </div>
+            <div class="cover-content">
+                <p></p>
+            </div>
+            <div class="cover-footer">
+                <div class="cover-drop">Drop<br>#33</div>
+                <div class="cover-meta"></div>
+            </div>
+        </a>
+
+        <a href="drop-32-at-a-time-like-this.html" class="cover-card">
+            <div class="cover-header">
+                <h2 class="cover-title">At a Time Like This</h2>
+                <div class="cover-subtitle"></div>
+            </div>
+            <div class="cover-content">
+                <p></p>
+            </div>
+            <div class="cover-footer">
+                <div class="cover-drop">Drop<br>#32</div>
+                <div class="cover-meta"></div>
+            </div>
+        </a>
+
+        <a href="drop-31-research-as-vocation-research.html" class="cover-card">
+            <div class="cover-header">
+                <h2 class="cover-title">Research as Vocation, Research as Politics</h2>
+                <div class="cover-subtitle">The tragic trajectory of independent cultural research</div>
+            </div>
+            <div class="cover-content">
+                <p>On the precarity of<br>independent research</p>
+            </div>
+            <div class="cover-footer">
+                <div class="cover-drop">Drop<br>#31</div>
+                <div class="cover-meta"></div>
+            </div>
+        </a>
+
+        <a href="drop-30-conjunctural-vertigo.html" class="cover-card">
+            <div class="cover-header">
+                <h2 class="cover-title">Conjunctural Vertigo</h2>
+                <div class="cover-subtitle"></div>
+            </div>
+            <div class="cover-content">
+                <p></p>
+            </div>
+            <div class="cover-footer">
+                <div class="cover-drop">Drop<br>#30</div>
+                <div class="cover-meta"></div>
+            </div>
+        </a>
+
+        <a href="drop-29-seven-mantras-for-political.html" class="cover-card">
+            <div class="cover-header">
+                <h2 class="cover-title">Seven Mantras for Political Holism</h2>
+                <div class="cover-subtitle"></div>
+            </div>
+            <div class="cover-content">
+                <p></p>
+            </div>
+            <div class="cover-footer">
+                <div class="cover-drop">Drop<br>#29</div>
+                <div class="cover-meta"></div>
+            </div>
+        </a>
+
+        <a href="drop-27-there-is-no-more-ordinary.html" class="cover-card">
+            <div class="cover-header">
+                <h2 class="cover-title">There is No More Ordinary Life</h2>
+                <div class="cover-subtitle"></div>
+            </div>
+            <div class="cover-content">
+                <p></p>
+            </div>
+            <div class="cover-footer">
+                <div class="cover-drop">Drop<br>#27</div>
+                <div class="cover-meta"></div>
+            </div>
+        </a>
+
+        <a href="drop-25-a-guide-to-ctm-and-transmediale-2025.html" class="cover-card">
+            <div class="cover-header">
+                <h2 class="cover-title">A Guide to CTM and Transmediale 2025</h2>
+                <div class="cover-subtitle"></div>
+            </div>
+            <div class="cover-content">
+                <p></p>
+            </div>
+            <div class="cover-footer">
+                <div class="cover-drop">Drop<br>#25</div>
+                <div class="cover-meta"></div>
+            </div>
+        </a>
+
+        <a href="drop-24-red-notes.html" class="cover-card">
+            <div class="cover-header">
+                <h2 class="cover-title">Red Notes</h2>
+                <div class="cover-subtitle"></div>
+            </div>
+            <div class="cover-content">
+                <p></p>
+            </div>
+            <div class="cover-footer">
+                <div class="cover-drop">Drop<br>#24</div>
+                <div class="cover-meta"></div>
+            </div>
+        </a>
+    </div>
+</body>
+</html>

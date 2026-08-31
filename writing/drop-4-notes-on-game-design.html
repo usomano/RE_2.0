@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REINCANTAMENTO &#8212; Notes on Game Design</title>
+    <meta name="description" content="Behind-the-scenes of Tech Collapse">
+
+    <meta property="og:title" content="REINCANTAMENTO &#8212; Notes on Game Design">
+    <meta property="og:description" content="Behind-the-scenes of Tech Collapse">
+    <meta property="og:type" content="website">
+
+    <link rel="icon" href="../assets/images/REINC-LOGO.svg" type="image/svg+xml">
+    <link rel="icon" href="../assets/images/reinc-eye-nero.png" type="image/png"><!-- fallback -->
+
+    <link rel="preload" href="../assets/fonts/ApfelGrotezk-Mittel.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/sections.css">
+
+    <!-- Not deferred: applies the stored palette before first paint. -->
+    <script src="../assets/js/theme.js"></script>
+</head>
+<body class="page">
+
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="grid-header grid-row">
+        <a class="grid-header__logo" href="../index.html" aria-label="Reincantamento — home">
+            <svg viewBox="0 0 44 22" aria-hidden="true"><ellipse cx="22" cy="11" rx="22" ry="11"/></svg>
+        </a>
+
+        <button class="grid-header__menu" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+
+        <nav class="grid-nav" id="primary-nav" aria-label="Primary">
+            <a class="grid-nav__item" href="../writing/index.html" aria-current="page">Writing</a>
+            <a class="grid-nav__item" href="../publishing/index.html">Publishing</a>
+            <a class="grid-nav__item" href="../artworks/index.html">Artworks</a>
+            <span class="grid-nav__item" aria-disabled="true">Workshops</span>
+            <span class="grid-nav__item" aria-disabled="true">Talks</span>
+        </nav>
+    </header>
+
+    <div class="reading-progress" role="progressbar" aria-label="Reading progress"
+         aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span></span></div>
+
+    <main id="main" tabindex="-1">
+
+        <div class="title-row grid-row">
+            <a class="back-cell" href="index.html" aria-label="Back to Writing"><svg viewBox="0 0 14 22" aria-hidden="true"><polyline points="12,2 3,11 12,20"/></svg></a>
+            <h1 class="title-band">Notes on Game Design</h1>
+            <p class="title-authors"><span>Alessandro Y. Longo</span></p>
+        </div>
+
+        <div class="article grid-row">
+
+            <div class="blk-group c-narrow">
+                <p class="blk blk--row blk-kicker">Drop #4 &#183; August 4, 2023 &#183; 6 min read</p>
+            </div>
+
+            <div class="blk-group c-narrow">
+                <p class="blk blk--row blk-lede">Behind-the-scenes of Tech Collapse</p>
+            </div>
+
+            <div class="blk-group c-narrow is-spaced">
+                <div class="blk blk--rows">
+                    <p class="blk-text">Hey everyone (▰˘◡˘▰)</p>
+                    <p class="blk-text"><em>July flew away feel without me even noticing. Weird. As far as this newsletter can be an impromptu, freestyle kind of thing, I’d like to maintain a minimum level of consistency. So, before a small summer break, one last Drop.</em></p>
+                    <p class="blk-text"><em>In June, I dedicated tons of energy to working on something unusual, a board game, as you may’ve guessed from recent spam <a href="https://www.instagram.com/re.incantamento/" target="_blank" rel="noopener">on Instagram</a>. This post will be dedicated to unpacking the project’s story and to sketching the lines for future development. Loyal to REINCANTAMENTO tagline, an open-source and work-in-progress meditation, I value the transparent disclosure of our (unfinished) creative process. I hope you don’t find it too boring.</em></p>
+                </div>
+            </div>
+
+            <figure class="blk-group c-narrow is-spaced">
+                <div class="blk-figure blk-figure--auto" style="--fig-rows: 8; --fig-rows-m: 11;"><img src="../assets/images/articles/drop-4-notes-on-game-design-1.webp" alt="" loading="lazy"></div>
+            </figure>
+
+            <div class="blk-group c-narrow is-spaced">
+                <h2 class="blk blk--row blk-heading">Assembling an idea (January - March)</h2>
+                <div class="blk blk--rows">
+                    <p class="blk-text">This journey started at the beginning of the year when we (me and my friend <a href="https://www.instagram.com/fasolatoanna95/" target="_blank" rel="noopener">Anna</a>) decided to apply for the <a href="https://48-stunden-neukoelln.de/de/festival" target="_blank" rel="noopener">48 Stunden Neukölln</a> (aka 48 Hours), a two-days art festival happening in the district of Neukölln in Berlin. Following the festival’s core theme, Play(GROUND), we decided to interpret it literally and propose an actual, <strong>board game prototype</strong> for the festival.</p>
+                    <p class="blk-text">That was easier said than done. In the following months, the perils of game design unfolded in front of our eyes, leaving us with a big fish to fry, with little (or no) experience in the field. While the game dynamics were hard to define, the theme of the project was clear from the very beginning.</p>
+                </div>
+            </div>
+
+            <figure class="blk-group c-narrow is-spaced">
+                <div class="blk-figure blk-figure--auto" style="--fig-rows: 4; --fig-rows-m: 5;"><img src="../assets/images/articles/drop-4-notes-on-game-design-2.webp" alt="" loading="lazy"></div>
+                <figcaption class="blk blk--row blk-caption">Unused promotion material.</figcaption>
+            </figure>
+
+            <div class="blk-group c-narrow is-spaced">
+                <div class="blk blk--rows">
+                    <p class="blk-text"><em>Tech Collapse</em> was the name of <a href="https://www.kabulmagazine.com/wp-content/uploads/2021/05/Collasso-Tech_Kmag.pdf" target="_blank" rel="noopener">an article</a> I wrote in 2021 for KABUL, that also inspired <a href="https://reincantamento.xyz/Tech-Collapse" target="_blank" rel="noopener">a talk</a> for the IAM Festival later that year. In this work, I explored the <strong>material limits of digital society</strong>, the possibility of a technical infrastructure’s collapse, and alternative, sustainable practices. In 2022, I kept collecting material on these topics in a dedicated, <a href="https://www.are.na/alessandro-longo-zna9az4-1bc/tech_collapse" target="_blank" rel="noopener">are.na block</a>, accumulating more and more resources to evolve the work further.</p>
+                </div>
+            </div>
+
+            <figure class="blk-group c-narrow is-spaced">
+                <div class="blk-figure blk-figure--auto" style="--fig-rows: 4; --fig-rows-m: 6;"><img src="../assets/images/articles/drop-4-notes-on-game-design-3.webp" alt="" loading="lazy"></div>
+                <figcaption class="blk blk--row blk-caption">Research directions of Tech Collapse</figcaption>
+            </figure>
+
+            <div class="blk-group c-narrow is-spaced">
+                <div class="blk blk--rows">
+                    <p class="blk-text">After Anna listened to <a href="https://open.spotify.com/episode/0wF8cGSgJo43d2OCGT32vj?si=870d19aae80a4263" target="_blank" rel="noopener">Simone Pieranni’s podcast</a> on Taiwan and the microchips issue, we started to chat about these topics, to re-consider what I’ve written in my article and decided to use the 48h context to delve deeply into the matter. We thought that through a playful format such as a board game, we could synthesize the contradictions surrounding consumption goods in an accessible manner.</p>
+                    <p class="blk-text">Months later, around March, we got accepted and decided to embark on this project seriously. We started with some fundamental questions:</p>
+                    <p class="blk-text">How do you translate the research’s ideas into a game?</p>
+                    <p class="blk-text">That is to say: how do you distill knowledge in a different format, without being too didactic?</p>
+                    <p class="blk-text">How do you make this game, eventually, captivating to play?</p>
+                </div>
+            </div>
+
+            <div class="blk-group c-narrow is-spaced">
+                <h2 class="blk blk--row blk-heading">Designing a world (April - June)</h2>
+                <div class="blk blk--rows">
+                    <p class="blk-text">The answer to the first issue came spontaneously, in the form of <em>cards</em>. Through the collection of cards, the players get to know the different practices and stories that came from the research. This decision was vaguely inspired by the way you collect instructive cards in <em><a href="https://play.half.earth/" target="_blank" rel="noopener">Half-Earth Socialism </a></em><a href="https://play.half.earth/" target="_blank" rel="noopener">game</a> <em>- </em>another speculative game born out of the Berlin scene - as well as my experience with strategy games, especially Sid Meyer’s <em>Civilization</em>, where technological advancements are presented in the form of cards with a relatively short caption. Later on, I discovered that <a href="https://en.wikipedia.org/wiki/Deck-building_game" target="_blank" rel="noopener">deck-building game</a> is the appropriate definition for this category of games, to whom Tech Collapse belongs.</p>
+                </div>
+            </div>
+
+            <figure class="blk-group c-narrow is-spaced">
+                <div class="blk-figure blk-figure--auto" style="--fig-rows: 8; --fig-rows-m: 11;"><img src="../assets/images/articles/drop-4-notes-on-game-design-4.webp" alt="" loading="lazy"></div>
+                <figcaption class="blk blk--row blk-caption">I just find out that <em>Civilization </em>also has a board game version that uses cards.</figcaption>
+            </figure>
+
+            <figure class="blk-group c-narrow is-spaced">
+                <div class="blk-figure blk-figure--auto" style="--fig-rows: 11; --fig-rows-m: 15;"><img src="../assets/images/articles/drop-4-notes-on-game-design-5.webp" alt="" loading="lazy"></div>
+                <figcaption class="blk blk--row blk-caption">Early mockup of a card.</figcaption>
+            </figure>
+
+            <div class="blk-group c-narrow is-spaced">
+                <div class="blk blk--rows">
+                    <p class="blk-text">When I was already in the process of designing the game, I also joined a playtest by the <a href="https://www.google.com/search?client=firefox-b-d&amp;q=0xsalon" target="_blank" rel="noopener">0x Salon </a>for their game <em>Fau0x Salon, </em>which also uses cards to create a debate-RPG kind of game, and this undoubtedly inspired me.</p>
+                    <p class="blk-text">The card template constrains writing a caption that is concise and impressive. However, the different cards have to narrate technical research or academic papers. How not to come across as too didactic though? I think I found a good balance by adopting a sarcastic rhetoric (people actually laughed at the playtest, to my surprise), lightening the tone, and inserting a few cards just for the lol. <br><br>A side note: it’s not easy to be light-hearted about dramatic issues - e.g. the exploitation of mines in Congo. In this regard, I like to quote what Roland Barthes stated in <em>Mythologies</em>:</p>
+                </div>
+            </div>
+
+            <div class="blk-group c-quote is-spaced">
+                <blockquote class="blk blk--rows blk-quote"><em>What I claim is to live to the full the contradiction of my time, which may well make sarcasm the condition of truth.</em></blockquote>
+            </div>
+
+            <figure class="blk-group c-narrow is-spaced">
+                <div class="blk-figure blk-figure--auto" style="--fig-rows: 11; --fig-rows-m: 15;"><img src="../assets/images/articles/drop-4-notes-on-game-design-6.webp" alt="" loading="lazy"></div>
+                <figcaption class="blk blk--row blk-caption">The final version of the previous card. Graphic Design: Giorgio Capraro</figcaption>
+            </figure>
+
+            <div class="blk-group c-narrow is-spaced">
+                <div class="blk blk--rows">
+                    <p class="blk-text">The ambiguity of producing this kind of educational game is that you are designing a “fun engine” and you want to use it to do something that is not, at least not for everyone, immediately funny, namely learning boring, complex, abstract stuff. Since the project’s inception, I thought about the board game format as a contingency to explore but not as the main focus of the project. The latter remained in the research material and our desire to transmit this bundle of knowledge. Consequently, we decided to keep the game system simple and enrich the game world to give it more immersivity.</p>
+                    <p class="blk-text">Without indulging too much in details (come to the next playtest!), <em>Tech Collapse </em>occurs in a collapsed society in a remote future (200 years from now), where the digital world is disrupted and forgotten. Players - organized in teams - impersonate a gang of scavengers that is on the hunt for the <em>lost knowledge of the Internet</em>. While they try to patch together the different techniques and concepts from the past, two paths open up: the Adaptionist (green cards) and the Extractivist (red cards). The different teams explore a building - the board - and collect cards - the knowledge - reaching a different vision of the future. The board also presents some numbered tiles representing <em>accidents</em> and <em>surprises </em>that can occur in the exploration of the ruins: from a broken door to a hidden secret passage, these tiles</p>
+                </div>
+            </div>
+
+            <figure class="blk-group c-narrow is-spaced">
+                <div class="blk-figure blk-figure--auto" style="--fig-rows: 5; --fig-rows-m: 6;"><img src="../assets/images/articles/drop-4-notes-on-game-design-7.webp" alt="" loading="lazy"></div>
+                <figcaption class="blk blk--row blk-caption">One of the slides on Tech Collapse’s lore.</figcaption>
+            </figure>
+
+            <div class="blk-group c-quote is-spaced">
+                <blockquote class="blk blk--rows blk-quote"><em>Efficiency or sustainability? A low-tech adaptation, or a merciless extractivist approach? The knowledge you gain today will shape the world of tomorrow</em></blockquote>
+            </div>
+
+            <div class="blk-group c-narrow is-spaced">
+                <div class="blk blk--rows">
+                    <p class="blk-text">At the end of the game, players will have to speculate a possible future scenario based on the cards that they collected (and the ones that were discarded). It was lovely to see groups of people that don’t know each other or that are not knowledgeable about these topics confabulate together and imagine the future while elaborating critical thoughts on the present.</p>
+                </div>
+            </div>
+
+            <div class="blk-group c-narrow is-spaced">
+                <h2 class="blk blk--row blk-heading">Squadding up</h2>
+                <div class="blk blk--rows">
+                    <p class="blk-text">Besides me and Anna, this project required the help and professionality of other friends. The art direction of the project was taken over the last month by my friend <a href="https://www.instagram.com/g4rdn/" target="_blank" rel="noopener">Giorgio Craparo</a>, who upgraded the design of the cards and the board to the next level and overviewed the whole printing process. Matteo Gevi and Alessio Straub, two good nerdy friends, helped in smoothing the game’s rules, and <a href="https://twitter.com/jeein0" target="_blank" rel="noopener">Jeein Shin </a>preciously edited the various texts. Thanks also to <em><a href="https://offline.place/" target="_blank" rel="noopener">offline</a></em>, the space that hosted us in Berlin, a new cultural space intersecting hackers, artists, and activists.</p>
+                </div>
+            </div>
+
+            <figure class="blk-group c-narrow is-spaced">
+                <div class="blk-figure blk-figure--auto" style="--fig-rows: 8; --fig-rows-m: 11;"><img src="../assets/images/articles/drop-4-notes-on-game-design-8.webp" alt="" loading="lazy"></div>
+                <figcaption class="blk blk--row blk-caption">The game’s board.</figcaption>
+            </figure>
+
+            <div class="blk-group c-narrow is-spaced">
+                <h2 class="blk blk--row blk-heading">What the future looks like (August - ?)</h2>
+                <div class="blk blk--rows">
+                    <p class="blk-text">After this first test, we like to open source our game design process, engage with new people and expand the project. Many elements need refinement and the game rules need to be more adapted and tested</p>
+                    <p class="blk-text">This text is our first step forward, telling our part of the story so far. If you like to be engaged or just to stay updated, you can join the Telegram group at <a href="https://t.me/+-LnVy4p3qH03MDQ8" target="_blank" rel="noopener">this link</a>. We’re looking for illustrators, writers, game designers, board game nerds, green computation researchers, and generally curious individuals!</p>
+                    <p class="blk-text">Also, if you like to support the game’s development as well as this newsletter, now you can <a href="https://ko-fi.com/reincantamento" target="_blank" rel="noopener">make a donation</a> on ko-fi to help us ^^</p>
+                </div>
+            </div>
+            <a class="next-band is-spaced" href="drop-3-notes-on-technic-and-magic.html">
+                <span class="next-band__label">Next drop</span>
+                <span class="next-band__title">Drop #3 &#183; Notes on Technic and Magic</span>
+            </a>
+            <a class="next-cell is-spaced" href="drop-3-notes-on-technic-and-magic.html" aria-hidden="true" tabindex="-1"><svg viewBox="0 0 14 22" aria-hidden="true"><polyline points="2,2 11,11 2,20"/></svg></a>
+
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <p class="site-footer__mark">REINCANTAMENTO</p>
+
+        <div class="footer-cols">
+            <form class="newsletter" action="https://reincantamentox.substack.com/subscribe" method="get" target="_blank">
+                <label class="newsletter__label" for="nl-email">Subscribe to drops</label>
+                <div class="newsletter__field">
+                    <input id="nl-email" type="email" name="email" placeholder="your@email.com" autocomplete="email">
+                    <button type="submit" aria-label="Subscribe">&#8594;</button>
+                </div>
+            </form>
+
+            <nav class="footer-social" aria-label="Nodes">
+                <a href="mailto:reincantamento@proton.me">Email</a>
+                <a href="https://www.instagram.com/re.incantamento/" target="_blank" rel="noopener">Instagram</a>
+                <a href="https://t.me/+C1fjM6yVcdJmYzI0" target="_blank" rel="noopener">Telegram</a>
+                <a href="https://reincantamentox.substack.com/" target="_blank" rel="noopener">Newsletter</a>
+                <a href="https://www.are.na/reincantamento/channels/" target="_blank" rel="noopener">Are.na</a>
+            </nav>
+        </div>
+
+        <div class="footer-bottom">
+            <p>2026 Reincantamento &nbsp;&#183;&nbsp; Berlin / Turin / Venice</p>
+            <div class="footer-legal">
+                <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Acid mode" title="Acid mode">&#9791;</button>
+                <a href="../index.html">Home</a>
+                <a href="../about.html">About</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/js/site.js" defer></script>
+</body>
+</html>

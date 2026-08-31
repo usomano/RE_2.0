@@ -1,0 +1,1270 @@
+/* REINCANTAMENTO — section pages (Writing / Publishing / Artworks)
+   Loaded AFTER styles.css. Everything here is driven by two custom properties
+   set by site.js: --cols (how many grid columns fit the viewport) and --cell
+   (their exact pixel size). The Figma frames are 1440 wide on a 90px module →
+   16 columns; site.js keeps the module near 90px and the column count valid
+   (N ≡ 1 mod 3, so the 12-column content area still splits into 3 equal cards).
+
+   COLOUR: pages use semantic tokens only (--bg, --band, --ink, --on-band,
+   --line, --media). "Acid mode" remaps them; nothing else changes. */
+
+/* Redaction 35 — the display cut used across the section pages (card titles,
+   year, footer wordmark). Redaction 20 stays the home-page display face. */
+@font-face {
+    font-family: 'Redaction35';
+    src: url('../fonts/Redaction35-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Redaction35';
+    src: url('../fonts/Redaction35-Italic.woff') format('woff');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* ===================== */
+/* TOKENS                */
+/* ===================== */
+/* The colour tokens these pages use (--bg, --band, --ink, --on-band, --line,
+   --media …) and the acid-mode palette live in styles.css, which every page
+   loads — see "COLOUR TOKENS" there. Only the section-page geometry is here. */
+:root {
+    /* No-JS fallback: 16 columns across the viewport (the Figma column count). */
+    --cols: 16;
+    --cell: calc(100vw / 16);
+
+    --font-serif: 'Redaction35', Georgia, 'Times New Roman', serif;
+
+    /* 19px inset of card text inside its cell, at the 90px design module */
+    --card-pad: calc(var(--cell) * 0.211);
+}
+
+/* ===================== */
+/* PAGE SHELL            */
+/* ===================== */
+/* Square module, unlike the home page (whose rows stretch to fill one screen). */
+.page {
+    --grid-col: var(--cell);
+    --grid-row: var(--cell);
+    background-color: var(--bg);
+    background-image:
+        repeating-linear-gradient(to right, var(--line) 0 1px, transparent 1px var(--cell)),
+        repeating-linear-gradient(to bottom, var(--line) 0 1px, transparent 1px var(--cell));
+    color: var(--ink);
+    font-family: var(--font-menu);
+}
+
+.page :focus-visible {
+    outline: 2px solid var(--ink);
+    outline-offset: 2px;
+}
+
+/* A full-width row of the page grid. Children are placed by column number, so
+   they land on the same lines as the painted background grid. */
+.grid-row {
+    display: grid;
+    grid-template-columns: repeat(var(--cols), var(--cell));
+    justify-content: start;
+}
+
+/* ===================== */
+/* HEADER                */
+/* ===================== */
+/* One grid row tall, filled with --band, its own cell lines painted on top.
+   Logo in the first cell, the five nav items in the last five. */
+.grid-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    height: var(--cell);
+    background-color: var(--band);
+    background-image: repeating-linear-gradient(to right, var(--band-line) 0 1px, transparent 1px var(--cell));
+}
+
+.grid-header__logo {
+    grid-column: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--on-band);
+}
+
+/* The eye is drawn as an SVG ellipse (as in Figma) so it inherits the band's
+   ink colour and flips with the theme. */
+.grid-header__logo svg {
+    width: calc(var(--cell) * 0.489);   /* 44px at the 90px module */
+    height: auto;
+    fill: currentColor;
+}
+
+.grid-nav {
+    grid-column: -6 / -1;               /* the last five cells */
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.grid-nav__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 4px;
+    color: var(--on-band);
+    font-family: var(--font-menu);
+    font-size: 11px;
+    line-height: 14px;
+    font-weight: 500;                   /* Apfel Grotezk Mittel */
+    letter-spacing: 0.5px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: opacity 0.2s ease;
+}
+
+.grid-nav__item:hover {
+    opacity: 0.7;
+}
+
+/* Current section: the cell is punched out of the band back to the page fill.
+   Inset 1px on top/left so all four of its bounding lines read alike. */
+.grid-nav__item[aria-current="page"] {
+    margin: 1px 0 0 1px;
+    background: var(--bg);
+    color: var(--ink);
+}
+
+/* Sections without a page yet (Workshops, Talks) — they read exactly like the
+   linked items (same BIANCO on the BLU band); only the pointer says otherwise. */
+.grid-nav__item[aria-disabled="true"] {
+    cursor: default;
+    pointer-events: none;
+}
+
+/* Mobile menu button — hidden until the mobile breakpoint. */
+.grid-header__menu {
+    display: none;
+    grid-column: -2 / -1;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    background: none;
+    color: var(--on-band);
+    font-family: var(--font-menu);
+    font-size: 11px;
+    line-height: 14px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+/* ===================== */
+/* SECTION TITLE (mobile) */
+/* ===================== */
+/* A filled band naming the current section. Desktop frames don't have it. */
+.section-title {
+    display: none;
+    font-family: var(--font-serif);
+}
+
+/* ===================== */
+/* YEAR PAGER            */
+/* ===================== */
+/* Sits one row below the header, aligned to the nav block above it:
+   ‹ (1 cell) · year (2 cells) · › (1 cell), with the last column left empty. */
+.pager {
+    margin-top: var(--cell);
+}
+
+.pager__inner {
+    grid-column: -6 / -2;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    margin: 1px 0 0 1px;
+    background: var(--band);
+    color: var(--on-band);
+    background-image: repeating-linear-gradient(to right, var(--band-line) 0 1px, transparent 1px var(--cell));
+}
+
+.pager__btn,
+.pager__year {
+    display: flex;
+    border: 0;
+    background: none;
+    font: inherit;
+    align-items: center;
+    justify-content: center;
+    height: calc(var(--cell) - 1px);
+    color: inherit;
+}
+
+.pager__btn {
+    cursor: pointer;
+}
+
+.pager__btn svg {
+    width: calc(var(--cell) * 0.147);
+    height: auto;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 2;
+}
+
+.pager__btn:hover {
+    opacity: 0.7;
+}
+
+.pager__year {
+    font-family: var(--font-serif);
+    font-size: clamp(20px, calc(var(--cell) * 0.289), 34px);
+    line-height: 1;
+}
+
+/* ===================== */
+/* CARD GRID (Writing, Publishing) */
+/* ===================== */
+/* Twelve columns of content — two empty columns each side — split into three
+   equal cards. site.js guarantees (--cols - 4) divides by 3. */
+.card-grid {
+    grid-column: 3 / -3;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: var(--cell);               /* one empty grid row between card rows */
+    list-style: none;
+}
+
+/* One empty grid row between the header (or the pager) and the first row of
+   content — the same offset in every template. */
+.cards,
+.media-list {
+    margin-top: var(--cell);
+}
+
+
+
+.card {
+    display: flex;
+    flex-direction: column;
+}
+
+.card > a {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    color: inherit;
+}
+
+/* Each painted block is inset 1px top/left so the grid line on its leading edge
+   stays visible and the block reads as filling whole cells (as in Figma, where
+   a 4-cell square is drawn 359px wide at x = 361). */
+.card__media {
+    margin: 1px 0 0 1px;
+    height: calc(var(--cell) * 4 - 1px);   /* 4 cells wide × 4 cells tall */
+    background: var(--media);
+    overflow: hidden;
+}
+
+/* Drop covers are posters: the number sits at the top edge, the title at the
+   bottom. Cropping them to the square frame cut both lines off, so they are
+   fitted whole and the media colour fills what is left — the square covers
+   still meet all four edges, only the tall ones sit inside bands. */
+.card__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.card__media video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card__body {
+    margin: 1px 0 0 1px;
+    min-height: calc(var(--cell) * 2 - 1px);
+    padding: var(--card-pad);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    background: var(--bg);              /* masks the grid behind the text */
+}
+
+.card__title {
+    font-family: var(--font-serif);
+    font-size: clamp(17px, calc(var(--cell) * 0.222), 27px);
+    line-height: 1.15;
+    font-weight: 400;
+}
+
+.card__abstract {
+    font-family: var(--font-menu);
+    font-size: 12px;
+    line-height: 17px;
+    font-weight: 400;
+}
+
+.card__meta {
+    font-family: var(--font-menu);
+    font-size: 12px;
+    line-height: 17px;
+    font-weight: 500;                   /* Apfel Grotezk Mittel */
+    letter-spacing: 0.5px;
+}
+
+.card > a:hover .card__title {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+/* ---- Publishing: cover sits ON the grid, bottom-aligned above the card ---- */
+/* No fill behind it — the background grid shows around every cover. */
+.card__cover {
+    height: calc(var(--cell) * 4);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+/* Per-item proportions come from --cover-w / --cover-h (the Figma px of that
+   cover). Height is a share of the 4-row cover area — the tallest covers fill
+   it — and the width follows from the ratio, so every cover keeps its real
+   shape at any module size, on desktop and mobile alike. */
+.card__cover span {
+    display: block;
+    height: calc(var(--cover-h) / 360 * 100%);
+    aspect-ratio: var(--cover-w) / var(--cover-h);
+    background: var(--media);
+}
+
+/* ===================== */
+/* MEDIA LIST (Artworks) */
+/* ===================== */
+/* Full-bleed rows: a 6-cell still on the left, an 8-cell text panel on the
+   right, spanning columns 2 … N-1. */
+.media-list {
+    grid-column: 2 / -2;
+    display: grid;
+    row-gap: var(--cell);
+    list-style: none;
+}
+
+.media-row > a {
+    display: grid;
+    grid-template-columns: 6fr 8fr;
+    color: inherit;
+}
+
+.media-row__still {
+    margin: 1px 0 0 1px;
+    height: calc(var(--cell) * 4 - 1px);   /* 6 cells × 4 cells */
+    background: var(--media);
+    overflow: hidden;
+}
+
+.media-row__still img,
+.media-row__still video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.media-row__body {
+    margin: 1px 0 0 1px;
+    padding: var(--card-pad);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: var(--bg);
+}
+
+.media-row__title {
+    font-family: var(--font-serif);
+    font-size: clamp(22px, calc(var(--cell) * 0.311), 38px);
+    line-height: 1.12;
+    font-weight: 400;
+}
+
+.media-row__body p {
+    max-width: 62ch;
+    font-family: var(--font-menu);
+    font-size: 12px;
+    line-height: 17px;
+}
+
+.media-row__meta {
+    margin-top: auto;                   /* pinned to the bottom of the panel */
+    font-family: var(--font-menu);
+    font-size: 12px;
+    line-height: 17px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.media-row > a:hover .media-row__title {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+/* ===================== */
+/* FOOTER                */
+/* ===================== */
+.site-footer {
+    /* +1px so the grid line on the band's leading edge stays visible, as in Figma */
+    margin-top: calc(var(--cell) + 1px);
+    padding: calc(var(--cell) * 0.38) calc(var(--cell) * 0.667) calc(var(--cell) * 0.356);
+    background: var(--band);
+    color: var(--on-band);
+}
+
+/* Wordmark: 137px at the 1440 frame — scales with the module so it keeps
+   spanning ~92% of the page width at any size. */
+.site-footer__mark {
+    font-family: var(--font-serif);
+    font-size: calc(var(--cell) * 1.522);
+    line-height: 1.2;
+    font-weight: 400;
+    white-space: nowrap;
+}
+
+.footer-cols {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 40px;
+    margin-top: calc(var(--cell) * 0.57);
+}
+
+.newsletter__label {
+    font-family: var(--font-menu);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.newsletter__field {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    width: min(400px, 100%);
+    margin-top: 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid currentColor;
+}
+
+.newsletter__field input {
+    flex: 1;
+    border: 0;
+    background: none;
+    color: inherit;
+    font-family: var(--font-menu);
+    font-size: 14px;
+    line-height: 22px;
+}
+
+.newsletter__field input::placeholder {
+    color: inherit;
+    opacity: 0.75;
+}
+
+.newsletter__field button {
+    border: 0;
+    background: none;
+    color: inherit;
+    font-size: 16px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.footer-social {
+    display: flex;
+    gap: 28px;
+    font-family: var(--font-menu);
+    font-size: 12px;
+}
+
+.footer-social a:hover,
+.footer-legal a:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.theme-toggle:hover {
+    opacity: 0.7;
+}
+
+.footer-bottom {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 24px;
+    margin-top: calc(var(--cell) * 1.04);
+    font-family: var(--font-menu);
+    font-size: 12px;
+    line-height: 18px;
+}
+
+.footer-legal {
+    display: flex;
+    gap: 20px;
+}
+
+/* Acid-mode switch — the only control that changes the page's own appearance,
+   so it lives with the colophon rather than in the nav. Its shape and active
+   state come from styles.css, shared with the header switch on the pages that
+   have no footer; only its footer alignment is set here. */
+.theme-toggle {
+    align-self: center;
+    margin-right: 4px;
+}
+
+
+/* ===================== */
+/* MOBILE                */
+/* ===================== */
+/* Figma mobile frame: 390 wide on a 30px module → 13 columns. The header is
+   two rows tall, the nav collapses behind MENU, and a filled band names the
+   section. Cards become one column, edge-inset by a single cell. */
+@media (max-width: 768px) {
+    :root {
+        --cols: 13;
+        --cell: calc(100vw / 13);
+    }
+
+    .grid-header {
+        height: calc(var(--cell) * 2);
+    }
+
+    .grid-header__logo {
+        grid-column: 1 / 3;             /* the logo cell is 2×2 on mobile */
+    }
+
+    .grid-header__logo svg {
+        width: calc(var(--cell) * 1.333);
+    }
+
+    .grid-header__menu {
+        display: flex;
+        grid-column: -3 / -1;           /* the menu cell is 2 columns wide */
+    }
+
+    /* Full-screen panel, opened by MENU. Without JS the nav stays a plain row. */
+    .js .grid-nav {
+        position: fixed;
+        inset: calc(var(--cell) * 2) 0 auto 0;
+        grid-column: 1 / -1;
+        grid-template-columns: 1fr;
+        background: var(--band);
+        transform: translateY(-120%);
+        transition: transform 0.3s ease;
+        z-index: 90;
+    }
+
+    .js .grid-nav[data-open="true"] {
+        transform: translateY(0);
+    }
+
+    .js .grid-nav__item {
+        justify-content: flex-start;
+        height: calc(var(--cell) * 2);
+        padding-inline: var(--cell);
+        font-size: 14px;
+    }
+
+    .js .grid-nav__item[aria-current="page"] {
+        margin: 0;
+        background: none;
+        color: var(--on-band);
+        text-decoration: underline;
+        text-underline-offset: 4px;
+    }
+
+    /* No-JS fallback: let the five items wrap under the logo row. */
+    .grid-nav {
+        grid-column: 1 / -1;
+        grid-row: 2;
+    }
+
+    .section-title {
+        display: flex;
+        align-items: center;
+        grid-column: 1 / -1;
+        height: calc(var(--cell) * 2 - 1px);
+        margin-top: calc(var(--cell) - 1px);
+        padding-inline: calc(var(--cell) * 0.4);
+        background: var(--band);
+        color: var(--on-band);
+        font-size: clamp(20px, calc(var(--cell) * 0.8), 30px);
+    }
+
+    .pager {
+        margin-top: var(--cell);
+    }
+
+    .pager__inner {
+        grid-column: -5 / -1;
+        grid-template-columns: 1fr 2fr 1fr;
+    }
+
+    .pager__year {
+        font-size: clamp(15px, calc(var(--cell) * 0.6), 22px);
+    }
+
+    .card-grid,
+    .media-list {
+        grid-column: 2 / -2;
+        grid-template-columns: 1fr;
+    }
+
+    .card__media {
+        height: calc(var(--cell) * 8 - 1px);   /* the mobile still is not square */
+    }
+
+    /* 9 rows of 30px = 270px — the Figma mobile cover area, exactly ¾ of the
+       desktop one, which is why the same proportions carry over unchanged. */
+    .card__cover {
+        height: calc(var(--cell) * 9);
+    }
+
+    .media-row > a {
+        grid-template-columns: 1fr;
+    }
+
+    .media-row__still {
+        height: calc(var(--cell) * 8 - 1px);
+    }
+
+    .site-footer {
+        padding: var(--cell) var(--cell) calc(var(--cell) * 1.2);
+    }
+
+    .site-footer__mark {
+        font-size: calc(var(--cell) * 1.13);
+    }
+
+    .footer-cols {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
+        margin-top: calc(var(--cell) * 1.2);
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        margin-top: calc(var(--cell) * 1.2);
+    }
+}
+
+/* ===================== */
+/* DETAIL PAGES          */
+/* ===================== */
+/* Writing articolo, Publishing dettaglio and Artworks dettaglio share one
+   vocabulary: a title band with a back cell, a stack of grid-aligned blocks, and
+   a "next item" band. Two rules govern the vertical rhythm, matching Figma:
+   a block sits 1px below the one before it (so a single grid line separates
+   them), unless it opens a new group — then a whole empty row comes first
+   (.is-spaced). Horizontally every block picks a column span from the .c-* set
+   below; all spans are expressed from both edges where possible, so they hold
+   at any column count. */
+
+.title-row {
+    margin-top: var(--cell);
+}
+
+.article > * {
+    margin-top: 1px;
+}
+
+.article > .is-spaced {
+    margin-top: calc(var(--cell) + 1px);
+}
+
+/* ---- Column spans (the design only ever uses these) ---- */
+.c-wide   { grid-column: 3 / -3; }      /* 12 cells — the full content width */
+.c-narrow { grid-column: 3 / 11; }      /*  8 cells — the reading column      */
+.c-right  { grid-column: 7 / -3; }      /*  8 cells, flush right              */
+.c-quote  { grid-column: 4 / 11; }      /*  7 cells, indented one cell        */
+.c-half   { grid-column: 3 / 9; }       /*  6 cells                           */
+.c-l4     { grid-column: 3 / 7; }       /*  4 cells, left of a pair           */
+.c-r7     { grid-column: 8 / -3; }      /*  7 cells, right of a pair          */
+.c-l7     { grid-column: 3 / 10; }      /*  7 cells, left of a pair           */
+.c-r4     { grid-column: 11 / -3; }     /*  4 cells, right of a pair          */
+.c-third  { grid-column: span 4; }      /*  one of three credit blocks        */
+.c-start  { grid-column: 3 / span 4; }  /*  opens a row of thirds at column 3 */
+
+/* ---- Title band + back cell ---- */
+/* The cell the title band leaves free at the right edge: a guest byline, one
+   name per line, set small enough that three still sit inside one grid square.
+   In-house pieces have none and the cell stays empty. */
+.title-authors {
+    grid-column: -2 / -1;
+    margin: 1px 0 0 1px;
+    height: calc(var(--cell) - 1px);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 3px;
+    padding: 0 8px;
+    background: var(--band);
+    color: var(--on-band);
+    font-family: var(--font-menu);
+    font-size: 10px;
+    line-height: 12px;
+    font-weight: 500;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    text-wrap: balance;
+}
+
+.title-band {
+    grid-column: 3 / -2;
+    margin: 1px 0 0 1px;
+    min-height: calc(var(--cell) - 1px);
+    display: flex;
+    align-items: center;
+    padding: 0 var(--card-pad);
+    background: var(--band);
+    color: var(--on-band);
+    font-family: var(--font-serif);
+    font-size: clamp(22px, calc(var(--cell) * 0.355), 42px);
+    line-height: 1.15;
+    font-weight: 400;
+}
+
+.back-cell {
+    grid-column: 1;
+    margin-top: 1px;
+    height: calc(var(--cell) - 1px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--band);
+    color: var(--on-band);
+}
+
+.back-cell svg,
+.next-cell svg {
+    width: calc(var(--cell) * 0.147);
+    height: auto;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 2;
+}
+
+.back-cell:hover,
+.next-cell:hover {
+    opacity: 0.8;
+}
+
+/* ---- Blocks ---- */
+/* A group stacks its parts 1px apart; the 1px left margin keeps the leading
+   grid line of the whole group visible. */
+.blk-group {
+    margin-left: 1px;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+}
+
+.blk {
+    padding: var(--card-pad);
+    background: var(--bg);              /* masks the grid behind the text */
+}
+
+/* Snapped by site.js to a whole number of grid rows; this is the no-JS floor. */
+.blk--row  { min-height: calc(var(--cell) - 1px); }
+.blk--rows { min-height: calc(var(--cell) * 2 - 1px); }
+
+.blk-lede {
+    font-family: var(--font-serif);
+    font-size: clamp(17px, calc(var(--cell) * 0.222), 27px);
+    line-height: 1.45;
+}
+
+.blk-heading {
+    font-family: var(--font-serif);
+    font-size: clamp(18px, calc(var(--cell) * 0.244), 30px);
+    line-height: 1.3;
+    font-weight: 400;
+}
+
+.blk-text {
+    font-family: var(--font-menu);
+    font-size: clamp(14px, calc(var(--cell) * 0.178), 20px);
+    line-height: 1.75;
+}
+
+.blk-text + .blk-text {
+    margin-top: 1em;
+}
+
+/* Links inside body copy: the global reset strips underlines, so put them back
+   here — inside a paragraph an underline is the only thing marking a link. */
+.blk-text a,
+.blk-caption a,
+.media-row__body p a {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.blk-text a:hover,
+.blk-caption a:hover,
+.media-row__body p a:hover {
+    opacity: 0.7;
+}
+
+.blk-text strong {
+    font-weight: 700;              /* Apfel Grotezk Fett */
+}
+
+.blk-quote {
+    margin: 0;
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: clamp(19px, calc(var(--cell) * 0.267), 32px);
+    line-height: 1.3;
+}
+
+.blk-caption {
+    font-family: var(--font-menu);
+    font-size: 12px;
+    line-height: 17px;
+}
+
+.blk-credit {
+    margin: 0;
+}
+
+.blk-credit dt {
+    font-family: var(--font-menu);
+    font-size: 12px;
+    line-height: 17px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.blk-credit dd {
+    margin: 0;
+    font-family: var(--font-menu);
+    font-size: 12px;
+    line-height: 17px;
+}
+
+/* ---- Figures ---- */
+/* Ratios are named in grid cells, so a figure always covers whole squares. */
+.blk-figure {
+    background: var(--media);
+    overflow: hidden;
+}
+
+.blk-figure img,
+.blk-figure video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Drop figures are not a fixed frame. The newsletter carries images of every
+   shape — square, 16:9, portrait — and one 8x5 box cropped most of them to a
+   band. build.py measures each file and states its own height in whole grid
+   rows (--fig-rows; --fig-rows-m for the wider one-column mobile layout), so
+   the block still lands on the painted grid and only the half row left over by
+   the rounding is trimmed. */
+.blk-figure--auto {
+    height: calc(var(--cell) * var(--fig-rows) - 1px);
+}
+
+/* The few extremes — an ultra-wide banner, a tall screenshot — sit too far from
+   any whole row to be cropped into one. Their box is rounded up instead and the
+   image shown whole inside it, the media colour filling the leftover strip. */
+.blk-figure--fit img {
+    object-fit: contain;
+}
+
+/* Height is stated in grid rows, not as a ratio: the width already comes from
+   the column span, and a ratio resolves to a fractional height (a 7-cell figure
+   is 629px wide, so 630/360 gives 359.43) whose remainder accumulates down the
+   page until the blocks no longer line up with the painted grid. The class name
+   still records the intended shape in cells. */
+.r-12x5, .r-8x5 { height: calc(var(--cell) * 5 - 1px); }
+.r-12x6, .r-7x6, .r-4x6 { height: calc(var(--cell) * 6 - 1px); }
+.r-12x7 { height: calc(var(--cell) * 7 - 1px); }
+.r-7x4, .r-6x4, .r-4x4 { height: calc(var(--cell) * 4 - 1px); }
+
+/* A figure placed straight on the page grid (not inside a group) still needs
+   its own 1px inset. */
+.article > .blk-figure,
+.article > .blk {
+    margin-left: 1px;
+}
+
+/* ---- Next item ---- */
+.next-band {
+    grid-column: 3 / -4;
+    margin-left: 1px;
+    min-height: calc(var(--cell) - 1px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    padding: 0 var(--card-pad);
+    background: var(--band);
+    color: var(--on-band);
+}
+
+.next-band__label {
+    font-family: var(--font-menu);
+    font-size: 11px;
+    line-height: 14px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.next-band__title {
+    font-family: var(--font-serif);
+    font-size: clamp(17px, calc(var(--cell) * 0.222), 27px);
+    line-height: 1.15;
+}
+
+.next-cell {
+    grid-column: -4 / -3;
+    margin-left: 1px;
+    min-height: calc(var(--cell) - 1px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--band);
+    color: var(--on-band);
+}
+
+/* ---- Artworks: the opening title card ---- */
+.title-card {
+    margin-left: 1px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 10px;
+    height: calc(var(--cell) * 7 - 1px);
+    padding: var(--card-pad);
+    background: var(--media);
+    color: var(--on-media);
+}
+
+.title-card__title {
+    font-family: var(--font-serif);
+    font-size: clamp(28px, calc(var(--cell) * 0.5), 56px);
+    line-height: 1.08;
+    font-weight: 400;
+}
+
+.title-card__meta {
+    font-family: var(--font-menu);
+    font-size: 12px;
+    line-height: 17px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+    .title-band {
+        grid-column: 2 / -1;
+        font-size: clamp(20px, calc(var(--cell) * 0.9), 30px);
+    }
+
+    /* One column: every block spans the content width, and pairs stack. */
+    .c-wide, .c-narrow, .c-right, .c-quote, .c-half,
+    .c-l4, .c-r7, .c-l7, .c-r4, .c-third, .c-start {
+        grid-column: 2 / -2;
+    }
+
+    .article > .c-l4 + .c-r7,
+    .article > .c-l7 + .c-r4,
+    .article > .c-third + .c-third {
+        margin-top: calc(var(--cell) + 1px);
+    }
+
+    .next-band { grid-column: 2 / -3; }
+    .next-cell { grid-column: -3 / -2; }
+
+    /* One column is wider than the desktop reading column, so a figure needs
+       more rows to keep its shape. */
+    .blk-figure--auto {
+        height: calc(var(--cell) * var(--fig-rows-m) - 1px);
+    }
+
+    .title-card { height: calc(var(--cell) * 11 - 1px); }
+}
+
+/* ===================== */
+/* READING PROGRESS      */
+/* ===================== */
+/* A rail across the very top of a long read. The header is sticky, so the rail
+   always has the band behind it and paints in the band's own ink — one more
+   line on a page made of lines. Without JS it stays at zero width, invisible. */
+.reading-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 101;               /* the header band is 100 */
+    width: 100%;
+    height: 3px;
+    pointer-events: none;
+}
+
+.reading-progress span {
+    display: block;
+    width: 0;
+    height: 100%;
+    background: var(--on-band);
+    transition: width 0.1s linear;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .reading-progress span { transition: none; }
+}
+
+/* ===================== */
+/* FIGURE LIGHTBOX       */
+/* ===================== */
+/* Figures are cut to the grid, so a big picture is only ever partly on show.
+   Clicking one lifts it out whole, over a ground of the page's own colour. */
+.blk-figure--auto img {
+    cursor: zoom-in;
+}
+
+.lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--cell);
+    border: 0;
+    background: var(--bg);
+}
+
+.lightbox img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.lightbox__close {
+    position: absolute;
+    top: 1px;
+    right: 0;
+    width: calc(var(--cell) - 1px);
+    height: calc(var(--cell) - 1px);
+    border: 0;
+    background: var(--band);
+    color: var(--on-band);
+    font-family: var(--font-menu);
+    font-size: 18px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+/* ===================== */
+/* YEAR BAND             */
+/* ===================== */
+/* Under the header, on the same five cells as the nav: an arrow, the year over
+   two cells, an arrow, and a cell crossing to the other half of the timeline.
+   The drops start in 2023 and the archive ends in 2022, so stepping off either
+   end follows that link — 2020 … 2026 reads as one line across two pages.
+   Filled blocks, inset 1px like everything else on the grid. */
+.year-nav {
+    margin-top: var(--cell);
+}
+
+.year-nav__step,
+.year-nav__years,
+.year-nav__other {
+    margin: 1px 0 0 1px;
+    height: calc(var(--cell) - 1px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--band);
+    color: var(--on-band);
+    transition: opacity 0.2s ease;
+}
+
+.year-nav > :nth-child(1) { grid-column: -6 / -5; }
+.year-nav > :nth-child(2) { grid-column: -5 / -3; }
+.year-nav > :nth-child(3) { grid-column: -3 / -2; }
+.year-nav > :nth-child(4) { grid-column: -2 / -1; }
+
+.year-nav__step svg {
+    width: calc(var(--cell) * 0.147);
+    height: auto;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 2;
+}
+
+.year-nav__step:hover,
+.year-nav__other:hover {
+    opacity: 0.8;
+}
+
+/* At the end of the run in a direction that leads nowhere. */
+.year-nav__step[aria-disabled="true"] {
+    opacity: 0.35;
+    cursor: default;
+    pointer-events: none;
+}
+
+.year-nav__years {
+    gap: 0.6em;
+    font-family: var(--font-serif);
+    font-size: clamp(20px, calc(var(--cell) * 0.311), 34px);
+    line-height: 1;
+}
+
+/* Without JS nothing filters, so every year shows as a plain row of links.
+   With it, the band names the year on show and the others step in behind it. */
+.js .year-nav__year {
+    display: none;
+}
+
+.js .year-nav__year[aria-current="true"] {
+    display: block;
+}
+
+.year-nav__other {
+    font-family: var(--font-menu);
+    font-size: 11px;
+    line-height: 14px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+/* One column: the band spreads over the content width, the year taking
+   whatever the arrows and the crossing cell leave. */
+@media (max-width: 768px) {
+    .year-nav > :nth-child(1) { grid-column: 2 / 3; }
+    .year-nav > :nth-child(2) { grid-column: 3 / -5; }
+    .year-nav > :nth-child(3) { grid-column: -5 / -4; }
+    .year-nav > :nth-child(4) { grid-column: -4 / -2; }
+
+    /* One column: the byline runs under the title band instead of beside it. */
+    .title-authors {
+        grid-column: 2 / -2;
+        height: auto;
+        min-height: calc(var(--cell) - 1px);
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 3px 10px;
+        padding: 8px var(--card-pad);
+    }
+}
+
+/* Cards of the years not on show. */
+.card[hidden] {
+    display: none;
+}
+
+/* ===================== */
+/* WRITING INDEX         */
+/* ===================== */
+/* The section carries two bodies of work: the DROPS newsletter, which lives on
+   this site, and the essays published elsewhere before 2023, which link away.
+   A divider band separates them; the archive cards are text-only. */
+
+.card__kicker {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    font-family: var(--font-menu);
+    font-size: 11px;
+    line-height: 14px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.card__out {
+    font-size: 13px;
+    line-height: 1;
+}
+
+/* The drop number holds its line; a guest byline is pushed to the far end and
+   wraps on its own, so three names never break "Drop #45" in two. */
+.card__no {
+    white-space: nowrap;
+}
+
+.card__by {
+    margin-left: auto;
+    padding-left: 8px;
+    text-align: right;
+}
+
+/* ---- Archive divider ---- */
+.divider {
+    margin-top: var(--cell);
+}
+
+.divider__band {
+    grid-column: 3 / -3;
+    margin: 1px 0 0 1px;
+    min-height: calc(var(--cell) - 1px);
+    display: flex;
+    align-items: baseline;
+    gap: calc(var(--card-pad) * 1.5);
+    padding: 0 var(--card-pad);
+    background: var(--band);
+    color: var(--on-band);
+    font-family: var(--font-serif);
+    font-size: clamp(20px, calc(var(--cell) * 0.311), 34px);
+    line-height: calc(var(--cell) - 1px);
+    font-weight: 400;
+}
+
+.divider__note {
+    font-family: var(--font-menu);
+    font-size: 11px;
+    line-height: 14px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+/* Text-only cards sit closer together than the illustrated ones above. */
+.is-archive .card__body {
+    min-height: calc(var(--cell) * 2 - 1px);
+}
+
+/* ---- Drop pages ---- */
+.blk-kicker {
+    font-family: var(--font-menu);
+    font-size: 11px;
+    line-height: 14px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+    .divider__band {
+        grid-column: 2 / -2;
+        flex-direction: column;
+        gap: 2px;
+        justify-content: center;
+        line-height: 1.2;
+        padding-block: calc(var(--card-pad) * 0.6);
+    }
+}
