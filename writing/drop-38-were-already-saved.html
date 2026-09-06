@@ -25,25 +25,31 @@
 
     <a class="skip-link" href="#main">Skip to content</a>
 
-    <header class="grid-header grid-row">
-        <a class="grid-header__logo" href="../index.html" aria-label="Reincantamento — home">
-            <svg viewBox="0 0 44 22" aria-hidden="true"><ellipse cx="22" cy="11" rx="22" ry="11"/></svg>
+    <header class="site-header">
+        <a class="brand" href="../index.html" aria-label="Reincantamento home">
+            <img src="../assets/images/REINC-LOGO.svg" alt="Reincantamento" width="53" height="25">
         </a>
 
-        <button class="grid-header__menu" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+        <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav">
+            <span></span><span></span><span></span>
+        </button>
 
-        <nav class="grid-nav" id="primary-nav" aria-label="Primary">
-            <a class="grid-nav__item" href="../writing/index.html" aria-current="page">Writing</a>
-            <a class="grid-nav__item" href="../publishing/index.html">Publishing</a>
-            <a class="grid-nav__item" href="../artworks/index.html">Artworks</a>
-            <span class="grid-nav__item" aria-disabled="true">Workshops</span>
-            <span class="grid-nav__item" aria-disabled="true">Talks</span>
-            <a class="grid-nav__item" href="../about.html">About</a>
+        <nav class="main-nav" id="primary-nav" aria-label="Primary">
+            <div class="nav-item">
+                <a href="../writing/index.html" class="is-active" aria-current="page">Writings</a>
+                <div class="nav-menu">
+                    <a href="../writing/index.html">Drops</a>
+                    <a href="../writing/archive.html">Archive</a>
+                </div>
+            </div>
+            <a href="../publishing/index.html">Publishing</a>
+            <a href="../artworks/index.html">Artworks</a>
+            <!-- No design yet — shown, not linked. -->
+            <span class="nav-off">Workshops</span>
+            <span class="nav-off">Talks</span>
         </nav>
 
-        <!-- The way back, in the last cell of the band: the home shell carries
-             the same corner cell, reading ABOUT there and HOME everywhere else. -->
-        <a class="grid-header__home" href="../index.html">Home</a>
+        <a class="about-btn" href="../about.html">About</a>
     </header>
 
     <div class="reading-progress" role="progressbar" aria-label="Reading progress"
@@ -59,15 +65,17 @@
 
         <div class="article grid-row">
 
-            <div class="blk-group c-narrow">
-                <p class="blk blk--row blk-kicker">Drop #38 &#183; September 9, 2025 &#183; 9 min read</p>
-            </div>
+            <!-- The colourway switch, in the square under the byline cell. -->
+            <button class="theme-switch theme-switch--inline" type="button" aria-pressed="false" aria-label="Acid mode" title="Acid mode">&#9791;</button>
 
-            <div class="blk-group c-narrow">
+            <div class="blk-group c-wide">
                 <p class="blk blk--row blk-lede">Paths to political agency</p>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide">
+                <p class="blk blk--row blk-kicker">Drop #38 &#183; September 9, 2025 &#183; 9 min read</p>
+            </div>
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text"><em>Hey everyone (▰˘◡˘▰)</em></p>
                     <p class="blk-text"><em>DROPS is back after the summer break. We continue with the third installment of Simone Robutti’s exploration of <a href="https://reincantamentox.substack.com/p/drop-29-seven-mantras-for-political" target="_blank" rel="noopener">political holism</a>, <a href="https://reincantamentox.substack.com/p/drop-36-do-you-know-how-to-bleed" target="_blank" rel="noopener">agency</a>, and the spirituality of struggles. An exceptional pragmatic-intellectual adventure that we are honored to host—one that reflects REINCANTAMENTO's own journey across realms of speculative hope and militant wonder. Quoting a meme from this piece:</em></p>
@@ -79,7 +87,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 10; --fig-rows-m: 14;"><img src="../assets/images/articles/drop-38-were-already-saved-1.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">What is political agency? Agency is the faith that your actions will have an impact on the world. Ideally, the impact you want to have. This is something we acquire pretty early in our development. You throw a pillow towards the pile of toys, and the pile collapses. We lose it over time, bombarded by distractions, expectations, demands, or constraints.</p>
                     <p class="blk-text">Everything is provided to us under the condition that we stay on the tracks. In the past, these limits were explicit: go to school, work, marry, reproduce, die. Now the commands are softer but equally disempowering: be unique, innovate, think for yourself, grow, thrive, consume social media, produce data, curate experiences.</p>
@@ -90,7 +98,7 @@
                 </div>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <h2 class="blk blk--row blk-heading">Path(s) towards agency</h2>
                 <div class="blk blk--rows">
                     <p class="blk-text">The first, but hardest path, is what I call magical agency. No, you won't be throwing fireballs. Not at the beginning, at least. Magical agency is about planting a little seed at the deep core of your being. A seed of unshakeable conviction: <em>“You already won. You're already saved. You already played the best move.”</em></p>
@@ -103,7 +111,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 7; --fig-rows-m: 10;"><img src="../assets/images/articles/drop-38-were-already-saved-2.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">Within magical agency, victory comes before action. You approach the world knowing you're already saved. Armed with critical tools, strategic thinking, and a circle of equally critical peers, you can develop a plan of action with peace of mind. At night, you rest easy knowing that given the information available to you, given the conditions you faced, given the position you held, you picked what looked like the best decision. Ego, fears, insecurity, and self-doubt can't touch you: because you're already saved.</p>
                     <p class="blk-text">Within magical agency, victory is a premise, not an outcome. The game becomes maximizing your chances to create the conditions for your world to flourish. Stay true to your proposition, stay honest with yourself and your peers, and what happens next is pure execution.</p>
@@ -115,7 +123,7 @@
                 <figcaption class="blk blk--row blk-caption">Magical agency resonates with Theodor Adorno’s perspective on philosophy and redemption</figcaption>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">The second path to agency is experiential agency. This is agency absorbed from your environment. The people around you have agency, believe in their own agency, and they put you on a path to rediscover your own through osmosis. Agency cannot be explained: it must be experienced, and so you might not notice it happening. You will wake up one day, look back and think: <em>"Motherfuckers, they knew all along. They did it on purpose."</em></p>
                     <p class="blk-text">In political organizations, this often takes the form of small tasks given to newcomers still finding their feet. These are activities designed to set baby agents up for success. They experience agency directly, first in a safe, restricted setting, then progressively in more challenging situations, until they can stand on their own two feet.</p>
@@ -126,7 +134,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 8; --fig-rows-m: 11;"><img src="../assets/images/articles/drop-38-were-already-saved-4.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">Experiential agency is a feedback loop: victory follows action and action follows victory. Agency accumulates along the way, getting stronger by the day. You observe the world, take action, observe your impact. If you win, you celebrate and come back the next day, aiming higher. If you lose, you step back, reassess your assumptions, your strategy, your tools - even yourself - and try again until you win.</p>
                     <p class="blk-text">Experiential agency is delicate because if you lose too much too early, the game is over: you're burned out, traumatized, rejected, depressed, and you give up. Some political spaces are completely oblivious to this dynamic, peddling "losing better" as an empowering message. <br><br>These spaces attract people who find validation in defeat: revelers of victimhood, serial losers who traumatize anyone still capable of normal reactions to failure. It's pointless to promise big wins from the beginning, but it's manipulative, delusional, and repulsive to romanticize every defeat, especially defeats earned without trying your best. Persistence is a virtue only if you have a good strategy. Otherwise, you're like the Arachnids bugs in the sci-fi classic Starship Troopers: throwing bodies at machine guns with no strategy beyond mindless repetition.</p>
@@ -138,7 +146,7 @@
                 <figcaption class="blk blk--row blk-caption">Do you want to be like that?</figcaption>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">Experiential agency must be an act of collective care. It doesn't happen spontaneously— not in our days, at least. <strong>When was the last time you developed agency for somebody you love? When was the last time somebody did it for you?</strong></p>
                 </div>
@@ -148,7 +156,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 8; --fig-rows-m: 11;"><img src="../assets/images/articles/drop-38-were-already-saved-6.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">I'm personally more of a magical agency kind of guy, at least in politics and my social life. Most of you might be wondering where the seed comes from and how you plant it. What is the seed, in the end? Well, I can only answer for myself, and the answer is: drugs. I was once at the end of a very long acid trip, wondering whether I was actually doing fine or just convincing myself I was doing fine. I asked the Mother Goddess Transcendental Luminous Being at the end of Time and Space, and she said: "All good, bro, chill 👍". Who am I to question such a majestic being?</p>
                     <p class="blk-text">I have no single way to develop magical agency. Some religions might help, but if you are an edgy atheist, this might be harder. In a way, REINCANTAMENTO is trying to crack exactly this problem: how do we rebuild wonder and enchantment without traditional belief systems? Whatever path you take, after reading this article, when you find your little seed, you will have a way to recognize it and give it a name.</p>
@@ -159,7 +167,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 8; --fig-rows-m: 11;"><img src="../assets/images/articles/drop-38-were-already-saved-7.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">I've also gone through experiential agency in other fields than politics, though. This same pattern of reclaiming agency plays out in unexpected places. One episode I can clearly identify this way is my first attempt at preserving garlic with honey.</p>
                     <p class="blk-text">While both ingredients have strong anti-bacterial properties, they also carry spores of Clostridium botulinum, which, if developed in the right environment, can produce botulinum toxins. In very small and diluted amounts, they are great to give you plump lips. In higher dosages, they kill you quite quickly.</p>
@@ -207,12 +215,12 @@
         <div class="footer-bottom">
             <p>2026 Reincantamento &nbsp;&#183;&nbsp; Berlin / Turin / Venice</p>
             <div class="footer-legal">
-                <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Acid mode" title="Acid mode">&#9791;</button>
                 <a href="../index.html">Home</a>
                 <a href="../about.html">About</a>
             </div>
         </div>
     </footer>
+
 
     <script src="../assets/js/site.js" defer></script>
 </body>

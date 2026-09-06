@@ -20,6 +20,24 @@
     font-display: swap;
 }
 
+/* Redaction 35 — the display cut of the section pages (card titles, year) and
+   of the footer wordmark, which every page carries. Redaction 20 stays the
+   home-page statement face. */
+@font-face {
+    font-family: 'Redaction35';
+    src: url('../fonts/Redaction35-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Redaction35';
+    src: url('../fonts/Redaction35-Italic.woff') format('woff');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
 /* Apfel Grotezk — Menu / Body / Data styles (Figma).
    One family, weight-mapped: Regular 400, Mittel 500, Fett 700. */
 @font-face {
@@ -76,6 +94,12 @@
     --font-display: 'Redaction20', Georgia, 'Times New Roman', serif;
     --font-display-hover: 'Redaction50', 'Redaction20', Georgia, serif;
     --font-menu: 'Apfel Grotezk', 'Helvetica Neue', Arial, sans-serif;
+    --font-serif: 'Redaction35', Georgia, 'Times New Roman', serif;
+
+    /* Module the footer is measured in. The section pages hand it their own
+       --cell (site.js); the home page has no --cell, so it falls back to the
+       Figma column count — 16 across the frame, 13 on mobile. */
+    --foot-mod: calc(100vw / 16);
 
     --page-margin: clamp(24px, 5vw, 64px);
 }
@@ -85,8 +109,8 @@
 /* ===================== */
 /* The "Verde" variant from Figma: plum ground, purple bands, acid-green ink.
    theme.js sets data-theme on <html> before first paint, so the page never
-   flashes the default palette; the switch lives in the footer of the section
-   pages and in the header of the pages that have no footer. */
+   flashes the default palette; the switch lives at the bottom right of every
+   page that has a footer, and in the header row of the ones that don't. */
 :root[data-theme="acid"] {
     --bg: #210013;
     --band: #622779;
@@ -174,6 +198,10 @@ img {
 /* ===================== */
 /* HEADER / NAV          */
 /* ===================== */
+/* Home / About / Lab paint nothing above the fold, so the header floats over
+   the screen. The section pages start their grid at the top of the document
+   instead, and the header takes the first row of it — same markup, same cells,
+   see `.page .site-header` in sections.css. */
 .site-header {
     position: fixed;
     top: 0;
@@ -254,6 +282,78 @@ img {
 .main-nav a:focus-visible::after,
 .main-nav a.is-active::after {
     transform: scaleX(1);
+}
+
+/* ---- WRITINGS: two bodies of work, one menu ----
+   Writing lives on two pages — the DROPS newsletter and the archive of what
+   was published elsewhere before it — so the item holds a cell of its own and
+   fills it on hover, dropping the two names below as a column of the same
+   squares. :focus-within opens it from the keyboard as well; on a touch screen
+   there is no hover, so tapping the item simply follows it to the drops. */
+.nav-item {
+    position: relative;
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+}
+
+.nav-item > a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* The square: one cell wide, the full height of the header row. */
+    min-width: var(--grid-col);
+    height: 100%;
+}
+
+.nav-item:hover > a,
+.nav-item:focus-within > a {
+    background: var(--band);
+    color: var(--on-band);
+}
+
+/* On the current section the cell simply stays on. An underline under a
+   cell-sized box would hang past the header row and double the grid line it
+   crosses; the fill says it better, and matches the corner cell. */
+.nav-item > a.is-active {
+    background: var(--band);
+    color: var(--on-band);
+}
+
+.nav-item > a::after {
+    content: none;
+}
+
+.nav-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    visibility: hidden;
+}
+
+.nav-item:hover .nav-menu,
+.nav-item:focus-within .nav-menu {
+    visibility: visible;
+}
+
+/* Each name is another square under the first, a grid line apart. */
+.nav-menu a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: var(--grid-row);
+    margin-top: 1px;
+    background: var(--band);
+    color: var(--on-band);
+}
+
+.nav-menu a:hover {
+    opacity: 0.85;
+}
+
+.nav-menu a::after {
+    content: none;          /* the fill carries the state here */
 }
 
 /* ---- Corner cell: a solid BLU cell in the top-right corner (after the nav) ----
@@ -421,6 +521,119 @@ img {
 }
 
 /* ===================== */
+/* FOOTER                */
+/* ===================== */
+/* The band that closes every page — home included. Its rhythm is measured in
+   the page module: the section pages hand it their own --cell (site.js), the
+   home page has none, so --foot-mod stands in. Everything below reads --fmod. */
+.site-footer {
+    --fmod: var(--cell, var(--foot-mod));
+    /* +1px so the grid line on the band's leading edge stays visible, as in Figma */
+    margin-top: calc(var(--fmod) + 1px);
+    padding: calc(var(--fmod) * 0.38) calc(var(--fmod) * 0.667) calc(var(--fmod) * 0.356);
+    background: var(--band);
+    color: var(--on-band);
+    font-family: var(--font-menu);
+}
+
+/* Home: the statement screen already ends on a whole row — the media cell in
+   the bottom left closes it — so the band starts on the next line rather than
+   after an empty row. */
+.site-footer--flush {
+    margin-top: 1px;
+}
+
+/* Wordmark: 137px at the 1440 frame — scales with the module so it keeps
+   spanning ~92% of the page width at any size. */
+.site-footer__mark {
+    font-family: var(--font-serif);
+    font-size: calc(var(--fmod) * 1.522);
+    line-height: 1.2;
+    font-weight: 400;
+    white-space: nowrap;
+}
+
+.footer-cols {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 40px;
+    margin-top: calc(var(--fmod) * 0.57);
+}
+
+.newsletter__label {
+    font-family: var(--font-menu);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.newsletter__field {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    width: min(400px, 100%);
+    margin-top: 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid currentColor;
+}
+
+.newsletter__field input {
+    flex: 1;
+    border: 0;
+    background: none;
+    color: inherit;
+    font-family: var(--font-menu);
+    font-size: 14px;
+    line-height: 22px;
+}
+
+.newsletter__field input::placeholder {
+    color: inherit;
+    opacity: 0.75;
+}
+
+.newsletter__field button {
+    border: 0;
+    background: none;
+    color: inherit;
+    font-size: 16px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.footer-social {
+    display: flex;
+    gap: 28px;
+    font-family: var(--font-menu);
+    font-size: 12px;
+}
+
+.footer-social a:hover,
+.footer-legal a:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.footer-bottom {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 24px;
+    margin-top: calc(var(--fmod) * 1.04);
+    font-family: var(--font-menu);
+    font-size: 12px;
+    line-height: 18px;
+}
+
+.footer-legal {
+    display: flex;
+    gap: 20px;
+}
+
+/* ===================== */
 /* RESPONSIVE            */
 /* ===================== */
 @media (max-width: 768px) {
@@ -435,6 +648,39 @@ img {
 
     .statement {
         font-size: clamp(24px, 6vw, 30px);
+    }
+
+    /* The hard breaks set the desktop line lengths; at this width they leave
+       stub lines, so let the copy wrap to the column instead. */
+    .statement br {
+        display: none;
+    }
+
+    /* The mobile Figma frame is 390 on a 30px module → 13 columns. */
+    :root {
+        --foot-mod: calc(100vw / 13);
+    }
+
+    .site-footer {
+        padding: var(--fmod) var(--fmod) calc(var(--fmod) * 1.2);
+    }
+
+    .site-footer__mark {
+        font-size: calc(var(--fmod) * 1.13);
+    }
+
+    .footer-cols {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
+        margin-top: calc(var(--fmod) * 1.2);
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        margin-top: calc(var(--fmod) * 1.2);
     }
 
     /* When JS is available, collapse the nav behind a toggle. Without JS the
@@ -464,6 +710,34 @@ img {
     .js .main-nav a {
         font-size: 22px;
         line-height: 1.2;
+    }
+
+    /* No hover on a touch screen: in the full-screen panel the two names are
+       simply there, indented under WRITINGS. */
+    .js .nav-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .js .nav-item > a {
+        min-width: 0;
+        justify-content: flex-start;
+    }
+
+    .js .nav-menu {
+        position: static;
+        visibility: visible;
+        width: auto;
+        margin-left: 18px;
+    }
+
+    .js .nav-menu a {
+        height: auto;
+        margin-top: 10px;
+        background: none;
+        color: var(--ink);
+        justify-content: flex-start;
+        font-size: 16px;
     }
 
     /* No-JS fallback: keep the row from overflowing off-screen */
@@ -528,23 +802,34 @@ body.theme-blue .about-btn {
 }
 
 /* ===================== */
-/* ACID SWITCH (header)  */
+/* ACID SWITCH           */
 /* ===================== */
-/* The section pages carry the switch in their footer, next to the colophon.
-   Home, About and Lab have no footer, so it rides in the header row instead —
-   same control, same stored preference. */
-.theme-switch,
-.theme-toggle {
-    position: relative;
-    flex-shrink: 0;
-    display: inline-flex;
+/* One control, one place, on every page: a cell of its own in the bottom-right
+   corner of the first screen, under the ABOUT cell at the top of the same
+   column. It stays in the page's own colourway — BLU glyph on the GRIGIO
+   ground — instead of riding a filled band, and is sized a cell less the 1px
+   grid line, as every block on this grid is.
+
+   No active-state box: flipping the colourway repaints the whole page, which
+   says which mode is on far more plainly than a mark on the control would.
+   aria-pressed still carries the state for anyone who can't see the colours. */
+.theme-switch {
+    position: absolute;
+    right: 0;
+    /* The last WHOLE row of the first screen. On the home the rows divide the
+       viewport height exactly, so the fallback is already on the line; the
+       section pages have a square module with a remainder at the bottom, so
+       site.js measures that row and publishes it. */
+    top: var(--screen-last-row, calc(100dvh - var(--grid-row)));
+    width: calc(var(--grid-col) - 1px);
+    height: calc(var(--grid-row) - 1px);
+    z-index: 3;             /* above the media layer (1) and the statement (2) */
+    display: flex;
     align-items: center;
     justify-content: center;
-    width: 26px;
-    height: 26px;
     border: 0;
     background: none;
-    color: inherit;
+    color: var(--ink);
     /* Mercury (☿) — quicksilver, the alchemical agent of transformation. Named
        symbol fonts first so it stays a text glyph and never turns into a
        colour emoji, which would break the monochrome palette. */
@@ -554,26 +839,8 @@ body.theme-blue .about-btn {
     cursor: pointer;
 }
 
-.theme-switch {
-    color: var(--ink);
-}
-
-/* A hairline box marks the mode as active. Drawn in currentColor rather than a
-   fixed fill, so the state reads the same on every background the switch sits
-   on — page, blue About header, or footer band. */
-.theme-switch::before,
-.theme-toggle::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border: 1px solid currentColor;
-    opacity: 0;
-    transition: opacity 0.2s ease;
-}
-
-:root[data-theme="acid"] .theme-switch::before,
-:root[data-theme="acid"] .theme-toggle::before {
-    opacity: 1;
+.theme-switch:hover {
+    opacity: 0.7;
 }
 
 /* Nav entries with no page yet (Workshops, Talks) — shown, but not links.
@@ -590,11 +857,6 @@ body.theme-blue .about-btn {
 }
 
 @media (max-width: 768px) {
-    /* In the dropdown panel it reads as its own line. */
-    .js .theme-switch {
-        margin-top: 8px;
-    }
-
     .js .main-nav .nav-off {
         font-size: 22px;
         line-height: 1.2;

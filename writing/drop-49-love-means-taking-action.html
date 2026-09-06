@@ -25,25 +25,31 @@
 
     <a class="skip-link" href="#main">Skip to content</a>
 
-    <header class="grid-header grid-row">
-        <a class="grid-header__logo" href="../index.html" aria-label="Reincantamento — home">
-            <svg viewBox="0 0 44 22" aria-hidden="true"><ellipse cx="22" cy="11" rx="22" ry="11"/></svg>
+    <header class="site-header">
+        <a class="brand" href="../index.html" aria-label="Reincantamento home">
+            <img src="../assets/images/REINC-LOGO.svg" alt="Reincantamento" width="53" height="25">
         </a>
 
-        <button class="grid-header__menu" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+        <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav">
+            <span></span><span></span><span></span>
+        </button>
 
-        <nav class="grid-nav" id="primary-nav" aria-label="Primary">
-            <a class="grid-nav__item" href="../writing/index.html" aria-current="page">Writing</a>
-            <a class="grid-nav__item" href="../publishing/index.html">Publishing</a>
-            <a class="grid-nav__item" href="../artworks/index.html">Artworks</a>
-            <span class="grid-nav__item" aria-disabled="true">Workshops</span>
-            <span class="grid-nav__item" aria-disabled="true">Talks</span>
-            <a class="grid-nav__item" href="../about.html">About</a>
+        <nav class="main-nav" id="primary-nav" aria-label="Primary">
+            <div class="nav-item">
+                <a href="../writing/index.html" class="is-active" aria-current="page">Writings</a>
+                <div class="nav-menu">
+                    <a href="../writing/index.html">Drops</a>
+                    <a href="../writing/archive.html">Archive</a>
+                </div>
+            </div>
+            <a href="../publishing/index.html">Publishing</a>
+            <a href="../artworks/index.html">Artworks</a>
+            <!-- No design yet — shown, not linked. -->
+            <span class="nav-off">Workshops</span>
+            <span class="nav-off">Talks</span>
         </nav>
 
-        <!-- The way back, in the last cell of the band: the home shell carries
-             the same corner cell, reading ABOUT there and HOME everywhere else. -->
-        <a class="grid-header__home" href="../index.html">Home</a>
+        <a class="about-btn" href="../about.html">About</a>
     </header>
 
     <div class="reading-progress" role="progressbar" aria-label="Reading progress"
@@ -59,15 +65,17 @@
 
         <div class="article grid-row">
 
-            <div class="blk-group c-narrow">
-                <p class="blk blk--row blk-kicker">Drop #49 &#183; April 7, 2026 &#183; 19 min read</p>
-            </div>
+            <!-- The colourway switch, in the square under the byline cell. -->
+            <button class="theme-switch theme-switch--inline" type="button" aria-pressed="false" aria-label="Acid mode" title="Acid mode">&#9791;</button>
 
-            <div class="blk-group c-narrow">
+            <div class="blk-group c-wide">
                 <p class="blk blk--row blk-lede">Autonomia and Solidarity in the Coming Crisis</p>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide">
+                <p class="blk blk--row blk-kicker">Drop #49 &#183; April 7, 2026 &#183; 19 min read</p>
+            </div>
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text"><em>Hey everyone (▰˘◡˘▰)</em></p>
                     <p class="blk-text"><em>I’ll be honest: I’m worried. I think many of us are, even if we don’t say it. The energy crisis unfolding right now is enormous, and it’s moving fast, and the gap between what we know is coming and what we’re actually doing about it feels wider every day. I wrote this piece because I needed to think through that gap for myself, and because thinking alone didn’t feel like enough.</em></p>
@@ -80,7 +88,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 10; --fig-rows-m: 14;"><img src="../assets/images/articles/drop-49-love-means-taking-action-1.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <h2 class="blk blk--row blk-heading"><strong>The Shock Before the Shock</strong></h2>
                 <div class="blk blk--rows">
                     <p class="blk-text"><em>He who controls the spice, controls the universe.</em></p>
@@ -96,7 +104,7 @@
                 <figcaption class="blk blk--row blk-caption">The Strait of Hormuz, physical map</figcaption>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">The Strait of Hormuz is the narrow passage between Iran and the Arabian Peninsula. Around 20% of global LNG exports, 20-30% of crude oil, and a third of all seaborne fertiliser trade normally pass through it, along with significant shares of global helium and sulphur supply. That flow is now essentially zero.</p>
                     <p class="blk-text">The biggest oil supply shock in history has now reached the one-month mark. To understand the scale: the closure is reducing global oil flows by some 11 million barrels a day, after accounting for interventions aimed at offsetting the loss. That leaves a roughly 9 million-barrel shortfall: a “gap” that is more than the oil consumption of the UK, France, Germany, Spain, and Italy combined. The Brent crude futures are up almost 50% since the start of hostilities, and European natural gas benchmarks are nearly 75% higher.<a href="https://www.iea.org/topics/the-middle-east-and-global-energy-markets" target="_blank" rel="noopener"> </a>The <a href="https://www.iea.org/topics/the-middle-east-and-global-energy-markets" target="_blank" rel="noopener">International Energy Agency</a> has authorized the release of 400 million barrels from strategic reserves, but the IEA itself had to admit that this won’t be enough. As <a href="https://www.bloomberg.com/graphics/2026-iran-war-hormuz-closure-oil-shock/" target="_blank" rel="noopener">Bloomberg reports</a>, one message was repeated over and over in closed rooms with oil and gas traders, executives, and brokers: <strong>the world still hasn’t grasped the severity of the situation.</strong></p>
@@ -114,7 +122,7 @@
                 <figcaption class="blk blk--row blk-caption">The oil flows from the Perrsinal Gulf</figcaption>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">And it’s heading West. Fuel crunches hitting Asia will soon start spreading to Europe, which is likely to face surging prices and is at risk of diesel shortages in the coming weeks. As <a href="https://www.politico.eu/article/europeans-urged-to-work-from-home-and-drive-less-as-eu-warns-of-long-crisis/" target="_blank" rel="noopener">Politico reported</a> this week, the EU energy commissioner Dan Jørgensen held an extraordinary meeting with the bloc’s 27 energy ministers, and his recommendations had the flavour of March 2020 all over again: work from home where possible, reduce highway speed limits, encourage public transport, and increase car sharing.</p>
                     <p class="blk-text">Isabella Weber’s recent piece <a href="https://www.newstatesman.com/international-politics/geopolitics/2026/03/the-world-energy-shock-is-coming" target="_blank" rel="noopener">in the </a><em><a href="https://www.newstatesman.com/international-politics/geopolitics/2026/03/the-world-energy-shock-is-coming" target="_blank" rel="noopener">New Statesman</a></em> maps the sequence of what comes next: inflation, redistribution shocks, shortages, stagflation, and financial instability. Stages of our future.</p>
@@ -123,7 +131,7 @@
                 </div>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <h2 class="blk blk--row blk-heading"><em><strong>The Autonomia Way: Autoriduzioni </strong></em>and<strong> </strong><em><strong>Brigate</strong></em></h2>
                 <div class="blk blk--rows">
                     <p class="blk-text">The Italian tradition of <em>Autonomia</em> is built on the literal meaning of the word: <em>auto-nomos</em>, giving the law to oneself. It is the refusal to wait for a state decree or a market correction that will never come. As my friend Erik Bordeleau often suggests, practicing autonomy is a form of <strong>political LARP</strong> (Live Action Role Play): by “acting as if” we already hold the power, we engage in a dress rehearsal for the world we want to inhabit.</p>
@@ -136,7 +144,7 @@
                 <figcaption class="blk blk--row blk-caption">“No Car Sunday” in Milan, 1973</figcaption>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">But that was also the era of the so-called <em>lead years</em>, or as many, me included, prefer to call it: the “Italian Long 68”. A period of political insurrection and broad social imagination, which also spawned the aforementioned Autonomia tradition. In that context, the response to the austerity measures couldn’t have been just passive obedience.</p>
                     <p class="blk-text">In the summer and autumn of 1974, workers at Fiat Rivalta launched<a href="https://centrodoc-vag61.info/le-autoriduzioni-delle-bollette-elettriche-e-telefoniche/" target="_blank" rel="noopener"> the first </a><em><strong><a href="https://centrodoc-vag61.info/le-autoriduzioni-delle-bollette-elettriche-e-telefoniche/" target="_blank" rel="noopener">autoriduzione</a></strong></em> (self-reduction): they refused to pay the new, higher public transport fares, sending the equivalent of the old ticket price to the transit company, and kept riding the buses.<a href="https://centrodoc-vag61.info/le-autoriduzioni-delle-bollette-elettriche-e-telefoniche/" target="_blank" rel="noopener"> </a>The practice spread rapidly from bus tickets to electricity bills, and then phone bills, rents, and even food. <a href="https://www.antiper.org/2025/07/22/riformetti-autoriduzioni-appropriazioni-occupazioni/" target="_blank" rel="noopener">By December 1974</a>, 130,000 electricity bills had been self-reduced in Turin alone, and in the Magliana neighbourhood of Rome, 75% of the 40,000 residents were practicing rent self-reduction.</p>
@@ -153,7 +161,7 @@
                 <figcaption class="blk blk--row blk-caption">Brigate in action, Milan, 2020</figcaption>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">When the Brigata Lena-Modotti<a href="https://www.dinamopress.it/news/le-brigate-solidarieta-milano-sospendono-centralino-gli-aiuti-un-segnale-politico/" target="_blank" rel="noopener"> suspended its hotline</a> in the summer of 2020, it was explicitly framed as a political signal: we cannot keep doing the work that institutions refuse to do, indefinitely, for free. They represent a step further in the logic of the Autonomia: they knew they couldn’t, and shouldn’t, perform the state’s duties forever. To do so would be to sacrifice their own subjectivity to the service of a system that had already abandoned them.</p>
                     <p class="blk-text">Even when these groups dismantle or shift focus, the work is never “undone.” The infrastructure of solidarity is cumulative. The groups that formalized, like <em>Mutuo Soccorso Milano</em>, or those that reactivated during the 2023 floods in Emilia-Romagna, prove that the networks forged in one crisis are the primary assets for the next. This is the positive legacy of the “as if” power: it builds organizational muscles that don’t atrophy.<strong> </strong>What gets built in solidarity becomes available in the next emergency.</p>
@@ -165,7 +173,7 @@
                 <figcaption class="blk blk--row blk-caption">Burger shop during the 1937 oil shock, United States</figcaption>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <h2 class="blk blk--row blk-heading"><strong>Landing in the territory of subsistence</strong></h2>
                 <div class="blk blk--rows">
                     <p class="blk-text">The energy shock we’re about to experience in the West is a lived, grinding present from different developing countries across the planet. An appropriate read for these times is John Rapley’s recent <em><a href="https://atlantic-books.co.uk/book/icarus-economics/" target="_blank" rel="noopener">Icarus Economics</a></em>, where he argues that Western societies are less inherently resilient than the Global South in the face of exogenous shocks. In the West, our infrastructure of comfort has become an infrastructure of dependency.</p>
@@ -183,7 +191,7 @@
                 <figcaption class="blk blk--row blk-caption">Solidarity murales during the floods in Algemesí, València, 2025</figcaption>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">We said it: prices will go up, especially due to the lack of fertilizers and the inflationary spiral. You may remember empty shelves from the early days of COVID. Let’s do better this time.</p>
                     <p class="blk-text">Unlike individual hoarding — the panic response that benefits retailers and no one else — bulk purchasing of critical goods can operate at the building or block level. With the perspective of inflation rising again to crazy new standards, and the cost of crucial goods going up again, organized groups can pool resources for wholesale prices or at the current price, and then organize communal meals or skill swaps around cooking and preserving food. Again, we’re not suggesting anything innovative here: Berlin, for instance, still has a <em>VoKü</em> tradition —<a href="http://secretcitytravel.com/berlin-may-2014/berlin-communal-kitchens-voku.shtml" target="_blank" rel="noopener"> </a><em><a href="http://secretcitytravel.com/berlin-may-2014/berlin-communal-kitchens-voku.shtml" target="_blank" rel="noopener">Volksküchen</a></em>, people’s kitchens run by volunteers in <em>Hausprojekte</em>, feeding dozens of people bulk vegetarian meals at solidarity prices.</p>
@@ -201,7 +209,7 @@
                 <figcaption class="blk blk--row blk-caption">Low Tech Magazine offers plenty of resources for energetic autonomy</figcaption>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">When infrastructure fails, communication goes down first, as every disaster from Hurricane Sandy to the Lebanese blackouts has confirmed. The consequence is to start to <em>show up more </em>where you can meet people: third spaces, cafes, housing projects, squats, etc. The <em>brigate</em> worked because the <em>centri sociali</em> had pre-existing networks of trust and physical spaces to organize from</p>
                     <p class="blk-text">For those with some technical inclination, the more ambitious horizon is mesh networking: decentralized communication systems where each node connects to multiple others, with no single point of failure and no dependency on internet service providers. Berlin has a history here:<a href="https://berlin.freifunk.net/" target="_blank" rel="noopener"> Freifunk</a> has been building free, community-owned wireless mesh networks across the city since 2003. More recently, the<a href="https://codeberg.org/berlinmesh" target="_blank" rel="noopener"> Berlin Mesh community</a> is working with Meshtastic and Reticulum: off-grid protocols that run on cheap radio hardware on a small battery. The devices cost under €30 and cover several kilometres per node. A neighbourhood could blanket itself in a communication layer that survives the failure of everything above it. Our friend Christopher Dake-Outhet at<a href="https://selfservice.studio/" target="_blank" rel="noopener"> self service studio</a> has been doing great work recently, shedding new light on the possibilities of these networks as a medium for local storytelling, neighbourhood coordination, and forms of communication that are deliberately slower, more local, and independent from the platforms that have swallowed everything else.</p>
@@ -251,12 +259,12 @@
         <div class="footer-bottom">
             <p>2026 Reincantamento &nbsp;&#183;&nbsp; Berlin / Turin / Venice</p>
             <div class="footer-legal">
-                <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Acid mode" title="Acid mode">&#9791;</button>
                 <a href="../index.html">Home</a>
                 <a href="../about.html">About</a>
             </div>
         </div>
     </footer>
+
 
     <script src="../assets/js/site.js" defer></script>
 </body>

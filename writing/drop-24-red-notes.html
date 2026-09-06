@@ -25,25 +25,31 @@
 
     <a class="skip-link" href="#main">Skip to content</a>
 
-    <header class="grid-header grid-row">
-        <a class="grid-header__logo" href="../index.html" aria-label="Reincantamento — home">
-            <svg viewBox="0 0 44 22" aria-hidden="true"><ellipse cx="22" cy="11" rx="22" ry="11"/></svg>
+    <header class="site-header">
+        <a class="brand" href="../index.html" aria-label="Reincantamento home">
+            <img src="../assets/images/REINC-LOGO.svg" alt="Reincantamento" width="53" height="25">
         </a>
 
-        <button class="grid-header__menu" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+        <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav">
+            <span></span><span></span><span></span>
+        </button>
 
-        <nav class="grid-nav" id="primary-nav" aria-label="Primary">
-            <a class="grid-nav__item" href="../writing/index.html" aria-current="page">Writing</a>
-            <a class="grid-nav__item" href="../publishing/index.html">Publishing</a>
-            <a class="grid-nav__item" href="../artworks/index.html">Artworks</a>
-            <span class="grid-nav__item" aria-disabled="true">Workshops</span>
-            <span class="grid-nav__item" aria-disabled="true">Talks</span>
-            <a class="grid-nav__item" href="../about.html">About</a>
+        <nav class="main-nav" id="primary-nav" aria-label="Primary">
+            <div class="nav-item">
+                <a href="../writing/index.html" class="is-active" aria-current="page">Writings</a>
+                <div class="nav-menu">
+                    <a href="../writing/index.html">Drops</a>
+                    <a href="../writing/archive.html">Archive</a>
+                </div>
+            </div>
+            <a href="../publishing/index.html">Publishing</a>
+            <a href="../artworks/index.html">Artworks</a>
+            <!-- No design yet — shown, not linked. -->
+            <span class="nav-off">Workshops</span>
+            <span class="nav-off">Talks</span>
         </nav>
 
-        <!-- The way back, in the last cell of the band: the home shell carries
-             the same corner cell, reading ABOUT there and HOME everywhere else. -->
-        <a class="grid-header__home" href="../index.html">Home</a>
+        <a class="about-btn" href="../about.html">About</a>
     </header>
 
     <div class="reading-progress" role="progressbar" aria-label="Reading progress"
@@ -59,11 +65,13 @@
 
         <div class="article grid-row">
 
-            <div class="blk-group c-narrow">
+            <!-- The colourway switch, in the square under the byline cell. -->
+            <button class="theme-switch theme-switch--inline" type="button" aria-pressed="false" aria-label="Acid mode" title="Acid mode">&#9791;</button>
+
+            <div class="blk-group c-wide">
                 <p class="blk blk--row blk-kicker">Drop #24 &#183; January 17, 2025 &#183; 8 min read</p>
             </div>
-
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text"><em>Hey everyone (▰˘◡˘▰)</em></p>
                     <p class="blk-text"><em>Welcome back to Drops, REINCANTAMENTO’s newsletter. First Drop of 2025!<br><br>For some time, I have been gathering notes for a reflection on TikTok's role in contemporary public discourse, with particular attention to its manifestations in the United States. <br>However, in the era of the <a href="https://contraptions.venkateshrao.com/p/into-the-weirding-part-1" target="_blank" rel="noopener">Great Weirdening</a>, the pace of events grants no much pause for reflection, rapidly rendering analytical premises obsolete. So, we find ourselves potentially days away from a legislative intervention that could determine TikTok's definitive band in the US. In response to this threat, we are witnessing a new moment of digital exodus toward the Chinese ecosystem of RedNote. This text represents my attempt to understand how we arrived here.<br><br>A reminder: also in 2025, REINCANTAMENTO is sustained by voluntary work. If you like what we do, consider <a href="https://ko-fi.com/reincantamento" target="_blank" rel="noopener">donating</a> or getting a paid subscription to support what we do!</em></p>
@@ -74,7 +82,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 8; --fig-rows-m: 11;"><img src="../assets/images/articles/drop-24-red-notes-1.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <h2 class="blk blk--row blk-heading">The Physics of TikTok</h2>
                 <div class="blk blk--rows">
                     <p class="blk-text">It is difficult to underestimate the transformative impact TikTok has exerted on the media landscape over the past five years. Born as a platform dedicated to short musical videos —a sort of evolution of Vine—ByteDance's social network rapidly transcended its original conception. During the suspended, boring days of the 2020 lockdown, the platform was initially adopted <em>en masse </em>by the hyperconnected Generation Z, before expanding transversally across all demographic strata, establishing itself as the most vital digital space in the contemporary panorama.</p>
@@ -87,7 +95,7 @@
                 </div>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <h2 class="blk blk--row blk-heading">From Physics to Politics</h2>
                 <div class="blk blk--rows">
                     <p class="blk-text">The platform physics shapes the platform politics. The For You flow, organically familiar yet rhythmically accelerated, tends to activate what cognitive psychologists define as the brain's System 2, privileging immediate emotional reactions over System 1's deliberative processes. This characteristic, combined with the <a href="https://www.vice.com/en/article/why-do-people-believe-everything-on-tiktok/" target="_blank" rel="noopener">high level of trust</a> users place in the platform's content, has rendered TikTok a particularly fertile environment for the emergence of counter-narratives.</p>
@@ -99,7 +107,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 9; --fig-rows-m: 13;"><img src="../assets/images/articles/drop-24-red-notes-4.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">The singularity of TikTok's discursive ecosystem has not escaped the American political establishment. Republican Representative Mike Gallagher produced a <a href="https://www.thefp.com/p/tik-tok-young-americans-hamas-mike-gallag" target="_blank" rel="noopener">paradigmatic document</a> of this institutional anxiety, defining the platform as "digital fentanyl": a weapon of mass distraction orchestrated by Xi Jinping to divert American youth consciousness, making them believe, for instance, that Hamas might not be the true villain of the story. It is not coincidental that this apocalyptic characterization emerged precisely as Congress was preparing the legislative ground for the ban, creating a discursive apparatus to justify censorial intervention. The rhetoric of "national security" with its formal accusations—from alleged data collection of American users to potential Chinese government interference—masks the establishment's unease at the emergence of a discursive space that escapes traditional mechanisms of consensus management.</p>
                 </div>
@@ -109,7 +117,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 4; --fig-rows-m: 6;"><img src="../assets/images/articles/drop-24-red-notes-5.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">A space so fluid that it made viral—let us not forget—<a href="https://edition.cnn.com/2023/11/16/tech/tiktok-osama-bin-laden-letter-to-america/index.html" target="_blank" rel="noopener">Osama bin Laden's Letter to America</a>, penned by who was considered the American state's public enemy #1 just two decades ago.</p>
                     <p class="blk-text">How to not mention the hyper-memetic personality cult around the figure of the vigilante Luigi Mangione, fueled by tens of thousands of videos and disseminated through TikTok's algorithmic circuits until it became a mass phenomenon with strong anti-capitalist connotations.</p>
@@ -125,7 +133,7 @@
                 <figcaption class="blk blk--row blk-caption">German politicians trying to catch up with the AfD</figcaption>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <h2 class="blk blk--row blk-heading">Zoom Out: The Story of A Platform in a Crisis of Hegemony</h2>
                 <div class="blk blk--rows">
                     <p class="blk-text">In the hegemonic crisis in which we live, we witness a proliferation of events that escape the epistemic frameworks of Western liberalism. The institutional response, particularly evident since the pandemic period onward, articulates itself through increasingly monolithic narratives that seek to preserve the status quo, labeling as "enemies" of the West—anti-vaxxers, pro-Putin, pro-Hamas, etc.—any voice that evidences its contradictions.</p>
@@ -166,12 +174,12 @@
         <div class="footer-bottom">
             <p>2026 Reincantamento &nbsp;&#183;&nbsp; Berlin / Turin / Venice</p>
             <div class="footer-legal">
-                <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Acid mode" title="Acid mode">&#9791;</button>
                 <a href="../index.html">Home</a>
                 <a href="../about.html">About</a>
             </div>
         </div>
     </footer>
+
 
     <script src="../assets/js/site.js" defer></script>
 </body>

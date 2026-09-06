@@ -25,25 +25,31 @@
 
     <a class="skip-link" href="#main">Skip to content</a>
 
-    <header class="grid-header grid-row">
-        <a class="grid-header__logo" href="../index.html" aria-label="Reincantamento — home">
-            <svg viewBox="0 0 44 22" aria-hidden="true"><ellipse cx="22" cy="11" rx="22" ry="11"/></svg>
+    <header class="site-header">
+        <a class="brand" href="../index.html" aria-label="Reincantamento home">
+            <img src="../assets/images/REINC-LOGO.svg" alt="Reincantamento" width="53" height="25">
         </a>
 
-        <button class="grid-header__menu" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+        <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav">
+            <span></span><span></span><span></span>
+        </button>
 
-        <nav class="grid-nav" id="primary-nav" aria-label="Primary">
-            <a class="grid-nav__item" href="../writing/index.html" aria-current="page">Writing</a>
-            <a class="grid-nav__item" href="../publishing/index.html">Publishing</a>
-            <a class="grid-nav__item" href="../artworks/index.html">Artworks</a>
-            <span class="grid-nav__item" aria-disabled="true">Workshops</span>
-            <span class="grid-nav__item" aria-disabled="true">Talks</span>
-            <a class="grid-nav__item" href="../about.html">About</a>
+        <nav class="main-nav" id="primary-nav" aria-label="Primary">
+            <div class="nav-item">
+                <a href="../writing/index.html" class="is-active" aria-current="page">Writings</a>
+                <div class="nav-menu">
+                    <a href="../writing/index.html">Drops</a>
+                    <a href="../writing/archive.html">Archive</a>
+                </div>
+            </div>
+            <a href="../publishing/index.html">Publishing</a>
+            <a href="../artworks/index.html">Artworks</a>
+            <!-- No design yet — shown, not linked. -->
+            <span class="nav-off">Workshops</span>
+            <span class="nav-off">Talks</span>
         </nav>
 
-        <!-- The way back, in the last cell of the band: the home shell carries
-             the same corner cell, reading ABOUT there and HOME everywhere else. -->
-        <a class="grid-header__home" href="../index.html">Home</a>
+        <a class="about-btn" href="../about.html">About</a>
     </header>
 
     <div class="reading-progress" role="progressbar" aria-label="Reading progress"
@@ -59,15 +65,17 @@
 
         <div class="article grid-row">
 
-            <div class="blk-group c-narrow">
-                <p class="blk blk--row blk-kicker">Drop #42 &#183; December 15, 2025 &#183; 23 min read</p>
-            </div>
+            <!-- The colourway switch, in the square under the byline cell. -->
+            <button class="theme-switch theme-switch--inline" type="button" aria-pressed="false" aria-label="Acid mode" title="Acid mode">&#9791;</button>
 
-            <div class="blk-group c-narrow">
+            <div class="blk-group c-wide">
                 <p class="blk blk--row blk-lede">A conversation with Kinked</p>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide">
+                <p class="blk blk--row blk-kicker">Drop #42 &#183; December 15, 2025 &#183; 23 min read</p>
+            </div>
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text"><em>Hey everyone (▰˘◡˘▰)</em></p>
                     <p class="blk-text"><em>Welcome back to this space. Drop #42 is a dialogue between me, Alessandro, and Frank (aka Kinked). Frank has been part of various REINCANTAMENTO projects - soundtracking Harvesting the Net and FORMICAIO, directing the video for PROGRAMMA 101. </em></p>
@@ -80,7 +88,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 10; --fig-rows-m: 14;"><img src="../assets/images/articles/drop-42-babe-we-got-gnomes-in-our-computer-1.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">I met Frank (aka Kinked) on a surprisingly sunny December morning in a café in Neukölln. As global warming milds even the notorious harshness of Berlin’s winter, we find a seat outside a great Turkish bakery on the canal to chat over a cappuccino, trying to absorb as much Vitamin D as possible while we talk.</p>
                     <p class="blk-text">The occasion is the release of Riforma’s latest release, a label co-founded by Frank, NOT399093, and Adriano Cava. <a href="https://riformalabel.cargo.site/" target="_blank" rel="noopener">Riforma</a>, based between Turin and Berlin, is dedicated to experimental music, or as they define it on their page, “glidecore, screwgaze, blisscutters, derives of musique concrete and tape-ballardism”.</p>
@@ -93,7 +101,7 @@
                 <figcaption class="blk blk--row blk-caption">Riforma logo</figcaption>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text"><strong>AYL</strong>: I’m happy we finally found the time for this conversation. We’re talking with Frank from Riforma on the occasion of the release of “GN” by 乃o乃 (Bob) and Ougdol, part of a new series called FFT_Materialism.</p>
                     <p class="blk-text">I’ll start with an observation. As always, I’m really struck by the world-building around every Riforma release - it’s so rich and generous conceptually. It’s intriguing and abstract, but also playful in a way. There’s a certain irony to it, I think.</p>
@@ -114,7 +122,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 8; --fig-rows-m: 11;"><img src="../assets/images/articles/drop-42-babe-we-got-gnomes-in-our-computer-3.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text"><strong>AYL</strong>: Right, so it’s more empirical, hands-on. You know how to use it and what it does to the sound.</p>
                     <p class="blk-text"><strong>Frank</strong>: For example, it’s used for analyzing signals in general - in this case, audio signals - and also for reconstructing them. It’s basically the foundation of any kind of digital communication, like a Skype call. At some point, since it’s an analysis tool and so much of computer music is based on signal analysis, it started being used aesthetically too, breaking through that barrier. Similar to a lot of ideas from mathematics, it became an aesthetic tool - it could be aestheticized, becoming a musical instrument in its own right.</p>
@@ -136,7 +144,7 @@
                 <figcaption class="blk blk--row blk-caption">Upcoming long-sleeve by Riforma quoting names of releases since 2020</figcaption>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text"><strong>Frank</strong>: For Riforma specifically, we’re not academic people at all. The spirit has always been to keep ourselves free from the pressure of having to produce something that works in a research environment. That’s definitely not the goal.</p>
                     <p class="blk-text">When I talk about academic approaches with FFT, it’s because many people developing these things do come from academic backgrounds. But some people work empirically - like <a href="https://www.tietchens.de/" target="_blank" rel="noopener">Asmus Tietchens</a>, for example, who doesn’t come from academia at all. I love the way he describes his practice on his website: “self-taught appropriation of creative skills and handling of analogue and digital studio technology”. That’s very inspiring, because it shows another way of engaging empirically with this stuff. Honestly, in the series, many people come from academia - see Andreas, Elif, Lisa, Örlygur. 乃o乃 and I don’t. I don’t think Ogdol does either.<br><br>But the goal is definitely to create an aesthetic product that generates ideas beyond the single release. Each release gets enriched with other materials - like the <a href="https://radio.syg.ma/episodes/emst-llggnn-by-b0_0b-ougdol" target="_blank" rel="noopener">EMST radio show </a>series we curate on Radio Syg.Ma <em>[Riforma curates Emerging Spectral Topographies, an extended webcasting edition of the series fft_Materialism]</em> - and at the end of this whole series, we’ll probably condense all the ideas from each project into a small publication. Not with the expectation of contributing to academic research, but to give the series another kind of output and a certain historical legitimacy.</p>
@@ -160,7 +168,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 8; --fig-rows-m: 11;"><img src="../assets/images/articles/drop-42-babe-we-got-gnomes-in-our-computer-5.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text"><strong>Frank</strong>: What you’re holding is basically a glossary of terms. There’s an important work on the imaginary here. They’ve got their own trip on this theme of gnomicity.</p>
                     <p class="blk-text"><strong>AYL</strong>: Right, that’s what I wanted to understand.</p>
@@ -183,7 +191,7 @@
                 <figcaption class="blk blk--row blk-caption">A Catturare I Raggi, album by Dori Sorride, 2022</figcaption>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text"><strong>AYL</strong>: I love Dori’s record precisely for its Tenco soul.</p>
                     <p class="blk-text"><strong>Frank</strong>: And regarding Bandcamp, I actually find it very interesting to use tags - because that’s what they are in the end, not genres but tagging systems, right?</p>
@@ -208,7 +216,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 8; --fig-rows-m: 11;"><img src="../assets/images/articles/drop-42-babe-we-got-gnomes-in-our-computer-7.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text"><strong>AYL</strong>: I’m really fascinated by this connection between sound materiality and algorithmic processes. I was just looking at this paper by Shintaro Miyazaki, a media studies professor here at Humboldt, titled ‘<a href="http://computationalculture.net/algorhythmics-understanding-micro-temporality-in-computational-cultures/" target="_blank" rel="noopener">Algorhythmics: Understanding Micro-Temporality in Computational Cultures</a>‘. He talks about how in the ‘50s, engineers would listen to computers to diagnose problems - they used listening as a debugging method.</p>
                     <p class="blk-text">And that’s what I see here - you’ve taught me to notice this - attention to the materiality of sound. Understanding a texture, an evolution, a process, as exploring sonic matter itself.</p>
@@ -269,12 +277,12 @@
         <div class="footer-bottom">
             <p>2026 Reincantamento &nbsp;&#183;&nbsp; Berlin / Turin / Venice</p>
             <div class="footer-legal">
-                <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Acid mode" title="Acid mode">&#9791;</button>
                 <a href="../index.html">Home</a>
                 <a href="../about.html">About</a>
             </div>
         </div>
     </footer>
+
 
     <script src="../assets/js/site.js" defer></script>
 </body>

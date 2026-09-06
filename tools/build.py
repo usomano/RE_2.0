@@ -22,9 +22,15 @@ CHEV_R = '<svg viewBox="0 0 14 22" aria-hidden="true"><polyline points="2,2 11,1
 # Explicit index.html, never a bare directory: a link to "writing/" only
 # resolves on an HTTP server. Opened from disk (file://) the browser shows a
 # directory listing instead, and the site has to work by double-clicking it.
-NAV = [('Writing', 'writing/index.html'), ('Publishing', 'publishing/index.html'),
-       ('Artworks', 'artworks/index.html'), ('Workshops', None), ('Talks', None),
-       ('About', 'about.html')]
+# About is not in this run: it is the filled corner cell at the end of the
+# header, on every page. The logo is the way back to the home page.
+# Third field: the entries that drop out of the item on hover, if any. Writing
+# is two bodies of work on two pages, so the menu names them both.
+NAV = [('Writings', 'writing/index.html', (('Drops', 'writing/index.html'),
+                                           ('Archive', 'writing/archive.html'))),
+       ('Publishing', 'publishing/index.html', ()),
+       ('Artworks', 'artworks/index.html', ()),
+       ('Workshops', None, ()), ('Talks', None, ())]
 
 
 def load(name):
@@ -64,33 +70,52 @@ def head(title, desc, up):
 
 
 def header(current, up):
+    """The same header everywhere: the eye in the first cell (and the way back
+    to the home page), the five sections on a mask of the page fill, then the
+    filled ABOUT cell in the corner."""
     items = []
-    for label, href in NAV:
+    for label, href, sub in NAV:
         if href is None:
-            items.append(f'            <span class="grid-nav__item" aria-disabled="true">{label}</span>')
-        else:
-            cur = ' aria-current="page"' if label == current else ''
-            items.append(f'            <a class="grid-nav__item" href="{up}{href}"{cur}>{label}</a>')
+            if not any('nav-off' in it for it in items):
+                items.append('            <!-- No design yet — shown, not linked. -->')
+            items.append(f'            <span class="nav-off">{label}</span>')
+            continue
+        cur = ' class="is-active" aria-current="page"' if label == current else ''
+        if not sub:
+            items.append(f'            <a href="{up}{href}"{cur}>{label}</a>')
+            continue
+        drop = "\n".join(f'                    <a href="{up}{h}">{l}</a>' for l, h in sub)
+        items.append(f'''            <div class="nav-item">
+                <a href="{up}{href}"{cur}>{label}</a>
+                <div class="nav-menu">
+{drop}
+                </div>
+            </div>''')
     return f"""
-    <header class="grid-header grid-row">
-        <a class="grid-header__logo" href="{up}index.html" aria-label="Reincantamento — home">
-            <svg viewBox="0 0 44 22" aria-hidden="true"><ellipse cx="22" cy="11" rx="22" ry="11"/></svg>
+    <header class="site-header">
+        <a class="brand" href="{up}index.html" aria-label="Reincantamento home">
+            <img src="{up}assets/images/REINC-LOGO.svg" alt="Reincantamento" width="53" height="25">
         </a>
 
-        <button class="grid-header__menu" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+        <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav">
+            <span></span><span></span><span></span>
+        </button>
 
-        <nav class="grid-nav" id="primary-nav" aria-label="Primary">
+        <nav class="main-nav" id="primary-nav" aria-label="Primary">
 """ + "\n".join(items) + f"""
         </nav>
 
-        <!-- The way back, in the last cell of the band: the home shell carries
-             the same corner cell, reading ABOUT there and HOME everywhere else. -->
-        <a class="grid-header__home" href="{up}index.html">Home</a>
+        <a class="about-btn" href="{up}about.html">About</a>
     </header>
 """
 
 
-def footer(up):
+def footer(up, switch=True):
+    corner = ('''
+    <!-- The colourway switch is a cell of its own: bottom right of the first
+         screen, under the ABOUT cell at the top of the same column. -->
+    <button class="theme-switch" type="button" aria-pressed="false" aria-label="Acid mode" title="Acid mode">&#9791;</button>
+''' if switch else '')
     return f"""
     <footer class="site-footer">
         <p class="site-footer__mark">REINCANTAMENTO</p>
@@ -116,13 +141,13 @@ def footer(up):
         <div class="footer-bottom">
             <p>2026 Reincantamento &nbsp;&#183;&nbsp; Berlin / Turin / Venice</p>
             <div class="footer-legal">
-                <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Acid mode" title="Acid mode">&#9791;</button>
                 <a href="{up}index.html">Home</a>
                 <a href="{up}about.html">About</a>
             </div>
         </div>
     </footer>
 
+{corner}
     <script src="{up}assets/js/site.js" defer></script>
 </body>
 </html>
@@ -136,8 +161,10 @@ def write(relpath, body):
     return relpath
 
 
-def page(relpath, title, desc, current, up, main):
-    return write(relpath, head(title, desc, up) + header(current, up) + main + footer(up))
+def page(relpath, title, desc, current, up, main, switch=True):
+    """switch=False for the detail pages: they carry the colourway switch in the
+    square under the byline instead of in the bottom-right corner."""
+    return write(relpath, head(title, desc, up) + header(current, up) + main + footer(up, switch))
 
 
 def title_row(title, back_href, back_label, authors=()):
@@ -163,6 +190,9 @@ def title_row(title, back_href, back_label, authors=()):
         </div>
 
         <div class="article grid-row">
+
+            <!-- The colourway switch, in the square under the byline cell. -->
+            <button class="theme-switch theme-switch--inline" type="button" aria-pressed="false" aria-label="Acid mode" title="Acid mode">&#9791;</button>
 """
 
 
@@ -206,8 +236,11 @@ def text_sections(sections):
     return "\n\n".join(out)
 
 
-# The reading column is 8 cells wide on desktop; on mobile every block spans the
-# content width, which is 11 cells of the 13-column module.
+# A drop's figures keep the 8-cell reading column while its text spans the full
+# 12: the newsletter carries images of every shape, and most of them are square
+# or portrait, so a wider box would turn them into blocks taller than a screen.
+# On mobile every block spans the content width, 11 cells of the 13-column
+# module.
 FIG_COLS, FIG_COLS_M = 8, 11
 
 
@@ -293,26 +326,38 @@ def year_of(it):
     return it['year']
 
 
-def year_nav(years, current, other_href, other_label):
-    """The band under the header: one year at a time, the arrows stepping
-    through them, and a last cell crossing to the other half of the timeline.
+def masthead(years, current, other_href, other_label):
+    """The row under the header: the DROPS nameplate on the left, and on the
+    last five cells the year band — an arrow, the year over two cells, an arrow,
+    and a cell crossing to the other half of the timeline.
 
     The drops (2023 onward) and the archive (published elsewhere, before 2023)
     are two pages, so stepping off either end follows that link instead of a
-    year — the run 2020 … 2026 reads as one line even though it is cut in two."""
+    year — the run 2020 … 2026 reads as one line even though it is cut in two.
+
+    The <nav> is display:contents, so the year cells are placed on the same grid
+    row as the nameplate while the element still wraps only the year controls."""
     cells = []
     for y in years:
         cur = ' aria-current="true"' if y == current else ''
-        cells.append(f'            <a class="year-nav__year" href="#{y}" data-year="{y}"{cur}>{y}</a>')
+        cells.append(f'                <a class="year-nav__year" href="#{y}" data-year="{y}"{cur}>{y}</a>')
     return f"""
-        <nav class="year-nav grid-row" aria-label="By year">
-            <a class="year-nav__step" href="#" data-step="-1" aria-label="Previous year">{CHEV_L}</a>
-            <span class="year-nav__years">
+        <div class="masthead grid-row">
+            <h1 class="masthead__mark"><img src="../assets/images/drops-mark.png" alt="DROPS" width="1660" height="254"></h1>
+
+            <nav class="year-nav" aria-label="By year">
+                <a class="year-nav__step" href="#" data-step="-1" aria-label="Previous year">{CHEV_L}</a>
+                <span class="year-nav__years">
 {chr(10).join(cells)}
-            </span>
-            <a class="year-nav__step" href="#" data-step="1" aria-label="Next year">{CHEV_R}</a>
-            <a class="year-nav__other" href="{other_href}">{other_label}</a>
-        </nav>
+                </span>
+                <a class="year-nav__step" href="#" data-step="1" aria-label="Next year">{CHEV_R}</a>
+                <a class="year-nav__other" href="{other_href}">{other_label}</a>
+            </nav>
+        </div>
+
+        <div class="grid-row">
+            <p class="blk blk--row blk-text masthead__note">DROPS is REINCANTAMENTO’s online publication on technology, culture, and the worlds they produce together. We publish essays, notes, interviews, and stories: dispatches from the enchanted present.</p>
+        </div>
 """
 
 
@@ -361,13 +406,8 @@ archive_years = sorted({year_of(i) for i in archive_items})
 
 main = """
     <main id="main" tabindex="-1">
-
-        <!-- Mobile only: the desktop frame names the section through the nav. -->
-        <div class="grid-row">
-            <h1 class="section-title">Writing</h1>
-        </div>
-""" + year_nav(drop_years, drop_years[-1],
-                  'archive.html#%d' % archive_years[-1], 'Archive') + """
+""" + masthead(drop_years, drop_years[-1],
+               'archive.html#%d' % archive_years[-1], 'Archive') + """
         <div class="cards grid-row">
             <ul class="card-grid" id="card-grid">
 
@@ -377,13 +417,33 @@ main = """
         </div>
     </main>
 """
-made.append(page('writing/index.html', 'REINCANTAMENTO &#8212; Writing',
-                 'DROPS, the newsletter by Reincantamento, one year at a time.',
-                 'Writing', '../', main))
+made.append(page('writing/index.html', 'REINCANTAMENTO &#8212; Drops',
+                 'DROPS is Reincantamento\u2019s online publication on technology, '
+                 'culture, and the worlds they produce together.',
+                 'Writings', '../', main))
 
 # Everything the group published before the DROPS newsletter began: essays that
-# live on other outlets, so these cards link away. Its own page, with the same
-# band running over the years it covers.
+# live on other outlets, so these cards link away. One scroll, newest year
+# first, each year opening with a band of its own — the drops page paginates by
+# year because there are fifty-three of them; the archive is short enough to
+# read in one go.
+def archive_year(year):
+    items = [i for i in archive_items if year_of(i) == year]
+    return f"""
+        <div class="divider grid-row" id="{year}">
+            <h2 class="divider__band">{year}</h2>
+        </div>
+
+        <div class="cards grid-row is-archive">
+            <ul class="card-grid">
+
+""" + "\n\n".join(writing_card(i) for i in items) + """
+
+            </ul>
+        </div>
+"""
+
+
 archive_main = """
     <main id="main" tabindex="-1">
 
@@ -394,20 +454,12 @@ archive_main = """
         <div class="divider grid-row">
             <h2 class="divider__band">Archive<span class="divider__note">Before 2023 &#183; published elsewhere</span></h2>
         </div>
-""" + year_nav(archive_years, archive_years[-1],
-                  'index.html#%d' % drop_years[0], 'Drops') + """
-        <div class="cards grid-row is-archive">
-            <ul class="card-grid" id="card-grid">
-
-""" + "\n\n".join(writing_card(i) for i in archive_items) + """
-
-            </ul>
-        </div>
+""" + "".join(archive_year(y) for y in sorted(archive_years, reverse=True)) + """
     </main>
 """
 made.append(page('writing/archive.html', 'REINCANTAMENTO &#8212; Archive',
                  'Essays published elsewhere before the DROPS newsletter began, 2020 to 2022.',
-                 'Writing', '../', archive_main))
+                 'Writings', '../', archive_main))
 
 
 # ---- drop pages: convert the exported Substack body into the block system ----
@@ -511,7 +563,7 @@ def render_blocks(blocks):
 
     def close():
         if group:
-            out.append('            <div class="blk-group c-narrow is-spaced">\n' +
+            out.append('            <div class="blk-group c-wide is-spaced">\n' +
                        "\n".join(group) + '\n            </div>')
             del group[:]
 
@@ -560,23 +612,24 @@ for i, d in enumerate(drops):
     blocks = convert_body(io.open(src_path, encoding='utf-8').read()) if os.path.exists(src_path) else []
     nxt = drops[(i + 1) % len(drops)]
     lede = (f'''
-            <div class="blk-group c-narrow">
+            <div class="blk-group c-wide">
                 <p class="blk blk--row blk-lede">{d["subtitle"]}</p>
             </div>
 ''' if d['subtitle'] else '')
     kicker = d['number'] + (' &#183; ' + d['date'] if d['date'] else '')
     if blocks:
         kicker += ' &#183; %d min read' % reading_minutes(blocks)
-    main = (title_row(d['title'], 'index.html', 'Back to Writing', d.get('authors', ())) + f"""
-            <div class="blk-group c-narrow">
+    # The standfirst comes first and the line of metadata under it: the reader
+    # meets what the piece is about before its number, date and length.
+    main = (title_row(d['title'], 'index.html', 'Back to Writing', d.get('authors', ())) + f"""{lede}
+            <div class="blk-group c-wide">
                 <p class="blk blk--row blk-kicker">{kicker}</p>
             </div>
-{lede}
 """ + render_blocks(blocks) + next_band('Next drop', nxt['number'] + ' &#183; ' + nxt['title'],
                                         nxt['slug'] + '.html'))
     made.append(page('writing/%s.html' % d['slug'],
                      'REINCANTAMENTO &#8212; %s' % d['title'],
-                     (d['subtitle'] or d['title'])[:150], 'Writing', '../', main))
+                     (d['subtitle'] or d['title'])[:150], 'Writings', '../', main, switch=False))
 
 # --------------------------------------------------------------- PUBLISHING
 pubs = load('publications.json')
@@ -657,7 +710,7 @@ for i, p in enumerate(pubs):
             + next_band('Next publication', nxt['title'], nxt['slug'] + '.html'))
     made.append(page('publishing/%s.html' % p['slug'],
                      'REINCANTAMENTO &#8212; %s' % p['title'], p['abstract'][:150],
-                     'Publishing', '../', main))
+                     'Publishing', '../', main, switch=False))
 
 # ----------------------------------------------------------------- ARTWORKS
 arts = load('artworks.json')
@@ -722,7 +775,7 @@ for i, a in enumerate(arts):
             + text_sections(sections) + "\n\n" + FIG_PAIRS[1]
             + next_band('Next artwork', nxt['title'], nslug + '.html'))
     made.append(page('artworks/%s.html' % slug, 'REINCANTAMENTO &#8212; %s' % a['title'],
-                     a['intro'][0][:150], 'Artworks', '../', main))
+                     a['intro'][0][:150], 'Artworks', '../', main, switch=False))
 
 print('built %d pages' % len(made))
 for grp in ('writing/', 'publishing/', 'artworks/'):

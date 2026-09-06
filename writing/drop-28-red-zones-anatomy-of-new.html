@@ -25,25 +25,31 @@
 
     <a class="skip-link" href="#main">Skip to content</a>
 
-    <header class="grid-header grid-row">
-        <a class="grid-header__logo" href="../index.html" aria-label="Reincantamento — home">
-            <svg viewBox="0 0 44 22" aria-hidden="true"><ellipse cx="22" cy="11" rx="22" ry="11"/></svg>
+    <header class="site-header">
+        <a class="brand" href="../index.html" aria-label="Reincantamento home">
+            <img src="../assets/images/REINC-LOGO.svg" alt="Reincantamento" width="53" height="25">
         </a>
 
-        <button class="grid-header__menu" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+        <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav">
+            <span></span><span></span><span></span>
+        </button>
 
-        <nav class="grid-nav" id="primary-nav" aria-label="Primary">
-            <a class="grid-nav__item" href="../writing/index.html" aria-current="page">Writing</a>
-            <a class="grid-nav__item" href="../publishing/index.html">Publishing</a>
-            <a class="grid-nav__item" href="../artworks/index.html">Artworks</a>
-            <span class="grid-nav__item" aria-disabled="true">Workshops</span>
-            <span class="grid-nav__item" aria-disabled="true">Talks</span>
-            <a class="grid-nav__item" href="../about.html">About</a>
+        <nav class="main-nav" id="primary-nav" aria-label="Primary">
+            <div class="nav-item">
+                <a href="../writing/index.html" class="is-active" aria-current="page">Writings</a>
+                <div class="nav-menu">
+                    <a href="../writing/index.html">Drops</a>
+                    <a href="../writing/archive.html">Archive</a>
+                </div>
+            </div>
+            <a href="../publishing/index.html">Publishing</a>
+            <a href="../artworks/index.html">Artworks</a>
+            <!-- No design yet — shown, not linked. -->
+            <span class="nav-off">Workshops</span>
+            <span class="nav-off">Talks</span>
         </nav>
 
-        <!-- The way back, in the last cell of the band: the home shell carries
-             the same corner cell, reading ABOUT there and HOME everywhere else. -->
-        <a class="grid-header__home" href="../index.html">Home</a>
+        <a class="about-btn" href="../about.html">About</a>
     </header>
 
     <div class="reading-progress" role="progressbar" aria-label="Reading progress"
@@ -59,22 +65,24 @@
 
         <div class="article grid-row">
 
-            <div class="blk-group c-narrow">
-                <p class="blk blk--row blk-kicker">Drop #28 &#183; February 20, 2025 &#183; 5 min read</p>
-            </div>
+            <!-- The colourway switch, in the square under the byline cell. -->
+            <button class="theme-switch theme-switch--inline" type="button" aria-pressed="false" aria-label="Acid mode" title="Acid mode">&#9791;</button>
 
-            <div class="blk-group c-narrow">
+            <div class="blk-group c-wide">
                 <p class="blk blk--row blk-lede">Anatomy of the New Urban Control</p>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide">
+                <p class="blk blk--row blk-kicker">Drop #28 &#183; February 20, 2025 &#183; 5 min read</p>
+            </div>
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">Imagine being denied access to your city center because you attended too many pro-Palestine demonstrations. Or being barred from streets on New Year's Eve due to a criminal record from decades ago. These are not hypothetical scenarios but rather the impending future of Italy under neofascist power, according to the "Red Zones Directive" plans, explicitly implemented starting New Year's Eve.</p>
                     <p class="blk-text">In perfect continuity with a long tradition of biopolitical control of public space, the "Red Zones Directive" issued by the Ministry of Interior configures itself not merely as an experimental measure, but as a laboratory for a new paradigm of urban governance. Presenting itself as a "temporary" implementation of the broader "Security" bill, the directive warrants thorough analysis as an emblematic device of the transition to a post-democratic scenario, if not an actual technical rehearsal for a regime.</p>
                 </div>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <h2 class="blk blk--row blk-heading">The Directive is (also) a Question of Power</h2>
                 <div class="blk blk--rows">
                     <p class="blk-text">First and foremost, the Directive articulates a dual mechanism. On one hand, through delegating to prefects the power to delineate red zones, it establishes spaces of exception within the urban fabric; on the other, by conferring unprecedented discretionary power to law enforcement operators to sanction "potentially" disruptive or aggressive behaviors, it operates a crucial shift from punitive logic to preventive social control.</p>
@@ -82,7 +90,7 @@
                 </div>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <h2 class="blk blk--row blk-heading">The Directive is (also) a Semantic Question</h2>
                 <div class="blk blk--rows">
                     <p class="blk-text">Many mainstream media outlets spoke of a directive aimed at securing New Year's Eve in major Italian cities, dismissing the issue in two days. Once again, the media proved to be protagonists of widespread intellectual dishonesty, tactically aimed at not alarming their readers, who are not the target of this directive anyway.</p>
@@ -91,7 +99,7 @@
                 </div>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <h2 class="blk blk--row blk-heading">The Directive is (also) a Question of Democracy</h2>
                 <div class="blk blk--rows">
                     <p class="blk-text">It is the plastic representation of how there exist groups of people whose interests and worldview are represented by the ruling class and imposed on all others. Who, indeed, was considered "indecorous" well before this directive's approval? Just to cite some examples: homeless people, people who beg, people with mental health issues, itinerant people, Roma, Sinti, people with drug addiction problems, migrants, people who practice sex work.</p>
@@ -99,7 +107,7 @@
                 </div>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <h2 class="blk blk--row blk-heading">The Red Zones Directive is (also) a Spatial Question</h2>
                 <div class="blk blk--rows">
                     <p class="blk-text">The way public space is occupied is a potential detonator of bottom-up power rebalancing; squares are historically the essential stage of every popular expression of change. As David Harvey maintains: <strong>"Syntagma Square in Athens, Tahrir Square in Cairo, and the Plaza de Catalunya in Barcelona were public spaces that became an urban commons as people assembled there to express their political views."</strong></p>
@@ -109,7 +117,7 @@
                 </div>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <h2 class="blk blk--row blk-heading">Conclusion</h2>
                 <div class="blk blk--rows">
                     <p class="blk-text">The Red Zones Directive represents, ultimately, the reproduction on an urban scale of the colonial and classist logic underlying the formula "The West and the Rest." Moving beyond the euphemism of "first-class" and "second-class" citizens, we are witnessing an acceleration of the authoritarian turn of the current government, which finds in the "Security" Bill 1660, already sanctioned by the UN, its most advanced point.</p>
@@ -149,12 +157,12 @@
         <div class="footer-bottom">
             <p>2026 Reincantamento &nbsp;&#183;&nbsp; Berlin / Turin / Venice</p>
             <div class="footer-legal">
-                <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Acid mode" title="Acid mode">&#9791;</button>
                 <a href="../index.html">Home</a>
                 <a href="../about.html">About</a>
             </div>
         </div>
     </footer>
+
 
     <script src="../assets/js/site.js" defer></script>
 </body>

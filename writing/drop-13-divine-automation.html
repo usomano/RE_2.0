@@ -25,25 +25,31 @@
 
     <a class="skip-link" href="#main">Skip to content</a>
 
-    <header class="grid-header grid-row">
-        <a class="grid-header__logo" href="../index.html" aria-label="Reincantamento — home">
-            <svg viewBox="0 0 44 22" aria-hidden="true"><ellipse cx="22" cy="11" rx="22" ry="11"/></svg>
+    <header class="site-header">
+        <a class="brand" href="../index.html" aria-label="Reincantamento home">
+            <img src="../assets/images/REINC-LOGO.svg" alt="Reincantamento" width="53" height="25">
         </a>
 
-        <button class="grid-header__menu" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+        <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav">
+            <span></span><span></span><span></span>
+        </button>
 
-        <nav class="grid-nav" id="primary-nav" aria-label="Primary">
-            <a class="grid-nav__item" href="../writing/index.html" aria-current="page">Writing</a>
-            <a class="grid-nav__item" href="../publishing/index.html">Publishing</a>
-            <a class="grid-nav__item" href="../artworks/index.html">Artworks</a>
-            <span class="grid-nav__item" aria-disabled="true">Workshops</span>
-            <span class="grid-nav__item" aria-disabled="true">Talks</span>
-            <a class="grid-nav__item" href="../about.html">About</a>
+        <nav class="main-nav" id="primary-nav" aria-label="Primary">
+            <div class="nav-item">
+                <a href="../writing/index.html" class="is-active" aria-current="page">Writings</a>
+                <div class="nav-menu">
+                    <a href="../writing/index.html">Drops</a>
+                    <a href="../writing/archive.html">Archive</a>
+                </div>
+            </div>
+            <a href="../publishing/index.html">Publishing</a>
+            <a href="../artworks/index.html">Artworks</a>
+            <!-- No design yet — shown, not linked. -->
+            <span class="nav-off">Workshops</span>
+            <span class="nav-off">Talks</span>
         </nav>
 
-        <!-- The way back, in the last cell of the band: the home shell carries
-             the same corner cell, reading ABOUT there and HOME everywhere else. -->
-        <a class="grid-header__home" href="../index.html">Home</a>
+        <a class="about-btn" href="../about.html">About</a>
     </header>
 
     <div class="reading-progress" role="progressbar" aria-label="Reading progress"
@@ -59,15 +65,17 @@
 
         <div class="article grid-row">
 
-            <div class="blk-group c-narrow">
-                <p class="blk blk--row blk-kicker">Drop #13 &#183; March 12, 2024 &#183; 12 min read</p>
-            </div>
+            <!-- The colourway switch, in the square under the byline cell. -->
+            <button class="theme-switch theme-switch--inline" type="button" aria-pressed="false" aria-label="Acid mode" title="Acid mode">&#9791;</button>
 
-            <div class="blk-group c-narrow">
+            <div class="blk-group c-wide">
                 <p class="blk blk--row blk-lede">Factorio and phantasies of mechanization</p>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide">
+                <p class="blk blk--row blk-kicker">Drop #13 &#183; March 12, 2024 &#183; 12 min read</p>
+            </div>
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text"><em>Hey everyone (▰˘◡˘▰)</em></p>
                     <p class="blk-text"><em>A new DROP from our friend Simone Robutti. This time Simone delves into the fairly unknown realm of automation games. What do these simulations of productivity and industriousness unveil about the contemporary dreams of automation? Can we use the sandbox offered in games like Factorio to learn and experiment with organization and process design? </em></p>
@@ -79,7 +87,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 8; --fig-rows-m: 11;"><img src="../assets/images/articles/drop-13-divine-automation-1.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">Automation games are a relatively recent development in gaming. Published in 2015, <em><a href="https://store.steampowered.com/app/300570/Infinifactory/" target="_blank" rel="noopener">Infinifactory</a></em> can be considered the first game of the genre. Just one year later, <em><a href="https://www.factorio.com/" target="_blank" rel="noopener">Factorio</a></em> entered early access, soon to become the most known and successful automation game to date. After that, a wave of titles followed: Satisfactory, Shapez, Autonauts, Dyson Sphere Program, Mindustry, Desynced, and many others.</p>
                     <p class="blk-text">Taxonomically, automation games sit at the intersection of base-building games and management games, while inheriting several features from puzzle games, programming games, and sometimes survival games.</p>
@@ -93,7 +101,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 7; --fig-rows-m: 9;"><img src="../assets/images/articles/drop-13-divine-automation-2.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">Fast-forward 50 hours of play and your factory spans several kilometers, including cargo trains, thousands of robotic arms, nuclear plants, and endless solar panel farms. The drones flow around transporting goods and constantly expanding the factory based on templates that you design and place. You, the Engineer, go around in a giant spider-like vehicle, observing what you achieved. Soon it will be time to go back home. You’re almost sad to leave your creation: every small factory, every engine, every bolt is the result of your design. Everything spawned from your <em>genius</em>. A gigantic organism draining the resources of the planet to keep reproducing itself, expanding in leaps and bounds.</p>
                     <p class="blk-text">The Engineer must leave not only because he’s homesick. The truth is that on this planet you’re not welcome. There are, in fact, natives, and they are very upset at your pollution. They look like insectoid monsters, coming in different shapes. They regularly attack your base, requiring you to set up automated defense systems, loaded with mass-produced ammo. The more you pollute, the stronger the attacks will become.</p>
@@ -105,7 +113,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 6; --fig-rows-m: 8;"><img src="../assets/images/articles/drop-13-divine-automation-3.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">The game is unapologetic in its predatory and exploitative setting: players-Engineers invade somebody’s else planet, extracting their resources and wrecking the global environment. The sole response to indigenous claims presented in the game is essentially violence and they are the <em>evil while the player is the hero. Automation games are <a href="https://en.wikipedia.org/wiki/Frantz_Fanon" target="_blank" rel="noopener">Frantz Fanon 101</a>:</em> the colonizer demonizing the colonized. It’s impossible to tell if the game is a criticism of Industrial Colonialism or yet another emanation of Western society’s zeitgeist. But analyzing the ideological roots of the exploitative model promoted by this game would be an easy and frankly boring exercise. We should redirect our focus back to automation.</p>
                     <p class="blk-text">As mentioned above, Factorio is just one example among different automation games: <a href="https://www.satisfactorygame.com/" target="_blank" rel="noopener">Satisfactory</a> or <a href="https://store.steampowered.com/app/1450900/Desynced_Autonomous_Colony_Simulator/" target="_blank" rel="noopener">Desynced</a> follow a very similar premise. <a href="https://store.steampowered.com/app/979120/Autonauts/" target="_blank" rel="noopener">Autonauts</a> or <a href="https://store.steampowered.com/app/1366540/Dyson_Sphere_Program/" target="_blank" rel="noopener">Dyson Sphere Program</a> have a more wholesome world-building, while games like <a href="https://store.steampowered.com/app/1318690/shapez/" target="_blank" rel="noopener">Shapez</a> are just fully abstract.</p>
@@ -118,7 +126,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 5; --fig-rows-m: 6;"><img src="../assets/images/articles/drop-13-divine-automation-4.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">Automation can be many different, non-overlapping things. It can be a socio-historical process, an economic process, an organizational problem, or an engineering problem. It can pertain to the automation of physical tasks, logical tasks, computational tasks, intellectual tasks, and so-called “creative” tasks. Automation can happen mechanically, or through computational means. It can produce an increase in efficiency, or a decrease in efficiency but a growth in scale. It can increase the quality of the outcome, or it can decrease it. Automation, abstracted from a specific context and a specific discourse, becomes a vague term to identify when machines do “useful” things, usually executing a task or part of a task in place of a human.</p>
                     <p class="blk-text">Now, with its intrinsic semantic ambiguity, the type of automation we witness represented in games like Factorio is distinct from what we can guess in reality. Let’s try to address the most obvious points step by step.</p>
@@ -131,7 +139,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 4; --fig-rows-m: 6;"><img src="../assets/images/articles/drop-13-divine-automation-5.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">So, perfect reproducibility is not possible in the real world. When a machine encounters a problematic state, it will either fail spectacularly or it will request some form of maintenance. Either way, human intervention is required.</p>
                     <p class="blk-text">Another tenet of automation games is the ability of machines to execute any task the player can do, beyond obviously some tasks that are precluded to humans themselves. The protagonist is just a designer, eventually replacing any form of manual activity with a refined composition of machines. The human eventually always manages to get out of the productive loop, unless the player has an insane amount of time to waste and wants to play the game without any automation. Not impossible for some titles, but not the most entertaining proposition. In the real world, we have plenty of evidence that this doesn’t happen. Despite the concussive propaganda about generative AI, there is still an endless amount of things that humans can do and machines cannot. A lot of automated tasks, then, are also automatable at the expense of quality, with humans still being required if a high-quality result is expected. No industrial bread can be efficiently produced and taste better than the one produced by the most mediocre of human bakers.</p>
@@ -142,7 +150,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 4; --fig-rows-m: 6;"><img src="../assets/images/articles/drop-13-divine-automation-6.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">A third element is that automation is somehow resource-efficient: as your need for resources expands, so too does your capacity for automation. The growth in productivity of your machines is always greater than the growth of their costs. In a few words: in the context of the game, automation and progress are always good. It’s the whole premise of the game, otherwise, at some point, you would stop researching and unlocking better machines. You don’t even really need to run an analysis of the performance of the old against the new: you just assume it’s better, and it’s always better.</p>
                     <p class="blk-text">In the real world, this is often not the case. The introduction of automated processes leads to lock-ins, and dead-ends, very often proving to not be scalable, it has unexpected externalities or a failure rate much higher than older methods. Sometimes these inefficiencies are off-loaded onto people, institutions, and organizations not directly involved in the process to be automated, as it’s the case for negative environmental impacts, social costs, and so on. When you read “externalities”, you should think: “Somebody is being fucked somewhere out there”.</p>
@@ -156,7 +164,7 @@
                 <figcaption class="blk blk--row blk-caption">Labour and Automation: a good sum-up</figcaption>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">The shiny fully automated factories of the future never ultimately materialize and their prophets, the Bezos and the Musk, still extensively rely on an underpaid workforce, they cut corners on safety, and resort to systematic union busting. Nonetheless, the dream lives on. Phantasies of mechanization are hard to dissolve.</p>
                     <p class="blk-text">Such utopian visions of automation also exist on the Left, where movements like <em><a href="https://polcompballanarchy.miraheze.org/wiki/Left-Accelerationism" target="_blank" rel="noopener">left-accelerationism</a></em> (l/acc) for the meme of Fully Automated Gay Space Communism fall prey to the same desire of magical salvation from work.</p>
@@ -171,7 +179,7 @@
                 <figcaption class="blk blk--row blk-caption">Poster by <a href="https://landmine752.com" target="_blank" rel="noopener">Landmine752</a></figcaption>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">I dream of a future where endless, meaningless, factories grow in digital worlds, keeping sociopathic nerds like Musk busy and appeased, whos of their virtual hills. They share these worlds with well-meaning students of Complexity, who will eventually leave their safe bubble to venture into the world to reshape it. Their grand theories of economic growth will be confined to ritualized games, as relics of a distant past. Outside, machines are used to efficiently produce only what is needed. System theory is studied to do more with less. Engineering mutates into a science of naptime maximization. The Factory Must Grow; The Planet Must Heal!</p>
                 </div>
@@ -209,12 +217,12 @@
         <div class="footer-bottom">
             <p>2026 Reincantamento &nbsp;&#183;&nbsp; Berlin / Turin / Venice</p>
             <div class="footer-legal">
-                <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Acid mode" title="Acid mode">&#9791;</button>
                 <a href="../index.html">Home</a>
                 <a href="../about.html">About</a>
             </div>
         </div>
     </footer>
+
 
     <script src="../assets/js/site.js" defer></script>
 </body>

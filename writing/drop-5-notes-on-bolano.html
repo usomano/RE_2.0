@@ -25,25 +25,31 @@
 
     <a class="skip-link" href="#main">Skip to content</a>
 
-    <header class="grid-header grid-row">
-        <a class="grid-header__logo" href="../index.html" aria-label="Reincantamento — home">
-            <svg viewBox="0 0 44 22" aria-hidden="true"><ellipse cx="22" cy="11" rx="22" ry="11"/></svg>
+    <header class="site-header">
+        <a class="brand" href="../index.html" aria-label="Reincantamento home">
+            <img src="../assets/images/REINC-LOGO.svg" alt="Reincantamento" width="53" height="25">
         </a>
 
-        <button class="grid-header__menu" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+        <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav">
+            <span></span><span></span><span></span>
+        </button>
 
-        <nav class="grid-nav" id="primary-nav" aria-label="Primary">
-            <a class="grid-nav__item" href="../writing/index.html" aria-current="page">Writing</a>
-            <a class="grid-nav__item" href="../publishing/index.html">Publishing</a>
-            <a class="grid-nav__item" href="../artworks/index.html">Artworks</a>
-            <span class="grid-nav__item" aria-disabled="true">Workshops</span>
-            <span class="grid-nav__item" aria-disabled="true">Talks</span>
-            <a class="grid-nav__item" href="../about.html">About</a>
+        <nav class="main-nav" id="primary-nav" aria-label="Primary">
+            <div class="nav-item">
+                <a href="../writing/index.html" class="is-active" aria-current="page">Writings</a>
+                <div class="nav-menu">
+                    <a href="../writing/index.html">Drops</a>
+                    <a href="../writing/archive.html">Archive</a>
+                </div>
+            </div>
+            <a href="../publishing/index.html">Publishing</a>
+            <a href="../artworks/index.html">Artworks</a>
+            <!-- No design yet — shown, not linked. -->
+            <span class="nav-off">Workshops</span>
+            <span class="nav-off">Talks</span>
         </nav>
 
-        <!-- The way back, in the last cell of the band: the home shell carries
-             the same corner cell, reading ABOUT there and HOME everywhere else. -->
-        <a class="grid-header__home" href="../index.html">Home</a>
+        <a class="about-btn" href="../about.html">About</a>
     </header>
 
     <div class="reading-progress" role="progressbar" aria-label="Reading progress"
@@ -59,15 +65,17 @@
 
         <div class="article grid-row">
 
-            <div class="blk-group c-narrow">
-                <p class="blk blk--row blk-kicker">Drop #5 &#183; September 5, 2023 &#183; 6 min read</p>
-            </div>
+            <!-- The colourway switch, in the square under the byline cell. -->
+            <button class="theme-switch theme-switch--inline" type="button" aria-pressed="false" aria-label="Acid mode" title="Acid mode">&#9791;</button>
 
-            <div class="blk-group c-narrow">
+            <div class="blk-group c-wide">
                 <p class="blk blk--row blk-lede">On a unvoluntary opera-mondo</p>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide">
+                <p class="blk blk--row blk-kicker">Drop #5 &#183; September 5, 2023 &#183; 6 min read</p>
+            </div>
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text"><em>Hey everyone (▰˘◡˘▰)</em></p>
                 </div>
@@ -77,14 +85,14 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 8; --fig-rows-m: 11;"><img src="../assets/images/articles/drop-5-notes-on-bolano-1.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">For the last twenty days, I have been reading Roberto Bolaño’s <em>Between Parentheses </em>(<em>Entre Paréntesis</em>)<em>, </em>a posthumous collection of essays, interviews, and speeches from the Chilean writer. Since I first read <em>The</em> <em>Savages Detective, </em>Bolaño became among my favorite authors for several reasons: his intense yet light prose, his sense of humor, his encyclopedic knowledge, and, simply, the beautiful stories he created. Having read Bolaño’s principal works, I had to dig to find new material, and some months ago, I bought this late anthology with little expectations. Once again, the <em>Chileno </em>didn’t disappoint. The book reads as a non-linear collection of texts, with almost no correlation between each other: the only constant is the analysis and dissection of that mysterious discipline called literature. Besides that, the volume offers ironic, moving, and random comments on life and death, sex, politics, Latin America and communism, dictators, cities, and, of course, literature.</p>
                     <p class="blk-text">I consider <em>Between Parentheses </em>a mirror reflecting Bolaño’s world and personal fixations. An involuntary opus embodying a vision of the world - <em>Weltanschauung - </em>that is, at the same time, lucid and fragmented, similar to a glass hammered and shattered into painful glowing shards. <br><br>Hereby, I collected some of my favorite fragments to be spread around this newsletter’s network, as old letters and words coming from a remote point in space and time. It’s an unusual issue of Drops. An attempt at e-poetry and mail art.</p>
                 </div>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <h2 class="blk blk--row blk-heading">On Chile</h2>
             </div>
 
@@ -92,7 +100,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 6; --fig-rows-m: 8;"><img src="../assets/images/articles/drop-5-notes-on-bolano-2.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text"><em>"The new buildings, the new streets, mean nothing. The streets of Santiago are still the same as they were ninety-eight years ago. Santiago is the same as it was when Teófilo Cid and Carlos de Rokha walked its streets. We still live in the age of the French Revolution. Our cycles are much longer and more crowded and twenty-five years is nothing."</em></p>
                     <p class="blk-text"><em>"It’s strange to come back to Chile, the corridor country, but when you think twice (or even three times) about it, it’s strange to come back anywhere. Assuming, of course, that you’re really back, and not dreaming that you’re back. It was twenty-five years before I came back. The streets actually seemed the same as always. The faces, too. Which can spell deadly boredom or madness. So this time, for a change, I decided to keep calm and wait and see what would happen, sitting in a chair, which is the best place to keep a corridor from surprising you."</em></p>
@@ -101,7 +109,7 @@
                 </div>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <h2 class="blk blk--row blk-heading">On humanity</h2>
                 <div class="blk blk--rows">
                     <p class="blk-text"><em>"At last they’ve found the roles of their lives. Finally, the soldiers have their war, their great war: before them we stand, unarmed but watching and listening."</em></p>
@@ -114,13 +122,13 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 9; --fig-rows-m: 12;"><img src="../assets/images/articles/drop-5-notes-on-bolano-3.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text"><em>"The young man knows that life renews itself and that the art of renewal is often death. Intelligence is visible in his face and his eyes, and his lips are turned down in an expression of sadness, or maybe it’s something else, maybe apathy, none of which excludes the possibility that at some point he might feel himself to be master of all the time in the world, because true as it is that man is a creature of time, theoretically (or artistically, if I can put it that way) time is also a creature of man."</em></p>
                 </div>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <h2 class="blk blk--row blk-heading">On literature</h2>
                 <div class="blk blk--rows">
                     <p class="blk-text"><em>"For some of those of my generation, William Burroughs was the affectless man, the shard of ice that never melts, the eye that never closes. They say he possessed every vice there was, but I think he was a saint who attracted all the sinners in the world because he was gracious and unwise enough never to shut his door. Literature, his livelihood for the last thirty years, interested him, but not too much, and in that regard he was like other classic American figures who focused their efforts on observing life or on experience."</em></p>
@@ -165,12 +173,12 @@
         <div class="footer-bottom">
             <p>2026 Reincantamento &nbsp;&#183;&nbsp; Berlin / Turin / Venice</p>
             <div class="footer-legal">
-                <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Acid mode" title="Acid mode">&#9791;</button>
                 <a href="../index.html">Home</a>
                 <a href="../about.html">About</a>
             </div>
         </div>
     </footer>
+
 
     <script src="../assets/js/site.js" defer></script>
 </body>

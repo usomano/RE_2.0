@@ -25,25 +25,31 @@
 
     <a class="skip-link" href="#main">Skip to content</a>
 
-    <header class="grid-header grid-row">
-        <a class="grid-header__logo" href="../index.html" aria-label="Reincantamento — home">
-            <svg viewBox="0 0 44 22" aria-hidden="true"><ellipse cx="22" cy="11" rx="22" ry="11"/></svg>
+    <header class="site-header">
+        <a class="brand" href="../index.html" aria-label="Reincantamento home">
+            <img src="../assets/images/REINC-LOGO.svg" alt="Reincantamento" width="53" height="25">
         </a>
 
-        <button class="grid-header__menu" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+        <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav">
+            <span></span><span></span><span></span>
+        </button>
 
-        <nav class="grid-nav" id="primary-nav" aria-label="Primary">
-            <a class="grid-nav__item" href="../writing/index.html" aria-current="page">Writing</a>
-            <a class="grid-nav__item" href="../publishing/index.html">Publishing</a>
-            <a class="grid-nav__item" href="../artworks/index.html">Artworks</a>
-            <span class="grid-nav__item" aria-disabled="true">Workshops</span>
-            <span class="grid-nav__item" aria-disabled="true">Talks</span>
-            <a class="grid-nav__item" href="../about.html">About</a>
+        <nav class="main-nav" id="primary-nav" aria-label="Primary">
+            <div class="nav-item">
+                <a href="../writing/index.html" class="is-active" aria-current="page">Writings</a>
+                <div class="nav-menu">
+                    <a href="../writing/index.html">Drops</a>
+                    <a href="../writing/archive.html">Archive</a>
+                </div>
+            </div>
+            <a href="../publishing/index.html">Publishing</a>
+            <a href="../artworks/index.html">Artworks</a>
+            <!-- No design yet — shown, not linked. -->
+            <span class="nav-off">Workshops</span>
+            <span class="nav-off">Talks</span>
         </nav>
 
-        <!-- The way back, in the last cell of the band: the home shell carries
-             the same corner cell, reading ABOUT there and HOME everywhere else. -->
-        <a class="grid-header__home" href="../index.html">Home</a>
+        <a class="about-btn" href="../about.html">About</a>
     </header>
 
     <div class="reading-progress" role="progressbar" aria-label="Reading progress"
@@ -59,15 +65,17 @@
 
         <div class="article grid-row">
 
-            <div class="blk-group c-narrow">
-                <p class="blk blk--row blk-kicker">Drop #36 &#183; July 15, 2025 &#183; 8 min read</p>
-            </div>
+            <!-- The colourway switch, in the square under the byline cell. -->
+            <button class="theme-switch theme-switch--inline" type="button" aria-pressed="false" aria-label="Acid mode" title="Acid mode">&#9791;</button>
 
-            <div class="blk-group c-narrow">
+            <div class="blk-group c-wide">
                 <p class="blk blk--row blk-lede">A manifesto on post-reality organizing</p>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide">
+                <p class="blk blk--row blk-kicker">Drop #36 &#183; July 15, 2025 &#183; 8 min read</p>
+            </div>
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text"><em>Hey everyone (▰˘◡˘▰)</em></p>
                     <p class="blk-text"><em>We’re back with a new Simone’s DROP after some weeks of radio silence.<br><br>This one might make you feel uncomfortable. Good. Comfort is the enemy of change, and change is exactly what Simone Robutti is calling for in this uncompromising manifesto on post-reality organizing. Following Simone's <a href="https://reincantamentox.substack.com/p/drop-29-seven-mantras-for-political" target="_blank" rel="noopener">previous work</a> on political holism, this DROP is a call to abandon the luxury of prefigurative politics and embrace the messy work of building the social infrastructure that makes collective action possible.</em></p>
@@ -80,7 +88,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 10; --fig-rows-m: 14;"><img src="../assets/images/articles/drop-36-do-you-know-how-to-bleed-1.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">The party is over. Reality is over. The Future is abolished. It’s a great time to bleed.</p>
                     <p class="blk-text">The failure of the past structures of social organization and the establishment of fascist governance by chaos are opening the door to a new political modus operandi for those, like myself, who believe in the value of order, rules, discipline, accountability, responsibility, social cohesion, and harmony. Some would call us “The Anarchists”.</p>
@@ -102,7 +110,7 @@
                 <figcaption class="blk blk--row blk-caption">Learning how to bleed</figcaption>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">We are trained to desire autonomy and liberty, but we collapse when we have it. Fascism thrives because it offers individuals an easy way out into collectivity: identify with the strong man and everything is going to be good. Don’t think, don’t speak, don’t act. Be a good pet and you will be provided for. That’s paradoxically the same exact sexual fantasy of sexually-liberated, Maoist trans puppygirls. We eventually all crave submission to an omnipotent, omniscient entity that provides for us and tells us everything is gonna be fine.</p>
                     <p class="blk-text">Either in battle or in an eternal present, we will find our peace.</p>
@@ -118,7 +126,7 @@
                 <figcaption class="blk blk--row blk-caption">Source: sangre_indigena_art</figcaption>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">Political organizing is just weaponized peer pressure at scale.</p>
                     <p class="blk-text">Too many people are concerned with spending political power the right way, debating endlessly about strategy for plans nobody wants to enact. A game of make-believe for political revolutions that will never materialize. Escapism for people who read too much political theory.</p>
@@ -133,7 +141,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 8; --fig-rows-m: 11;"><img src="../assets/images/articles/drop-36-do-you-know-how-to-bleed-4.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">This is not a wishy-washy hippie approach to politics. It’s not the vapid appeal to community building of a New York <em>artivist.</em> It’s not about feeling good and projecting a vague sense of emotional intelligence onto the politics we do. It’s a sad, but necessary act. Sad because it adds to relationships an element of political motivation, and politics is always dirty. It is necessary because without a global-spanning web of social affordances, History won’t get back into motion.</p>
                     <p class="blk-text">Ask yourself: Am I expanding my ecosystem? Is blood flowing in the right direction? Am I bringing people in? Are they staying? Or with my performative politics, my squabbling, my egocentrism, do I give politics a bad reputation? Am I traumatizing newcomers with unnecessary toxicity and endless, chaotic assemblies? Am I responsible for the well-being of my political network?</p>
@@ -182,12 +190,12 @@
         <div class="footer-bottom">
             <p>2026 Reincantamento &nbsp;&#183;&nbsp; Berlin / Turin / Venice</p>
             <div class="footer-legal">
-                <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Acid mode" title="Acid mode">&#9791;</button>
                 <a href="../index.html">Home</a>
                 <a href="../about.html">About</a>
             </div>
         </div>
     </footer>
+
 
     <script src="../assets/js/site.js" defer></script>
 </body>

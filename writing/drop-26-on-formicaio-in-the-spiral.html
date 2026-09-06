@@ -25,25 +25,31 @@
 
     <a class="skip-link" href="#main">Skip to content</a>
 
-    <header class="grid-header grid-row">
-        <a class="grid-header__logo" href="../index.html" aria-label="Reincantamento — home">
-            <svg viewBox="0 0 44 22" aria-hidden="true"><ellipse cx="22" cy="11" rx="22" ry="11"/></svg>
+    <header class="site-header">
+        <a class="brand" href="../index.html" aria-label="Reincantamento home">
+            <img src="../assets/images/REINC-LOGO.svg" alt="Reincantamento" width="53" height="25">
         </a>
 
-        <button class="grid-header__menu" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+        <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav">
+            <span></span><span></span><span></span>
+        </button>
 
-        <nav class="grid-nav" id="primary-nav" aria-label="Primary">
-            <a class="grid-nav__item" href="../writing/index.html" aria-current="page">Writing</a>
-            <a class="grid-nav__item" href="../publishing/index.html">Publishing</a>
-            <a class="grid-nav__item" href="../artworks/index.html">Artworks</a>
-            <span class="grid-nav__item" aria-disabled="true">Workshops</span>
-            <span class="grid-nav__item" aria-disabled="true">Talks</span>
-            <a class="grid-nav__item" href="../about.html">About</a>
+        <nav class="main-nav" id="primary-nav" aria-label="Primary">
+            <div class="nav-item">
+                <a href="../writing/index.html" class="is-active" aria-current="page">Writings</a>
+                <div class="nav-menu">
+                    <a href="../writing/index.html">Drops</a>
+                    <a href="../writing/archive.html">Archive</a>
+                </div>
+            </div>
+            <a href="../publishing/index.html">Publishing</a>
+            <a href="../artworks/index.html">Artworks</a>
+            <!-- No design yet — shown, not linked. -->
+            <span class="nav-off">Workshops</span>
+            <span class="nav-off">Talks</span>
         </nav>
 
-        <!-- The way back, in the last cell of the band: the home shell carries
-             the same corner cell, reading ABOUT there and HOME everywhere else. -->
-        <a class="grid-header__home" href="../index.html">Home</a>
+        <a class="about-btn" href="../about.html">About</a>
     </header>
 
     <div class="reading-progress" role="progressbar" aria-label="Reading progress"
@@ -59,15 +65,17 @@
 
         <div class="article grid-row">
 
-            <div class="blk-group c-narrow">
-                <p class="blk blk--row blk-kicker">Drop #26 &#183; February 8, 2025 &#183; 6 min read</p>
-            </div>
+            <!-- The colourway switch, in the square under the byline cell. -->
+            <button class="theme-switch theme-switch--inline" type="button" aria-pressed="false" aria-label="Acid mode" title="Acid mode">&#9791;</button>
 
-            <div class="blk-group c-narrow">
+            <div class="blk-group c-wide">
                 <p class="blk blk--row blk-lede">A look inside REINCANTAMENTO's latest artwork</p>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide">
+                <p class="blk blk--row blk-kicker">Drop #26 &#183; February 8, 2025 &#183; 6 min read</p>
+            </div>
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text"><em>Hey Everyone (▰˘◡˘▰)</em></p>
                     <p class="blk-text"><em>Welcome back to Drops, REINCANTAMENTO’s newsletter. Today’s DROP is dedicated to FORMICAIO, a new art project created by our collective for the online exhibiton "<strong>we are all users until we are not</strong>" at MacTe Digital, curated by Marialaura Ghidini.</em> <em>The exhibition is open at <a href="https://fondazionemacte.com/it/digital/we-are-all-users-till-we-are-not" target="_blank" rel="noopener">this link</a> unitl the end of April. </em></p>
@@ -80,7 +88,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 8; --fig-rows-m: 11;"><img src="../assets/images/articles/drop-26-on-formicaio-in-the-spiral-1.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text"><em><strong><br></strong></em>FORMICAIO is a digital art project that explores the politics of automated language through a retro web experience.<br><br>Created by REINCANTAMENTO for MacTe's exhibition "<em><strong>we are all users until we are not</strong></em>", the piece invites visitors to interact with Agent, a militant AI entity.</p>
                     <p class="blk-text">Beware: Agent is not your default corporate assistant. Agent is bloody opinionated, having read thousands of pages of political theory and history. Their favorite take? We fear automation because it reveals the unsettling truth: how hollow our work has become. Agent wants you to organize and resist: not to succumb to widespread anxiety, but to fight back through collective power.</p>
@@ -93,7 +101,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 5; --fig-rows-m: 6;"><img src="../assets/images/articles/drop-26-on-formicaio-in-the-spiral-2.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <h2 class="blk blk--row blk-heading"><strong>Default System Language</strong></h2>
                 <div class="blk blk--rows">
                     <p class="blk-text">In the post-ChatGPT landscape, a tapestry of buzzwords has emerged, stitching together a new linguistic realm.<br><br>Scratch that. <br><br>If you’ve noticed these terms proliferating over the past 24 months, you’re not wrong. They are the linguistic fingerprints of LLM-generated text, recurring like motifs across Instagram captions, LinkedIn posts, grant proposals, and technical documents.<br><br>The generic style of LLMs is ready-made, marketable text, similar to the default options adopted by visual designers to stay efficiently cool. We call it <strong>Default System Language, the algorithmic sound of linguistic normcore.</strong></p>
@@ -107,7 +115,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 5; --fig-rows-m: 7;"><img src="../assets/images/articles/drop-26-on-formicaio-in-the-spiral-3.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <h2 class="blk blk--row blk-heading"><strong>Therapeutic Anarcho-Syndicalist Agent</strong></h2>
                 <div class="blk blk--rows">
                     <p class="blk-text">Default System Language is malleable, honey-flavored, and always on. Thousands are sharing their affects and desires with these language simulators. The seducing promise of automated therapy is not new: it was already foreseen by Joseph Weizenbaum at the time of the first chatbot Eliza.</p>
@@ -120,7 +128,7 @@
                 </div>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <h2 class="blk blk--row blk-heading"><strong>Superorganism Agentivity</strong></h2>
             </div>
 
@@ -128,7 +136,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 5; --fig-rows-m: 6;"><img src="../assets/images/articles/drop-26-on-formicaio-in-the-spiral-4.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">We can’t stop here. We must dare to speculate on a scale equal to that of our opponents.</p>
                     <p class="blk-text">What if we could use swarms of agents to our advantage? Imagine a Superorganism capable of launching memetic warfare against the bannermen of today’s techno-fascism.</p>
@@ -138,7 +146,7 @@
                 </div>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <h2 class="blk blk--row blk-heading"><strong>Bibliography</strong></h2>
                 <div class="blk blk--rows">
                     <p class="blk-text">Calacci, Dan, and Alex Pentland. "Bargaining with the Black-Box: Designing and Deploying Worker-Centric Tools to Audit Algorithmic Management." In Proceedings of the 2022 CHI Conference on Human Factors in Computing Systems, 1-15. New York: ACM, 2022.</p>
@@ -187,12 +195,12 @@
         <div class="footer-bottom">
             <p>2026 Reincantamento &nbsp;&#183;&nbsp; Berlin / Turin / Venice</p>
             <div class="footer-legal">
-                <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Acid mode" title="Acid mode">&#9791;</button>
                 <a href="../index.html">Home</a>
                 <a href="../about.html">About</a>
             </div>
         </div>
     </footer>
+
 
     <script src="../assets/js/site.js" defer></script>
 </body>

@@ -25,25 +25,31 @@
 
     <a class="skip-link" href="#main">Skip to content</a>
 
-    <header class="grid-header grid-row">
-        <a class="grid-header__logo" href="../index.html" aria-label="Reincantamento — home">
-            <svg viewBox="0 0 44 22" aria-hidden="true"><ellipse cx="22" cy="11" rx="22" ry="11"/></svg>
+    <header class="site-header">
+        <a class="brand" href="../index.html" aria-label="Reincantamento home">
+            <img src="../assets/images/REINC-LOGO.svg" alt="Reincantamento" width="53" height="25">
         </a>
 
-        <button class="grid-header__menu" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+        <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav">
+            <span></span><span></span><span></span>
+        </button>
 
-        <nav class="grid-nav" id="primary-nav" aria-label="Primary">
-            <a class="grid-nav__item" href="../writing/index.html" aria-current="page">Writing</a>
-            <a class="grid-nav__item" href="../publishing/index.html">Publishing</a>
-            <a class="grid-nav__item" href="../artworks/index.html">Artworks</a>
-            <span class="grid-nav__item" aria-disabled="true">Workshops</span>
-            <span class="grid-nav__item" aria-disabled="true">Talks</span>
-            <a class="grid-nav__item" href="../about.html">About</a>
+        <nav class="main-nav" id="primary-nav" aria-label="Primary">
+            <div class="nav-item">
+                <a href="../writing/index.html" class="is-active" aria-current="page">Writings</a>
+                <div class="nav-menu">
+                    <a href="../writing/index.html">Drops</a>
+                    <a href="../writing/archive.html">Archive</a>
+                </div>
+            </div>
+            <a href="../publishing/index.html">Publishing</a>
+            <a href="../artworks/index.html">Artworks</a>
+            <!-- No design yet — shown, not linked. -->
+            <span class="nav-off">Workshops</span>
+            <span class="nav-off">Talks</span>
         </nav>
 
-        <!-- The way back, in the last cell of the band: the home shell carries
-             the same corner cell, reading ABOUT there and HOME everywhere else. -->
-        <a class="grid-header__home" href="../index.html">Home</a>
+        <a class="about-btn" href="../about.html">About</a>
     </header>
 
     <div class="reading-progress" role="progressbar" aria-label="Reading progress"
@@ -59,11 +65,13 @@
 
         <div class="article grid-row">
 
-            <div class="blk-group c-narrow">
+            <!-- The colourway switch, in the square under the byline cell. -->
+            <button class="theme-switch theme-switch--inline" type="button" aria-pressed="false" aria-label="Acid mode" title="Acid mode">&#9791;</button>
+
+            <div class="blk-group c-wide">
                 <p class="blk blk--row blk-kicker">Drop #48 &#183; February 26, 2026 &#183; 20 min read</p>
             </div>
-
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text"><em>Hey everyone (▰˘◡˘▰)<br><br>Simone Robutti is back on these pages with a new banger of political theology, picking up where he left off with his latest <a href="https://reincantamentox.substack.com/p/b3e22270-1f33-4f7d-8c57-58df56c870d7" target="_blank" rel="noopener">Drop</a>. <br><br>Today’s Drop arrives the day after the second anniversary of Aaron Bushnell’s self-immolation in front of the Israeli embassy in Washington. We did not plan it this way, but sometimes the universe knows what it’s doing. Aaron was twenty-five years old. He wore his military uniform. He said he would no longer be complicit in genocide. What he did that day is at the heart of what Simone is trying to map: the sacred logic of a body given to a cause, and what it asks of the rest of us.</em></p>
                     <p class="blk-text"><em>The piece moves through archetypes, compressed time horizons, and the spiritual crisis of a left that keeps staging protests with no power to spare. What fills the gap between the activist who burns and the organizer who builds? And what happens when a political ecosystem loses the ability to hold both together?<br><br>The Empire of Sleep is real. So is the forest. Grab a drum. <br><br>Rest in power Aaron.</em></p>
@@ -75,7 +83,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 10; --fig-rows-m: 14;"><img src="../assets/images/articles/drop-48-political-mysticism-against-1.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">Social change is weird. The creation of the New cannot be modeled. If you fully know what you’re doing, it means what you’re doing is not so innovative, or you’re just the executor of somebody else’s vision. You’re just acted upon, rather than acting.</p>
                     <p class="blk-text">The experience of choosing is not in itself agency: agency is building the choices you haven’t been offered.</p>
@@ -92,7 +100,7 @@
                 <figcaption class="blk blk--row blk-caption"><a href="https://www.cosmos.so/search/elements/Kalighat%20painting?origin=caption" target="_blank" rel="noopener">Kalighat painting</a> of the Hindu goddess <a href="https://www.cosmos.so/search/elements/Chhinnamasta?origin=caption" target="_blank" rel="noopener">Chhinnamasta</a>, c. 1885. From the <a href="https://www.cosmos.so/search/elements/British%20Museum?origin=caption" target="_blank" rel="noopener">British Museum</a> collection.</figcaption>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">It may be that molar changes determine molecular ones, that a school reform can instill new beliefs generation after generation. Or it may work the other way around: molecular changes determine molar ones, and the endless discursive work around LGBTQ issues eventually coalesces enough power to write a Gay Marriage bill.</p>
                     <p class="blk-text">There’s no need to establish a precedence: both levels evolve in parallel and feed into each other. Politics must be played with the full deck of cards. Any reasonable political strategy should be able to articulate needs and goals at both the molar and molecular levels.</p>
@@ -112,7 +120,7 @@
                 <figcaption class="blk blk--row blk-caption">Poster for the <a href="https://www.cosmos.so/search/elements/Larger%2C%20Lines%20%26%20Louts?origin=caption" target="_blank" rel="noopener">Larger, Lines &amp; Louts</a> exhibition, a collaboration with artist <a href="https://www.cosmos.so/search/elements/MELVILLE?origin=caption" target="_blank" rel="noopener">MELVILLE</a></figcaption>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">Agency comes from a shortening of the time horizon, that is, the span of time you plan for. Given a long enough look-ahead, this is all irrelevant. You can internalize the ephemeral nature of existence, contemplate eternity, and detach yourself from the world. Rookie shit, if you ask me.</p>
                     <p class="blk-text">Go hard mode: become a Saint within the world. Become a Saint by altering the world.</p>
@@ -126,7 +134,7 @@
                 <blockquote class="blk blk--rows blk-quote"><em>But Simone, you’re a union organizer. How can you say that? Isn’t starting or joining a union in the interest of workers? Isn’t tenant organizing in the interest of tenants?</em></blockquote>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">Of course it is: collective action is meant to make our lives better. But more than engaging directly with politics, the rational move seems to be to always let others do it for you, keep working, hide from consequences, and wait to reap the benefits. Everybody thinking like this is how fascists end up shooting people in the streets.</p>
                     <p class="blk-text">This logic must be broken. The usual attempt goes through arguments about material conditions and systemic effects, but it never addresses the real question: “Why me? Why not somebody else? Why now?”</p>
@@ -139,7 +147,7 @@
                 <figcaption class="blk blk--row blk-caption">The 2014 photograph <a href="https://www.cosmos.so/search/elements/Elude?origin=caption" target="_blank" rel="noopener">Elude</a> by photographer <a href="https://www.cosmos.so/search/elements/Sean%20Mundy?origin=caption" target="_blank" rel="noopener">Sean Mundy</a></figcaption>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">In the meantime, the global order is collapsing, and WW3 is knocking at the door. Business as usual is over, baby. Fascists are fucking with the money now. The Money God is dead again.</p>
                     <p class="blk-text">If CO2 emissions, soil exhaustion, constant riots, and missiles flying weren’t enough, the last few months of political news might help shorten your time horizon. Thanks, Donald.</p>
@@ -157,7 +165,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 8; --fig-rows-m: 11;"><img src="../assets/images/articles/drop-48-political-mysticism-against-5.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">One of the most recent casesis the self-immolation of Aaron Bushnell, an American tech worker and serviceman in the Navy, who set himself on fire shouting “Free Palestine!” and denouncing his complicity in the genocide.</p>
                     <p class="blk-text">Martyrdom is the construction of a system of meaning in the absence of a time horizon: my whole life finds meaning in the last instant. There’s no aftermath, no future.</p>
@@ -170,7 +178,7 @@
                 <figcaption class="blk blk--row blk-caption"><a href="https://www.cosmos.so/search/elements/Saint%20Sebastian?origin=caption" target="_blank" rel="noopener">Saint Sebastian</a>, a c. 1480 painting by <a href="https://www.cosmos.so/search/elements/Andrea%20Mantegna?origin=caption" target="_blank" rel="noopener">Andrea Mantegna</a></figcaption>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">Political Martyrdom is inevitably entangled with a specific strategic dysfunction within the far-left: the idea that sacrifice is in itself meaningful. We see it extensively in the blood ritual of many violent street protests, where protestors’ violence has no demand, no goal beyond triggering a response from the police. Long ago, this might have served to highlight the violent nature of police repression, but nowadays nobody doubts that the police exist to repress dissent, whether you think it is a bad thing or not.</p>
                     <p class="blk-text">Then why do some political niches keep chasing violent confrontation, fully aware they will be met with pepper spray, tear gas, and bullets? The desire for martyrdom is evident, but the dynamic is unsatisfactory: there’s no climactic escalation, no rupture, no closure. The fight ends, some people go to jail, some go to the hospital, and most go home.</p>
@@ -183,7 +191,7 @@
                 <figcaption class="blk blk--row blk-caption">The 1963 self-immolation of Buddhist monk <a href="https://www.cosmos.so/search/elements/Th%C3%ADch%20Qu%E1%BA%A3ng%20%C4%90%E1%BB%A9c?origin=caption" target="_blank" rel="noopener">Thích Quảng Đức</a> in Saigon, photographed by <a href="https://www.cosmos.so/search/elements/Malcolm%20Browne?origin=caption" target="_blank" rel="noopener">Malcolm Browne</a></figcaption>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">Martyrdom must have a short time horizon and a clear conclusion. If it becomes routine, it’s simple masochism.</p>
                     <p class="blk-text">The self-discipline of the effective organizer also stems from a collapse of the time horizon. The work of building power happens day after day, stacking microscopic successes, building tiny pieces of a giant infrastructure. It is viable only if the attention is drawn away from the destination and towards the next step. An urge for closure will make you run a marathon like a sprint race: you will burn out before you can accomplish anything.</p>
@@ -199,7 +207,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 11; --fig-rows-m: 16;"><img src="../assets/images/articles/drop-48-political-mysticism-against-8.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">Any structured organization is a magic circle of Truth and Order. It defines a perimeter, and, within it, a new Order exists. The failure of organizing is the attempt to maintain this barrier indefinitely. Every organization is a dead organization walking. Entropy always prevails. The choice is between being content with an ephemeral bubble of resistance or growing enough to expand the magic circle to your whole world. You will never defeat entropy, but you might defeat minor Gods of Chaos local to our society: Capitalism, Authority, Oppression.</p>
                     <p class="blk-text">The repetitive and productive impulse of the organizer must be put in dialogue with the climactic expenditure of the activist. One without the other unravels and withers away.</p>
@@ -221,7 +229,7 @@
                 <figcaption class="blk blk--row blk-caption">A monk confronts riot police during the <a href="https://www.cosmos.so/search/elements/APEC%20summit%20protests?origin=caption" target="_blank" rel="noopener">APEC summit protests</a> in Bangkok, Thailand, November 2022.</figcaption>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">Putting the physical body at risk, consciously accepting legal consequences, resolute non-violence: these are elements designed to train people into martyrdom. Organizations like XR or Last Generation have systematized and scaled this approach like few others in Europe or the USA.</p>
                     <p class="blk-text">The first sit-in is a rite of passage, necessary to fully belong to the group. After that, the trajectory is set, the horizon shortens, and bigger risks can be taken. Their current challenge is the realization that such martyrdom risks being meaningless. Non-violence creates change only when your opponent has a conscience, and that’s not the case anymore. Nonetheless, non-violence remains a viable frame to activate people politically.</p>
@@ -239,7 +247,7 @@
                 <figcaption class="blk blk--row blk-caption"><a href="https://www.cosmos.so/search/elements/Joan%20of%20Arc%20at%20the%20Coronation%20of%20Charles%20VII?origin=caption" target="_blank" rel="noopener">Joan of Arc at the Coronation of Charles VII</a> (1854) by <a href="https://www.cosmos.so/search/elements/Jean-Auguste-Dominique%20Ingres?origin=caption" target="_blank" rel="noopener">Jean-Auguste-Dominique Ingres</a></figcaption>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">She embodies Joan of Arc’s purity: a resolute attitude fueled by visions of liberation. Self-assured in the correctness of her mission, she relentlessly pursues an offensive strategy, dragging everybody behind her. Like Joan of Arc defied military hierarchies, gender norms, and ecclesiastical authority, so does Greta, navigating a complicated relationship with power and leadership in current times.</p>
                     <p class="blk-text">Joan of Arc was the defender of France, fighting for liberation, but also for the divine right of the King of France to rule over the French nation and territory. If the mode is similar, the divine order they fight for is very different. More than anything else, Greta Thunberg represents a return to Earth of Nemesis, the winged Greek Goddess of vengeance and divine retribution. Nemesis Adrasteia, the one who cannot be escaped. Wielding a sword in one hand and an hourglass in the other, she distributed punishments to men who disturbed the harmony of the world, the order of Nature, and who offended the Gods.</p>
@@ -254,7 +262,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 11; --fig-rows-m: 15;"><img src="../assets/images/articles/drop-48-political-mysticism-against-11.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">Change must start from psychosis: a disregard for reality as it presents itself. Later, there will be time to integrate your psychosis and avoid turning it into an ineffective delusion. Now, start by opening yourself to the possibility that the order of things might not be as robust as you were told. If victory is impossible and defeat is certain, change the rules of the game. Others keep doing it, why wouldn’t you?</p>
                     <p class="blk-text"><em>The last frost is the most painful for buds and birds alike. Yet, the spring inevitably follows winter.</em></p>
@@ -297,12 +305,12 @@
         <div class="footer-bottom">
             <p>2026 Reincantamento &nbsp;&#183;&nbsp; Berlin / Turin / Venice</p>
             <div class="footer-legal">
-                <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Acid mode" title="Acid mode">&#9791;</button>
                 <a href="../index.html">Home</a>
                 <a href="../about.html">About</a>
             </div>
         </div>
     </footer>
+
 
     <script src="../assets/js/site.js" defer></script>
 </body>

@@ -25,25 +25,31 @@
 
     <a class="skip-link" href="#main">Skip to content</a>
 
-    <header class="grid-header grid-row">
-        <a class="grid-header__logo" href="../index.html" aria-label="Reincantamento — home">
-            <svg viewBox="0 0 44 22" aria-hidden="true"><ellipse cx="22" cy="11" rx="22" ry="11"/></svg>
+    <header class="site-header">
+        <a class="brand" href="../index.html" aria-label="Reincantamento home">
+            <img src="../assets/images/REINC-LOGO.svg" alt="Reincantamento" width="53" height="25">
         </a>
 
-        <button class="grid-header__menu" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+        <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav">
+            <span></span><span></span><span></span>
+        </button>
 
-        <nav class="grid-nav" id="primary-nav" aria-label="Primary">
-            <a class="grid-nav__item" href="../writing/index.html" aria-current="page">Writing</a>
-            <a class="grid-nav__item" href="../publishing/index.html">Publishing</a>
-            <a class="grid-nav__item" href="../artworks/index.html">Artworks</a>
-            <span class="grid-nav__item" aria-disabled="true">Workshops</span>
-            <span class="grid-nav__item" aria-disabled="true">Talks</span>
-            <a class="grid-nav__item" href="../about.html">About</a>
+        <nav class="main-nav" id="primary-nav" aria-label="Primary">
+            <div class="nav-item">
+                <a href="../writing/index.html" class="is-active" aria-current="page">Writings</a>
+                <div class="nav-menu">
+                    <a href="../writing/index.html">Drops</a>
+                    <a href="../writing/archive.html">Archive</a>
+                </div>
+            </div>
+            <a href="../publishing/index.html">Publishing</a>
+            <a href="../artworks/index.html">Artworks</a>
+            <!-- No design yet — shown, not linked. -->
+            <span class="nav-off">Workshops</span>
+            <span class="nav-off">Talks</span>
         </nav>
 
-        <!-- The way back, in the last cell of the band: the home shell carries
-             the same corner cell, reading ABOUT there and HOME everywhere else. -->
-        <a class="grid-header__home" href="../index.html">Home</a>
+        <a class="about-btn" href="../about.html">About</a>
     </header>
 
     <div class="reading-progress" role="progressbar" aria-label="Reading progress"
@@ -59,11 +65,13 @@
 
         <div class="article grid-row">
 
-            <div class="blk-group c-narrow">
+            <!-- The colourway switch, in the square under the byline cell. -->
+            <button class="theme-switch theme-switch--inline" type="button" aria-pressed="false" aria-label="Acid mode" title="Acid mode">&#9791;</button>
+
+            <div class="blk-group c-wide">
                 <p class="blk blk--row blk-kicker">Drop #30 &#183; April 4, 2025 &#183; 15 min read</p>
             </div>
-
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text"><em>Hey everyone (▰˘◡˘▰)</em></p>
                     <p class="blk-text"><em>Welcome back to DROPS, REINCANTAMENTO’s newsletter.</em></p>
@@ -75,7 +83,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 10; --fig-rows-m: 14;"><img src="../assets/images/articles/drop-30-conjunctural-vertigo-1.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <h2 class="blk blk--row blk-heading">Introduction</h2>
                 <div class="blk blk--rows">
                     <p class="blk-text">The world-system is evolving rapidly. As bodies caught within its violent contractions, we try to find footing on shifting ground. The Leninist refrain “<em>There are decades where nothing happens; and there are weeks where decades happen</em>” captures the disorienting turbulence of 2025 thus far. What you’re about to read is my attempt at tracing a cognitive cartography: a map to render legible the complex interplay of events, affects, and perceptions that characterize this historical moment. I’m inspired by the notion of conjunctural analysis, an approach belonging to the Marxist analysis toolbox, that offers some inspiration and orientation. As described by art historian Claire Bishop:</p>
@@ -84,7 +92,7 @@
                 </div>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <h2 class="blk blk--row blk-heading">iShowSpeed in Beijing</h2>
                 <div class="blk blk--rows">
                     <p class="blk-text">To begin, a series of vignettes from the last 90 days.</p>
@@ -97,7 +105,7 @@
                 <figcaption class="blk blk--row blk-caption">US Tech Stocks after Deepseek release</figcaption>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">It was precisely this anxiety regarding China's technological ascendancy that prompted Silicon Valley's elite to pledge allegiance to Trump's restored administration just days before DeepSeek's launch. This strategic realignment of tech interests with MAGA ideology signals a fundamental shift: globalization has reached its terminus, even for transnational capital itself.</p>
                     <p class="blk-text">The free market, guided by large investment groups (e.g., BlackRock, Vanguard, State Street, Fidelity), no longer ensures the continuation of US-American hegemony, and US-made capitalists yield to Trumpian protectionism in the hope of maintaining their dominance.</p>
@@ -112,7 +120,7 @@
                 <figcaption class="blk blk--row blk-caption">Meme of the year so far</figcaption>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">DeepSeek, BYD, but also TikTok. If DeepSeek is this century’s Sputnik, it is also part of a longer arc, what Giovanni Arrighi called a hegemonic transition. The U.S. moves from productive to financial dominance, while China builds its counter-hegemonic infrastructure not through war but through chips, cables, and clean vehicles. The story of TikTok and its ban constitutes even a doubled Sputnik moment, if I may. Firstly, a social platform made in China becomes a leader in the attention economy, revolutionizing content creation. Second, through the paradoxical consequence of attempted US regulation, an unprecedented migration of Western users takes place towards another Chinese platform, Red Notes. The containment strategy inverted into its opposite, and <a href="https://reincantamentox.substack.com/p/drop-24-red-notes" target="_blank" rel="noopener">a digital exodus</a> beyond the Great Firewall took place.</p>
                     <p class="blk-text">The latest to jump over the Great Firewall is none other than iShowSpeed, the most famous Twitch streamer in the world. A young man from Cincinnati, Ohio, iShowSpeed visited China in March and streamed to his millions of followers his wonder at Chinese urban landscapes and technologies.</p>
@@ -127,7 +135,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 5; --fig-rows-m: 6;"><img src="../assets/images/articles/drop-30-conjunctural-vertigo-4.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">A vignette to capture this spirit: Musk is livestreaming Path of Exile 2 on X, claiming mastery at the "highest level" in the game. But the more he plays live, the more his fundamental ignorance of basic game mechanics is revealed. <a href="https://gizmodo.com/path-of-exile-2-players-call-bullshit-on-elon-musks-video-game-stream-2000548126" target="_blank" rel="noopener">Gaming experts</a> dissect the stream, concluding what seems obvious: someone else has built these characters, which Musk commandeers for performative authenticity. This pathological need to be perceived as exceptional—whether in gaming, business, or politics—reveals the desperate compensation driving his alliance with Trump. While his estranged daughter Vivian calls him a "pathetic man-child" performing Nazi salutes at Trump rallies, Musk continues his multi-platform performance: <strong>the businessman-gamer-political kingmaker desperate to project strength while his legitimacy literally melts away in parking lots across the world.</strong></p>
                 </div>
@@ -138,7 +146,7 @@
                 <figcaption class="blk blk--row blk-caption">Musk playing Diablo 4</figcaption>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">But Musk is not alone, nor he is the most important character. Trump is allowing a faction of US capitalism - Musk, Peter Thiel, the so-called Paypal Mafia, the Bitcoiners, etc. - to access the federal offices directly. MAGA follows Mussolini’s playbook. Scared and terrified to lose American supremacy against China, they are gambling on a quick, as efficient as possible, autocratic revolution to forge violently the new Federal State allegedly readier for the geopolitical competition of the XXI century.</p>
                 </div>
@@ -149,7 +157,7 @@
                 <figcaption class="blk blk--row blk-caption">Tesla burning</figcaption>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">This strategic approach was illuminated in a February 2025 New York Times <a href="https://www.nytimes.com/2025/02/02/opinion/ezra-klein-podcast-trump-column-read.html" target="_blank" rel="noopener">piece</a> by Ezra Klein, who resurfaced a revealing 2019 interview with Steve Bannon. In this exchange, Bannon articulated his *accelerationist* approach in clear terms:</p>
                 </div>
@@ -159,7 +167,7 @@
                 <blockquote class="blk blk--rows blk-quote"><em>&gt; Steve Bannon: The opposition party is the media. And the media can only, because they're dumb and they're lazy, they can only focus on one thing at a time. <br><br>All we have to do is flood the zone. Every day we hit them with three things. They'll bite on one, and we'll get all of our stuff done. Bang, bang, bang. These guys will never, will never be able to recover. But we've got to start with muzzle velocity. So it's got to start, and it's got to hammer, and it's got to </em><em>&gt; Michael Kirk: What was the word?</em><em>&gt; Bannon: <strong>Muzzle velocity.</strong></em></blockquote>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">Bannon’s muzzle velocity is the most recent articulation of the fascist passion for speed and acceleration, passionately debunked by the British philosopher Benjamin Noys in <em>Malign Velocities</em>. Here emerges the eerie similarity between Italian Fascism and its fascination for Futurism and MAGA's recent passion for Big Tech. Throughout these weeks, I’ve been watching the TV show "<em>M - The Son of the Century</em>", a great portrayal of Italy's authoritarian transition in the 1920s.</p>
                 </div>
@@ -170,7 +178,7 @@
                 <figcaption class="blk blk--row blk-caption">Marinelli as Mussolini in “M - The Son of the Century”</figcaption>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">In a <a href="https://www.youtube.com/watch?v=WGFEahuhlcE&amp;t=3s&amp;ab_channel=HotCorn" target="_blank" rel="noopener">pivotal scene</a> from the fourth episode, Mussolini, interpreted by a great Luca Marinelli, reflects on the infamous "March on Rome”:</p>
                 </div>
@@ -180,7 +188,7 @@
                 <blockquote class="blk blk--rows blk-quote"><em>"Certainly it is suicide. The army will tear us to pieces... it's a ridiculous plan, you know it. With the command cut off, garrisons concentrated hours and hours of walking away from Rome. To whom the victory? To whom the victory? And I am against suicide. They don't know it—it's all pretense. March, rise up? What are we, crazy? To Rome? Pretend, pretend to be ready to march, pretend to rise up. It's all performance that, to be credible, needs a certain... reality. And so, movement, lots of movement, going here and there, spreading the word: 'They're gathering, they're marching, they're rising up.' Oh God. Give them more. Give them everything they want."</em></blockquote>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">The OG muzzle velocity. The cultivation of chaos as a governance strategy. A performative insurrection overwhelms institutional response mechanisms and creates fertile conditions for a despotic consolidation. The seismic restructuring of America's institutional architecture sends waves all over the globe. The hegemonic power becomes the rogue state.</p>
                 </div>
@@ -191,13 +199,13 @@
                 <figcaption class="blk blk--row blk-caption">March on Rome, 1922</figcaption>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">Sometimes, Trump’s historical trajectory reminds me more of Gorbachev’s rather than Mussolini’s. An impossible reform doomed to fail. As I complete this piece, the Trump administration extended its assault on the global trade system, promising tariffs against enemies and friends alike. Muzzle velocity. Or in tech parlance: “move fast and break things”. But can calcified systems withstand such shock therapies without fundamental rupture?</p>
                 </div>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <h2 class="blk blk--row blk-heading"><strong>The Day that Ended Austerity</strong></h2>
                 <div class="blk blk--rows">
                     <p class="blk-text">Series that intersect: the series of the US authoritarian revolution meets the breakthrough of the Chinese empire into the Western mainstream. Both meet and how could it be otherwise, the European convulsion and the attempts at movement in the Old Continent. Attempts that agitate in opposite directions.</p>
@@ -209,7 +217,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 7; --fig-rows-m: 10;"><img src="../assets/images/articles/drop-30-conjunctural-vertigo-9.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">Friedrich Merz, a billionaire investment lawyer, served on over 15 corporate boards, including as BlackRock Germany's chairman, earning millions in consulting fees. Moreover, his close relationships with chemical and metallurgical industries—top CDU donors—raise conflict of interest concerns. Despite these ambiguous ties, Merz won the German election at the end of February and prepares to become the next German Chancellor, and his early, rapid moves are setting the future European landscape.</p>
                     <p class="blk-text">In the next vignette, I’m on a Deutsche Bahn train moving between Amsterdam and Berlin, obsessively reading economist Alessandro Volpi's latest analysis, which excavates the structural logic beneath Merz's financial choreography.</p>
@@ -223,7 +231,7 @@
                 <figcaption class="blk blk--row blk-caption">Frankfurt, 18th March 2015</figcaption>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">Blockupy militants, including my friend N., were fighting the German model of austerity, which moralized about fiscal rectitude, that demanded Greece (and to a minor extent Italy, Spain, and Portugal) to sell its ports, airports, and islands to service unpayable debts, that has halted public investments on their own infrastructure and social support.</p>
                     <p class="blk-text">Now, after a decade, the same German state suspends its sacred debt brake. The Welfare State mutates into a Warfare State in what seems to be a smooth rebranding operation. Synchronously, the EU Commission, led by the weak leadership of Ursula von Der Leyen, unleashes the re-arm plan as its main priority. In ten days, a collective psy-op is launched against the European population to convince them that a war is imminent, and this justifies every other budget cut.</p>
@@ -235,7 +243,7 @@
                 <figcaption class="blk blk--row blk-caption">Rebranding EU</figcaption>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">Although it is strategically sensible to talk about European military independence, the claims that Putin, the same Putin that has been stuck in Donbas for the past 11 years, could invade and conquer European territory tomorrow are second-tier propaganda. However, the propaganda pace left me confused for some days, and only on that train going back to Berlin, I found what appeared to be a lucid reading of the events.</p>
                     <p class="blk-text">In Volpi's analysis, which he shared through his Facebook page and on the leftist and (extremely) populist channel OttolinaTV, the German fiscal policy shift—this "trillion-euro injection" facilitated through constitutional reforms—performs three distinct yet interconnected functions within the evolving logic of the present conjuncture.</p>
@@ -252,7 +260,7 @@
                 <figcaption class="blk blk--row blk-caption">Credits: Shumon Basar</figcaption>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">The genocide, backed by Western powers standing firmly with Netanyahu, doesn't merely exist alongside the other phenomena we've observed; it fundamentally distorts the gravitational field in which we all operate. The true inflection point is Gaza: everything that is taking place exists in a world where genocide is supported. Such a horror can’t help but consume the West from within. Violence is the rule, and deportations of activists, criminalization of solidarity, and academic purges are the new norm.</p>
                 </div>
@@ -262,7 +270,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 10; --fig-rows-m: 14;"><img src="../assets/images/articles/drop-30-conjunctural-vertigo-13.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">But mere outrage is not a luxury we can afford. The conjuncture forces us to look beyond the direness of the present, to diverge from the fixation on the imperial core. To look, for instance, at a final set of vignettes. In Istanbul, a protester in a Pikachu costume ran away from tear gas, in the greatest protest against Erdogan in half a decade. In Athens, the streets flooded again against the arrogance of power. In Jakarta, where young generations are fighting the return of militarism. Finally, in Belgrade, where the streets are crowded by the biggest student movement on the European continent since 1968.</p>
                     <p class="blk-text">Not anomalies, but signals. Tremors of refusal inside a world-system cracking open.</p>
@@ -306,12 +314,12 @@
         <div class="footer-bottom">
             <p>2026 Reincantamento &nbsp;&#183;&nbsp; Berlin / Turin / Venice</p>
             <div class="footer-legal">
-                <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Acid mode" title="Acid mode">&#9791;</button>
                 <a href="../index.html">Home</a>
                 <a href="../about.html">About</a>
             </div>
         </div>
     </footer>
+
 
     <script src="../assets/js/site.js" defer></script>
 </body>

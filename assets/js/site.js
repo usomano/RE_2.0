@@ -30,6 +30,19 @@
 
     let queued = false;
 
+    /* Snap the WRITINGS cell to the grid — see the same block in main.js: the
+       nav is a row of text with gaps, its blue square is cell-sized, and a
+       square off the painted lines reads as a mistake on a page made of them. */
+    const navItem = document.querySelector('.nav-item');
+
+    const snapNavItem = (cell) => {
+        if (!navItem) return;
+        navItem.style.left = '';
+        if (window.innerWidth <= MOBILE_BP) return;
+        const x = navItem.getBoundingClientRect().left;
+        navItem.style.left = (Math.round(x / cell) * cell - x) + 'px';
+    };
+
     const fitGrid = () => {
         queued = false;
         const w = root.clientWidth;
@@ -37,6 +50,12 @@
         const cell = w / cols;
         root.style.setProperty('--cols', String(cols));
         root.style.setProperty('--cell', cell + 'px');
+        // The colourway switch sits in the last WHOLE row of the first screen.
+        // The module is square here, so the viewport height rarely divides by
+        // it: measure where that row starts rather than hanging off the bottom.
+        const rows = Math.max(1, Math.floor(window.innerHeight / cell));
+        root.style.setProperty('--screen-last-row', ((rows - 1) * cell) + 'px');
+        snapNavItem(cell);
         snapBlocks(cell);
     };
 
@@ -54,7 +73,13 @@
         const blocks = document.querySelectorAll(SNAP);
         if (!blocks.length) return;
         // Measure every block first, then write — one reflow instead of N.
-        blocks.forEach((el) => { el.style.height = 'auto'; });
+        // The .blk--row / .blk--rows floors are the no-JS fallback: once the
+        // copy can actually be measured they would only keep a one-line block
+        // from closing up to a single row, so they come off first.
+        blocks.forEach((el) => {
+            el.style.height = 'auto';
+            if (el.classList.contains('blk')) el.style.minHeight = '0';
+        });
         const rows = [];
         blocks.forEach((el) => {
             // The copy is top-aligned in the snapped box, so the block only has
@@ -83,9 +108,11 @@
         document.fonts.ready.then(scheduleFit);
     }
 
-    /* ---- Mobile navigation ---- */
-    const menuBtn = document.querySelector('.grid-header__menu');
-    const nav = document.querySelector('.grid-nav');
+    /* ---- Mobile navigation ----
+       Same header as the home shell, so the same control: a hamburger that
+       drops a full-screen panel. */
+    const menuBtn = document.querySelector('.nav-toggle');
+    const nav = document.querySelector('.main-nav');
 
     if (menuBtn && nav) {
         const setOpen = (open) => {
@@ -112,7 +139,7 @@
 
         document.addEventListener('click', (e) => {
             if (menuBtn.getAttribute('aria-expanded') !== 'true') return;
-            if (!e.target.closest('.grid-header')) setOpen(false);
+            if (!e.target.closest('.site-header')) setOpen(false);
         });
     }
 
@@ -261,7 +288,7 @@
     /* ---- Acid mode ----
        theme.js has already applied the stored choice; here we only wire the
        switch and persist what the reader picks. */
-    const toggle = document.querySelector('.theme-toggle');
+    const toggle = document.querySelector('.theme-switch, .theme-toggle');
 
     if (toggle) {
         const sync = () => {

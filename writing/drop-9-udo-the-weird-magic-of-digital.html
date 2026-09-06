@@ -25,25 +25,31 @@
 
     <a class="skip-link" href="#main">Skip to content</a>
 
-    <header class="grid-header grid-row">
-        <a class="grid-header__logo" href="../index.html" aria-label="Reincantamento — home">
-            <svg viewBox="0 0 44 22" aria-hidden="true"><ellipse cx="22" cy="11" rx="22" ry="11"/></svg>
+    <header class="site-header">
+        <a class="brand" href="../index.html" aria-label="Reincantamento home">
+            <img src="../assets/images/REINC-LOGO.svg" alt="Reincantamento" width="53" height="25">
         </a>
 
-        <button class="grid-header__menu" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+        <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav">
+            <span></span><span></span><span></span>
+        </button>
 
-        <nav class="grid-nav" id="primary-nav" aria-label="Primary">
-            <a class="grid-nav__item" href="../writing/index.html" aria-current="page">Writing</a>
-            <a class="grid-nav__item" href="../publishing/index.html">Publishing</a>
-            <a class="grid-nav__item" href="../artworks/index.html">Artworks</a>
-            <span class="grid-nav__item" aria-disabled="true">Workshops</span>
-            <span class="grid-nav__item" aria-disabled="true">Talks</span>
-            <a class="grid-nav__item" href="../about.html">About</a>
+        <nav class="main-nav" id="primary-nav" aria-label="Primary">
+            <div class="nav-item">
+                <a href="../writing/index.html" class="is-active" aria-current="page">Writings</a>
+                <div class="nav-menu">
+                    <a href="../writing/index.html">Drops</a>
+                    <a href="../writing/archive.html">Archive</a>
+                </div>
+            </div>
+            <a href="../publishing/index.html">Publishing</a>
+            <a href="../artworks/index.html">Artworks</a>
+            <!-- No design yet — shown, not linked. -->
+            <span class="nav-off">Workshops</span>
+            <span class="nav-off">Talks</span>
         </nav>
 
-        <!-- The way back, in the last cell of the band: the home shell carries
-             the same corner cell, reading ABOUT there and HOME everywhere else. -->
-        <a class="grid-header__home" href="../index.html">Home</a>
+        <a class="about-btn" href="../about.html">About</a>
     </header>
 
     <div class="reading-progress" role="progressbar" aria-label="Reading progress"
@@ -59,11 +65,13 @@
 
         <div class="article grid-row">
 
-            <div class="blk-group c-narrow">
+            <!-- The colourway switch, in the square under the byline cell. -->
+            <button class="theme-switch theme-switch--inline" type="button" aria-pressed="false" aria-label="Acid mode" title="Acid mode">&#9791;</button>
+
+            <div class="blk-group c-wide">
                 <p class="blk blk--row blk-kicker">Drop #9 &#183; January 19, 2024 &#183; 15 min read</p>
             </div>
-
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text"><em>Hey everyone (▰˘◡˘▰) </em></p>
                     <p class="blk-text"><em>Happy 2024 and welcome back to Drops, REINCANTAMENTO’s newsletter. Today we present a very weird double-review of two texts coming from the Italosphere. It’s a bizarre exploration of digital oddities and an update of my idea of technological enchantment. Enjoy.</em></p>
@@ -74,7 +82,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 8; --fig-rows-m: 11;"><img src="../assets/images/articles/drop-9-udo-the-weird-magic-of-digital-1.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">To grasp new entities and to describe fluctuating phenomena, we need to elaborate new words. Sometimes are precisely such terms that can connotate human epistemological boundaries, precise enough to characterize the limits of our definitions. Matteo Lupetti’s <em><a href="https://nuovesido.it/store/collezione-tebe/udo-guida-ai-videogiochi-nellantropocene/" target="_blank" rel="noopener">UDO: A Guide to Videogames in the Anthropocene</a> </em>(Edizioni Sido, 2023) is a curious attempt in the direction of this epistemic uncertainty. UDO stands for Unidentified Digital Objects, echoing alien sightings and Wu Ming’s idea of <a href="https://manifold.umn.edu/read/untitled-34f12cf9-ea75-4238-bf77-5d295b8a082e/section/7715358f-c3a3-44a9-aa11-05f28b3fa6d8" target="_blank" rel="noopener">Unidentified Narrative Objects.</a> Under this nomenclature, the Italian game critic decides to embark on a multi-dimensional journey through the various layers of the videogame stack. The videogame object is traversed from a number of intersecting perspectives forging a unique lens on the issue at hand. A similar alien phenomenology is applied to our online life by the art historian Valentina Tanni in her new lysergic book <em><a href="https://www.neroeditions.com/product/exit-reality/" target="_blank" rel="noopener">Exit Realit</a></em><a href="https://www.neroeditions.com/product/exit-reality/" target="_blank" rel="noopener">y</a> (Nero, 2023). When read together, these two instances of what I like to call <em>New Weird Italian Theory</em>, compose a landscape of technological enchantment and mystery, which interests with some recurring topics of REINCANTAMENTO.</p>
                 </div>
@@ -84,7 +92,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 6; --fig-rows-m: 8;"><img src="../assets/images/articles/drop-9-udo-the-weird-magic-of-digital-2.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <h2 class="blk blk--row blk-heading">The Minus World</h2>
                 <div class="blk blk--rows">
                     <p class="blk-text">One might say that Lupetti is a particularly humble critic. Instead of articulating an encompassing theory of the videogame, the author is the first to tackle the idea that his object of study is, precisely, <strong>unidentifiable</strong>. The use of this term is a performative act, unhinging the epistemic pretensions of the critic, and recognizing, in the videogame object, an ineffable essence. <br><br>What is so mysterious about games? Each videogame player can precisely define what Red Dead Redemption 2 is, distinguish it from Persona 5, and not confuse it with Baldur’s Gate 3. Videogames would seem, at first glance, to be objects of consumption like many others. At the same time, many videogames - certainly the three mentioned - are considered first-rate artistic works. They are not just a simple commodity or another digital service.</p>
@@ -95,7 +103,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 6; --fig-rows-m: 8;"><img src="../assets/images/articles/drop-9-udo-the-weird-magic-of-digital-3.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">Artistic works, in Western understanding, are usually signed by their creator. But who is the author of a videogame? With this first, simple question, our certainties begin to crack. Of course, if we talk about Death Stranding, on whose initial screen the inscription "A HIDEO KOJIMA'S GAME" stands, it seems easy to recognize the author. Kojima boasts of supervising every phase of development and, for this reason, seems to deserve the title of author. However, Kojima himself is nothing more than the poster boy for his semi-independent production house, Kojima Productions, which employs dozens, if not hundreds, of professional figures. Authoriality becomes even more nebulous when referred not to <em>ateur </em>games but to more mainstream pieces of software, like <em>Super Mario Kart</em>. Who’s the author of <em>Mario Kart</em>? We usually refer to it as a Nintendo game, forsaking the names of Shigeru Miyamoto, Tadashi Sugiyama, and Hideki Konno - considered “creators” on the game’s Wikipedia page - for the brand’s name, the big N.</p>
                     <p class="blk-text">Certainly, authoriality is an intricate matter but it’s not the only aspect where the unidentifiable core of videogame is revealed. However, what truly characterizes a game as a <em>creative form </em>is the interactive component: the laborious act of <em>playing </em>with a system. As Ian Bogost states:</p>
@@ -106,7 +114,7 @@
                 <blockquote class="blk blk--rows blk-quote"><em>The only problem is that you have to play the game to do so. And playing a game is a chore. That’s the big problem with videogames: To enjoy them, you have to play them. And playing them requires exerting the effort to operate them. Games are machines, and broken ones at that. The player’s job is to make them work again.</em></blockquote>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">I, personally, feel the effort of playing a game more and more, especially when compared to the consumption of content conveyed by social media. I sometimes feel tired or simply too distracted to focus on the immersive experience of a digital game. This fact, Lupetti notices, explains the success of Twitch or YouTube gaming channels, which transform the player's agentivity into the viewer’s passivity.</p>
                     <p class="blk-text">To lighten such friction, game designers are usually committed to creating a smooth, funny, and user-friendly experience. This is achieved through a system of hints and associations, incentives, and environmental cues that guide the player’s journey. A closed door is associated with a key or some other opening mechanism, a broken machine with a missing piece hidden somewhere, a powerful enemy with some counter-move or secret strategy, and so on. Games are closed systems, designed by almighty creators who confer to the players a meaningful feeling of agency. As put by C. Thi Nguyen in his study on<a href="https://philarchive.org/rec/NGUPCP" target="_blank" rel="noopener"> the philosophy of games</a>:</p>
@@ -117,7 +125,7 @@
                 <blockquote class="blk blk--rows blk-quote"><em>To play a game is to take up unnecessary obstacles for the sake of the activity they make possible…Playing games inverts the usual relationship of means and ends. In practical life, we select means for the sake of an independently valuable end. In the game life, on the other hand, we select an arbitrary end for the sake of undergoing some particular means.</em></blockquote>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">Within the sculpted space of a game, players can be free and creative to solve problems and puzzles, overcome obstacles, and, ultimately, complete their journey. Such freedom extends until the system’s limits: one can play unpredictably, virtuously, or <a href="https://en.wikipedia.org/wiki/Speedrunning" target="_blank" rel="noopener">speedrun the game</a>, but still, the player is some sort of pawn following an already designed path.</p>
                     <p class="blk-text">Until something twitches.</p>
@@ -130,7 +138,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 7; --fig-rows-m: 9;"><img src="../assets/images/articles/drop-9-udo-the-weird-magic-of-digital-4.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">To understand this glitch, it's crucial to note that Super Mario Bros. retrieves graphical elements, including numbers, directly from the Game Pak rather than having them internally stored. In this glitch, a graphic representing a blank space is stored in a specific slot (slot 36) in the game's memory. This blank space image is then mistakenly used as a numerical identifier to determine the destination of the glitched pipe.</p>
                     <p class="blk-text">Upon entering the glitched pipe, the game attempts to take the player to what would logically be World 36. However, since this world does not exist in the game's regular structure, the unintended consequence is that players find themselves in what has come to be known as the Minus World. This world, in its original form for the Famicom and Nintendo Entertainment System, consists of a single level sourced from the second level of World 7. The Minus World is characterized by its peculiar loop of underwater stages, presenting players with a seemingly endless and inescapable aquatic maze. On the Japanese Famicom version, this stage looks even weirder with random appearances of Princess Peach and Mario swimming in the sky.</p>
@@ -141,7 +149,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 6; --fig-rows-m: 8;"><img src="../assets/images/articles/drop-9-udo-the-weird-magic-of-digital-5.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">The Minus World is the product of the unpredictable interaction between the software - the game Pak - and the hardware - the NES system. A glitch that reveals the latent space of possibilities contained within the system designated by Nintendo: it is the software that shows <em>agentivity, </em>escaping the developers’ limits, and disclosing alternative paths of freedom to the players. A glitch breaks through the “fourth wall”, reminding us how the simulation we’re experiencing is encapsulated in a physical object with computational characteristics.</p>
                     <p class="blk-text">The glitch is a revelatory moment that breaks the illusion of control implied in the user-machine relationship. The glitch cracks the smoothness of <em>the user condition </em>- to borrow <a href="https://theusercondition.computer/" target="_blank" rel="noopener">an expression </a>from Silvio Lorusso - and brings us closer to the multi-layered truths scaffolded into a device. Once the controlled simulation starts to glitch, alternative threads of worldbuilding unfold showing eerie and incomplete environments where the players wander freely.</p>
@@ -151,7 +159,7 @@
                 </div>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <h2 class="blk blk--row blk-heading">We all live in a magic UDO</h2>
                 <div class="blk blk--rows">
                     <p class="blk-text"><em>The technicized landscape also takes on the meaning of a work of art<br>Gilbert Simondon<br><br>If we have no wonder and enchantment for a new world, who will ever follow us?<br>Wu Ming</em></p>
@@ -163,7 +171,7 @@
                 <blockquote class="blk blk--rows blk-quote"><em>[...] I don’t think we even see the tip of the Iceberg… I think the potential of the Internet is going to do to society, both good and bad, is UNIMAGINABLE. I think we’re actually on the cusp of something exhilarating and terrifying! No no no, it’s an alien lifeform. [...] Is there life on Mars? Yes and it’s just landed here! </em></blockquote>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">This fragment obsessed me for years: an almost oracular affirmation, coming from the #1 Martian of the XX century. With REINCANTAMENTO, we recently inserted it in our recent video essay <em><a href="https://reincantamento.xyz/Harvesting-The-Net-eng" target="_blank" rel="noopener">Harvesting The Net</a>, </em>using it as a compass for our exploration of digital gardens.</p>
                     <p class="blk-text">Under Bowie’s words’ auspices, Valentina Tanni recently published <em>Exit Reality, </em>a brilliant dissection of the different practices and aesthetics that exist in the lap of this alien form, that we call the Internet. Bowie’s statement echoes through the volume, reverberating in the collection of stories on digital folklore.</p>
@@ -175,7 +183,7 @@
                 <figcaption class="blk blk--row blk-caption">Corecore is one of the finest examples of recent online foklore</figcaption>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">It is no coincidence that a central concept in Tanni’s analysis is the idea of <em>no-clipping</em>, which comes from the world of videogame glitches. To no-clip means to maneuver a videogame’s character in such a way that the game glitches and loses its pre-defined geometrical boundaries, allowing the player to move the character freely through walls, obstacles, and other normally impassable objects within the game environment. To access the Minus World - the #1 Super Mario glitch I described above - one has to no-clip Mario from the screen.</p>
                     <p class="blk-text">A glitch is a rupture from existing rules, a denial of existing but also an affirmative production of something new. The online collective subconscious adopted this expression from videogames and created a new mythology out of it. It sprawled from a pre-pandemic 4chan anonymous post, that read:</p>
@@ -188,7 +196,7 @@
                 <figcaption class="blk blk--row blk-caption">The Backrooms</figcaption>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">Imagining that you can “no-clip” in real life, the anonymous originator ignited the networked imagination. What are these Backrooms? They are often described as an unsettling and infinite series of interconnected, identical, and poorly lit rooms that seem to stretch on endlessly. These rooms are characterized by mundane and outdated aesthetics, such as old-fashioned carpets, flickering fluorescent lights, and plain walls.</p>
                     <p class="blk-text">The backrooms have become a prominent element in online horror and urban legends, inspiring creative storytelling, art, and more games. They tap into the fear of the unknown, creating a virtual space that is simultaneously familiar and uncanny. The lore of backrooms propagated horizontally, enriched by a constant flow of new details and interpretations.</p>
@@ -204,7 +212,7 @@
                 <figcaption class="blk blk--row blk-caption">Procedural horror?</figcaption>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">Tanni explains the fascination for liminal spaces, backrooms, and procedural environments with the feeling of <em>kenopsia, </em>coined by the <a href="https://www.dictionaryofobscuresorrows.com/post/27720773573/kenopsia" target="_blank" rel="noopener">Dictionary of Obscure Sorrows</a>:</p>
                 </div>
@@ -214,7 +222,7 @@
                 <blockquote class="blk blk--rows blk-quote"><em>[</em>Kenopsia is<em>] the eerie, forlorn atmosphere of a place that’s usually bustling with people but is now abandoned and quiet—a school hallway in the evening, an unlit office on a weekend, vacant fairgrounds—an emotional afterimage that makes it seem not just empty but hyper-empty, with a total population in the negative, who are so conspicuously absent they glow like neon signs.</em></blockquote>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">Moreover, I believe that part of this internet fixation it’s also explainable by the clash between the human player and a sort of <em>alien </em>intelligence that we perceive is at work in the game, feeding us with infinite content that we can’t recognize as similar to us. In the indie game scene, works like <a href="https://dmstfctn.net/related-matters/godmode-epochs/" target="_blank" rel="noopener">Godmode Epochs</a> or the <a href="https://movingcastles.world/" target="_blank" rel="noopener">Moving Castles</a> pieces play with procedural horror on various layers, using algorithmic-generated content to craft the <em>lore </em>and the plot of the game: the uncanny feeling of looking <a href="https://reincantamento.xyz/REINCANTAMENTO-Episodio-9-Guardare-la-sproporzione" target="_blank" rel="noopener">the Basylisc</a> in its eyes.</p>
                     <p class="blk-text"><em>Exit Reality </em>investigates other Internet phenomena like ASMR videos, the culture of <em>vibes, </em>and the poly-faceted <em>cores </em>aesthetics. Tanni depicts an <em>enchanted </em>Web, where the online vernacular is a vehicle for the penetration of wonderment in our lives. For instance, a generation of Internet citizens is growing with the confidence that things can be <em><a href="https://www.vox.com/the-goods/21524975/manifesting-does-it-really-work-meme" target="_blank" rel="noopener">manifested</a></em> by thinking. However, I am hesitant if this is a proper <em>belief</em> and whether people truly trust their inner “magic” capacities.</p>
@@ -228,7 +236,7 @@
                 <figcaption class="blk blk--row blk-caption">Credit: Institute of Network Cultures</figcaption>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">This new emergence of esotericism and magic is often interpreted as a response to the world's instability, representing a retreat into the private realm—a fixation of a generation seemingly adrift. However, as I attempted to outline <a href="https://reincantamentox.substack.com/p/drops-3-notes-on-technic-and-magic" target="_blank" rel="noopener">in this newsletter</a>, perhaps this is the nascent stage of a new form of politics utilizing innovative methods. If individuals are actively seeking ways to shape their own experiences, modeling the fabric of reality through digital artifacts, we could harness these methods to catalyze a distinct political sensibility. Much like the <a href="https://en.wikipedia.org/wiki/Memetic_warfare" target="_blank" rel="noopener">transformative impact of memes</a>, the emerging digital aesthetics of the 2020s have the potential to foreshadow alternative avenues for influencing the world. <br><br>I briefly mentioned Wu Ming at the beginning of this text and I want to conclude by quoting a passage from their latest novel <em>Ufo 78</em>, which weaves together aliens, politics and magic:</p>
                     <p class="blk-text">“<em>So, enchantment and engagement are not mutually alternative: rather, an alliance between imagination and reason is needed. Because even if Martians are not coming to take us away, the noses up, scanning the sky, serve to reconnect with each other and to look at the vicissitudes of planet Earth from a different perspective</em>”.</p>
@@ -272,12 +280,12 @@
         <div class="footer-bottom">
             <p>2026 Reincantamento &nbsp;&#183;&nbsp; Berlin / Turin / Venice</p>
             <div class="footer-legal">
-                <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Acid mode" title="Acid mode">&#9791;</button>
                 <a href="../index.html">Home</a>
                 <a href="../about.html">About</a>
             </div>
         </div>
     </footer>
+
 
     <script src="../assets/js/site.js" defer></script>
 </body>

@@ -25,25 +25,31 @@
 
     <a class="skip-link" href="#main">Skip to content</a>
 
-    <header class="grid-header grid-row">
-        <a class="grid-header__logo" href="../index.html" aria-label="Reincantamento — home">
-            <svg viewBox="0 0 44 22" aria-hidden="true"><ellipse cx="22" cy="11" rx="22" ry="11"/></svg>
+    <header class="site-header">
+        <a class="brand" href="../index.html" aria-label="Reincantamento home">
+            <img src="../assets/images/REINC-LOGO.svg" alt="Reincantamento" width="53" height="25">
         </a>
 
-        <button class="grid-header__menu" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+        <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav">
+            <span></span><span></span><span></span>
+        </button>
 
-        <nav class="grid-nav" id="primary-nav" aria-label="Primary">
-            <a class="grid-nav__item" href="../writing/index.html" aria-current="page">Writing</a>
-            <a class="grid-nav__item" href="../publishing/index.html">Publishing</a>
-            <a class="grid-nav__item" href="../artworks/index.html">Artworks</a>
-            <span class="grid-nav__item" aria-disabled="true">Workshops</span>
-            <span class="grid-nav__item" aria-disabled="true">Talks</span>
-            <a class="grid-nav__item" href="../about.html">About</a>
+        <nav class="main-nav" id="primary-nav" aria-label="Primary">
+            <div class="nav-item">
+                <a href="../writing/index.html" class="is-active" aria-current="page">Writings</a>
+                <div class="nav-menu">
+                    <a href="../writing/index.html">Drops</a>
+                    <a href="../writing/archive.html">Archive</a>
+                </div>
+            </div>
+            <a href="../publishing/index.html">Publishing</a>
+            <a href="../artworks/index.html">Artworks</a>
+            <!-- No design yet — shown, not linked. -->
+            <span class="nav-off">Workshops</span>
+            <span class="nav-off">Talks</span>
         </nav>
 
-        <!-- The way back, in the last cell of the band: the home shell carries
-             the same corner cell, reading ABOUT there and HOME everywhere else. -->
-        <a class="grid-header__home" href="../index.html">Home</a>
+        <a class="about-btn" href="../about.html">About</a>
     </header>
 
     <div class="reading-progress" role="progressbar" aria-label="Reading progress"
@@ -59,15 +65,17 @@
 
         <div class="article grid-row">
 
-            <div class="blk-group c-narrow">
-                <p class="blk blk--row blk-kicker">Drop #43 &#183; December 26, 2025 &#183; 10 min read</p>
-            </div>
+            <!-- The colourway switch, in the square under the byline cell. -->
+            <button class="theme-switch theme-switch--inline" type="button" aria-pressed="false" aria-label="Acid mode" title="Acid mode">&#9791;</button>
 
-            <div class="blk-group c-narrow">
+            <div class="blk-group c-wide">
                 <p class="blk blk--row blk-lede">Working Notes</p>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide">
+                <p class="blk blk--row blk-kicker">Drop #43 &#183; December 26, 2025 &#183; 10 min read</p>
+            </div>
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text"><em>Hey everyone (▰˘◡˘▰)</em></p>
                     <p class="blk-text"><em>On Christmas Eve morning, I quickly posted a small holiday greeting card on REINCANTAMENTO’s Instagram page. The card was also a somewhat celebratory comment on what I believe to be an important act of cultural activism that took place earlier this week: the action by Anna’s Archive team, the <a href="https://annas-archive.org/" target="_blank" rel="noopener">largest shadow library </a>in history, against Spotify. The operation led to the liberation of 86 million audio files totaling 300 terabytes, now publicly distributed via torrent.</em></p>
@@ -83,7 +91,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 10; --fig-rows-m: 14;"><img src="../assets/images/articles/drop-43-spotify-vs-annas-archive-2.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">Let's start from the facts. On December 20th, the Anna's Archive team published an <a href="https://annas-archive.org/blog/backing-up-spotify.html" target="_blank" rel="noopener">article</a> announcing they had backed up Spotify. They say:</p>
                 </div>
@@ -93,7 +101,7 @@
                 <blockquote class="blk blk--rows blk-quote"><em>We backed up Spotify (metadata and music files). It’s distributed in bulk torrents (~300TB), grouped by popularity.</em><em>This release includes the largest publicly available music metadata database with 256 million tracks and 186 million unique ISRCs.</em><em>It’s the world’s first “preservation archive” for music which is fully open (meaning it can easily be mirrored by anyone with enough disk space), with 86 million music files, representing around 99.6% of listens.</em></blockquote>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">They argue that music is already relatively well preserved, but existing efforts have structural problems. First, they're too focused on popular artists. The long tail of lesser-known music only gets preserved when a single person cares enough to share it, and such files are often poorly seeded. Second, there's an obsession with audiophile-grade quality (lossless FLAC, etc.) that inflates file sizes, making it impossible to maintain a complete archive of all music ever produced. Third, there's no authoritative list of torrents aiming to represent all music in existence. The equivalent of their book torrent lists simply doesn't exist for music. And for those who use Anna’s Archive, you know how comprehensive their list of books, academic papers, and magazines truly is.</p>
                     <p class="blk-text">When the opportunity came to scrape Spotify at scale, they took it: a “humble attempt" to start such a preservation archive for music. Spotify doesn't have all the music in the world, they say, but it's a good start.</p>
@@ -105,13 +113,13 @@
                 <blockquote class="blk blk--rows blk-quote">[X] Metadata (Dec 2025)[ ] Music files (releasing in order of popularity)[ ] Additional file metadata (torrent paths and checksums)[ ] Album art[ ] .zstdpatch files (to reconstruct original files before we added embedded metadata)</blockquote>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">So much for what happened. Now for what it means.</p>
                 </div>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <h2 class="blk blk--row blk-heading">The Pirate Ethics</h2>
             </div>
 
@@ -119,7 +127,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 4; --fig-rows-m: 6;"><img src="../assets/images/articles/drop-43-spotify-vs-annas-archive-3.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">Some comments express direct frustration, following the lines of this argument: we artists already have our own archives; nobody asked our permission to make our music available for free without any contract or royalties. “<strong>Y’all just stole all of our music?? this is not the flex you think it is”</strong>. The rebellion seems to be against the musicians who willingly placed their music on Spotify, not against Spotify itself.</p>
                 </div>
@@ -129,7 +137,7 @@
                 <div class="blk-figure blk-figure--auto blk-figure--fit" style="--fig-rows: 2; --fig-rows-m: 3;"><img src="../assets/images/articles/drop-43-spotify-vs-annas-archive-4.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">I’ve written about piracy in an article in the context of the project <a href="https://meshdia.net/publishing/seeds/3/" target="_blank" rel="noopener">Meshdia</a> (translated into Italian for <a href="https://www.indiscreto.org/copyright-e-disobbedienza-civile/" target="_blank" rel="noopener">L’Indiscreto</a>). My argument was the following: piracy is not theft, but a form of civil disobedience against monopolistic media control. Throughout modern history, every new media technology triggers the same cycle: innovation enables decentralized sharing, then distributors and lawmakers respond by criminalizing these practices. But the fight against piracy has never been primarily driven by individual artists and creators. It’s championed by the industry’s gatekeepers: publishers, record labels, and movie studios. These intermediaries leverage their influence to shape copyright laws that protect their market control rather than creators’ interests. Copyright emerged not to protect creators, but to serve publishers’ interests, from the 1710 Statute of Anne onwards.</p>
                     <p class="blk-text">Piracy, as Alexandra Elbakyan (founder of Sci-Hub) argues, is production, not theft. When information is copied, it multiplies. The owner loses nothing. With stealing, one is deprived; with copying, new goods are produced. Projects like Sci-Hub, Karagarga, Library Genesis, and Anna’s Archive are not criminal enterprises but laboratories for alternative circulation, responses to predatory market practices, and forms of resistance against the progressive enclosure of digital commons.</p>
@@ -140,7 +148,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 5; --fig-rows-m: 7;"><img src="../assets/images/articles/drop-43-spotify-vs-annas-archive-5.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">From this perspective, what exactly is the gesture of Anna’s Archive? What kind of act is this?</p>
                     <p class="blk-text">As a musician and label owner, Frank says, I would want to have control and respect the will of my collaborators if they ask me to protect their products. But I can’t guarantee that, and I can’t pretend I can either. It was never our property the moment we published it online. Our only real property is direct remuneration through royalties and the sale of physical copies. Which doesn’t mean that if you want to burn CDs with my music, you can’t sell them.</p>
@@ -151,7 +159,7 @@
                 <blockquote class="blk blk--rows blk-quote"><em>We’re talking about Napster here, nothing really new. From Napster came iTunes and Spotify. And now that centralization returns to this new form, this new archive/Napster. Right or wrong, you have to deal with this somehow, so let’s talk about it without qualitative judgments.</em></blockquote>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">Thus, we may read Anna’s Archive action more on the symbolic plane than the material one. After all, it’s very likely that much of the music “liberated” by the hacktivists was already circulating on shadow circuits (Soulseek, anyone?). The point, then, would be to make a performative gesture against platform capitalism and its self-proclaimed monopoly over human knowledge, similar to what Sci-Hub already did against academic publishing. Plus, a healthy reminder that scraping and piracy are still possible in today’s internet, and that platforms are far less secure than they want us to believe. A reassertion of political agency not to be underestimated.</p>
                     <p class="blk-text">Yet, one must also deconstruct the same pirate ideology that animates projects like Anna’s Archive and Sci-Hub, as Simone reminds us in REINCANTAMENTO group chat. This ideology is rooted in a worldview that emerged before the digital information era, and now faces systemic challenges it wasn’t designed to address.</p>
@@ -160,7 +168,7 @@
                 </div>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <h2 class="blk blk--row blk-heading">Openness At the Time of AI</h2>
                 <div class="blk blk--rows">
                     <p class="blk-text">In a world dominated by data, those who possess the most powerful tools benefit the most from the free circulation of information. For corporations like Meta or OpenAI, a centralized, freely accessible database drastically reduces the labor required to train AI models. What once took years of painstaking data collection now takes a few days of downloading. The freedom of information, in other words, ends up advantaging those with more power to exploit it.</p>
@@ -176,7 +184,7 @@
                 <figcaption class="blk blk--row blk-caption">Dadabots</figcaption>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">When it comes to generative AI and music, there are glimpses of “actionable strategic horizons” emerging. What comes to mind is, needless to say, the work of Holly Herndon and Matt Dryhurst, but also projects like <a href="https://dadabots.com/" target="_blank" rel="noopener">Dadabots</a> and others who are actively experimenting with what a different relationship between artists and AI models might look like. These are attempts to navigate the tension rather than resolve it.</p>
                     <p class="blk-text">In their recent book-catalogue <em><a href="https://shop.serpentinegalleries.org/products/holly-herndon-mat-dryhurst-all-media-is-training-data" target="_blank" rel="noopener">All Media is Training Data</a></em>, Herndon and Dryhurst offer a path toward a horizon in which artists take an active role in data collection, training, and data governance practices. The duo wants to make the process of training generative AI visible, deliberate, even ritualized. What if data collection itself became an art form? What kind of objects, schemas, or protocols could we produce to give shape to these practices? They reference Alan Lomax’s field recordings, where context (the chickens in the background, the car engine powering the rig) became inseparable from the music itself. Similarly, when making a model, capture information in as many dimensions as possible. And crucially, leave room for human decision-making, for augmentation, and subversion.</p>
@@ -218,12 +226,12 @@
         <div class="footer-bottom">
             <p>2026 Reincantamento &nbsp;&#183;&nbsp; Berlin / Turin / Venice</p>
             <div class="footer-legal">
-                <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Acid mode" title="Acid mode">&#9791;</button>
                 <a href="../index.html">Home</a>
                 <a href="../about.html">About</a>
             </div>
         </div>
     </footer>
+
 
     <script src="../assets/js/site.js" defer></script>
 </body>

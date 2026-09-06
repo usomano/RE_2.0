@@ -36,14 +36,18 @@
         </button>
 
         <nav class="main-nav" id="primary-nav" aria-label="Primary">
-            <a href="writing/index.html">Writing</a>
+            <div class="nav-item">
+                <a href="writing/index.html">Writings</a>
+                <div class="nav-menu">
+                    <a href="writing/index.html">Drops</a>
+                    <a href="writing/archive.html">Archive</a>
+                </div>
+            </div>
             <a href="publishing/index.html">Publishing</a>
             <a href="artworks/index.html">Artworks</a>
             <!-- No design yet — shown, not linked. -->
             <span class="nav-off">Workshops</span>
             <span class="nav-off">Talks</span>
-            <a href="about.html">About</a>
-            <button class="theme-switch" type="button" aria-pressed="false" aria-label="Acid mode" title="Acid mode">&#9791;</button>
         </nav>
 
         <a class="about-btn" href="about.html">About</a>
@@ -53,8 +57,7 @@
         <div class="statement">
             <p>Reincantamento is a research and publishing group<br>
             exploring technology, radical imagination and rituality.</p>
-            <p>Through <a class="hl" data-word="writing" href="writing/index.html">writing</a>, <a class="hl" data-word="publishing" href="publishing/index.html">publishing</a>, <a class="hl" data-word="artworks" href="artworks/index.html">artworks</a>, <span class="hl" data-word="workshops">workshops</span><br>
-            and <span class="hl" data-word="talks">talks</span>, we build spaces for collective inquiry<br>
+            <p>We build spaces for collective inquiry<br>
             beyond disciplinary and institutional boundaries.</p>
         </div>
     </main>
@@ -71,6 +74,39 @@
             </video>
         </figure>
     </div>
+
+    <!-- The colourway switch is a cell of its own: bottom right of the first
+         screen, under the ABOUT cell at the top of the same column. -->
+    <button class="theme-switch" type="button" aria-pressed="false" aria-label="Acid mode" title="Acid mode">&#9791;</button>
+
+    <footer class="site-footer site-footer--flush">
+        <p class="site-footer__mark">REINCANTAMENTO</p>
+
+        <div class="footer-cols">
+            <form class="newsletter" action="https://reincantamentox.substack.com/subscribe" method="get" target="_blank">
+                <label class="newsletter__label" for="nl-email">Subscribe to drops</label>
+                <div class="newsletter__field">
+                    <input id="nl-email" type="email" name="email" placeholder="your@email.com" autocomplete="email">
+                    <button type="submit" aria-label="Subscribe">&#8594;</button>
+                </div>
+            </form>
+
+            <nav class="footer-social" aria-label="Nodes">
+                <a href="mailto:reincantamento@proton.me">Email</a>
+                <a href="https://www.instagram.com/re.incantamento/" target="_blank" rel="noopener">Instagram</a>
+                <a href="https://t.me/+C1fjM6yVcdJmYzI0" target="_blank" rel="noopener">Telegram</a>
+                <a href="https://reincantamentox.substack.com/" target="_blank" rel="noopener">Newsletter</a>
+                <a href="https://www.are.na/reincantamento/channels/" target="_blank" rel="noopener">Are.na</a>
+            </nav>
+        </div>
+
+        <div class="footer-bottom">
+            <p>2026 Reincantamento &nbsp;&#183;&nbsp; Berlin / Turin / Venice</p>
+            <div class="footer-legal">
+                <a href="about.html">About</a>
+            </div>
+        </div>
+    </footer>
 
     <script src="assets/js/main.js" defer></script>
 </body>

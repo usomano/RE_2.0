@@ -25,25 +25,31 @@
 
     <a class="skip-link" href="#main">Skip to content</a>
 
-    <header class="grid-header grid-row">
-        <a class="grid-header__logo" href="../index.html" aria-label="Reincantamento — home">
-            <svg viewBox="0 0 44 22" aria-hidden="true"><ellipse cx="22" cy="11" rx="22" ry="11"/></svg>
+    <header class="site-header">
+        <a class="brand" href="../index.html" aria-label="Reincantamento home">
+            <img src="../assets/images/REINC-LOGO.svg" alt="Reincantamento" width="53" height="25">
         </a>
 
-        <button class="grid-header__menu" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+        <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav">
+            <span></span><span></span><span></span>
+        </button>
 
-        <nav class="grid-nav" id="primary-nav" aria-label="Primary">
-            <a class="grid-nav__item" href="../writing/index.html" aria-current="page">Writing</a>
-            <a class="grid-nav__item" href="../publishing/index.html">Publishing</a>
-            <a class="grid-nav__item" href="../artworks/index.html">Artworks</a>
-            <span class="grid-nav__item" aria-disabled="true">Workshops</span>
-            <span class="grid-nav__item" aria-disabled="true">Talks</span>
-            <a class="grid-nav__item" href="../about.html">About</a>
+        <nav class="main-nav" id="primary-nav" aria-label="Primary">
+            <div class="nav-item">
+                <a href="../writing/index.html" class="is-active" aria-current="page">Writings</a>
+                <div class="nav-menu">
+                    <a href="../writing/index.html">Drops</a>
+                    <a href="../writing/archive.html">Archive</a>
+                </div>
+            </div>
+            <a href="../publishing/index.html">Publishing</a>
+            <a href="../artworks/index.html">Artworks</a>
+            <!-- No design yet — shown, not linked. -->
+            <span class="nav-off">Workshops</span>
+            <span class="nav-off">Talks</span>
         </nav>
 
-        <!-- The way back, in the last cell of the band: the home shell carries
-             the same corner cell, reading ABOUT there and HOME everywhere else. -->
-        <a class="grid-header__home" href="../index.html">Home</a>
+        <a class="about-btn" href="../about.html">About</a>
     </header>
 
     <div class="reading-progress" role="progressbar" aria-label="Reading progress"
@@ -59,15 +65,17 @@
 
         <div class="article grid-row">
 
-            <div class="blk-group c-narrow">
-                <p class="blk blk--row blk-kicker">Drop #40 &#183; November 11, 2025 &#183; 12 min read</p>
-            </div>
+            <!-- The colourway switch, in the square under the byline cell. -->
+            <button class="theme-switch theme-switch--inline" type="button" aria-pressed="false" aria-label="Acid mode" title="Acid mode">&#9791;</button>
 
-            <div class="blk-group c-narrow">
+            <div class="blk-group c-wide">
                 <p class="blk blk--row blk-lede">Introducing 'Arcane Affinities'</p>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide">
+                <p class="blk blk--row blk-kicker">Drop #40 &#183; November 11, 2025 &#183; 12 min read</p>
+            </div>
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text"><em>Hey everyone (▰˘◡˘▰)</em></p>
                     <p class="blk-text"><em>We’re happy to share the opening essay from our latest publication, <strong>Arcane Affinities</strong>, written collectively by REINCANTAMENTO squad and published here in full. </em></p>
@@ -83,7 +91,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 10; --fig-rows-m: 14;"><img src="../assets/images/articles/drop-40-we-need-a-manifestation-not-a-manifesto-1.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <h2 class="blk blk--row blk-heading"><strong>(We Need) A Manifestation, Not a Manifesto</strong></h2>
                 <div class="blk blk--rows">
                     <p class="blk-text"><em>To perceive is to recognize that which alone has value, that which alone truly exists. <br>And what else truly exists in this world if not that which is not of this world?<br>- </em>Cristina Campo<em><br></em></p>
@@ -98,7 +106,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 5; --fig-rows-m: 6;"><img src="../assets/images/articles/drop-40-we-need-a-manifestation-not-a-manifesto-2.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">Modernization and its totems - the factory, electricity, market logics - engineered a systematic forgetting. First in Europe, then progressively worldwide through colonialism’s violent apparatuses, countless myths, folk stories, transmundane entities, and alternative forms of life (<em>Lebensformen</em>) were erased from collective memory. Like the Pagans under Christianity’s advance, these ritualistic practices and their communities were forced to the margins, surviving in peripheral spaces like the Southern Italian countryside or eliminated to clear ground for capitalism’s expanding cathedral, following the genocidal logic established during the conquest of the Americas.</p>
                     <p class="blk-text">But disenchantment is only part of the story. Jacques Derrida understood this as early as 1983, speaking in the experimental film <em><a href="https://www.youtube.com/watch?v=SwkjAuN-_-k" target="_blank" rel="noopener">Ghost Dance</a></em>:</p>
@@ -117,7 +125,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 6; --fig-rows-m: 8;"><img src="../assets/images/articles/drop-40-we-need-a-manifestation-not-a-manifesto-4.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">This intuition, expanded by Erik Davis in his 1990s classic <em>TechGnosis</em>, identifies an inescapable pattern: every media mutation - radio, cinema, television, internet, social networks, generative AI - produces haunting returns equal to its rational promises. Far from banishing the supernatural, new technologies spawn fresh icons and forms of lore, new spiritual affordances, uncovering pathways to the otherworldly. This mythological apparatus transcends a purely functional understanding of technical apparatuses. Weber’s disenchantment thesis, then, was never completed—technology itself became the site of re-enchantment.</p>
                     <p class="blk-text">It is through this techno-gnostic perspective that the constellation gathered here positions its practice. Cyber witches, algorithmic shamans, financial alchemists scattered across Europe: a microcosm of practitioners. They infiltrate automated financial systems, catalog TikTok’s bestiary of platform worshippers, decode corporate iconography, and orchestrate micro-rituals against binary thinking - to name just a few of the practices collected in this publication.</p>
@@ -128,7 +136,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 10; --fig-rows-m: 14;"><img src="../assets/images/articles/drop-40-we-need-a-manifestation-not-a-manifesto-5.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text"><em>Arcane Affinities</em> is organized into two main sections.</p>
                     <p class="blk-text">The first one is dedicated to <em>Esoteric Algorithms and Re-Enchanted Technologies.</em> It opens with <strong>Arianna Forte </strong>and<strong> Noemi Garay Murcia’s </strong>nurturing curatorial text,<strong> </strong>setting the tone for contributions by <strong>Crawlers, Danae Tapia, Dasha Lina, Ginevra Petrozzi, Margarita Athanasiou, RYBN.Org, Tega Brain, </strong>and<strong> Tommaso Cappelletti + Jumoke Fernandez.</strong></p>
@@ -145,7 +153,7 @@
                 <figcaption class="blk blk--row blk-caption">Hanns Glaser, Himmelserscheinung über Nürnberg vom 14. April 1561</figcaption>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">We need technologies - technical, social, and spiritual - to restore agency and interrupt what otherwise appears to be an inexorable trajectory.</p>
                     <p class="blk-text">In the forgotten ruins of the past, we find dark precursors. The Gnostics, working from the undercommons of late antiquity, faced analogous conditions of exclusion. Barred from temples and palaces, denied access to legitimate structures of authority and knowledge, they developed hermetic practices and conspiratorial networks that could function parasitically. In Federico Campagna’s words from <a href="https://www.bloomsbury.com/uk/otherworlds-9781350536388/" target="_blank" rel="noopener">his latest book</a>:</p>
@@ -156,7 +164,7 @@
                 <blockquote class="blk blk--rows blk-quote"><em>The Gnostic communities gathered like a rebel network of cosmic migrants. They did not want to build a permanent home on Earth, but to sabotage the world [...]. Anyone who wished to join them, rich or poor, freeborn or slave, was welcomed into the secrets of their knowledge. Women were especially welcome. What was forbidden to them by other cults was allowed and encouraged among the Gnostics; many of their priests, teachers and prophets were women [...] But they did not take any of that too seriously. They had to use the imperfect language of the world, since ‘truth did not come into the world naked, but in symbols and images. The world cannot receive truth in any other way’. Yet, they knew that worldly identities, hierarchies and social conventions were just part of God’s evil plan to keep people enslaved to their ignorance.</em></blockquote>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">A warning, however. The Gnostics practiced a form of dissociative spirituality. They sought departure from the material world, which they deemed unimportant. Their occult and conspiratorial practices provided agency, yes, but agency oriented toward spiritual exodus rather than material transformation.</p>
                     <p class="blk-text">Their ambiguous heritage has mutated and metastasized. Today, it animates Silicon Valley’s overlords: ketamine-fueled visions of Martian escape, long-termist fantasies that sacrifice present lives for hypothetical futures, and gods made of matrix multiplications.</p>
@@ -164,7 +172,7 @@
                 </div>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <h2 class="blk blk--row blk-heading"><strong>Hijacked Vehicles and Improper Names</strong></h2>
                 <div class="blk blk--rows">
                     <p class="blk-text"><em>Magic exists in most societies in one way or another, and one of the forms it exists in a lot of places is, if you know a thing’s true name, you have power over the thing, or the person. And of course it’s irresistible because I’m a writer. I use words, and knowing the names of things is – I do magic, I do make up things that didn’t exist before by naming them.<br>- Ursula K. Le Guin<br></em></p>
@@ -176,7 +184,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 2; --fig-rows-m: 3;"><img src="../assets/images/articles/drop-40-we-need-a-manifestation-not-a-manifesto-7.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">Yet language’s pragmatic dimension reverberates only within a specific context. Social infrastructure, more than ideas, determines what we think, how we think, and how we act. Ideas are always embodied, circulating within social ecosystems rather than existing as abstractions. We think and act together. This conviction - at once scientific and spiritual - drives our goal: building social affordances for new worlds.</p>
                     <p class="blk-text">See for yourself: the vibe shifted, and chaos is everywhere. Let that be our new start.<em> </em>We said it <a href="https://reincantamentox.substack.com/p/drop-36-do-you-know-how-to-bleed" target="_blank" rel="noopener">before</a>:</p>
@@ -187,7 +195,7 @@
                 <blockquote class="blk blk--rows blk-quote"><em>Democracy as voice: juvenile fantasy. Luckily, reality is broken, discussion is impossible, and we are finally allowed to go insane.</em></blockquote>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">But chaos can be the enemy of agency. The collapse of consensus reality often leads to paralysis. Institutions are crumbling and empires are collapsing: don’t let them crush you as they fall. Agency starts when the dust settles. The seizure of the US American state power moved at a frenetic pace for a reason: to overwhelm an already exhausted public with relentless, escalating shocks.</p>
                     <p class="blk-text">Building requires order, and if none exists, we must ordain our own. Organizing begins with commitment: a shared conviction that transformation is possible, even when conditions suggest otherwise. Cultivate it over time with action. The goal is to build structures robust enough to outlast any individual’s participation, adaptive enough to survive changing conditions.</p>
@@ -202,7 +210,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 4; --fig-rows-m: 6;"><img src="../assets/images/articles/drop-40-we-need-a-manifestation-not-a-manifesto-8.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">This publication documents one moment in an ongoing process, with the practitioners gathered here representing a constellation of mutual methods and overlapping territories. Riffing on André Breton: “<strong>one publishes to find comrades</strong>”. We found some, but it’s just the beginning: there is room for many swimmers in these waters.</p>
                     <p class="blk-text"><em>REINCANTAMENTO, <br>Berlin 4 October 2025</em></p>
@@ -241,12 +249,12 @@
         <div class="footer-bottom">
             <p>2026 Reincantamento &nbsp;&#183;&nbsp; Berlin / Turin / Venice</p>
             <div class="footer-legal">
-                <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Acid mode" title="Acid mode">&#9791;</button>
                 <a href="../index.html">Home</a>
                 <a href="../about.html">About</a>
             </div>
         </div>
     </footer>
+
 
     <script src="../assets/js/site.js" defer></script>
 </body>

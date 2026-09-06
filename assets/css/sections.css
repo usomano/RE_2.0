@@ -8,23 +8,6 @@
    COLOUR: pages use semantic tokens only (--bg, --band, --ink, --on-band,
    --line, --media). "Acid mode" remaps them; nothing else changes. */
 
-/* Redaction 35 — the display cut used across the section pages (card titles,
-   year, footer wordmark). Redaction 20 stays the home-page display face. */
-@font-face {
-    font-family: 'Redaction35';
-    src: url('../fonts/Redaction35-Regular.woff') format('woff');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-}
-@font-face {
-    font-family: 'Redaction35';
-    src: url('../fonts/Redaction35-Italic.woff') format('woff');
-    font-weight: 400;
-    font-style: italic;
-    font-display: swap;
-}
-
 /* ===================== */
 /* TOKENS                */
 /* ===================== */
@@ -35,8 +18,6 @@
     /* No-JS fallback: 16 columns across the viewport (the Figma column count). */
     --cols: 16;
     --cell: calc(100vw / 16);
-
-    --font-serif: 'Redaction35', Georgia, 'Times New Roman', serif;
 
     /* 19px inset of card text inside its cell, at the 90px design module */
     --card-pad: calc(var(--cell) * 0.211);
@@ -73,115 +54,13 @@
 /* ===================== */
 /* HEADER                */
 /* ===================== */
-/* One grid row tall, filled with --band, its own cell lines painted on top.
-   Logo in the first cell, the six nav items next, HOME in the last one. */
-.grid-header {
-    position: sticky;
-    top: 0;
+/* The header is the home shell's own (see styles.css): the eye in the first
+   cell, the five sections on a mask of the page fill, the filled ABOUT cell in
+   the corner. Here it takes the first row of the page grid instead of floating
+   over the screen, so the content below starts on the next line. */
+.page .site-header {
+    position: relative;     /* so the WRITINGS menu drops over the page, not under it */
     z-index: 100;
-    height: var(--cell);
-    background-color: var(--band);
-    background-image: repeating-linear-gradient(to right, var(--band-line) 0 1px, transparent 1px var(--cell));
-}
-
-.grid-header__logo {
-    grid-column: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--on-band);
-}
-
-/* The eye is drawn as an SVG ellipse (as in Figma) so it inherits the band's
-   ink colour and flips with the theme. */
-.grid-header__logo svg {
-    width: calc(var(--cell) * 0.489);   /* 44px at the 90px module */
-    height: auto;
-    fill: currentColor;
-}
-
-.grid-nav {
-    grid-column: -8 / -2;               /* six cells, before the HOME corner */
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-}
-
-.grid-nav__item {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 4px;
-    color: var(--on-band);
-    font-family: var(--font-menu);
-    font-size: 11px;
-    line-height: 14px;
-    font-weight: 500;                   /* Apfel Grotezk Mittel */
-    letter-spacing: 0.5px;
-    text-align: center;
-    text-transform: uppercase;
-    transition: opacity 0.2s ease;
-}
-
-.grid-nav__item:hover {
-    opacity: 0.7;
-}
-
-/* Current section: the cell is punched out of the band back to the page fill.
-   Inset 1px on top/left so all four of its bounding lines read alike. */
-.grid-nav__item[aria-current="page"] {
-    margin: 1px 0 0 1px;
-    background: var(--bg);
-    color: var(--ink);
-}
-
-/* Sections without a page yet (Workshops, Talks) — they read exactly like the
-   linked items (same BIANCO on the BLU band); only the pointer says otherwise. */
-.grid-nav__item[aria-disabled="true"] {
-    cursor: default;
-    pointer-events: none;
-}
-
-/* ---- HOME: the last cell of the band ----
-   The home shell (index / about / lab) carries the same corner cell in its own
-   header, reading ABOUT on the home page and HOME everywhere else. Here it is
-   punched out of the band back to the page fill, like the current section. */
-.grid-header__home {
-    grid-column: -2 / -1;
-    margin: 1px 0 0 1px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--bg);
-    color: var(--ink);
-    font-family: var(--font-menu);
-    font-size: 11px;
-    line-height: 14px;
-    font-weight: 500;                   /* Apfel Grotezk Mittel */
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    transition: opacity 0.2s ease;
-}
-
-.grid-header__home:hover {
-    opacity: 0.8;
-}
-
-/* Mobile menu button — hidden until the mobile breakpoint. */
-.grid-header__menu {
-    display: none;
-    grid-column: -2 / -1;
-    align-items: center;
-    justify-content: center;
-    border: 0;
-    background: none;
-    color: var(--on-band);
-    font-family: var(--font-menu);
-    font-size: 11px;
-    line-height: 14px;
-    font-weight: 500;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    cursor: pointer;
 }
 
 /* ===================== */
@@ -440,121 +319,6 @@
 }
 
 /* ===================== */
-/* FOOTER                */
-/* ===================== */
-.site-footer {
-    /* +1px so the grid line on the band's leading edge stays visible, as in Figma */
-    margin-top: calc(var(--cell) + 1px);
-    padding: calc(var(--cell) * 0.38) calc(var(--cell) * 0.667) calc(var(--cell) * 0.356);
-    background: var(--band);
-    color: var(--on-band);
-}
-
-/* Wordmark: 137px at the 1440 frame — scales with the module so it keeps
-   spanning ~92% of the page width at any size. */
-.site-footer__mark {
-    font-family: var(--font-serif);
-    font-size: calc(var(--cell) * 1.522);
-    line-height: 1.2;
-    font-weight: 400;
-    white-space: nowrap;
-}
-
-.footer-cols {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    gap: 40px;
-    margin-top: calc(var(--cell) * 0.57);
-}
-
-.newsletter__label {
-    font-family: var(--font-menu);
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-}
-
-.newsletter__field {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    width: min(400px, 100%);
-    margin-top: 10px;
-    padding-bottom: 8px;
-    border-bottom: 1px solid currentColor;
-}
-
-.newsletter__field input {
-    flex: 1;
-    border: 0;
-    background: none;
-    color: inherit;
-    font-family: var(--font-menu);
-    font-size: 14px;
-    line-height: 22px;
-}
-
-.newsletter__field input::placeholder {
-    color: inherit;
-    opacity: 0.75;
-}
-
-.newsletter__field button {
-    border: 0;
-    background: none;
-    color: inherit;
-    font-size: 16px;
-    line-height: 1;
-    cursor: pointer;
-}
-
-.footer-social {
-    display: flex;
-    gap: 28px;
-    font-family: var(--font-menu);
-    font-size: 12px;
-}
-
-.footer-social a:hover,
-.footer-legal a:hover {
-    text-decoration: underline;
-    text-underline-offset: 3px;
-}
-
-.theme-toggle:hover {
-    opacity: 0.7;
-}
-
-.footer-bottom {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: 24px;
-    margin-top: calc(var(--cell) * 1.04);
-    font-family: var(--font-menu);
-    font-size: 12px;
-    line-height: 18px;
-}
-
-.footer-legal {
-    display: flex;
-    gap: 20px;
-}
-
-/* Acid-mode switch — the only control that changes the page's own appearance,
-   so it lives with the colophon rather than in the nav. Its shape and active
-   state come from styles.css, shared with the header switch on the pages that
-   have no footer; only its footer alignment is set here. */
-.theme-toggle {
-    align-self: center;
-    margin-right: 4px;
-}
-
-
-/* ===================== */
 /* MOBILE                */
 /* ===================== */
 /* Figma mobile frame: 390 wide on a 30px module → 13 columns. The header is
@@ -566,64 +330,18 @@
         --cell: calc(100vw / 13);
     }
 
-    .grid-header {
+    /* The module is 30px here, so the header is two rows tall and its corner
+       cells take more than one column: two for the eye, three for ABOUT. */
+    .page .site-header {
         height: calc(var(--cell) * 2);
     }
 
-    .grid-header__logo {
-        grid-column: 1 / 3;             /* the logo cell is 2×2 on mobile */
+    .page .brand {
+        width: calc(var(--cell) * 2);
     }
 
-    .grid-header__logo svg {
-        width: calc(var(--cell) * 1.333);
-    }
-
-    .grid-header__menu {
-        display: flex;
-        grid-column: -3 / -1;           /* the menu cell is 2 columns wide */
-    }
-
-    /* Two cells of its own, left of MENU — the panel below covers the rest. */
-    .grid-header__home {
-        grid-column: -5 / -3;
-        z-index: 95;                    /* above the dropdown panel */
-    }
-
-    /* Full-screen panel, opened by MENU. Without JS the nav stays a plain row. */
-    .js .grid-nav {
-        position: fixed;
-        inset: calc(var(--cell) * 2) 0 auto 0;
-        grid-column: 1 / -1;
-        grid-template-columns: 1fr;
-        background: var(--band);
-        transform: translateY(-120%);
-        transition: transform 0.3s ease;
-        z-index: 90;
-    }
-
-    .js .grid-nav[data-open="true"] {
-        transform: translateY(0);
-    }
-
-    .js .grid-nav__item {
-        justify-content: flex-start;
-        height: calc(var(--cell) * 2);
-        padding-inline: var(--cell);
-        font-size: 14px;
-    }
-
-    .js .grid-nav__item[aria-current="page"] {
-        margin: 0;
-        background: none;
-        color: var(--on-band);
-        text-decoration: underline;
-        text-underline-offset: 4px;
-    }
-
-    /* No-JS fallback: let the six items wrap under the logo row. */
-    .grid-nav {
-        grid-column: 1 / -1;
-        grid-row: 2;
+    .page .about-btn {
+        width: calc(var(--cell) * 3);
     }
 
     .section-title {
@@ -674,28 +392,6 @@
     .media-row__still {
         height: calc(var(--cell) * 8 - 1px);
     }
-
-    .site-footer {
-        padding: var(--cell) var(--cell) calc(var(--cell) * 1.2);
-    }
-
-    .site-footer__mark {
-        font-size: calc(var(--cell) * 1.13);
-    }
-
-    .footer-cols {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 24px;
-        margin-top: calc(var(--cell) * 1.2);
-    }
-
-    .footer-bottom {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-        margin-top: calc(var(--cell) * 1.2);
-    }
 }
 
 /* ===================== */
@@ -726,7 +422,7 @@
 .c-wide   { grid-column: 3 / -3; }      /* 12 cells — the full content width */
 .c-narrow { grid-column: 3 / 11; }      /*  8 cells — the reading column      */
 .c-right  { grid-column: 7 / -3; }      /*  8 cells, flush right              */
-.c-quote  { grid-column: 4 / 11; }      /*  7 cells, indented one cell        */
+.c-quote  { grid-column: 4 / -3; }      /* 11 cells, indented one cell        */
 .c-half   { grid-column: 3 / 9; }       /*  6 cells                           */
 .c-l4     { grid-column: 3 / 7; }       /*  4 cells, left of a pair           */
 .c-r7     { grid-column: 8 / -3; }      /*  7 cells, right of a pair          */
@@ -819,10 +515,12 @@
 .blk--row  { min-height: calc(var(--cell) - 1px); }
 .blk--rows { min-height: calc(var(--cell) * 2 - 1px); }
 
+/* The standfirst opens the piece, above the line of metadata, and is set a step
+   up from the body — under the title band, over the section headings. */
 .blk-lede {
     font-family: var(--font-serif);
-    font-size: clamp(17px, calc(var(--cell) * 0.222), 27px);
-    line-height: 1.45;
+    font-size: clamp(20px, calc(var(--cell) * 0.289), 34px);
+    line-height: 1.35;
 }
 
 .blk-heading {
@@ -1045,9 +743,9 @@
 /* ===================== */
 /* READING PROGRESS      */
 /* ===================== */
-/* A rail across the very top of a long read. The header is sticky, so the rail
-   always has the band behind it and paints in the band's own ink — one more
-   line on a page made of lines. Without JS it stays at zero width, invisible. */
+/* A rail across the very top of a long read, in the page's own ink — one more
+   line on a page made of lines. Fixed to the viewport, so it stays put while
+   the header scrolls away. Without JS it stays at zero width, invisible. */
 .reading-progress {
     position: fixed;
     top: 0;
@@ -1062,7 +760,7 @@
     display: block;
     width: 0;
     height: 100%;
-    background: var(--on-band);
+    background: var(--ink);
     transition: width 0.1s linear;
 }
 
@@ -1113,15 +811,57 @@
 }
 
 /* ===================== */
+/* DROPS MASTHEAD        */
+/* ===================== */
+/* The row under the header carries the publication's name on the left and the
+   year band on the last five cells, with a cell of air between them, and the
+   standfirst sits a grid line under the nameplate — one group, as blocks do
+   everywhere on this grid. */
+.masthead {
+    margin-top: var(--cell);
+}
+
+.masthead__mark {
+    grid-column: 3 / -7;                /* stops one cell short of the band */
+    grid-row: 1;
+    margin: 1px 0 0 1px;
+    min-height: calc(var(--cell) * 2 - 1px);
+    display: flex;
+    align-items: center;
+    padding: 0 var(--card-pad);
+    background: var(--bg);              /* masks the grid behind the name */
+}
+
+/* The 2026 mark: pixel serif, drawn in BLU on transparency, so it sits on the
+   page ground like the type it replaces. Acid mode reaches it the same way it
+   reaches the home eye — a hue rotation, since it is a flat image. */
+.masthead__mark img {
+    width: 100%;
+    height: auto;
+}
+
+:root[data-theme="acid"] .masthead__mark img {
+    filter: hue-rotate(228deg) brightness(4.2) saturate(0.6);
+}
+
+.masthead__note {
+    grid-column: 3 / 11;                /* the reading column, as .c-narrow */
+    margin: 1px 0 0 1px;
+}
+
+/* ===================== */
 /* YEAR BAND             */
 /* ===================== */
-/* Under the header, on the last five cells of the row: an arrow, the year over
-   two cells, an arrow, and a cell crossing to the other half of the timeline.
+/* On the last five cells of the masthead row: an arrow, the year over two
+   cells, an arrow, and a cell crossing to the other half of the timeline.
    The drops start in 2023 and the archive ends in 2022, so stepping off either
    end follows that link — 2020 … 2026 reads as one line across two pages.
-   Filled blocks, inset 1px like everything else on the grid. */
+   Filled blocks, inset 1px like everything else on the grid.
+
+   display:contents so the cells below are placed on the masthead's own grid
+   row: the element stays wrapped around the year controls alone. */
 .year-nav {
-    margin-top: var(--cell);
+    display: contents;
 }
 
 .year-nav__step,
@@ -1194,6 +934,26 @@
 /* One column: the band spreads over the content width, the year taking
    whatever the arrows and the crossing cell leave. */
 @media (max-width: 768px) {
+    /* One column: the nameplate takes the width and the band drops below it. */
+    .masthead {
+        row-gap: var(--cell);
+    }
+
+    .masthead__mark {
+        grid-column: 2 / -2;
+        min-height: calc(var(--cell) * 3 - 1px);
+        font-size: clamp(40px, calc(var(--cell) * 1.6), 72px);
+    }
+
+    /* The band lands between the two here, so the standfirst opens a group of
+       its own — a whole empty row before it — instead of hugging the band. */
+    .masthead__note {
+        grid-column: 2 / -2;
+        margin-top: var(--cell);
+    }
+
+    .year-nav > * { grid-row: 2; }
+
     .year-nav > :nth-child(1) { grid-column: 2 / 3; }
     .year-nav > :nth-child(2) { grid-column: 3 / -5; }
     .year-nav > :nth-child(3) { grid-column: -5 / -4; }
@@ -1290,6 +1050,17 @@
 /* Text-only cards sit closer together than the illustrated ones above. */
 .is-archive .card__body {
     min-height: calc(var(--cell) * 2 - 1px);
+}
+
+/* The colourway switch on a detail page: the square directly under the byline
+   cell, in the first row of the article grid. Static, so it takes its place in
+   the grid rather than hanging off the corner of the screen. */
+.theme-switch--inline {
+    position: static;
+    grid-column: -2 / -1;
+    width: auto;
+    height: calc(var(--cell) - 1px);
+    margin-left: 1px;
 }
 
 /* ---- Drop pages ---- */

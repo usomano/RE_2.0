@@ -25,25 +25,31 @@
 
     <a class="skip-link" href="#main">Skip to content</a>
 
-    <header class="grid-header grid-row">
-        <a class="grid-header__logo" href="../index.html" aria-label="Reincantamento — home">
-            <svg viewBox="0 0 44 22" aria-hidden="true"><ellipse cx="22" cy="11" rx="22" ry="11"/></svg>
+    <header class="site-header">
+        <a class="brand" href="../index.html" aria-label="Reincantamento home">
+            <img src="../assets/images/REINC-LOGO.svg" alt="Reincantamento" width="53" height="25">
         </a>
 
-        <button class="grid-header__menu" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+        <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav">
+            <span></span><span></span><span></span>
+        </button>
 
-        <nav class="grid-nav" id="primary-nav" aria-label="Primary">
-            <a class="grid-nav__item" href="../writing/index.html" aria-current="page">Writing</a>
-            <a class="grid-nav__item" href="../publishing/index.html">Publishing</a>
-            <a class="grid-nav__item" href="../artworks/index.html">Artworks</a>
-            <span class="grid-nav__item" aria-disabled="true">Workshops</span>
-            <span class="grid-nav__item" aria-disabled="true">Talks</span>
-            <a class="grid-nav__item" href="../about.html">About</a>
+        <nav class="main-nav" id="primary-nav" aria-label="Primary">
+            <div class="nav-item">
+                <a href="../writing/index.html" class="is-active" aria-current="page">Writings</a>
+                <div class="nav-menu">
+                    <a href="../writing/index.html">Drops</a>
+                    <a href="../writing/archive.html">Archive</a>
+                </div>
+            </div>
+            <a href="../publishing/index.html">Publishing</a>
+            <a href="../artworks/index.html">Artworks</a>
+            <!-- No design yet — shown, not linked. -->
+            <span class="nav-off">Workshops</span>
+            <span class="nav-off">Talks</span>
         </nav>
 
-        <!-- The way back, in the last cell of the band: the home shell carries
-             the same corner cell, reading ABOUT there and HOME everywhere else. -->
-        <a class="grid-header__home" href="../index.html">Home</a>
+        <a class="about-btn" href="../about.html">About</a>
     </header>
 
     <div class="reading-progress" role="progressbar" aria-label="Reading progress"
@@ -59,19 +65,21 @@
 
         <div class="article grid-row">
 
-            <div class="blk-group c-narrow">
-                <p class="blk blk--row blk-kicker">Drop #2 &#183; June 19, 2023 &#183; 7 min read</p>
-            </div>
+            <!-- The colourway switch, in the square under the byline cell. -->
+            <button class="theme-switch theme-switch--inline" type="button" aria-pressed="false" aria-label="Acid mode" title="Acid mode">&#9791;</button>
 
-            <div class="blk-group c-narrow">
+            <div class="blk-group c-wide">
                 <p class="blk blk--row blk-lede">The tenth anniversary of a contemporary masterpiece</p>
             </div>
 
+            <div class="blk-group c-wide">
+                <p class="blk blk--row blk-kicker">Drop #2 &#183; June 19, 2023 &#183; 7 min read</p>
+            </div>
             <figure class="blk-group c-narrow is-spaced">
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 8; --fig-rows-m: 11;"><img src="../assets/images/articles/drop-2-notes-on-yeezus-1.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text"><br>Hey everyone (▰˘◡˘▰)</p>
                     <p class="blk-text">This Drop marks the first time I dedicate a write-up to music on REINCANTAMENTO. The chance is offered by the 10th anniversary of one of my favorite records ever, <em>Yeezus</em> <em>by </em>Kanye West. Besides all the awful things that Ye said and done in recent years, my consideration of this album is unaltered and, given the occasion, I felt the urgency to express the reasons behind it.</p>
@@ -84,7 +92,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 7; --fig-rows-m: 10;"><img src="../assets/images/articles/drop-2-notes-on-yeezus-2.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text"><br>Mac Miller dropped his second studio album - <em>Watching Movies With The Sound Off</em> - on the 18th of June 2013. That same day, Kanye West dropped <em>Yeezus</em>, his sixth album. I couldn’t know but the moment that I heard the laser, chainsaw synth sound that opens the album’s first song, “On Sight<em>”</em>, I was about to experience an initiation. The arpeggio is “<em>non-musical, super aggro, really noisy</em>”, to quote Rick Rubin, who notoriously worked on the album. Kanye starts rapping at 0:33.</p>
                 </div>
@@ -94,7 +102,7 @@
                 <blockquote class="blk blk--rows blk-quote"><em>Yeezy season approachin'</em><em>Fuck whatever y'all been hearin'</em><em>Fuck what, fuck whatever y'all been wearin'</em><em>A monster about to come alive again</em></blockquote>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">No declaration of intent was ever clearer. Kanye proceeds to rap an obscene, vulgar verse: <em>“Black Timbs all on your couch again / Black dick all in your spouse again”. </em>This can’t be the man that wrote hip-hop Jesus Walks or Power. Ye’s rhymes are downgraded, hyper-simplified, and ready to be hashtagged and twitted out. He doesn’t give a fuck anymore and he’s telling you.</p>
                 </div>
@@ -104,7 +112,7 @@
                 <blockquote class="blk blk--rows blk-quote"><em>How much do I not give a fuck?</em><em>Let me show you right now 'fore you give it up</em><em>How much do I not give a fuck?</em><em>Let me show you right now 'fore you give it up</em></blockquote>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">And the soul sample kicks in. The chorus of “He’ll Give Us What We Really Need” by the Holy Name of Mary Choral Family, singing: “<em>Oh, he'll give us what we need / It may not be what we want”</em>. Re-listening, I am surprised at how blatantly he’s stating his intentions. He’s burying his old persona, the “<em>Pink-ass Polo with a fucking backpack</em>” rapper-producer, dear to the music critics. It truly is <em>Black American Psycho</em>, as Yeezus was rumored to be named before its release. “<em>R-right now</em>, <em>I need you right now”</em>, Kanye sings as the laser storm takes over the second part of the track, covering every trace of humanity under the inhuman blips of two sapient cyborgs, Daft Punk, who produced the song. <br><br>I could stop here. 2 minutes and 36 seconds encapsulate the whole album. I find that <em>Yeezus</em> possesses a fractal quality: the album is composed of ten songs which all contain a micro-universe of patchworked elements glued together by a fast-paced montage. It’s a minimalist frame - look at that album cover - containing a number of smaller, maximalist fragments. A cocktail of typical Kanye fixations, new discoveries, and external outputs, condensed into 40 minutes.</p>
                     <p class="blk-text">It also works the other way around: the entire project is a perfect encapsulation of Kanye’s entire career and an anticipation of his impending decline. The album finds Ye on the edge of losing it, standing “on the top of the mountain” facing down all his demons, his anxieties, frustrations, and insecurities. “<em>If you stare into the abyss, the abyss stares back at you</em>”, Friedrich Nietzsche famously stated in <em>Beyond Good and Evil. </em>With Yeezus, Kanye stared at his void abyss and alchemically transmuted the worst out of it in a propulsive, devastating work of art. It captures him in a raw and vulnerable state, perhaps one of the last instances before his complete immersion in Christianity and, later on, the controversial associations with fascism. He’s a naked beast here, convulsing restlessly, against the world, greatly depicted by the 3D, nightmarish figure in the hallucinated “Black Skinhead”<em> video. </em></p>
@@ -117,7 +125,7 @@
                 <figcaption class="blk blk--row blk-caption">Alternate Yeezus album covers. Photos from Virgil Abloh’s “Figures of Speech” book. Source: Twitter</figcaption>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">Lou Reed, in his <a href="https://www.talkhouse.com/lou-reed-of-the-velvet-underground-talks-kanye-wests-yeezus/" target="_blank" rel="noopener">poignant review</a> of the album, wrote shortly before just his passing, understood the extraordinary capacity of Kanye to be a gravitational point, an attractor for a number of different artistic expressions:</p>
                 </div>
@@ -127,7 +135,7 @@
                 <blockquote class="blk blk--rows blk-quote">“Kanye is <em>there</em>. It’s like his video for “Runaway,” with the ballet dancers — it was like, look out, this guy is making <em>connections</em>. You could bring one into the other — ballet into hip-hop — they’re not actually contradictory, and he knew that, he could see it immediately. He obviously can hear that all styles are the same, somewhere deep in their heart, there’s a connection. It’s all the same shit, <em>it’s all music</em> — that’s what makes him great. If you like sound, listen to what he’s giving you. Majestic and inspiring.”</blockquote>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">For my fifteen-year-old brain, <em>Yeezus</em> was a sonic, lyrical, and cultural assault, rewiring my musical and cultural perceptions. I was just beginning to explore hip-hop and indie rock. The expanded album roster revealed an entire musical world but my discoveries branched out in different directions. I found out about Nina Simone through her sample in Blood on The Leaves. I found out about Chicago’s homicide rates and about Death Grips’ music due to all the comparisons. I think I even found out about Kim K and the whole Kardashian gang through this album’s mythology (the “<a href="https://www.youtube.com/watch?v=BBAtAM7vtgc" target="_blank" rel="noopener">Bound 2” video</a>). Overall, such a pure disclosure, which alimented my curiosity for years, can only affect you in the unbalanced sweetness of adolescence.</p>
                     <p class="blk-text">In the end, <em>Yeezus’ </em>terrifying greatness lies in its incredible musical moments. From “Black Skinhead” ritualistic drums meshing into dogs barking to the glitched screams at 2:12 in “I Am a God”. Kanye synthetic crooning in the “Blood on the Leaves” outro. “New Slaves” frantic second verse and so many more. The hyperviolent, oddly sensual energy of King Louie’s in “Send It Up<em>”</em>, culminates in the sample of Beenie Man’s track “Memories<em>”</em>, among many others. Ten years later, it still sounds adventuristic, audacious, and absolutely unparalleled in the mainstream landscape.</p>
@@ -166,12 +174,12 @@
         <div class="footer-bottom">
             <p>2026 Reincantamento &nbsp;&#183;&nbsp; Berlin / Turin / Venice</p>
             <div class="footer-legal">
-                <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Acid mode" title="Acid mode">&#9791;</button>
                 <a href="../index.html">Home</a>
                 <a href="../about.html">About</a>
             </div>
         </div>
     </footer>
+
 
     <script src="../assets/js/site.js" defer></script>
 </body>

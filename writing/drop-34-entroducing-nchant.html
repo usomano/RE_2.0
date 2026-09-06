@@ -25,25 +25,31 @@
 
     <a class="skip-link" href="#main">Skip to content</a>
 
-    <header class="grid-header grid-row">
-        <a class="grid-header__logo" href="../index.html" aria-label="Reincantamento — home">
-            <svg viewBox="0 0 44 22" aria-hidden="true"><ellipse cx="22" cy="11" rx="22" ry="11"/></svg>
+    <header class="site-header">
+        <a class="brand" href="../index.html" aria-label="Reincantamento home">
+            <img src="../assets/images/REINC-LOGO.svg" alt="Reincantamento" width="53" height="25">
         </a>
 
-        <button class="grid-header__menu" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+        <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav">
+            <span></span><span></span><span></span>
+        </button>
 
-        <nav class="grid-nav" id="primary-nav" aria-label="Primary">
-            <a class="grid-nav__item" href="../writing/index.html" aria-current="page">Writing</a>
-            <a class="grid-nav__item" href="../publishing/index.html">Publishing</a>
-            <a class="grid-nav__item" href="../artworks/index.html">Artworks</a>
-            <span class="grid-nav__item" aria-disabled="true">Workshops</span>
-            <span class="grid-nav__item" aria-disabled="true">Talks</span>
-            <a class="grid-nav__item" href="../about.html">About</a>
+        <nav class="main-nav" id="primary-nav" aria-label="Primary">
+            <div class="nav-item">
+                <a href="../writing/index.html" class="is-active" aria-current="page">Writings</a>
+                <div class="nav-menu">
+                    <a href="../writing/index.html">Drops</a>
+                    <a href="../writing/archive.html">Archive</a>
+                </div>
+            </div>
+            <a href="../publishing/index.html">Publishing</a>
+            <a href="../artworks/index.html">Artworks</a>
+            <!-- No design yet — shown, not linked. -->
+            <span class="nav-off">Workshops</span>
+            <span class="nav-off">Talks</span>
         </nav>
 
-        <!-- The way back, in the last cell of the band: the home shell carries
-             the same corner cell, reading ABOUT there and HOME everywhere else. -->
-        <a class="grid-header__home" href="../index.html">Home</a>
+        <a class="about-btn" href="../about.html">About</a>
     </header>
 
     <div class="reading-progress" role="progressbar" aria-label="Reading progress"
@@ -59,15 +65,17 @@
 
         <div class="article grid-row">
 
-            <div class="blk-group c-narrow">
-                <p class="blk blk--row blk-kicker">Drop #34 &#183; May 23, 2025 &#183; 5 min read</p>
-            </div>
+            <!-- The colourway switch, in the square under the byline cell. -->
+            <button class="theme-switch theme-switch--inline" type="button" aria-pressed="false" aria-label="Acid mode" title="Acid mode">&#9791;</button>
 
-            <div class="blk-group c-narrow">
+            <div class="blk-group c-wide">
                 <p class="blk blk--row blk-lede">On REINCANTAMENTO's new monographic magazine</p>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide">
+                <p class="blk blk--row blk-kicker">Drop #34 &#183; May 23, 2025 &#183; 5 min read</p>
+            </div>
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text"><em>Hey everyone (▰˘◡˘▰)</em></p>
                     <p class="blk-text"><em>Welcome back to DROPS, REINCANTAMENTO's newsletter.</em></p>
@@ -79,7 +87,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 10; --fig-rows-m: 14;"><img src="../assets/images/articles/drop-34-entroducing-nchant-1.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">After several years of (mostly) online activities, REINCANTAMENTO takes physical form: a monographic magazine called nCHANT.</p>
                     <p class="blk-text">The name, nCHANT, comes from our brilliant Jeein's intuition and it carries multiple meanings. On one hand, it refers to the theme of enchantment, which forms the speculative and operational foundation of our collective's work. On the other hand, "chant" means a song, defined as:</p>
@@ -90,7 +98,7 @@
                 <blockquote class="blk blk--rows blk-quote"><em><strong>noun.</strong></em> <em>a repeated rhythmic phrase, typically one shouted or sung in unison by a crowd.</em></blockquote>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">This definition captures exactly what we're creating: a space where multiple voices converge to produce something greater than their individual contributions. Each issue focuses on a single concept but builds a polyphonic perspective through various interventions.</p>
                     <p class="blk-text">The result aims to be deliberately hybrid and anti-disciplinary, somewhere between an art publication, an academic journal, and, a cultural magazine. Taking the gamble of taking independent research seriously while not losing a playful attitude and the joy of aesthetic exploration.</p>
@@ -100,7 +108,7 @@
                 </div>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <h2 class="blk blk--row blk-heading">nCHANT #01: On Digital Gardens</h2>
                 <div class="blk blk--rows">
                     <p class="blk-text">For our inaugural issue, we've chosen to focus on <strong>digital gardens</strong> - both as metaphor and practice - for reimagining our relationship with technology and online spaces.</p>
@@ -109,7 +117,7 @@
                 </div>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <h2 class="blk blk--row blk-heading">The Trust Research Report and Beyond</h2>
                 <div class="blk blk--rows">
                     <p class="blk-text">We decided to situate the concept within a community of practice - our exploration begins at <a href="https://trust.support/" target="_blank" rel="noopener">Trust</a> in Berlin, a space that has been instrumental in shaping our research methods and community connections. The centerpiece of nCHANT #01 is a <strong>Research Report</strong> co-authored with Christopher Dake-Outhet, featuring detailed interviews with 20 members of the Trust community: artists, developers, designers, writers, and educators who are actively engaged in reimagining digital spaces.</p>
@@ -124,7 +132,7 @@
                 </div>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <h2 class="blk blk--row blk-heading">Where to find us</h2>
             </div>
 
@@ -133,7 +141,7 @@
                 <figcaption class="blk blk--row blk-caption">Our launch party will include a special dj-set by our comrade <a href="https://kinked.bandcamp.com/" target="_blank" rel="noopener">Kinked</a></figcaption>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">We'll be presenting nCHANT in Berlin on <strong>May 28th at <a href="http://trust.support" target="_blank" rel="noopener">Trust</a></strong> (read more about it here), with additional events planned throughout the summer in Europe, where you can grab a physical copy and join the conversation in person. But for those who can't wait or can't make it to our events, we've decided to release nCHANT through Metalabel: a platform for collective publishing that feels like a natural home for this project.</p>
                     <p class="blk-text">Why Metalabel? More than just another distribution channel, Metalabel feels as a genuine attempt to embrace new models for cultural production as well. Through Metalabel, we join a growing ecosystem of collectives rethinking how creative work can circulate outside traditional market structures and dominant social platform.</p>
@@ -174,12 +182,12 @@
         <div class="footer-bottom">
             <p>2026 Reincantamento &nbsp;&#183;&nbsp; Berlin / Turin / Venice</p>
             <div class="footer-legal">
-                <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Acid mode" title="Acid mode">&#9791;</button>
                 <a href="../index.html">Home</a>
                 <a href="../about.html">About</a>
             </div>
         </div>
     </footer>
+
 
     <script src="../assets/js/site.js" defer></script>
 </body>

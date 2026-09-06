@@ -23,15 +23,29 @@ writing/    publishing/  artworks/    generated from content/
 | `publishing/` | nCHANT #01 and Arcane Affinities. Copy, specs, availability and shots come from the Metalabel records. |
 | `artworks/` | Formicaio, Harvesting the Net, Tech Collapse, Dolphinology, Vectorial Baptism. |
 
-Workshops and Talks appear in the nav but have no design or content yet, so they
-are `<span class="nav-off">` on the home shell and `aria-disabled` spans in the
-section header — visible, not links. Swap them for `<a>` when the frames land.
+**One header, on every page.** The home shell's header is the header: the eye in
+the first cell (and the way back to the home page), the five sections on a mask
+of the page fill, then the filled ABOUT cell in the corner. `tools/build.py`
+emits the same markup for the section pages, where it takes the first row of the
+page grid instead of floating over the screen (`.page .site-header`). The
+current section is underlined, not punched out of a band.
 
-About sits in the nav next to Talks on **every** page, so the menu is the same
-run of six items everywhere. The filled corner cell after it is the way out:
-ABOUT on the home page (which has nowhere to go back to) and HOME on every other
-— the blue `.about-btn` on the home shell, the punched-out `.grid-header__home`
-at the end of the section band.
+The menu names sections only — WRITINGS, PUBLISHING, ARTWORKS, WORKSHOPS,
+TALKS. About is the corner cell, so it is never also a menu item, and the logo
+is the only way home.
+
+WRITINGS holds a cell of its own (`.nav-item`) because Writing is two bodies of
+work on two pages: the cell fills with `--band` on hover and drops DROPS and
+ARCHIVE below it as a column of the same squares, a grid line apart
+(`.nav-menu`). `:focus-within` opens it from the keyboard; a touch screen has no
+hover, so tapping the item just follows it to the drops, and in the mobile panel
+both names are simply there, indented. The cell stays filled on the Writing
+pages — the current section is a cell that is on, where the other items, being
+text, underline instead. The nav is a row of labels with gaps, so the cell lands
+wherever the words put it: `main.js` / `site.js` shift the item to the nearest
+column (`snapNavItem`) so its square and menu meet the painted lines. Workshops and Talks have no design or content yet, so they
+are `<span class="nav-off">` everywhere — visible, not links. Swap them for
+`<a>` when the frames land.
 
 ### Content is data, pages are generated
 
@@ -135,8 +149,16 @@ agent of transformation. It carries an `aria-label` since the glyph alone says
 nothing to a screen reader, and it is set in a named symbol-font stack so it
 stays a text glyph instead of turning into a colour emoji. Active state is a
 hairline box drawn in `currentColor`, so it reads the same on the page, on the
-blue About header and on the footer band. It sits in the footer of the section
-pages and inside the header nav on home/about/lab (which have no footer).
+blue About header. It has a square of its own on every page. On the index pages
+that is the bottom-right cell of the first screen, under the ABOUT cell at the
+top of the same column; on the detail pages — a drop, a publication, an artwork
+— it moves into the article grid, the square directly under the byline cell
+(`.theme-switch--inline`, and `page(..., switch=False)` so the corner one is not
+emitted as well). Either way it is in the page colourway, not on a band. There is no active-state mark on the
+control — flipping the colourway repaints the page, which says it far more
+plainly — only `aria-pressed`. The section pages have a square module, so the
+viewport height rarely divides by it: `site.js` measures the last whole row of
+the screen and publishes it as `--screen-last-row`.
 
 The home mark is a flat image, so acid reaches it through a `hue-rotate` filter.
 
@@ -168,8 +190,9 @@ Two conventions carry the whole system:
 - **Whole rows.** Every text block covers an exact number of grid squares
   (89px, 179px, 269px …). CSS can only set a floor (`.blk--row`, `.blk--rows`),
   so `site.js` measures the laid-out copy and rounds each block up to the next
-  whole row. Blocks stack 1px apart inside a group; `.is-spaced` puts a whole
-  empty row before a new group.
+  whole row — clearing that floor first, since a `min-height` beats the measured
+  height and would keep a one-line block two rows tall. Blocks stack 1px apart
+  inside a group; `.is-spaced` puts a whole empty row before a new group.
 
 Figures state their height in grid rows (`.r-7x4` → `calc(var(--cell) * 4 - 1px)`)
 rather than as an `aspect-ratio`. A ratio resolves against the 1px-inset width —
@@ -189,19 +212,57 @@ and the image is shown whole inside it.
 Column spans come from the `.c-*` set in `sections.css` (`.c-wide`, `.c-narrow`,
 `.c-quote` …) — the design only ever uses those.
 
-### The year band
+A drop reads across two measures: its text blocks take the full content width
+(`.c-wide`, 12 cells, quotes indented one inside it) while its figures keep the
+8-cell reading column (`.c-narrow`). A figure's height follows its own
+proportions, and most of what the newsletter carries is square or portrait, so a
+12-cell box would turn the majority of them into blocks taller than a screen —
+`FIG_COLS` in `build.py` is the width those heights are computed from and has to
+match the span the figures actually get. The publishing and artworks pages,
+which come from Figma frames that alternate text and figures across the width,
+keep the 8-cell measure for both.
 
-`writing/index.html` shows one year of drops at a time (2023 → 2026) and
-`writing/archive.html` one year of the pre-2023 essays (2020 → 2022). Every card
+### The DROPS masthead
+
+`writing/index.html` is the newsletter's own front page, so it carries the mark:
+`assets/images/drops-mark.png`, the 2026 wordmark — pixel serif between two
+drop-eyes — two rows tall on the left of the row under the header, with the year
+band on the last five cells of that same row and a cell of air between them. The
+mark ships as BLU on transparency so it sits on the page ground; acid mode
+reaches it through the same `hue-rotate` as the home eye, both being flat
+images. It was cut from `drops-newbranding2026/Layer_2-1.png` (build input,
+never served) — that export is ink `#0000ff` on a flat `#ebebeb` ground, so the
+red channel alone gives the alpha:
+
+```python
+a = int(round((235 - r) * 255 / 235))   # per pixel, then paint it #0009ff
+``` The `<nav>` around the year controls is
+`display: contents`, which is what lets those cells land on the masthead's grid
+row while the element still wraps only the controls. The standfirst — what DROPS
+is, in two sentences — sits a grid line under the nameplate, in the reading
+column, as a `.blk` that `site.js` rounds up to whole rows like every other text
+block. On mobile the nameplate takes the width, the band drops to a row of its
+own beneath it, and the standfirst opens a group after it.
+
+### The year band, and the archive's single scroll
+
+The two halves of Writing carry their years differently, because there are
+fifty-three drops and only thirty-odd archive pieces.
+
+`writing/index.html` shows one year of drops at a time (2023 → 2026). Every card
 is in the page carrying a `data-year`; `site.js` hides the rest, so without JS
-both pages simply list everything. The band sits on the five cells at the end of
-the row under the nav
-— arrow, year over two cells, arrow, and a cell crossing to the other page.
-Stepping off either end follows that crossing (`archive.html#2022`,
-`index.html#2023`), so 2020 … 2026 reads as one line across the two pages. At
-the two ends of the whole run — 2026 forward, 2020 back — there is nowhere to
-go: that arrow is not drawn at all and the year block takes its cell, so the
-band stays a solid run of squares. `site.js` puts `data-end` on the band.
+the page simply lists everything. The band sits on the five cells at the end of
+the row under the nav — arrow, year over two cells, arrow, and a cell crossing
+to the archive. Stepping off either end follows that crossing
+(`archive.html#2022`), so 2020 … 2026 reads as one line across the two pages. At
+the ends of the run — 2026 forward, 2023 back — there is nowhere to go: that
+arrow is not drawn at all and the year block takes its cell, so the band stays a
+solid run of squares. `site.js` puts `data-end` on the band.
+
+`writing/archive.html` is one scroll instead, newest year first. Each year opens
+with a band of its own carrying the year (`.divider__band`, the same band the
+page opens with) and the div around it carries `id="2022"` and so on, which is
+what the drops band's crossing lands on. No JS is involved: the page is a list.
 
 ### Reading a drop
 
@@ -224,11 +285,17 @@ is whole without JS:
 ## Layout — home
 
 - Fixed header (matches Figma HEADER frame): pixel-eye logo
-  (`assets/images/reinc-eye-nero.png`) top-left, nav top-right with six items all
-  in BLU — WRITING / PUBLISHING / MOVING IMAGES / WORKSHOPS / TALKS / ABOUT — then
-  the filled corner cell (ABOUT on home, HOME elsewhere). Below 768px
+  (`assets/images/reinc-eye-nero.png`) top-left, nav top-right with five items all
+  in BLU — WRITING / PUBLISHING / ARTWORKS / WORKSHOPS / TALKS — then the filled
+  corner cell (ABOUT on home, HOME elsewhere). Below 768px
   the nav collapses behind a hamburger toggle (full-screen dropdown panel).
-- Centered serif statement with select words highlighted in BLU.
+- Centered serif statement, one screen tall. Its last row carries the media cell
+  in the left corner and the colourway switch in the right one.
+- The footer band follows that row directly (`.site-footer--flush`, a 1px grid
+  line between them) rather than after an empty row: wordmark, newsletter field,
+  nodes, colophon. Its CSS lives in `styles.css` (shared by every page) and is
+  measured in `--fmod` — the section pages' own `--cell`, falling back to
+  `--foot-mod` (the Figma column count) where there is none.
 - Full-page CSS grid background: two `repeating-linear-gradient`s draw white
   (BIANCO) lines over the GRIGIO fill. Cell size = `--grid-cell` (120px).
 - Responsive via `clamp()`; one breakpoint at 768px.

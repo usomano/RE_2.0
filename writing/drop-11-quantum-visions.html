@@ -25,25 +25,31 @@
 
     <a class="skip-link" href="#main">Skip to content</a>
 
-    <header class="grid-header grid-row">
-        <a class="grid-header__logo" href="../index.html" aria-label="Reincantamento — home">
-            <svg viewBox="0 0 44 22" aria-hidden="true"><ellipse cx="22" cy="11" rx="22" ry="11"/></svg>
+    <header class="site-header">
+        <a class="brand" href="../index.html" aria-label="Reincantamento home">
+            <img src="../assets/images/REINC-LOGO.svg" alt="Reincantamento" width="53" height="25">
         </a>
 
-        <button class="grid-header__menu" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+        <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav">
+            <span></span><span></span><span></span>
+        </button>
 
-        <nav class="grid-nav" id="primary-nav" aria-label="Primary">
-            <a class="grid-nav__item" href="../writing/index.html" aria-current="page">Writing</a>
-            <a class="grid-nav__item" href="../publishing/index.html">Publishing</a>
-            <a class="grid-nav__item" href="../artworks/index.html">Artworks</a>
-            <span class="grid-nav__item" aria-disabled="true">Workshops</span>
-            <span class="grid-nav__item" aria-disabled="true">Talks</span>
-            <a class="grid-nav__item" href="../about.html">About</a>
+        <nav class="main-nav" id="primary-nav" aria-label="Primary">
+            <div class="nav-item">
+                <a href="../writing/index.html" class="is-active" aria-current="page">Writings</a>
+                <div class="nav-menu">
+                    <a href="../writing/index.html">Drops</a>
+                    <a href="../writing/archive.html">Archive</a>
+                </div>
+            </div>
+            <a href="../publishing/index.html">Publishing</a>
+            <a href="../artworks/index.html">Artworks</a>
+            <!-- No design yet — shown, not linked. -->
+            <span class="nav-off">Workshops</span>
+            <span class="nav-off">Talks</span>
         </nav>
 
-        <!-- The way back, in the last cell of the band: the home shell carries
-             the same corner cell, reading ABOUT there and HOME everywhere else. -->
-        <a class="grid-header__home" href="../index.html">Home</a>
+        <a class="about-btn" href="../about.html">About</a>
     </header>
 
     <div class="reading-progress" role="progressbar" aria-label="Reading progress"
@@ -59,15 +65,17 @@
 
         <div class="article grid-row">
 
-            <div class="blk-group c-narrow">
-                <p class="blk blk--row blk-kicker">Drop #11 &#183; February 10, 2024 &#183; 8 min read</p>
-            </div>
+            <!-- The colourway switch, in the square under the byline cell. -->
+            <button class="theme-switch theme-switch--inline" type="button" aria-pressed="false" aria-label="Acid mode" title="Acid mode">&#9791;</button>
 
-            <div class="blk-group c-narrow">
+            <div class="blk-group c-wide">
                 <p class="blk blk--row blk-lede">Vast Machines and Climate Change</p>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide">
+                <p class="blk blk--row blk-kicker">Drop #11 &#183; February 10, 2024 &#183; 8 min read</p>
+            </div>
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text"><em>Hey everyone (▰˘◡˘▰)</em></p>
                     <p class="blk-text"><em>DROPS features a new writer, who participated in our open call: Alessandro De Frenza. </em></p>
@@ -79,7 +87,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 8; --fig-rows-m: 11;"><img src="../assets/images/articles/drop-11-quantum-visions-1.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <h2 class="blk blk--row blk-heading">The Tech Climate Stack</h2>
                 <div class="blk blk--rows">
                     <p class="blk-text">Climate change and computational tools have an entangled relationship. This interplay is examined in a fantastic and often overlooked book by Paul N. Edwards: <em>A Vast Machine: Computer Models, Climate Data, and the Politics of Global Warming. </em>In the volume, Edwards highlights the different aspects of what may be called the <em>Tech Climate Stack: </em>the vast array of technologies used to collect, store, and process data on climate and the models that try to predict future events. This infrastructure is ubiquitous and it includes networks of weather stations, satellites, ocean buoys, etc, that gather data on temperature, precipitation, atmospheric composition, and other variables.</p>
@@ -90,7 +98,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 8; --fig-rows-m: 11;"><img src="../assets/images/articles/drop-11-quantum-visions-2.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">A huge challenge for scientists is to manage and integrate these data from diverse sources and to ensure its quality and accessibility for researchers. This step is crucial to create comprehensive datasets for use in climate models that can simulate and predict planetary phenomena. What are these models used for? For instance, the National Center for Atmospheric Research (NCAR) in Colorado developed the <a href="https://www.cesm.ucar.edu/" target="_blank" rel="noopener">Community Earth System Model </a>(CESM): a comprehensive Earth system model that simulates the coupled interactions between the atmosphere, ocean, land surface, and sea ice. CESM is used both to simulate future climate scenarios - usually under different greenhouse gas emissions - and to simulate past climate conditions over geological timescales, allowing scientists to study climate variability and environmental changes throughout Earth's history. Moreover, when conversations revolve around phenomena such as the El Niño-Southern Oscillation (ENSO), which impacts tropical and subtropical temperatures, we owe our ability to observe and understand them to models like CESM.</p>
                     <p class="blk-text">Edwards examines the process of parameterization of such models, whereby complex processes that occur at scales smaller than the model grid are represented using simplified mathematical formulas or algorithms. He discusses the trade-offs involved in model complexity, including the balance between computational efficiency and the fidelity of model simulations. International collaborations, such as the Coupled Model Intercomparison Project (CMIP), play an important role in the constant improvement of the models. Through these initiatives, national agencies coordinate together the standardized evaluation of model simulations, the sharing of model output data, and the coordination of multi-model ensemble experiments.</p>
@@ -102,13 +110,13 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 4; --fig-rows-m: 6;"><img src="../assets/images/articles/drop-11-quantum-visions-3.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">The planetary, computational observatory is the <em>condicio sine qua non </em>of climate science: it’s impossible to imagine its existence without this array of infrastructure and tools. But on the horizon, a new evolution of computing promises to shake what we have described so far.</p>
                 </div>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <h2 class="blk blk--row blk-heading">A Quantum Shake</h2>
                 <div class="blk blk--rows">
                     <p class="blk-text">The advent of quantum computers may represent a significant earthquake in the field of climate science, due to the leap forward in computational power that these new machines promise. But what are exactly the features of these computers that make them suitable for studying new ways of restraining climate change? And what is the impact of this kind of technology on the research?</p>
@@ -124,7 +132,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 11; --fig-rows-m: 14;"><img src="../assets/images/articles/drop-11-quantum-visions-4.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">But here comes the big challenge of quantum computing: superconductivity is not possible if not at very low temperatures, and yes, we are talking about the so-called 'critical temperature' that is barely above absolute zero. In comparison, superconductive quantum computers are actually colder than outer space. <br><br>Zooming in on the quantum processor itself, each qubit is an LC circuit, which includes a capacitor and an inductor, and this results in a resonator that researchers can then tune to behave like an atom with two quantum energy levels. In this way, they can manipulate and read the state of the qubit. This quantum processor sits at the bottom of the most visible part of a quantum computer: the chandelier, which is mainly a big refrigerator that, by mixing different types of isotopes of helium, cools the processor until almost 0 Kelvin (-373°C). To better navigate the sub-atomic realm, we suggest you play <a href="https://www.hopquantumgame.com/en/" target="_blank" rel="noopener">Hop</a>, a card game designed by the University of Geneve researcher Jao Ferreira. Hop does a great job in explaining entertainingly the vast set of concepts developed by quantum physics.</p>
                     <p class="blk-text">Overall, the structure of quantum computers and their wide range of applications are evolving fast. Particularly, they seem to offer a new engine to the “vast machine” - the Tech Climate Stack - we describe above through Edwards and Bratton’s works.</p>
@@ -138,7 +146,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 8; --fig-rows-m: 11;"><img src="../assets/images/articles/drop-11-quantum-visions-5.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">The new quantum enthusiasts - both Mckinsey and Deloitte published hype-inducing reports on quantum computing applied to climate change - will address this criticism with a recursive answer: quantum computing is going to optimize itself by its computational powers, finding new efficient solutions to the dilemma of energy consumption. Quantum algorithms could optimize energy grids, vehicles’ routes, and more, solving their impact issue.</p>
                     <p class="blk-text">The realization of these optimistic predictions remains uncertain for now. It's crucial to acknowledge that addressing climate change requires more than just technical solutions; it necessitates profound social, political, and economic transformations. Yet, it's also essential to recognize the pivotal role that computational infrastructure plays in our understanding of climate change. Without the "vast machine," we might not even perceive the magnitude of the problem. Looking ahead, quantum perspectives may offer deeper insights, potentially entwining us further within the complexities of the challenge. Peering into the future, quantum lenses beckon, promising to unveil new vistas, perhaps ensnaring us deeper within the enigmatic tapestry of our environmental plight.</p>
@@ -177,12 +185,12 @@
         <div class="footer-bottom">
             <p>2026 Reincantamento &nbsp;&#183;&nbsp; Berlin / Turin / Venice</p>
             <div class="footer-legal">
-                <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Acid mode" title="Acid mode">&#9791;</button>
                 <a href="../index.html">Home</a>
                 <a href="../about.html">About</a>
             </div>
         </div>
     </footer>
+
 
     <script src="../assets/js/site.js" defer></script>
 </body>

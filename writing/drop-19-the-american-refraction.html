@@ -25,25 +25,31 @@
 
     <a class="skip-link" href="#main">Skip to content</a>
 
-    <header class="grid-header grid-row">
-        <a class="grid-header__logo" href="../index.html" aria-label="Reincantamento — home">
-            <svg viewBox="0 0 44 22" aria-hidden="true"><ellipse cx="22" cy="11" rx="22" ry="11"/></svg>
+    <header class="site-header">
+        <a class="brand" href="../index.html" aria-label="Reincantamento home">
+            <img src="../assets/images/REINC-LOGO.svg" alt="Reincantamento" width="53" height="25">
         </a>
 
-        <button class="grid-header__menu" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+        <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav">
+            <span></span><span></span><span></span>
+        </button>
 
-        <nav class="grid-nav" id="primary-nav" aria-label="Primary">
-            <a class="grid-nav__item" href="../writing/index.html" aria-current="page">Writing</a>
-            <a class="grid-nav__item" href="../publishing/index.html">Publishing</a>
-            <a class="grid-nav__item" href="../artworks/index.html">Artworks</a>
-            <span class="grid-nav__item" aria-disabled="true">Workshops</span>
-            <span class="grid-nav__item" aria-disabled="true">Talks</span>
-            <a class="grid-nav__item" href="../about.html">About</a>
+        <nav class="main-nav" id="primary-nav" aria-label="Primary">
+            <div class="nav-item">
+                <a href="../writing/index.html" class="is-active" aria-current="page">Writings</a>
+                <div class="nav-menu">
+                    <a href="../writing/index.html">Drops</a>
+                    <a href="../writing/archive.html">Archive</a>
+                </div>
+            </div>
+            <a href="../publishing/index.html">Publishing</a>
+            <a href="../artworks/index.html">Artworks</a>
+            <!-- No design yet — shown, not linked. -->
+            <span class="nav-off">Workshops</span>
+            <span class="nav-off">Talks</span>
         </nav>
 
-        <!-- The way back, in the last cell of the band: the home shell carries
-             the same corner cell, reading ABOUT there and HOME everywhere else. -->
-        <a class="grid-header__home" href="../index.html">Home</a>
+        <a class="about-btn" href="../about.html">About</a>
     </header>
 
     <div class="reading-progress" role="progressbar" aria-label="Reading progress"
@@ -59,11 +65,13 @@
 
         <div class="article grid-row">
 
-            <div class="blk-group c-narrow">
+            <!-- The colourway switch, in the square under the byline cell. -->
+            <button class="theme-switch theme-switch--inline" type="button" aria-pressed="false" aria-label="Acid mode" title="Acid mode">&#9791;</button>
+
+            <div class="blk-group c-wide">
                 <p class="blk blk--row blk-kicker">Drop #19 &#183; November 18, 2024 &#183; 9 min read</p>
             </div>
-
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text"><em>Hey everyone (▰˘◡˘▰)</em></p>
                     <p class="blk-text"><em>Welcome back to Drops, REINCANTAMENTO’s newsletter. Alessandro happened to be in New York during the American electoral ritual. Today's DROP offers a ground-level view of this hyperreal moment of social shape-shifting. We hope you find something in these observations.</em></p>
@@ -79,7 +87,7 @@
                 <blockquote class="blk blk--rows blk-quote"><em><strong>refraction /rĭ-frăk′shən/</strong></em>noun<em>The turning or bending of any wave, such as a light or sound wave, when it passes from one medium into another of different optical density.</em></blockquote>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text"><em>“The streets might go nuts if Trump wins”</em>—I hear it from a white man in his forties as he lounges on a bench in Central Park, smoking a joint. It’s 10:25 on the fifth of November 2024. Polls for the 47th American Presidential election have just opened, and I’ve been in New York for barely over twenty-four hours.</p>
                     <p class="blk-text">The chant “<em>Remember remember the fifth of November”</em> crosses my mind, accompanied by flashes of Guy Fawkes masks. The movie <em>V for Vendetta </em>popularized, in a populist fashion, <em><a href="https://en.wikipedia.org/wiki/Gunpowder_Plot" target="_blank" rel="noopener">The Gunpowder Plot</a></em> as an act of rebellion against the power. On this fifth of November, the political upheaval is incarnated in the body of a 78-year-old billionaire.</p>
@@ -95,7 +103,7 @@
                 <figcaption class="blk blk--row blk-caption">Central Park, 5th November 2024, picture of the author</figcaption>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">It’s 2 p.m. Manhattan doesn’t seem overly concerned about the most important election in the last thirty years. Life goes on, its routines flickering and bustling. You’re reminded it’s Election Day only by the passersby sporting <em>“I Voted!</em>” pins in stars-and-stripes colors. It’s not the only piece of election <em>drip</em> you see on New Yorkers as we breathe in the city on this Tuesday afternoon. There’s a Harris Waltz hat—orange font on green camo. Very trendy, definitely. A blue attempt to capture the iconic aura of the MAGA hat.</p>
                 </div>
@@ -106,7 +114,7 @@
                 <figcaption class="blk blk--row blk-caption">It has some swag</figcaption>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">In Chelsea, a Trump supporter displays the full ensemble from hat to pin: a big “<em>Pray to End Abortion</em>” badge, a yellow ancap flag, and other symbols I can’t recognize. Politics as brand identity. A mosaic of causes that compose one's political persona. Variations on the Harris theme abound: Kamala in 1940s propaganda style “<em>We Can Do It</em>”, Harris in the Obama <em>Hope </em>design, Harris is <em>“for the people”</em>, etc.</p>
                     <p class="blk-text">Not far from where we’re walking, the tech workers at the <em>New York Times </em>are staging their first-ever picket. My friend Simone, who coordinates the Tech Worker Coalition in Berlin, had told me about it. The growing rhythm of the US labor struggle will continue no matter where the presidency goes, albeit with significantly different resonance. Around one year ago, Joe Biden was <a href="https://www.bbc.com/news/world-us-canada-66926060" target="_blank" rel="noopener">the first president</a> to visit a similar picket, organized by the United Automobile Workers, targeting General Motors, Stellantis, and Ford.</p>
@@ -118,7 +126,7 @@
                 <blockquote class="blk blk--rows blk-quote">“<em>Everything here is real and pragmatic, and yet it is all the stuff of dreams too”. </em></blockquote>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">Strolling down from Chelsea to West Village, the electoral spectacle gets progressively inflated in the warm afternoon. A middle-aged Latina woman approaches, asking if we’ve voted, introducing herself as a Democratic candidate for New York City Civil Court. I ask her how she's feeling about today, and she responds positively, only to be interrupted by a volunteer who adds with knowing condescension: '<em>I mean, it's the Village</em>'— invoking decades of reliable voting patterns and bohemian mythology. If they’re not voting for us in one of the most progressive neighborhoods in the country, a historic cradle of art and music, we’re in real trouble. When we explain that we are not citizens, she wishes that maybe one day our children will be able to vote in future elections. A well-meaning wish laced with a touch of arrogant inclusivity—exquisitely American. At the end of the day, the lawyer Crystal Villasenor—her name—will indeed claim a seat on the Civil Court, where everyday New Yorkers bring their landlord-tenant grievances and small claims in pursuit of justice.</p>
                 </div>
@@ -129,7 +137,7 @@
                 <figcaption class="blk blk--row blk-caption">NYT Cover Page, 5th November 2024</figcaption>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">Walking along the Hudson, I spot a jogger in what must be a fresh-off-the-press t-shirt: Trump's face with a pixelated "57%" in electric green. It's hawking Kalshi, the “first legal prediction market in the US”. I've been watching these betting platforms multiply this election season, from a niche crypto-powered service like Polymarket to the big sensation of these last few weeks. These markets attempt to harness online swarms’ sentiment, encouraging users to bet on their convictions and creating self-reinforcing cycles of prediction. A multiplayer make-your-own-poll game. In tune with the <em>Zeitgeist. </em></p>
                 </div>
@@ -140,7 +148,7 @@
                 <figcaption class="blk blk--row blk-caption">Polymarket’s “prophecy” meme</figcaption>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">As the polling stations close their doors, we make our way to Chinatown. After a delicious bowl of pulled noodles, we approach the election night event we randomly picked up from a list online.It's an old building in the area, perched on a strangely sloping street. The service elevator taking us to the venue is operated by an elderly Chinese man—probably one of the building's original residents—and it takes a full two minutes to to reach the sixth floor.</p>
                 </div>
@@ -151,7 +159,7 @@
                 <figcaption class="blk blk--row blk-caption">The old elevator was decorated with electoral merchandise</figcaption>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">The event has a laid-back, hipster vibe—a gathering of the middle class more concerned with the proper mixing of their whiskey sours than the empire's fate. CNN's live stream projects onto the wall: we glance at it occasionally between sips of beer and scattered conversations. Only a small cadre of true believers is actually following the program. The real party, however, unfolds on the rooftop, where both a bar and television preside over a sweeping view of the Manhattan Bridge.</p>
                     <p class="blk-text">My impression, from early evening, is that while everyone keeps repeating Harris could win, no one really believes it. Trump is ahead practically from the start, and the gap will only widen.</p>
@@ -166,7 +174,7 @@
                 <figcaption class="blk blk--row blk-caption">Meme via <a href="https://www.instagram.com/showandtellhoe/" target="_blank" rel="noopener">showandtellhoe</a></figcaption>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">Another, less fun, point of consensus is that Trump 2.0 will be far worse than his first mandate. He's no longer the trickster, the system's bug; this Trump is the battering ram of an establishment faction pushing for a reactionary involution of the Federal State. An internal realignment, a closing of ranks behind an octogenarian, foul-mouthed Bonaparte who seems to be the junction point between impoverished masses and global elites. A point of meta-stability that, despite its oscillations, appears to be the only possible equilibrium in this precarious phase.</p>
                     <p class="blk-text">At 2 AM, we moved from Chinatown to a bar in the East Village. At the entrance, a staff member is arguing about the election with someone passing by. The latter is playing it cool with the usual "nothing will really change" line, acting like everyone who's worried is just being dramatic.</p>
@@ -179,7 +187,7 @@
                 <figcaption class="blk blk--row blk-caption">Amen</figcaption>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">We come back home in an Uber, the night's electricity spent. The wave of American history has just been refracted once again. All its contradictions, all these plural voices have made the spectacle far more tangible than it appeared in the morning. Through each lens, the US is revealed in its kaleidoscopic reality, each shard reflecting a different truth of the empire's becoming. Baudrillard: "<em>America is a giant hologram, in the sense that information concerning the whole is contained in each of its elements”. </em>Can these fragments hold together peacefully in the years ahead? This question follows me into the night. Meanwhile, in my head, resonates still the New York Dolls' punk anthem from the bar's speakers: “<em>All about that personality crisis, you got it while it was hot / But now, frustration and heartache is what you got”. </em>The personality crisis just goes on.</p>
                 </div>
@@ -217,12 +225,12 @@
         <div class="footer-bottom">
             <p>2026 Reincantamento &nbsp;&#183;&nbsp; Berlin / Turin / Venice</p>
             <div class="footer-legal">
-                <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Acid mode" title="Acid mode">&#9791;</button>
                 <a href="../index.html">Home</a>
                 <a href="../about.html">About</a>
             </div>
         </div>
     </footer>
+
 
     <script src="../assets/js/site.js" defer></script>
 </body>

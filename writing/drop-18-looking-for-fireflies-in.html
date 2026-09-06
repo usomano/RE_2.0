@@ -25,25 +25,31 @@
 
     <a class="skip-link" href="#main">Skip to content</a>
 
-    <header class="grid-header grid-row">
-        <a class="grid-header__logo" href="../index.html" aria-label="Reincantamento — home">
-            <svg viewBox="0 0 44 22" aria-hidden="true"><ellipse cx="22" cy="11" rx="22" ry="11"/></svg>
+    <header class="site-header">
+        <a class="brand" href="../index.html" aria-label="Reincantamento home">
+            <img src="../assets/images/REINC-LOGO.svg" alt="Reincantamento" width="53" height="25">
         </a>
 
-        <button class="grid-header__menu" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+        <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav">
+            <span></span><span></span><span></span>
+        </button>
 
-        <nav class="grid-nav" id="primary-nav" aria-label="Primary">
-            <a class="grid-nav__item" href="../writing/index.html" aria-current="page">Writing</a>
-            <a class="grid-nav__item" href="../publishing/index.html">Publishing</a>
-            <a class="grid-nav__item" href="../artworks/index.html">Artworks</a>
-            <span class="grid-nav__item" aria-disabled="true">Workshops</span>
-            <span class="grid-nav__item" aria-disabled="true">Talks</span>
-            <a class="grid-nav__item" href="../about.html">About</a>
+        <nav class="main-nav" id="primary-nav" aria-label="Primary">
+            <div class="nav-item">
+                <a href="../writing/index.html" class="is-active" aria-current="page">Writings</a>
+                <div class="nav-menu">
+                    <a href="../writing/index.html">Drops</a>
+                    <a href="../writing/archive.html">Archive</a>
+                </div>
+            </div>
+            <a href="../publishing/index.html">Publishing</a>
+            <a href="../artworks/index.html">Artworks</a>
+            <!-- No design yet — shown, not linked. -->
+            <span class="nav-off">Workshops</span>
+            <span class="nav-off">Talks</span>
         </nav>
 
-        <!-- The way back, in the last cell of the band: the home shell carries
-             the same corner cell, reading ABOUT there and HOME everywhere else. -->
-        <a class="grid-header__home" href="../index.html">Home</a>
+        <a class="about-btn" href="../about.html">About</a>
     </header>
 
     <div class="reading-progress" role="progressbar" aria-label="Reading progress"
@@ -59,15 +65,17 @@
 
         <div class="article grid-row">
 
-            <div class="blk-group c-narrow">
-                <p class="blk blk--row blk-kicker">Drop #18 &#183; October 21, 2024 &#183; 8 min read</p>
-            </div>
+            <!-- The colourway switch, in the square under the byline cell. -->
+            <button class="theme-switch theme-switch--inline" type="button" aria-pressed="false" aria-label="Acid mode" title="Acid mode">&#9791;</button>
 
-            <div class="blk-group c-narrow">
+            <div class="blk-group c-wide">
                 <p class="blk blk--row blk-lede">A brief journey through the ruins of modernity</p>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide">
+                <p class="blk blk--row blk-kicker">Drop #18 &#183; October 21, 2024 &#183; 8 min read</p>
+            </div>
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text"><em>Hey everyone (▰˘◡˘▰)</em></p>
                     <p class="blk-text"><em>Welcome back to Drops, REINCANTAMENTO’s newsletter. On Saturday, October 12th, our collective’s work was featured on the opening night of “<strong><a href="https://somos-arts.org/casting-a-spell/" target="_blank" rel="noopener">Casting A Spell in Computational Regimes</a>” </strong>an exhibition curated by <a href="https://www.instagram.com/arianna.forte2/" target="_blank" rel="noopener">Arianna Forte</a> at <a href="https://somos-arts.org/" target="_blank" rel="noopener">Somos Gallery</a>, in Berlin. </em></p>
@@ -81,7 +89,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 8; --fig-rows-m: 11;"><img src="../assets/images/articles/drop-18-looking-for-fireflies-in-1.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">My talk today will briefly explore the concept of re-enchantment—a guiding light in both my philosophical research and the practice of my collective.</p>
                     <p class="blk-text">To explain the concept of re-enchantment, we usually begin by discussing its opposite. In 1919, Max Weber diagnosed our world as disenchanted. According to Weber and his interpreters, the advancement of scientific rationality and technological progress stripped away the magic dimension of reality.</p>
@@ -93,7 +101,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 5; --fig-rows-m: 6;"><img src="../assets/images/articles/drop-18-looking-for-fireflies-in-2.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">This process, Weber argued, led to a general impoverishment of the way we interact with the world. Without these stories and spiritual connections, we drastically reduced the range of our possible experiences, prioritizing utilitarian and economic reasoning. A key example is the human-nature relationship. Nature transformed into something to be dominated from the outside, often through technical means, rather than something we are intrinsically part of. Carolyn Merchant’s *The Death of Nature* explores this dynamic.</p>
                     <p class="blk-text">The hegemony of technical and scientific knowledge, while certainly effective, often created a separation from what Husserl called the <em>Lebenswelt</em>, the world of life. This separation empowered the white man to establish a relationship of mastery over the world around him, prioritizing his own utility over the well-being of the many life forms that inhabit our planet. Major anthropic interventions in nature—such as oil drilling—have predominantly served human beings to the detriment of other forms of life. Even worse, this has often been done with short-term profit in mind, preventing us from thinking about the future. Technology has locked us into a metaphysics of the present.</p>
@@ -109,7 +117,7 @@
                 <blockquote class="blk blk--rows blk-quote"><em>Only by recognizing the different in the human can we avoid its brutal suppression and, at the same time, point to the men who caused something inhuman that only the human can place, endure, and perhaps remove.</em><em>We have proof—in the Huguenots and in Montaigne—that even at the time of the Conquest of the New World (and of its Christian and monstrous massacres), there were men capable of discerning, of recognizing not only the human, but the veil of ideology: <strong>there is no general mentality (as some historians still today consider), capable of validating innocent crimes, also because there is no single mentality, but a stratification of different mentalités, which the authentic philosopher, the marginal, the different, the minorities, are able to disassociate themselves from, pointing out unilateralism and avoiding/denouncing the errors.</strong> Unfortunately, even today, often at the cost of personal suffering. Because even today, Power, to eliminate opposition and dissent, willingly names it as the devil, even if using more suitable substitute terms for today.</em></blockquote>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">The elimination of these communities and the knowledge they embodied is the root of the disenchantment of the world—a primitive act of violence that established capitalist societies. Yet, never was the chorus of voices entirely silenced. To speak one's difference, to resist the siren call of hegemony, is forever a defiant act feared by Power. This echoes powerfully with the events unfolding on the streets of Berlin each week over the past year.</p>
                 </div>
@@ -119,7 +127,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 5; --fig-rows-m: 6;"><img src="../assets/images/articles/drop-18-looking-for-fireflies-in-3.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">This process of disenchantment implanted scarcity—both cultural and economic—making everyone dependent on the sovereign power of the state, which fueled the expansion of capitalism. Everything common, free, and plural was either converted into privatized, regulated resources or erased.</p>
                     <p class="blk-text">Fast forward to 1975. Nine months before his death, the Italian poet Pier Paolo Pasolini wrote about the disappearance of fireflies in the Italian countryside due to pollution and industrial expansion. For Pasolini, fireflies became a symbol of a disenchanted reality, a vanished emblem of wonder.</p>
@@ -130,7 +138,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 5; --fig-rows-m: 6;"><img src="../assets/images/articles/drop-18-looking-for-fireflies-in-4.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">In his essay <em>The Power Void in Italy</em>, Pasolini also talked about fascism and the continuity between the Italian fascist regime and the corrupt reign of the Christian Democratic Party. He argued that power dynamics did not change with different types of government—whether authoritarian or democratic, capitalist expansion continued unchecked, contributing to the disenchantment of reality.</p>
                     <p class="blk-text">Pasolini’s reflections bring us to an apocalyptic mood, but we must ask: have all the fireflies truly disappeared? These visions are apocalyptic in the literal sense—they are stories of worlds ending and fading away. They resonate with our present, where the sense of apocalypse feels generalized. Many of us believe we are witnessing the decline of a civilization that began with the genocide of Indigenous people and trials against witches.</p>
@@ -142,7 +150,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 5; --fig-rows-m: 6;"><img src="../assets/images/articles/drop-18-looking-for-fireflies-in-5.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">At REINCANTAMENTO, our collective explores re-enchantment and situates our work within this conceptual framework. Re-enchantment is not a denial of scientific advancement or a call to return to pre-modern times. Rather, it means changing our gaze on reality—looking at things differently, obliquely. It means reigniting that sense of wonder and surprise that originally moved the arts and philosophy.</p>
                     <p class="blk-text">By embracing the dark, surreal era we live in, we realize that reality is not only shaped by rational forces but also by mysterious and unexpected patterns. As Trevor Paglen once said: "<em>Chaos is the point, and chaos is the possibility of imagination."</em></p>
@@ -153,7 +161,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 5; --fig-rows-m: 6;"><img src="../assets/images/articles/drop-18-looking-for-fireflies-in-6.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">Our work as a collective revolves around imaginative practices. We imagine new approaches to digital technologies—like the works in this exhibition show—not to become passive, and disconnected from reality, but to enhance our connection with it. Through empathy and imaginative practices, we can visualize how different futures may come to be. By expanding our perception and connection to the lives around us, we may once again see the fireflies and build a new politics for the future through that re-enchanted lens.</p>
                 </div>
@@ -191,12 +199,12 @@
         <div class="footer-bottom">
             <p>2026 Reincantamento &nbsp;&#183;&nbsp; Berlin / Turin / Venice</p>
             <div class="footer-legal">
-                <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Acid mode" title="Acid mode">&#9791;</button>
                 <a href="../index.html">Home</a>
                 <a href="../about.html">About</a>
             </div>
         </div>
     </footer>
+
 
     <script src="../assets/js/site.js" defer></script>
 </body>

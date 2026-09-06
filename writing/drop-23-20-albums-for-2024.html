@@ -25,25 +25,31 @@
 
     <a class="skip-link" href="#main">Skip to content</a>
 
-    <header class="grid-header grid-row">
-        <a class="grid-header__logo" href="../index.html" aria-label="Reincantamento — home">
-            <svg viewBox="0 0 44 22" aria-hidden="true"><ellipse cx="22" cy="11" rx="22" ry="11"/></svg>
+    <header class="site-header">
+        <a class="brand" href="../index.html" aria-label="Reincantamento home">
+            <img src="../assets/images/REINC-LOGO.svg" alt="Reincantamento" width="53" height="25">
         </a>
 
-        <button class="grid-header__menu" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+        <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav">
+            <span></span><span></span><span></span>
+        </button>
 
-        <nav class="grid-nav" id="primary-nav" aria-label="Primary">
-            <a class="grid-nav__item" href="../writing/index.html" aria-current="page">Writing</a>
-            <a class="grid-nav__item" href="../publishing/index.html">Publishing</a>
-            <a class="grid-nav__item" href="../artworks/index.html">Artworks</a>
-            <span class="grid-nav__item" aria-disabled="true">Workshops</span>
-            <span class="grid-nav__item" aria-disabled="true">Talks</span>
-            <a class="grid-nav__item" href="../about.html">About</a>
+        <nav class="main-nav" id="primary-nav" aria-label="Primary">
+            <div class="nav-item">
+                <a href="../writing/index.html" class="is-active" aria-current="page">Writings</a>
+                <div class="nav-menu">
+                    <a href="../writing/index.html">Drops</a>
+                    <a href="../writing/archive.html">Archive</a>
+                </div>
+            </div>
+            <a href="../publishing/index.html">Publishing</a>
+            <a href="../artworks/index.html">Artworks</a>
+            <!-- No design yet — shown, not linked. -->
+            <span class="nav-off">Workshops</span>
+            <span class="nav-off">Talks</span>
         </nav>
 
-        <!-- The way back, in the last cell of the band: the home shell carries
-             the same corner cell, reading ABOUT there and HOME everywhere else. -->
-        <a class="grid-header__home" href="../index.html">Home</a>
+        <a class="about-btn" href="../about.html">About</a>
     </header>
 
     <div class="reading-progress" role="progressbar" aria-label="Reading progress"
@@ -59,11 +65,13 @@
 
         <div class="article grid-row">
 
-            <div class="blk-group c-narrow">
+            <!-- The colourway switch, in the square under the byline cell. -->
+            <button class="theme-switch theme-switch--inline" type="button" aria-pressed="false" aria-label="Acid mode" title="Acid mode">&#9791;</button>
+
+            <div class="blk-group c-wide">
                 <p class="blk blk--row blk-kicker">Drop #23 &#183; January 6, 2025 &#183; 8 min read</p>
             </div>
-
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text"><em>Hey everyone (▰˘◡˘▰)</em></p>
                     <p class="blk-text"><em>Happy 2025! This Drop is dedicated to the albums that moved, surprised, and shaped my 2024. It is my first shot at this new year's resolution to write more about music. Needless to say, this list is deeply personal, making no claims to completeness or objectivity. The albums are in no particular order either. Hopefully, you'll find something that speaks to you, like I always do when I stumble through others' year-end lists.<br><br>As always, REINCANTAMENTO is sustained by voluntary work. If you like what we do, consider <a href="https://ko-fi.com/reincantamento" target="_blank" rel="noopener">donating</a> or subscribing to support what we do!</em></p>
@@ -74,13 +82,13 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 8; --fig-rows-m: 11;"><img src="../assets/images/articles/drop-23-20-albums-for-2024-1.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text"><em>"Music is prophecy. Its styles and economic organization are ahead of the rest of society because it explores, much faster than material reality can, the entire range of possibilities in a given code."<br></em>Jacques Attali, <em>Noise</em></p>
                 </div>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <h2 class="blk blk--row blk-heading">#1. LAO - <em>Chapultepec</em></h2>
             </div>
 
@@ -88,13 +96,13 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 8; --fig-rows-m: 11;"><img src="../assets/images/articles/drop-23-20-albums-for-2024-2.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">A <em>lectio magistralis</em> on the Mexican dancefloor. This year I got deeply into electronic production from the South American continent - they shine as the most rhythmically interesting tunes one can find in a club. This record takes that energy and transforms it into a cohesive, sonically adventurous monument.</p>
                 </div>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <h2 class="blk blk--row blk-heading">#2. Vampire Weekend - <em>Only God Was Above Us</em></h2>
             </div>
 
@@ -102,13 +110,13 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 8; --fig-rows-m: 11;"><img src="../assets/images/articles/drop-23-20-albums-for-2024-3.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">If I knew who Vampire Weekend were - Ivy League, white, pretentious New Yorkers - before their music, I probably wouldn't like it as much. Yet, I discovered them ten years ago with Modern Vampires of the City and never looked back. This record manages to be existential and light-hearted simultaneously. It oozes New York City, from the cover to the NY hip-hop-style breakbeat in “Mary Boone”. The closing track “Hope” hits hard as an anthem to radical acceptance and the beauty of giving up, sometimes.</p>
                 </div>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <h2 class="blk blk--row blk-heading">#3. Nídia &amp; Valentina - <em>Estradas</em></h2>
             </div>
 
@@ -116,13 +124,13 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 8; --fig-rows-m: 11;"><img src="../assets/images/articles/drop-23-20-albums-for-2024-4.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">Valentina Magaletti, Italian avant-gardist multi-instrumentalist and exceptional drummer, teams up with forward-looking Portuguese DJ and producer Nídia for a sexy, polyrhythmic journey. It feels like an orgiastic rave under a hazy Mediterranean sun. Their energetic live set at Unsound was a highlight of the festival.</p>
                 </div>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <h2 class="blk blk--row blk-heading">#4. Kendrick Lamar - <em>GNX</em></h2>
             </div>
 
@@ -130,13 +138,13 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 8; --fig-rows-m: 11;"><img src="../assets/images/articles/drop-23-20-albums-for-2024-5.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text"><br>A triumphant victory lap from hip-hop's reigning champion. From "Like That" to the trilogy of legendary diss tracks (plus the criminally underrated “<a href="https://www.youtube.com/watch?v=efsqlBF3_nE" target="_blank" rel="noopener">Watch The Party Die</a>”), Kendrick proves why he's the best alive. While lighter than his previous work, this record's minimalist West Coast sound and mixtape approach delivered exactly what 2024 needed.</p>
                 </div>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <h2 class="blk blk--row blk-heading">#5. Adrienne Lenker - <em>Bright Future</em></h2>
             </div>
 
@@ -144,13 +152,13 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 8; --fig-rows-m: 11;"><img src="../assets/images/articles/drop-23-20-albums-for-2024-6.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">I have a crystalline memory of first playing this record: waiting for the Ubahn in Potsdamer Platz during my lowest period of the year. Adrienne's voice and ethereal folk guitar became a balsam for my soul. Out-of-time and yet contemporary, terrestrial, and celestial.</p>
                 </div>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <h2 class="blk blk--row blk-heading">#6. Future &amp; Metro Boomin - <em>We Don’t Trust You</em> + <em>We Still Don’t Trust You</em></h2>
             </div>
 
@@ -162,13 +170,13 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 8; --fig-rows-m: 11;"><img src="../assets/images/articles/drop-23-20-albums-for-2024-8.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">If Kendrick shot the Archduke and started the war, this diabolic duo architected the whole operation. In two weeks, these albums not only attacked Drake's career unprecedentedly but reminded everyone that Future &amp; Metro Boomin is one of the best combinations in contemporary hip-hop. In almost two hours of music, Future flows over Metro's wide palette of catchy, dark beats, moving from trap-lord moments like “Magic Don Juan” to melancholic tunes like “This Sunday”. Iconic.</p>
                 </div>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <h2 class="blk blk--row blk-heading"><em>#7. </em>Hakushi Hasegawa -<em> Mahōgakkō</em></h2>
             </div>
 
@@ -176,13 +184,13 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 8; --fig-rows-m: 11;"><img src="../assets/images/articles/drop-23-20-albums-for-2024-9.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">Jazz at its utter limit, on the grasp of breaking up, merging with the <em>cosmos</em>, and morphing into something new. “The Blossom and the Thunder” encapsulates it all: after two minutes of elegant Japanese jazz, it's hacked by thunderous drums, disappears, and regurgitates as a soft tone somewhere in the future. The opening track Departed's trance laser-show interplay with Hasegawa's enchanted singing is equally mesmerizing.</p>
                 </div>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <h2 class="blk blk--row blk-heading">#8. Misto Mame - Primavera Overground</h2>
             </div>
 
@@ -190,13 +198,13 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 8; --fig-rows-m: 11;"><img src="../assets/images/articles/drop-23-20-albums-for-2024-10.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">A precious compilation from one of Italy's most intriguing (non) labels. A twisted trip through New Weird Italia landscapes. I love the rarefied romanticism of “Get Everything Before He Does<em>” </em>by Dori Sorride, the invocations of “Io Suonavo Ma In Realtà Era Un Ramo Che Fischiava<em>” </em>by La Festa Delle Rane and the alien songwriting by Trapcoustic. A soundtrack for many springs to come.</p>
                 </div>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <h2 class="blk blk--row blk-heading">#9. Klein - Marked</h2>
             </div>
 
@@ -204,13 +212,13 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 8; --fig-rows-m: 11;"><img src="../assets/images/articles/drop-23-20-albums-for-2024-11.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">Klein exists in some N-dimensional space of her own creation. <em>marked</em> leans more into noise rock than her previous work, using guitar as its north star. It's distinctively anxious and grimy while feeling loose and spacious - claustrophobic as every gentrifying and increasingly fascist Western metropolis in 2024. Perhaps this is why I keep returning to it.</p>
                 </div>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <h2 class="blk blk--row blk-heading">#10. Mk.gee - Two Star &amp; The Dream Police</h2>
             </div>
 
@@ -218,13 +226,13 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 8; --fig-rows-m: 11;"><img src="../assets/images/articles/drop-23-20-albums-for-2024-12.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">One more guitar-centric record. An extraordinarily well-crafted record striking a golden ratio between accessibility and experimentation. Much has been written about this one, so I'll simply say it's 33 minutes of sunset landing on a mushroom trip. "Are You Looking Up" is already a classic.</p>
                 </div>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <h2 class="blk blk--row blk-heading">#11. Rafael Toral - Spectral Evolution</h2>
             </div>
 
@@ -232,13 +240,13 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 8; --fig-rows-m: 11;"><img src="../assets/images/articles/drop-23-20-albums-for-2024-13.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">Guitar prominence takes a different form in this 47-minute ambient suite by Portuguese musician Rafael Toral. <em>Spectral Evolution</em> captures a slow morning in early spring: nature awakening after winter, finding its new harmony. Exorbitant beauty.</p>
                 </div>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <h2 class="blk blk--row blk-heading">#12. Yung Lean &amp; Bladee - Psykos</h2>
             </div>
 
@@ -246,13 +254,13 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 8; --fig-rows-m: 11;"><img src="../assets/images/articles/drop-23-20-albums-for-2024-14.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">I've been a fan of these two Swedish artists since forever and cherish every success of theirs, especially surprised by Bladee's incredible run. Psykos finds the two friends playing the hyper-memetic version of Ian Curtis. Starting with a back-to-back poem on "Coda" with the memorable line: "<em>I hear God talking / But it's overshadowed by El Diablo"</em>. <em>Psykos</em> continues with crepuscular ballads like "Still" and infectious esoteric bangers like "Golden Sun”. Sad Boys do it well.</p>
                 </div>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <h2 class="blk blk--row blk-heading">#13. Cindy Lee - Diamond Jubilee</h2>
             </div>
 
@@ -260,7 +268,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 8; --fig-rows-m: 11;"><img src="../assets/images/articles/drop-23-20-albums-for-2024-15.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">This album almost single-handedly resurrected the dormant utopia of lo-fi indie rock. Diamond Jubilee came out as a massive fuck-off to the dictatorship of streaming services and doesn't exist on any service for Cindy Lee's explicit political motivation:</p>
                 </div>
@@ -270,13 +278,13 @@
                 <blockquote class="blk blk--rows blk-quote">"THE CEO OF SPOTIFY IS A THIEF AND A WAR PIG. HE STOLE 100 MILLION EUROS FROM ROCK AND ROLLERS AND USED THE MONEY TO INVEST IN 'HELSING.' 'HELSING' IS A MILITARY ARTIFICIAL INTELLIGENCE INNOVATOR."</blockquote>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">Beyond this, it is hypnagogic, lo-fi, oneiric, and desperately romantic as all the best albums of this genre are. It will live for years.</p>
                 </div>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <h2 class="blk blk--row blk-heading">#14. Still House Plants - if i don’t make it, i love u</h2>
             </div>
 
@@ -284,13 +292,13 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 8; --fig-rows-m: 11;"><img src="../assets/images/articles/drop-23-20-albums-for-2024-16.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">Edgy, diagonal post-punk from the UK. The drummer on here is incredible and the vocal performance is iconic. I just love the way they sing the line in the opening track "M M M": "<em>I wish I was called Makitaaa</em>". All the elements exist in a dissonant harmony, with no typical rock band hierarchy or predetermined song structure present. Deconstructive act of the year.</p>
                 </div>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <h2 class="blk blk--row blk-heading">#15. Lechuga Zafiro - Desde los oídos de un sapo</h2>
             </div>
 
@@ -298,13 +306,13 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 8; --fig-rows-m: 11;"><img src="../assets/images/articles/drop-23-20-albums-for-2024-17.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">Lechuga Zafiro is one of the best DJs I've ever seen perform, and his exceptional talent completely rewired my brain at the Metarave party in Berlin in August. His debut album is less banger-oriented than I expected, but over time I came to grasp the incredible value of the record. A liquid seminar on percussions in every form and shape - an amphibian exploration moving between field recording and sci-fi sound design. This record is an alien spaceship coming from Uruguay.</p>
                 </div>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <h2 class="blk blk--row blk-heading">#16. Naemi - Dust Devil</h2>
             </div>
 
@@ -312,7 +320,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 8; --fig-rows-m: 11;"><img src="../assets/images/articles/drop-23-20-albums-for-2024-18.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">One for the ambient concrète, <a href="https://soundcloud.com/kwia-berlin" target="_blank" rel="noopener">Kwia</a>-adjacent Berlin scene. As listening bars often create, this album is an aquarium full of love and dreams. It's the soundtrack to collective healing, lucid dreams, and the mint-like aftertaste of ketamine. <em>Softcore</em>.</p>
                 </div>
@@ -322,7 +330,7 @@
                 <blockquote class="blk blk--rows blk-quote"></blockquote>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <h2 class="blk blk--row blk-heading">#17. Tyler, The Creator - Chromakopia</h2>
             </div>
 
@@ -330,13 +338,13 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 8; --fig-rows-m: 11;"><img src="../assets/images/articles/drop-23-20-albums-for-2024-19.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">Tyler enters his thirties and stages an absurd theatre of all the paranoias, dramas, doubts, and joys that crossing this threshold brings. My greatest compliment is that, despite the presence of a new alter ego, this is Tyler's most relatable record for me in a good while. The mask doesn't create distance with the listeners but allows Tyler to open up like never before about relationships, abortion, his dad and so much more. "Judge Judy" is my favorite song on here because it feels so timely in a world of situationships and polyamory.</p>
                 </div>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <h2 class="blk blk--row blk-heading">#18. Astrid Sonne - Great Doubt</h2>
             </div>
 
@@ -344,13 +352,13 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 8; --fig-rows-m: 11;"><img src="../assets/images/articles/drop-23-20-albums-for-2024-20.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">Another otherworldly gem from a Danish talent. Exquisitely post-genre, classical arches meet ethereal vocals meet hip-hop drums. The final picture is an evolving soundscape, cozy yet constantly surprising. Lots of relatable lyrics as well. One Bandcamp comment captures my feelings about my favorite track: "Do you wanna" feels like it could be the anthem of a generation.</p>
                 </div>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <h2 class="blk blk--row blk-heading">#19. The Smile - Wall of Eyes + Cutouts</h2>
             </div>
 
@@ -362,13 +370,13 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 8; --fig-rows-m: 11;"><img src="../assets/images/articles/drop-23-20-albums-for-2024-22.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">The Smile - holding the title for the most generic band name ever - are Radiohead's offshoot. As a Radiohead fan and, syllogistically, even despite Thom Yorke's ridiculous hostility to boycotting Israel, I found myself becoming a Smile fan. They released two records this year, and while <em>Wall of Eyes</em> is superior, <em>Cutouts</em> contains "Instant Psalms" which I played on repeat throughout the fall. The Smile breaks free of Radiohead's boundaries, finding Greenwood and Yorke more kosmic, improvisational, and jazz-influenced than ever. Sounds like Dalí's melting clocks.</p>
                 </div>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <h2 class="blk blk--row blk-heading">#20. Mabe Fratti - Sentir Que No Sabes</h2>
             </div>
 
@@ -376,7 +384,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 8; --fig-rows-m: 11;"><img src="../assets/images/articles/drop-23-20-albums-for-2024-23.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">Mabe Fratti moves around, with cautious grace. This album is spacious, with the Mexican singer's voice weaving in and out through minimalistic textures, jazz elements, and art rock motifs. Fratti defies expectations and evokes the new, unnameable feelings suggested by the title.</p>
                     <p class="blk-text">Special mentions:</p>
@@ -419,12 +427,12 @@
         <div class="footer-bottom">
             <p>2026 Reincantamento &nbsp;&#183;&nbsp; Berlin / Turin / Venice</p>
             <div class="footer-legal">
-                <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Acid mode" title="Acid mode">&#9791;</button>
                 <a href="../index.html">Home</a>
                 <a href="../about.html">About</a>
             </div>
         </div>
     </footer>
+
 
     <script src="../assets/js/site.js" defer></script>
 </body>

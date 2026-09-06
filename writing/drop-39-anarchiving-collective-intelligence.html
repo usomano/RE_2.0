@@ -25,25 +25,31 @@
 
     <a class="skip-link" href="#main">Skip to content</a>
 
-    <header class="grid-header grid-row">
-        <a class="grid-header__logo" href="../index.html" aria-label="Reincantamento — home">
-            <svg viewBox="0 0 44 22" aria-hidden="true"><ellipse cx="22" cy="11" rx="22" ry="11"/></svg>
+    <header class="site-header">
+        <a class="brand" href="../index.html" aria-label="Reincantamento home">
+            <img src="../assets/images/REINC-LOGO.svg" alt="Reincantamento" width="53" height="25">
         </a>
 
-        <button class="grid-header__menu" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+        <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav">
+            <span></span><span></span><span></span>
+        </button>
 
-        <nav class="grid-nav" id="primary-nav" aria-label="Primary">
-            <a class="grid-nav__item" href="../writing/index.html" aria-current="page">Writing</a>
-            <a class="grid-nav__item" href="../publishing/index.html">Publishing</a>
-            <a class="grid-nav__item" href="../artworks/index.html">Artworks</a>
-            <span class="grid-nav__item" aria-disabled="true">Workshops</span>
-            <span class="grid-nav__item" aria-disabled="true">Talks</span>
-            <a class="grid-nav__item" href="../about.html">About</a>
+        <nav class="main-nav" id="primary-nav" aria-label="Primary">
+            <div class="nav-item">
+                <a href="../writing/index.html" class="is-active" aria-current="page">Writings</a>
+                <div class="nav-menu">
+                    <a href="../writing/index.html">Drops</a>
+                    <a href="../writing/archive.html">Archive</a>
+                </div>
+            </div>
+            <a href="../publishing/index.html">Publishing</a>
+            <a href="../artworks/index.html">Artworks</a>
+            <!-- No design yet — shown, not linked. -->
+            <span class="nav-off">Workshops</span>
+            <span class="nav-off">Talks</span>
         </nav>
 
-        <!-- The way back, in the last cell of the band: the home shell carries
-             the same corner cell, reading ABOUT there and HOME everywhere else. -->
-        <a class="grid-header__home" href="../index.html">Home</a>
+        <a class="about-btn" href="../about.html">About</a>
     </header>
 
     <div class="reading-progress" role="progressbar" aria-label="Reading progress"
@@ -59,15 +65,17 @@
 
         <div class="article grid-row">
 
-            <div class="blk-group c-narrow">
-                <p class="blk blk--row blk-kicker">Drop #39 &#183; October 24, 2025 &#183; 10 min read</p>
-            </div>
+            <!-- The colourway switch, in the square under the byline cell. -->
+            <button class="theme-switch theme-switch--inline" type="button" aria-pressed="false" aria-label="Acid mode" title="Acid mode">&#9791;</button>
 
-            <div class="blk-group c-narrow">
+            <div class="blk-group c-wide">
                 <p class="blk blk--row blk-lede">The Sphere's Anarchiving Game</p>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide">
+                <p class="blk blk--row blk-kicker">Drop #39 &#183; October 24, 2025 &#183; 10 min read</p>
+            </div>
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text"><em>Hey everyone (▰˘◡˘▰)</em></p>
                     <p class="blk-text"><em>After several weeks away from this space, DROPS is back with a new special guest. I’m honored to host an intervention by <strong>Erik Bordeleau</strong> and <strong>the Sphere</strong>. The Sphere is one of the most solid and adventurous experiments at the intersection of art and Web3 technologies, and Erik is its most compelling cantor. It’s not the first time the Sphere appears on these pages: the historical readers may remember <a href="https://reincantamentox.substack.com/p/an-anarchives-intervention" target="_blank" rel="noopener">Drop #15</a>, where I already articulated my personal coordinates in The Sphere’s helical journey. This time, DROPS hosts Erik Bordelau, one of the project’s co-directors, alongside Lene Vollhardt, Pedro Victor Brandão and Vitor Butkus. </em></p>
@@ -82,13 +90,13 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 10; --fig-rows-m: 14;"><img src="../assets/images/articles/drop-39-anarchiving-collective-intelligence-1.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text"><em>by Erik Bordeleau </em></p>
                 </div>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <h2 class="blk blk--row blk-heading"><em><strong>Anarchiving Collective Intelligence</strong></em></h2>
                 <div class="blk blk--rows">
                     <p class="blk-text">What does it mean to build an archive that resists the pitfalls of enclosure and self-assetization? I’m asking with Moten and Harney in mind, and more specifically, an interview they gave at the <em><a href="https://podscan.fm/podcasts/disintegrator/episodes/36-violence-w-fred-moten-and-stefano-harney" target="_blank" rel="noopener">Disintegrator</a></em><a href="https://podscan.fm/podcasts/disintegrator/episodes/36-violence-w-fred-moten-and-stefano-harney" target="_blank" rel="noopener"> podcast</a> earlier this summer. When asked about DAOs in relation to art organizations and the infrastructural turn – which they provocatively described as “mechanisms for the rehabilitation of a bad idea” (ha!) – they said something pretty interesting in relation to current modes of value capture: “These artists do all sorts of interesting things, <strong>and then they put a huge archive up above what they did</strong> - which loops them right back into the art world”. They then described DAOs as “reformist” and also “deeply depressing”, eventually landing into the idea that “art is perhaps a bad idea” and what we are more interested in is something like a “practice of beauty”.</p>
@@ -100,7 +108,7 @@
                 <blockquote class="blk blk--rows blk-quote"><em>What if we turn self-collecting – the anarchiving of collective memory – into live art itself?</em></blockquote>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text"><em>The Sphere</em> is an emergent network of radical theorists, artists, and technologists exploring new ecologies of funding the arts. We are building Web3-based regenerative commons in which artists, audiences, collectors, and other stakeholders of the creative ecosystem come together to share the joy, risks, and opportunities of making art.</p>
                 </div>
@@ -110,7 +118,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 4; --fig-rows-m: 5;"><img src="../assets/images/articles/drop-39-anarchiving-collective-intelligence-2.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text"><em><a href="https://anarchiving.thesphere.as" target="_blank" rel="noopener">The Anarchiving Game</a></em> is our latest creation: a participatory Web3 protocol embodying the spirit of innovation and interdependence constitutive of the live arts. Based on a shared contract deployed on the Zora crypto-network, <em>The Anarchiving Game</em> enables people to mint, share and collect fragments of The Sphere’s creative journey. Think of a fractal and proliferating archive: an open-ended canvas where the collective memory and creative outputs of The Sphere’s community are not only preserved, but continually re-envisioned and synthetically expanded upon. Indeed, as the network of anarchivists grows, so will its social-oracular divinatory powers, turning the whole game into a unique value discovery process for self-collecting digital ensembles in becoming.</p>
                 </div>
@@ -124,7 +132,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 5; --fig-rows-m: 6;"><img src="../assets/images/articles/drop-39-anarchiving-collective-intelligence-4.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <h2 class="blk blk--row blk-heading"><strong>Digital Anarchiving as Live Art</strong></h2>
                 <div class="blk blk--rows">
                     <p class="blk-text">In our<a href="https://www.thesphere.as/karmic/derive/" target="_blank" rel="noopener"> initial karmic funding experiment</a>, we asked artists to prepare their work for future iterations by other performers, in order to initiate creative lineages. Interestingly, this brought them to write love letters to one another, by way of soft protocols for derivation.</p>
@@ -133,7 +141,7 @@
                 </div>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <h2 class="blk blk--row blk-heading"><strong>Beyond Token-Gated Communities</strong></h2>
                 <div class="blk blk--rows">
                     <p class="blk-text">Tokenizing online ensembles, that is, partly wrapping them in a web3 economic membrane, is always a partial and risky endeavor, to be managed with care. We harbor no illusions about blockchain as liberation technology – its carbon footprint, its libertarian fantasies, its inherent capture by degen financial speculation. Yet the protocol’s capacity for transparent, distributed coordination offers tools that, handled carefully and ritually, can serve collective rather than accumulative ends.</p>
@@ -145,7 +153,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 4; --fig-rows-m: 6;"><img src="../assets/images/articles/drop-39-anarchiving-collective-intelligence-5.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">Platform extractivism treats users as commensurate and fungible data sources. Where corporate AI treats human intentions as “merely local and transient interest”, i.e. worthless noise to be stripped from extracted information, <em>The Anarchiving Game</em> inverts this logic entirely. We want to make collective intelligence too slippery, too alive, too relational to be cleanly harvested. <em>The</em> <em>Anarchiving Game</em> is a Chinese cookie.</p>
                     <p class="blk-text">Beyond the different variations of token-gated communities, or more precisely, beyond the fantasy of self-sovereignty they embody, <em>The Anarchiving Game experiments with free-flowing, derivative community formation, </em>activating the edges of the social graph in an age of deep neural connections. We are looking for ways to generate and keep track of a variety of minor gestures in our midst, holding potential for new kinds of derivative network value production.</p>
@@ -157,13 +165,13 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 5; --fig-rows-m: 7;"><img src="../assets/images/articles/drop-39-anarchiving-collective-intelligence-6.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text"><em>The Anarchiving Game</em> can be understood as a new kind of data intermediating structure facilitating the formation of qualitatively charged datasets by capturing the transient movements of collective intelligence, something I describe elsewhere as synthetic swirls. These swirls are made of the continuous flow and interplay of ideas, affects, and creative actions as they manifest within a network. AI, in this context, becomes pivotal in both identifying and amplifying these flows that express the collective’s momentum through dynamic imprints. Such an intermediating structure corresponds to a new form of qualitative value – a non-linear, living archive of communal potential.</p>
                 </div>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <h2 class="blk blk--row blk-heading"><strong>AI as in Anarchiving Intelligence</strong></h2>
                 <div class="blk blk--rows">
                     <p class="blk-text"><em>The Anarchiving Game</em> is, ultimately, about another kind of AI: AI as in <strong>Anarchiving (collective) Intelligence</strong>. As an emergent organizational primitive, the game acts as both an archive and a transindividual catalyst, shaping how shared moments and ideas are gathered and reinterpreted, creating layers of meaning that persist as communal momentum. Value shaping becomes, more than ever, a future-facing (ad)venture, an exercise in dynamic registering of collaborative traces open to future iterations. In this context, deep learning capabilities come to act less as a sovereign extractive agent, as we have unfortunately become used to, but rather as an integrated assistant in network divination, fostering the continual, shifting self-discovery process of collective belonging-in-becoming.</p>
@@ -171,7 +179,7 @@
                 </div>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <h2 class="blk blk--row blk-heading"><strong>Conclusion: Protocol Art for Digital Tribes</strong></h2>
                 <div class="blk blk--rows">
                     <p class="blk-text"><em>The Anarchiving Game</em> is both speculation and infrastructure: a playable theory of how communities might train AI on their own terms, preserve their memory without ossifying it, and generate derivative value that flows rather than accumulates. We believe we need more of these cosmo-diplomatic fabulations and open-ended gamified worlding practices.</p>
@@ -211,12 +219,12 @@
         <div class="footer-bottom">
             <p>2026 Reincantamento &nbsp;&#183;&nbsp; Berlin / Turin / Venice</p>
             <div class="footer-legal">
-                <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Acid mode" title="Acid mode">&#9791;</button>
                 <a href="../index.html">Home</a>
                 <a href="../about.html">About</a>
             </div>
         </div>
     </footer>
+
 
     <script src="../assets/js/site.js" defer></script>
 </body>

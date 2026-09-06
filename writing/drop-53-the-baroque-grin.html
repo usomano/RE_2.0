@@ -25,25 +25,31 @@
 
     <a class="skip-link" href="#main">Skip to content</a>
 
-    <header class="grid-header grid-row">
-        <a class="grid-header__logo" href="../index.html" aria-label="Reincantamento — home">
-            <svg viewBox="0 0 44 22" aria-hidden="true"><ellipse cx="22" cy="11" rx="22" ry="11"/></svg>
+    <header class="site-header">
+        <a class="brand" href="../index.html" aria-label="Reincantamento home">
+            <img src="../assets/images/REINC-LOGO.svg" alt="Reincantamento" width="53" height="25">
         </a>
 
-        <button class="grid-header__menu" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+        <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav">
+            <span></span><span></span><span></span>
+        </button>
 
-        <nav class="grid-nav" id="primary-nav" aria-label="Primary">
-            <a class="grid-nav__item" href="../writing/index.html" aria-current="page">Writing</a>
-            <a class="grid-nav__item" href="../publishing/index.html">Publishing</a>
-            <a class="grid-nav__item" href="../artworks/index.html">Artworks</a>
-            <span class="grid-nav__item" aria-disabled="true">Workshops</span>
-            <span class="grid-nav__item" aria-disabled="true">Talks</span>
-            <a class="grid-nav__item" href="../about.html">About</a>
+        <nav class="main-nav" id="primary-nav" aria-label="Primary">
+            <div class="nav-item">
+                <a href="../writing/index.html" class="is-active" aria-current="page">Writings</a>
+                <div class="nav-menu">
+                    <a href="../writing/index.html">Drops</a>
+                    <a href="../writing/archive.html">Archive</a>
+                </div>
+            </div>
+            <a href="../publishing/index.html">Publishing</a>
+            <a href="../artworks/index.html">Artworks</a>
+            <!-- No design yet — shown, not linked. -->
+            <span class="nav-off">Workshops</span>
+            <span class="nav-off">Talks</span>
         </nav>
 
-        <!-- The way back, in the last cell of the band: the home shell carries
-             the same corner cell, reading ABOUT there and HOME everywhere else. -->
-        <a class="grid-header__home" href="../index.html">Home</a>
+        <a class="about-btn" href="../about.html">About</a>
     </header>
 
     <div class="reading-progress" role="progressbar" aria-label="Reading progress"
@@ -59,15 +65,17 @@
 
         <div class="article grid-row">
 
-            <div class="blk-group c-narrow">
-                <p class="blk blk--row blk-kicker">Drop #53 &#183; July 23, 2026 &#183; 16 min read</p>
-            </div>
+            <!-- The colourway switch, in the square under the byline cell. -->
+            <button class="theme-switch theme-switch--inline" type="button" aria-pressed="false" aria-label="Acid mode" title="Acid mode">&#9791;</button>
 
-            <div class="blk-group c-narrow">
+            <div class="blk-group c-wide">
                 <p class="blk blk--row blk-lede">A Sicilian Aesthetic of Refusal</p>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide">
+                <p class="blk blk--row blk-kicker">Drop #53 &#183; July 23, 2026 &#183; 16 min read</p>
+            </div>
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text"><em>I’m happy to welcome Giovanni Padua to these pages with a piece that cuts into a question too often buried under aesthetics: what happens when a place becomes a product? The essay was originally written in Italian for <a href="https://www.iltascabile.com/linguaggi/mascherone-nobiliare-citta-vetrina/" target="_blank" rel="noopener">Il Tascabile</a> and appears here in English, translated by me and Claude.</em></p>
                     <p class="blk-text"><em>Italy’s cultural landscape is structured around thousands of small and mid-sized towns, often called borghi, whose historic centers have been preserved or restored as sites of architectural significance. In southeastern Sicily, the towns of the Val di Noto (Scicli, Modica, Ragusa Ibla, Noto, Palazzolo Acreide, among others) were collectively inscribed as a UNESCO World Heritage Site in 2002 for their late-Baroque urban fabric, rebuilt almost entirely after the catastrophic earthquake of 1693. Over the past two decades, accelerated by the global success of the television series Il Commissario Montalbano (1999–2021), which used Scicli and its surroundings as primary filming locations, these towns have been absorbed into an economy almost wholly dependent on cultural tourism. The transformation described in this essay is not unique to Sicily: across Italy, from the Cinque Terre to Matera, the designation of cultural heritage has become inseparable from the pressures of gentrification, depopulation, and the conversion of inhabited places into seasonal destinations.</em></p>
@@ -80,7 +88,7 @@
                 <blockquote class="blk blk--rows blk-quote"><strong>In a cultural landscape where funding and opportunities are continually shrinking, REINCANTAMENTO relies on volunteer work. If you like what we do and what we publish, you can help us stay independent by becoming a paid subscriber with the button below or making a<a href="https://ko-fi.com/reincantamento" target="_blank" rel="noopener"> donation through Ko-fi</a>!</strong></blockquote>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text"><a href="https://reincantamentox.substack.com/subscribe?" target="_blank" rel="noopener">Subscribe now</a></p>
                 </div>
@@ -90,7 +98,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 10; --fig-rows-m: 14;"><img src="../assets/images/articles/drop-53-the-baroque-grin-1.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <h2 class="blk blk--row blk-heading"><strong>From the Noble Mascaron to the Postcard-City</strong></h2>
                 <div class="blk blk--rows">
                     <p class="blk-text">The concept of refusal shapes both the forms of contemporary travel and the structure of hospitality, so that the city, transmuted into a tourist destination, becomes a device of exclusion and inclusion, in its material as well as its symbolic components. Refusal is the very form of modernity and its offshoots. On one hand, it represents what gets expelled from everyday life as superfluous or unwanted; on the other, it is the sign of a rupture, the limit imposed by the reality principle against illusion. On a historical plane, refusal takes the form of an epistemic break, the engine of those great eschatological narratives that, to open new horizons, deny and reject the legacies of the past. And yet every system is fatally condemned to produce waste: material, symbolic, ideological. Ecology, psychoanalysis, and mythology all try to discipline this residue, hoping to neutralize its excess and preserve the system’s own internal coherence. But it is in architecture that the spiritual surplus of an epoch finds shelter. No architectural gesture can lie.</p>
@@ -103,7 +111,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 4; --fig-rows-m: 6;"><img src="../assets/images/articles/drop-53-the-baroque-grin-2.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">Before the 1693 earthquake, Scicli lived on the heights. From up there, it watched over the three valleys that now cradle the town like a stone trident: Santa Maria La Nova, San Bartolomeo, the Fiumara di Modica. For centuries, it had held to the ridges. Then the collapse came, and with it a second gesture: descending.</p>
                     <p class="blk-text">Scicli slid down, growing up against the churches that the local knights had erected in the preceding decades. The town settled where three torrential streams met. It was like choosing to live in the bed of a body that might wake. This is how Scicli took shape. After the apocalypse that shook the Val di Noto, hunger for catastrophe drew the town into the hollow of a possible flood, into the womb of a geological threat that was never fully tamed.</p>
@@ -117,7 +125,7 @@
                 <blockquote class="blk blk--rows blk-quote"><em>During the spring season, walking through the historic center of Scicli (...) the eye is caught by the marvelous folds given to the façades of so many late-Baroque eighteenth-century churches and palaces. These are decorated with mascarons and statues carved by local stonemasons (...) inclined to mock both the world of the professions and the religious authorities. The great, monstrous mascarons of Palazzo Beneventano beckon one upward toward San Matteo. The rich decorations of the balconies of Palazzo Fava, in the central Piazza Italia, jeer at the façade of the mother church.</em></blockquote>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">Far from the political control of the Counts of Modica, the minor nobility of Scicli enjoyed broad freedoms and could therefore make easy show of its wealth to mock misfortune. Before the earthquake, in the bygone days handed down by local chronicles, it had been the Moorish pirates who terrorized the peasants along the coasts, and then the locusts.</p>
                     <p class="blk-text">The townspeople lived through these plagues as divine trials, ordeals they had survived, and for which revenge was owed.</p>
@@ -130,7 +138,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 6; --fig-rows-m: 8;"><img src="../assets/images/articles/drop-53-the-baroque-grin-3.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">There is something deeply restless in the faces that surface on the corbels of the late-Baroque eighteenth-century balconies of southeastern Sicily. Those mascarons — often on the verge of turning into plants, with gaping mouths, lolling tongues, and gazes ecstatic or terrified — are more than decoration: they are the remains of a language that has lost its voice but not its power.</p>
                     <p class="blk-text">Within a genealogy of refusal — material, existential, symbolic — the mascarons offer themselves as a perfect synthesis of power and waste. For Walter Benjamin, every construction of history is also a violent selection, an act of exclusion. And these faces, deformed and spectacular, are not mere ornament: they are instruments of repulsion. Authentic power needs no explanation; it manifests itself in symbols that both impose and deny.</p>
@@ -144,7 +152,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 12; --fig-rows-m: 17;"><img src="../assets/images/articles/drop-53-the-baroque-grin-4.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <h2 class="blk blk--row blk-heading"><strong>The Mascarons and the Order After the Catastrophe</strong></h2>
                 <div class="blk blk--rows">
                     <p class="blk-text">Sicilian late Baroque is not only an overflowing aesthetic: it is a machine for governing excess, for disciplining disorder. It is born as a plastic response to catastrophe and consolidates itself as a form of control. The apocalypse of 1693 generated not only ruin but a style: a strategy for the symbolic refounding of the world.</p>
@@ -159,7 +167,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 6; --fig-rows-m: 8;"><img src="../assets/images/articles/drop-53-the-baroque-grin-5.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">So the urban landscape becomes an ephemeral, competitive space, where every municipality is a rival, every act of restoration is a weapon, every event a spectacle, always conceived exclusively for those who can afford it.</p>
                     <p class="blk-text">Tourism is not neutral: it is a form of symbolic war, and like every war, it produces winners and losers. The winners are those who manage to stay inside the narrative of beauty: restaurateurs, hosts, cultural brands, self-proclaimed “enlightened” politicians. The losers remain offstage. Day laborers, longtime inhabitants pushed to the margins, voices that do not fall in tune with the festive register of territorial marketing.</p>
@@ -172,7 +180,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 12; --fig-rows-m: 16;"><img src="../assets/images/articles/drop-53-the-baroque-grin-6.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">In Scicli, gentrification happens through symbolic transformation: the inhabitants are no longer citizens but facilitators and operators of the touristic process. Their identity is commodified, taken apart, reassembled into a narrative ready to be sold. The popular classes, migrant or native, are absorbed as invisible labor or expelled as elements incompatible with the new imaginary. The city dolls itself up, fully aware of its market value, and in that gesture, it reveals itself as tragically modern: ready to do anything in order not to disappear, even to sell off its own story.</p>
                     <p class="blk-text">Meanwhile, structural forms of exclusion and exploitation are perpetuated: in <a href="https://www.intersos.org/en/fruits-of-exploitation/" target="_blank" rel="noopener">the exploitative agricultural labor</a> of the so-called <em>fascia trasformata </em>(“transformed belt”), in the residential segregation of migrant families, in the real impossibility of living in the historic center for anyone without economic or symbolic capital. The water that flows beneath our feet is not only that of the buried torrents: it is the karstic river of living labor, of removed subjectivities, of the human residue that every city on display must expel to see itself in the mirror.</p>
@@ -183,7 +191,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 7; --fig-rows-m: 10;"><img src="../assets/images/articles/drop-53-the-baroque-grin-7.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <h2 class="blk blk--row blk-heading"><strong>Anthropology of the Ephemeral: The Reversed Time of the Municipal Late Baroque</strong></h2>
                 <div class="blk blk--rows">
                     <p class="blk-text">Ours is a late-Baroque age because its project-making is fundamentally ephemeral. In the cultural towns, the civic calendar follows an alternation of emotional peaks and ceremonies of power, timed to the rhythm of electoral conflict. Every election is a <em>stasis</em>, a civil war. In <em><a href="https://www.sup.org/books/politics/stasis" target="_blank" rel="noopener">Stasis</a></em>, Agamben shows how civil war is not a pathological deviation of the <em>polis</em> but its hidden foundation. Civil war is the dark underside of the constitution: it assembles the “internal enemy.”</p>
@@ -196,13 +204,13 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 11; --fig-rows-m: 15;"><img src="../assets/images/articles/drop-53-the-baroque-grin-8.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">Even in the most surveilled city, dense and surly and stratified places remain. If the citizens surrender, the spaces will not. They are keepers of what the dominant narrative cannot metabolize: memories, deviations, gestures. Every abandoned courtyard, every rickety bench sabotages the linearity of tourist programming. The inorganic resists, stubbornly, and its resistance tells us something: every place can be re-signified by those who inhabit it with other gazes, other needs. This is where the possibility of a different city opens up. Not the city put on show, but the one that shows itself through the cracks in the image. And here even the mascaron can change function. Its grin becomes the face of surplus, not repulsion. Its threshold becomes a chink of light.</p>
                 </div>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <h2 class="blk blk--row blk-heading"><strong>The Face That Looks Back at Us</strong></h2>
             </div>
 
@@ -210,7 +218,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 5; --fig-rows-m: 7;"><img src="../assets/images/articles/drop-53-the-baroque-grin-9.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">We delude ourselves that the mascaron is immobile, that its grin is mute. But it is not so. The mascaron looks at us. It is the petrified eye of the city, asking us: Who has the right to be here? Who may stay? Who may show themselves, and who must disappear? To recognize in it not a symbol of the past but a present-day mechanism means seeing beauty as a battlefield, restoration as strategy, the festival as a mask over hunger.</p>
                     <p class="blk-text">Its violence lies in this: turning the threshold into a stage, the wound into ornament, the trauma into a device. The point is not to save the city from aesthetics but to free aesthetics from rent. To imagine a new Baroque as generative surplus, not decoration. To recognize in the discarded, in the grotesque face, in the excluded wreckage, in the stone that does not get photographed, something other than the useless: a beginning. Only then will we be able to answer the mascaron. Not with another empty smile, but with a gaze that finally refuses to be possessed.</p>
@@ -249,12 +257,12 @@
         <div class="footer-bottom">
             <p>2026 Reincantamento &nbsp;&#183;&nbsp; Berlin / Turin / Venice</p>
             <div class="footer-legal">
-                <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Acid mode" title="Acid mode">&#9791;</button>
                 <a href="../index.html">Home</a>
                 <a href="../about.html">About</a>
             </div>
         </div>
     </footer>
+
 
     <script src="../assets/js/site.js" defer></script>
 </body>

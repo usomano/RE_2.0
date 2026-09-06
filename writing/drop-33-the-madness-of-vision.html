@@ -25,25 +25,31 @@
 
     <a class="skip-link" href="#main">Skip to content</a>
 
-    <header class="grid-header grid-row">
-        <a class="grid-header__logo" href="../index.html" aria-label="Reincantamento — home">
-            <svg viewBox="0 0 44 22" aria-hidden="true"><ellipse cx="22" cy="11" rx="22" ry="11"/></svg>
+    <header class="site-header">
+        <a class="brand" href="../index.html" aria-label="Reincantamento home">
+            <img src="../assets/images/REINC-LOGO.svg" alt="Reincantamento" width="53" height="25">
         </a>
 
-        <button class="grid-header__menu" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+        <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav">
+            <span></span><span></span><span></span>
+        </button>
 
-        <nav class="grid-nav" id="primary-nav" aria-label="Primary">
-            <a class="grid-nav__item" href="../writing/index.html" aria-current="page">Writing</a>
-            <a class="grid-nav__item" href="../publishing/index.html">Publishing</a>
-            <a class="grid-nav__item" href="../artworks/index.html">Artworks</a>
-            <span class="grid-nav__item" aria-disabled="true">Workshops</span>
-            <span class="grid-nav__item" aria-disabled="true">Talks</span>
-            <a class="grid-nav__item" href="../about.html">About</a>
+        <nav class="main-nav" id="primary-nav" aria-label="Primary">
+            <div class="nav-item">
+                <a href="../writing/index.html" class="is-active" aria-current="page">Writings</a>
+                <div class="nav-menu">
+                    <a href="../writing/index.html">Drops</a>
+                    <a href="../writing/archive.html">Archive</a>
+                </div>
+            </div>
+            <a href="../publishing/index.html">Publishing</a>
+            <a href="../artworks/index.html">Artworks</a>
+            <!-- No design yet — shown, not linked. -->
+            <span class="nav-off">Workshops</span>
+            <span class="nav-off">Talks</span>
         </nav>
 
-        <!-- The way back, in the last cell of the band: the home shell carries
-             the same corner cell, reading ABOUT there and HOME everywhere else. -->
-        <a class="grid-header__home" href="../index.html">Home</a>
+        <a class="about-btn" href="../about.html">About</a>
     </header>
 
     <div class="reading-progress" role="progressbar" aria-label="Reading progress"
@@ -59,11 +65,13 @@
 
         <div class="article grid-row">
 
-            <div class="blk-group c-narrow">
+            <!-- The colourway switch, in the square under the byline cell. -->
+            <button class="theme-switch theme-switch--inline" type="button" aria-pressed="false" aria-label="Acid mode" title="Acid mode">&#9791;</button>
+
+            <div class="blk-group c-wide">
                 <p class="blk blk--row blk-kicker">Drop #33 &#183; May 7, 2025 &#183; 13 min read</p>
             </div>
-
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text"><em>Hey everyone (▰˘◡˘▰)</em></p>
                     <p class="blk-text"><em>Welcome back to DROPS, REINCANTAMENTO's newsletter.</em></p>
@@ -86,7 +94,7 @@
                 <blockquote class="blk blk--rows blk-quote"><em>Now objects look at me</em>— Paul Klee</blockquote>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">Walter Benjamin stated in the Arcades Project : "Each epoch, in reality, already dreams of the next one, but in dreaming it urges, with a strategy similar to the Hegelian cunning of reason, toward its own awakening." The dreams of the Baroque era—a distant and forgotten historical period that Benjamin investigated—can tell us something about the digital dreams of our present.</p>
                     <p class="blk-text">The Baroque is a strange, almost grotesque cultural epoch, characterized by systemic chaos and various artistic attempts to navigate this disorder. The word baroque has two probable roots. On one hand, the French baroque (modeled after the Portuguese barroco and Spanish barrueco) indicated pearls with irregular shapes, not spherical but ovoid, curved, or lumpy. Charles de Brosses, Count of Tournay, used the term to describe some oddities in the architecture of Palazzo Pamphilj in Rome.From the beginning, therefore, there was a sense of strangeness—a shifting of classical criteria expressed in form, not substance.</p>
@@ -99,7 +107,7 @@
                 <blockquote class="blk blk--rows blk-quote"><em>All men are rational —&gt; some animals are not rational —&gt; some animals are not men.</em></blockquote>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">The baròco argument represents an evanescent display of pure rhetoric—a convoluted linguistic exercise that elevates empty points into structural principles. In both roots, the word baroque has a derisive and caricatural value, if not outright derogatory. The Baroque era was not experienced by its contemporaries. No man or woman of the seventeenth century ever defined themselves as baroque. The baroque category emerged later and, in eighteenth-century eyes, carried derogatory connotations: a dark and reactionary age in which art and customs degenerated into eccentric oddities. It was seen as an interlude of bad taste between the triumph of the Renaissance and Enlightenment rationalism: a grotesque <em>interregno</em>. <br><br>Baroque art, literature, and music stepped outside Renaissance classicist criteria and, paradoxically, in seeking religious purity, came into contact with extreme worldliness.</p>
                     <p class="blk-text">Christine Buci-Glucksmann identifies sight as the central and constant pivot of baroque chaos through the arts. Buci-Glucksmann's work, published in the 1980s, engages with postmodern philosophies and with the concept of simulation, particularly regarding Jean Baudrillard's work. However, Buci-Glucksmann's conception of the Baroque transcends postmodern themes and engages with our present and future.</p>
@@ -112,7 +120,7 @@
                 <figcaption class="blk blk--row blk-caption"><em>Allegory of Sight, Miguel March</em></figcaption>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">The most vertiginous painting of this genre is the Allegory by Jan Brueghel the Elder and Rubens. In this recursive scene, the painting represents many other paintings, which are in turn reflected in mirrors in the background. On the floor, one notices a telescope, a marvel of optics invented in the seventeenth century and a key instrument of the scientific revolution of Kepler and Galileo.</p>
                     <p class="blk-text">The baroque 'madness of seeing' both fueled and was fueled by the emerging scientific enterprise. The human gaze turned, through new lenses, to the wonders of the cosmos and discovered the regularities of the universe.</p>
@@ -125,7 +133,7 @@
                 <figcaption class="blk blk--row blk-caption"><em>Allegory of Sight, </em>Jan Brueghel the Younger.</figcaption>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">Gianlorenzo Bernini, one of the greatest baroque artists, created "ephemeral apparatuses" in his workshop for festivals and public celebrations: this lesser-known activity exemplified baroque aesthetics, suspended between magnificence and ephemerality. The ephemeral apparatuses were architectural structures made of wood and papier-mâché, extensively decorated and enhanced with sound effects.</p>
                     <p class="blk-text">A famous apparatus from 1651, built for the birth of the Dauphin of France, consisted of royal initials, a gigantic dolphin, and a cloud that covered Trinità dei Monti and created a pyrotechnic spectacle before self-destructing. Bernini constructed an ephemeral theater inside St. Peter's Basilica for the canonization of Elizabeth of Portugal. These installations, created by one of the era's greatest artists, demonstrate a pursuit of immersive theatricality that incorporates the viewer's perspective within the artwork, as well as a taste for wonder and astonishment.</p>
@@ -138,7 +146,7 @@
                 <figcaption class="blk blk--row blk-caption">Set design by Gianlorenzo Bernini in Rome, at the Spanish Steps of Trinità dei Monti, on the occasion of the birth of the Dauphin of France, 1662</figcaption>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">The Baroque was above all the age of anamorphism and trompe-l'oeil, as optical illusions became a widespread fashion throughout Europe. Anamorphosis is a type of pictorial representation created with perspective deformation that allows correct viewing from only a single viewpoint, appearing distorted from all other angles. Mario Bettini's Cardinal Colonna's Eye exemplifies this anamorphism and further embodies baroque visual ambiguity. The work presents both a precise, almost scientific representation of an eye and a distorted, anamorphic image of a second eye.</p>
                     <p class="blk-text">Trompe-l'oeil represents the typical model of baroque illusion. Literally meaning "deceives-the-eye," this technique creates works that blur the boundary between architecture and painting through optical illusion. False domes, colonnades that seem dozens of meters long, three-dimensional canvases: trompe-l'oeil art revels in deception and seeks the wonder that only the opacity of truth can provide.</p>
@@ -151,7 +159,7 @@
                 <figcaption class="blk blk--row blk-caption"><em>Cardinal Colonna’s Eye, Mario Bettini, 1640</em></figcaption>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <h2 class="blk blk--row blk-heading">The Omniscient Machine and Algorithmic Hubris</h2>
             </div>
 
@@ -159,7 +167,7 @@
                 <blockquote class="blk blk--rows blk-quote"><em>Omniscience, the totalitarian ambition of the European West, can appear here as the formation of a complete image through the removal of the invisible</em>— Paul Virilio</blockquote>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">The visual dreams of the Baroque remain alive in the ambitions of so-called Artificial Intelligence. A genuine "madness of seeing" continues to fuel technical development in various fields, from automated warfare to image recognition.</p>
                     <p class="blk-text">To better understand how machine learning algorithms and statistical techniques impact society, we should consider them as optical instruments—lenses that allow us to perceive the world in particular ways. This idea takes shape in <em><a href="https://fritz.ai/nooscope/" target="_blank" rel="noopener">The Nooscope Manifested</a></em>, Matteo Pasquinelli and Vladan Joler's crucial text on AI history. The authors describe machine learning algorithms as tools of knowledge magnification that help perceive features, patterns, and correlations across vast data spaces beyond human reach. These devices function as extensions of human rationality—tools that augment our cognitive and visual capacities, much as microscopes and telescopes revolutionized biology and astronomy.</p>
@@ -176,7 +184,7 @@
                 <figcaption class="blk blk--row blk-caption">On the left, the image is correctly recognized; on the right, through an invisible variation, the machine sees a gibbon, an animal completely different from the panda.</figcaption>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">What might appear as mere classification errors can have tragic real-world consequences. As researchers at Logic Magazine observed:</p>
                 </div>
@@ -186,7 +194,7 @@
                 <blockquote class="blk blk--rows blk-quote">"<em>In the moments before the car hit Elaine, its AI software cycled through several potential classifications for her—including 'bicycle,' 'vehicle,' and 'other'—but ultimately failed to recognize her as a pedestrian on a collision course with the vehicle.</em>"</blockquote>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">Beyond accidental misclassification, adversarial examples can be deliberately crafted to exploit machine learning vulnerabilities. Companies and researchers work to address these blind spots by training systems on adversarial examples, hoping to prepare them for such visual distortions. More troubling is when these errors occur in real-world environments that remain inherently complex, ambiguous, and difficult to interpret.</p>
                 </div>
@@ -196,7 +204,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 3; --fig-rows-m: 4;"><img src="../assets/images/articles/drop-33-the-madness-of-vision-7.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">These systems can mistake a monarch butterfly for a washing machine or confuse a small bird with a jeep: embarrassing failures that reveal fundamental limitations in machine reasoning. This fragility and intrinsic fallibility raises critical questions about appropriate applications for these technologies.</p>
                     <p class="blk-text">Consider automated warfare and drone deployment in the War on Terror, where death becomes the intended outcome rather than an accidental byproduct of machine error. Machine vision becomes a refined weapon, the baroque madness of seeing pushed to its logical extreme: <strong>being seen equals being killed.</strong></p>
@@ -209,7 +217,7 @@
                 <blockquote class="blk blk--rows blk-quote"><em>"See everything, all the time. This extension of the field of vision will likely be entrusted to new and revolutionary optical devices still in development. Equipped with such synoptic imaging systems, a drone would have at its disposal not one but dozens of high-resolution micro-cameras pointed in every direction, like the multiple facets of a fly's eye. A software system would aggregate the various images in real-time into a single overview that could be viewed in detail when necessary.”</em></blockquote>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">The sequence is stark: see, analyze, surveil, kill. God's gaze becomes God's judgment, a lethal signal that travels around the world to determine human fate. This scenario retains the baroque gaze's essential characteristic: the tragic awareness that no vision is perfect. Every enhanced gaze creates new errors and blind spots, making true omniscience impossible.</p>
                     <p class="blk-text">Drones, supposedly the most precise weapons ever invented and the realization of humanity's most ambitious dreams, have killed 2,000 civilians and nearly 500 children since the War on Terror began.</p>
@@ -224,7 +232,7 @@
                 <figcaption class="blk blk--row blk-caption">Seeing through the drone: Ukraine Eastern front, 2023</figcaption>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">An army operator has stated about his work: "You see them wake up in the morning, do their work, go to sleep at night. [...] I see mothers with children, I see fathers with children; I see fathers with mothers; I see children playing soccer." Our future will depend on how we resist this automated madness of seeing, in which areas it will be applied and with what purposes. As the Uber incident and drones in the Middle East demonstrate, we already have sensitive and risky uses for human life. The greatest illusion is to think we are far from certain dystopian scenarios, to relegate them to a distant future.</p>
                     <p class="blk-text">We need to wake up as soon as possible from the baroque dream of our machines. We will have to repeat to ourselves Cardinal Colonna's lesson, also valid for the algorithmic gaze: "all the more praiseworthy, the more it deceives." Only with this awareness might we perhaps awaken from the long baroque dream in which we have ended up.</p>
@@ -263,12 +271,12 @@
         <div class="footer-bottom">
             <p>2026 Reincantamento &nbsp;&#183;&nbsp; Berlin / Turin / Venice</p>
             <div class="footer-legal">
-                <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Acid mode" title="Acid mode">&#9791;</button>
                 <a href="../index.html">Home</a>
                 <a href="../about.html">About</a>
             </div>
         </div>
     </footer>
+
 
     <script src="../assets/js/site.js" defer></script>
 </body>

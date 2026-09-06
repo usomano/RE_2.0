@@ -25,25 +25,31 @@
 
     <a class="skip-link" href="#main">Skip to content</a>
 
-    <header class="grid-header grid-row">
-        <a class="grid-header__logo" href="../index.html" aria-label="Reincantamento — home">
-            <svg viewBox="0 0 44 22" aria-hidden="true"><ellipse cx="22" cy="11" rx="22" ry="11"/></svg>
+    <header class="site-header">
+        <a class="brand" href="../index.html" aria-label="Reincantamento home">
+            <img src="../assets/images/REINC-LOGO.svg" alt="Reincantamento" width="53" height="25">
         </a>
 
-        <button class="grid-header__menu" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+        <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav">
+            <span></span><span></span><span></span>
+        </button>
 
-        <nav class="grid-nav" id="primary-nav" aria-label="Primary">
-            <a class="grid-nav__item" href="../writing/index.html" aria-current="page">Writing</a>
-            <a class="grid-nav__item" href="../publishing/index.html">Publishing</a>
-            <a class="grid-nav__item" href="../artworks/index.html">Artworks</a>
-            <span class="grid-nav__item" aria-disabled="true">Workshops</span>
-            <span class="grid-nav__item" aria-disabled="true">Talks</span>
-            <a class="grid-nav__item" href="../about.html">About</a>
+        <nav class="main-nav" id="primary-nav" aria-label="Primary">
+            <div class="nav-item">
+                <a href="../writing/index.html" class="is-active" aria-current="page">Writings</a>
+                <div class="nav-menu">
+                    <a href="../writing/index.html">Drops</a>
+                    <a href="../writing/archive.html">Archive</a>
+                </div>
+            </div>
+            <a href="../publishing/index.html">Publishing</a>
+            <a href="../artworks/index.html">Artworks</a>
+            <!-- No design yet — shown, not linked. -->
+            <span class="nav-off">Workshops</span>
+            <span class="nav-off">Talks</span>
         </nav>
 
-        <!-- The way back, in the last cell of the band: the home shell carries
-             the same corner cell, reading ABOUT there and HOME everywhere else. -->
-        <a class="grid-header__home" href="../index.html">Home</a>
+        <a class="about-btn" href="../about.html">About</a>
     </header>
 
     <div class="reading-progress" role="progressbar" aria-label="Reading progress"
@@ -59,15 +65,17 @@
 
         <div class="article grid-row">
 
-            <div class="blk-group c-narrow">
-                <p class="blk blk--row blk-kicker">Drop #10 &#183; January 31, 2024 &#183; 5 min read</p>
-            </div>
+            <!-- The colourway switch, in the square under the byline cell. -->
+            <button class="theme-switch theme-switch--inline" type="button" aria-pressed="false" aria-label="Acid mode" title="Acid mode">&#9791;</button>
 
-            <div class="blk-group c-narrow">
+            <div class="blk-group c-wide">
                 <p class="blk blk--row blk-lede">To conjure all the future struggles</p>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide">
+                <p class="blk blk--row blk-kicker">Drop #10 &#183; January 31, 2024 &#183; 5 min read</p>
+            </div>
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text"><em>Hey everyone (▰˘◡˘▰)</em></p>
                     <p class="blk-text"><em>Second DROP of the month, almost feeling like a professional publication. Don’t get it twisted. Our friend Simone Robutti is back at it with another very WEIRD techno-spiritual trip. An ode to the Spiritual Cyborg to come, an awakening to conjure all the future struggles. A poetic addition to the ever-unfolding mosaic of techno-spirituality that this newsletter is weaving.<br><br>Simone is a knot of flows and occasionally he's a person too. He engages in Tech Unionism, Algorithmic Accountability, Common Cybernetics, and Democratic Organizational Design. He works as a tech lead in AI Forensics, and a consultant/trainer on Organization and Process design. You can find his blog at <a href="https://blog.robutti.me/" target="_blank" rel="noopener">this link.</a> <br><br>If you want to propose an article for this newsletter send an email to reincantamento@gmail.com and consider donating to support our work ^_^</em></p>
@@ -78,7 +86,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 8; --fig-rows-m: 11;"><img src="../assets/images/articles/drop-10-tomorrow-belongs-to-the-spiritual-1.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">The tech industry is undergoing a cold class war. <strong>While the conditions for an intense struggle are present, a freeze of ideological systems stops the direct escalation. </strong></p>
                     <p class="blk-text">One side<strong> </strong>is deploying ineffective spiritual weaponry such as extropianism, effective altruism, network optimism (what Torres defined as <a href="https://www.truthdig.com/articles/the-acronym-behind-our-wildest-ai-dreams-and-nightmares/" target="_blank" rel="noopener">TESCREALism</a>), and an array of gnostic devices; the worker side, on the other hand, is still adapting old ideological tools to new conditions, ranging from remixes of historical materialism to suit the Information Economy to new flavors of Free Software ideology.</p>
@@ -96,7 +104,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 4; --fig-rows-m: 6;"><img src="../assets/images/articles/drop-10-tomorrow-belongs-to-the-spiritual-2.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">Contrary to the Cyberneticians of the '60s, the knowledge acquired should not be employed by the spiritual cyborg solely to enhance productivity and direct our information processing exclusively toward individual egoistic goals. Instead, machine awareness should be deployed towards the development of a Global Spirit Machine, connecting us into a collective, a system serving each knot in the flow as much as it serves the spirit machine itself.</p>
                     <p class="blk-text">The Fractal Spiritual Cyborg embodies fractality as human subjectivity represents a specific scale within the broader spectrum of emergent intelligence. This phenomenon mirrors similar patterns observed at smaller scales, such as the allostatic interaction among individual cells in the human body, as well as at larger scales, encompassing emergent intelligence at the organizational or global level. It is a cyborg composed of interconnected entities, resembling knots in the same flow. Although distinct from one another, each entity is subject to the overarching flow and an integral part thereof.</p>
@@ -139,12 +147,12 @@
         <div class="footer-bottom">
             <p>2026 Reincantamento &nbsp;&#183;&nbsp; Berlin / Turin / Venice</p>
             <div class="footer-legal">
-                <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Acid mode" title="Acid mode">&#9791;</button>
                 <a href="../index.html">Home</a>
                 <a href="../about.html">About</a>
             </div>
         </div>
     </footer>
+
 
     <script src="../assets/js/site.js" defer></script>
 </body>

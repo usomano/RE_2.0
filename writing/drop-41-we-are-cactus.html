@@ -25,25 +25,31 @@
 
     <a class="skip-link" href="#main">Skip to content</a>
 
-    <header class="grid-header grid-row">
-        <a class="grid-header__logo" href="../index.html" aria-label="Reincantamento — home">
-            <svg viewBox="0 0 44 22" aria-hidden="true"><ellipse cx="22" cy="11" rx="22" ry="11"/></svg>
+    <header class="site-header">
+        <a class="brand" href="../index.html" aria-label="Reincantamento home">
+            <img src="../assets/images/REINC-LOGO.svg" alt="Reincantamento" width="53" height="25">
         </a>
 
-        <button class="grid-header__menu" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+        <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav">
+            <span></span><span></span><span></span>
+        </button>
 
-        <nav class="grid-nav" id="primary-nav" aria-label="Primary">
-            <a class="grid-nav__item" href="../writing/index.html" aria-current="page">Writing</a>
-            <a class="grid-nav__item" href="../publishing/index.html">Publishing</a>
-            <a class="grid-nav__item" href="../artworks/index.html">Artworks</a>
-            <span class="grid-nav__item" aria-disabled="true">Workshops</span>
-            <span class="grid-nav__item" aria-disabled="true">Talks</span>
-            <a class="grid-nav__item" href="../about.html">About</a>
+        <nav class="main-nav" id="primary-nav" aria-label="Primary">
+            <div class="nav-item">
+                <a href="../writing/index.html" class="is-active" aria-current="page">Writings</a>
+                <div class="nav-menu">
+                    <a href="../writing/index.html">Drops</a>
+                    <a href="../writing/archive.html">Archive</a>
+                </div>
+            </div>
+            <a href="../publishing/index.html">Publishing</a>
+            <a href="../artworks/index.html">Artworks</a>
+            <!-- No design yet — shown, not linked. -->
+            <span class="nav-off">Workshops</span>
+            <span class="nav-off">Talks</span>
         </nav>
 
-        <!-- The way back, in the last cell of the band: the home shell carries
-             the same corner cell, reading ABOUT there and HOME everywhere else. -->
-        <a class="grid-header__home" href="../index.html">Home</a>
+        <a class="about-btn" href="../about.html">About</a>
     </header>
 
     <div class="reading-progress" role="progressbar" aria-label="Reading progress"
@@ -59,15 +65,17 @@
 
         <div class="article grid-row">
 
-            <div class="blk-group c-narrow">
-                <p class="blk blk--row blk-kicker">Drop #41 &#183; December 5, 2025 &#183; 7 min read</p>
-            </div>
+            <!-- The colourway switch, in the square under the byline cell. -->
+            <button class="theme-switch theme-switch--inline" type="button" aria-pressed="false" aria-label="Acid mode" title="Acid mode">&#9791;</button>
 
-            <div class="blk-group c-narrow">
+            <div class="blk-group c-wide">
                 <p class="blk blk--row blk-lede">Flowering apart in Berlin</p>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide">
+                <p class="blk blk--row blk-kicker">Drop #41 &#183; December 5, 2025 &#183; 7 min read</p>
+            </div>
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text"><em>Hey everyone (▰˘◡˘▰)<br><br>Today we’re happy to host a text by <strong>Silvia Russo,</strong> with contributions by <strong>Laila Fakori</strong>. Silvia is a talented curator based in Berlin and her work has a special sensibility for the creation of spaces.</em></p>
                 </div>
@@ -78,7 +86,7 @@
                 <figcaption class="blk blk--row blk-caption">Drop #41 cover interpolates a drawing by Peter Fischli and David Weiss contained in <em>Will Happiness Find Me?</em>, Koenig Books, London, 2003. All rights to the original authors.</figcaption>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text"><em>by Silvia Russo, with contributions by Laila Fakori</em></p>
                     <p class="blk-text">I was born in Messina on September 4th, 1997. My parents had waited a long time for my birth and hung a pink bow on the door of our seaside house. From that moment on, every 4th of September became for them a kind of ritual, even as life led us to celebrate it apart: they separated, and I was left fragmented.</p>
@@ -96,7 +104,7 @@
                 <figcaption class="blk blk--row blk-caption">Lydia Ourahmane and Yuma Burgess, Untitled, 2022, detail, Lydia Ourahmane: Tassili, SculptureCenter, New York, 2022. Photogrammetry, generative adversarial network, polylactide thermoplastic, anodized steel. 222 inches x 106 inches (563.9 x 269.2 cm). Photo: Charles Bento</figcaption>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">Raised beneath the sky of Kabul and the Hazara mountains, she had been living in the German capital for three years: an imposed, survival-driven condition, having to find, piece together, and relate to herself anew. Who was she now, and who did she want to become? In a country that had once again fallen under Taliban control, she had not had the privilege to explore <strong>these questions</strong>. Laila described “her land” as a forgotten self, both with pride and shame at being born in a country in which she never truly recognised herself. Listening silently to her story of an existence caught between belonging and estrangement, I felt my own feelings reflected.</p>
                     <p class="blk-text">Is reflection already a way of inhabiting oneself?</p>
@@ -107,7 +115,7 @@
                 <blockquote class="blk blk--rows blk-quote"><em>Even when storms rage,</em><em>until they pass,</em><em>until the rain comes,</em><em>and to accept that the rain helps me grow greener.</em><em>I am Hazara.</em><em>My people have faced genocide for years.</em><em>It shaped my life like a scar that never healed.</em><em>Now, the Taliban hold our land.</em><em>I hugged a tree.</em><em>I felt its calm.</em><em>It said:</em><em>“Be green. Be refuge.”</em><em>I learned from the tree to stay green</em><em>so that others could take refuge in me.</em></blockquote>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">By sharing her traumas with me, we found refuge in each other’s stories, uncovering our inner conflicts from a past that seems both distant and strangely familiar.</p>
                     <p class="blk-text">The most dysfunctional relationship we both have in our lives is with our birthplace: an extremely difficult bond of surveillance, shot through with rejection and shame, driven by the need to distance ourselves from the ideals, conformity, and oppressions typical of our places of origin, albeit in profoundly distinct ways due to geographical and political distance. Yet, at the same time, it has been a relationship of love and family, mixed with the guilt of having left: a connection that grows stronger the farther we are.</p>
@@ -121,7 +129,7 @@
                 <figcaption class="blk blk--row blk-caption">Lida Abdul (b. 1973, Kabul, Afghanistan; lives and works in Kabul and Los Angeles); Clapping With Stones (still); 2005; 16 mm film transferred to DVD; 5 min. https://rubinmuseum.org/art-and-acts-of-resistance-in-clapping-with-stones/</figcaption>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">For lunch, we shared a traditional Sicilian meal and an Afghan dessert. In that intimacy, Laila confessed to me how, when she arrived in Germany, she never found a place where she could truly feel herself. She missed the mountains, felt disconnected, and carried with her the memories of her Afghan village: the sounds, the hardships, the rustle of trees in the wind, and the ceaseless bleating of sheep. She carried the absence of her family, now trapped in Pakistan, unable to enter Europe legally.</p>
                     <p class="blk-text">As she opened up more to me, reflecting on my lifelong controlling relationship, I realised that, for me, it did not take the form of an entire country, as it did for Laila, but was embodied mainly in a close family tie. A constant presence of vigilance and violence, for as long as I can remember. It forced me to develop survival mechanisms: patterns of lying and hiding, learned out of fear of being discovered. Trying to keep me anchored to my place of origin, with its ideals and traditions, a prewritten fate was imposed on me: ‘stay here, do not work, marry young’. Obedience to an old traditionalist model was required, which, in the end, only made me run away.</p>
@@ -169,12 +177,12 @@
         <div class="footer-bottom">
             <p>2026 Reincantamento &nbsp;&#183;&nbsp; Berlin / Turin / Venice</p>
             <div class="footer-legal">
-                <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Acid mode" title="Acid mode">&#9791;</button>
                 <a href="../index.html">Home</a>
                 <a href="../about.html">About</a>
             </div>
         </div>
     </footer>
+
 
     <script src="../assets/js/site.js" defer></script>
 </body>

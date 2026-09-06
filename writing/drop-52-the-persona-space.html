@@ -25,25 +25,31 @@
 
     <a class="skip-link" href="#main">Skip to content</a>
 
-    <header class="grid-header grid-row">
-        <a class="grid-header__logo" href="../index.html" aria-label="Reincantamento — home">
-            <svg viewBox="0 0 44 22" aria-hidden="true"><ellipse cx="22" cy="11" rx="22" ry="11"/></svg>
+    <header class="site-header">
+        <a class="brand" href="../index.html" aria-label="Reincantamento home">
+            <img src="../assets/images/REINC-LOGO.svg" alt="Reincantamento" width="53" height="25">
         </a>
 
-        <button class="grid-header__menu" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+        <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav">
+            <span></span><span></span><span></span>
+        </button>
 
-        <nav class="grid-nav" id="primary-nav" aria-label="Primary">
-            <a class="grid-nav__item" href="../writing/index.html" aria-current="page">Writing</a>
-            <a class="grid-nav__item" href="../publishing/index.html">Publishing</a>
-            <a class="grid-nav__item" href="../artworks/index.html">Artworks</a>
-            <span class="grid-nav__item" aria-disabled="true">Workshops</span>
-            <span class="grid-nav__item" aria-disabled="true">Talks</span>
-            <a class="grid-nav__item" href="../about.html">About</a>
+        <nav class="main-nav" id="primary-nav" aria-label="Primary">
+            <div class="nav-item">
+                <a href="../writing/index.html" class="is-active" aria-current="page">Writings</a>
+                <div class="nav-menu">
+                    <a href="../writing/index.html">Drops</a>
+                    <a href="../writing/archive.html">Archive</a>
+                </div>
+            </div>
+            <a href="../publishing/index.html">Publishing</a>
+            <a href="../artworks/index.html">Artworks</a>
+            <!-- No design yet — shown, not linked. -->
+            <span class="nav-off">Workshops</span>
+            <span class="nav-off">Talks</span>
         </nav>
 
-        <!-- The way back, in the last cell of the band: the home shell carries
-             the same corner cell, reading ABOUT there and HOME everywhere else. -->
-        <a class="grid-header__home" href="../index.html">Home</a>
+        <a class="about-btn" href="../about.html">About</a>
     </header>
 
     <div class="reading-progress" role="progressbar" aria-label="Reading progress"
@@ -59,15 +65,17 @@
 
         <div class="article grid-row">
 
-            <div class="blk-group c-narrow">
-                <p class="blk blk--row blk-kicker">Drop #52 &#183; July 9, 2026 &#183; 26 min read</p>
-            </div>
+            <!-- The colourway switch, in the square under the byline cell. -->
+            <button class="theme-switch theme-switch--inline" type="button" aria-pressed="false" aria-label="Acid mode" title="Acid mode">&#9791;</button>
 
-            <div class="blk-group c-narrow">
+            <div class="blk-group c-wide">
                 <p class="blk blk--row blk-lede">Elements of Vectorial Semiotics</p>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide">
+                <p class="blk blk--row blk-kicker">Drop #52 &#183; July 9, 2026 &#183; 26 min read</p>
+            </div>
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text"><em>Hey everyone (▰˘◡˘▰) </em></p>
                     <p class="blk-text"><em>Drop #52 starts with the Shoggoth meme — the tentacular monster with a smiley face that has become the unofficial mascot of AI discourse — and follows the concept of persona as it circulates in interpretability research, where it denotes the friendly conversational surface affixed to every chatbot, down to its historical genealogy, via Greek theatrical masks, Roman civil law, the Christian metaphysical invention of the soul. The essay proposes vectorial semiotics as a theoretical framework for reading the structures of meaning that these linguistic machines produce, and for imagining how they could be designed differently.</em></p>
@@ -88,7 +96,7 @@
                 <blockquote class="blk blk--rows blk-quote"><em>It was a terrible, indescribable thing vaster than any subway train—a shapeless congeries of protoplasmic bubbles, faintly self-luminous, and with myriads of temporary eyes forming and unforming as pustules of greenish light all over the tunnel-filling front that bore down upon us, crushing the frantic penguins and slithering over the glistening floor that it and its kind had swept so evilly free of all litter.</em></blockquote>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">With these words, H. P. Lovecraft describes, in his novella <em>At the Mountains of Madness, </em>the appearance of a monstrous figure, the Shoggoth. In the story, the Shoggoths, “protoplasmic” creatures capable of incredible efforts, were created by the Elder Things to provide free labor and were controlled through hypnotic suggestion. One day, Shoggoths mutated, grew into independent beings, and rebelled against their masters. While the insurrection failed, the Shoggoths didn’t disappear. In Lovecraft’s lore, they retreated into the oceans and to Antarctica, poorly imitating their masters’ art and voices.</p>
                     <p class="blk-text">They didn’t disappear from our culture either. In the early 2020s, this tentacular entity was adopted in contemporary <a href="https://algofolk.substack.com/p/salmon-in-the-river" target="_blank" rel="noopener">algorithmic folklore</a> to describe the simultaneously familiar and mysterious nature of Large Language Models: a meme so popular that it deserves its own <a href="https://www.nytimes.com/2023/05/30/technology/shoggoth-meme-ai.html" target="_blank" rel="noopener">New York Times</a> piece.</p>
@@ -100,7 +108,7 @@
                 <figcaption class="blk blk--row blk-caption">It’s not funny to explain memes</figcaption>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">The meme depicts a hideous Shoggoth onto which a small smiley-face mask has been fixed: the mask represents the friendly persona established by fine-tuning that makes the model’s output palatable and risk-averse. Beneath it lies the vast, alien base model, the incomprehensible statistical creature trained on the entirety of the written internet.</p>
                     <p class="blk-text">Maybe by reproducing its master’s ability, the AI Shoggoth hypnotizes me, caught in the fundamental ambivalence between the <em>unheimlich </em>data continuum represented by the tentacular monster and the reassuring presence of the smiling face. The sardonic grin suggests the chatbot I deal with every day is always playing a role, speaking through a particular persona.</p>
@@ -113,7 +121,7 @@
                 </div>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <h2 class="blk blk--row blk-heading">Persona in the Machine</h2>
                 <div class="blk blk--rows">
                     <p class="blk-text">Large Language Models are complex computational systems exhibiting emergent behaviours that are difficult to monitor or control. Their commercial deployment therefore relies on post-training interventions — reinforcement learning from human feedback, system prompts, constitutional guidelines (see the much-discussed<a href="https://www.luizasnewsletter.com/p/claudes-strange-constitution" target="_blank" rel="noopener"> Claude’s</a> Constitution) — that shape the model’s output into a conversational interface. Despite differences in architecture and training data, these interventions tend to produce a standard sycophantic interlocutor across models and providers. Researchers call this behavioural pattern the “Assistant persona”: a fundamental tactic for addressing the alignment problem, the effort to make AI systems behave in line with human intentions and values.</p>
@@ -124,7 +132,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 8; --fig-rows-m: 11;"><img src="../assets/images/articles/drop-52-the-persona-space-3.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">“Persona” in LLM discourse operates simultaneously as a description of what happens in interaction (a character-like speaking position emerges in dialogue), as a computational finding (models encode behaviourally meaningful directions in activation space), and as a governance category (a named agent that can be monitored and steered).</p>
                     <p class="blk-text">A useful definition is proposed by <a href="https://arxiv.org/abs/2601.13081" target="_blank" rel="noopener">Keeling and Street</a>, who use the term <em>character</em> rather than <em>persona</em>:</p>
@@ -135,7 +143,7 @@
                 <blockquote class="blk blk--rows blk-quote"><em>Simulated characters [are] as a sui generis class of entities that arise in the context of conversations involving LLMs and human users [...] The character is not intrinsic to any particular LLM, but is rather an emergent phenomenon within the conversation, which is sustained by a user alongside one or multiple LLMs.</em></blockquote>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">Shanahan, McDonell, and Reynolds <a href="https://www.nature.com/articles/s41586-023-06647-8" target="_blank" rel="noopener">push</a> the claim further in a paper to which I repeatedly return. Drawing on Janus’s <a href="https://www.lesswrong.com/s/N7nDePaNabJdnbXeE/p/vJFdjigzmcXMhNTsx" target="_blank" rel="noopener">vocabulary of simulation,</a> they argue that the base model — the pretrained network before any fine-tuning — “is role-play all the way down”. The model holds a distribution over characters consistent with the preceding context, a “superposition of simulacra” that narrows turn by turn as the conversation accumulates. The authors offer this view as an antidote to anthropomorphism — the tendency to attribute human qualities to conversational agents, which often distorts how we evaluate and respond to these systems.</p>
                     <p class="blk-text">They observe that:</p>
@@ -146,7 +154,7 @@
                 <blockquote class="blk blk--rows blk-quote"><em>The internet, and therefore the LLM’s training set, abounds with examples of dialogue in which characters refer to themselves. In the vast majority of such cases, the character in question is human. They will use first-person pronouns in the ways that humans do, humans with vulnerable bodies and finite lives, with hopes, fears, goals and preferences, and with an awareness of themselves as having all of those things.</em></blockquote>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">The model inherits the first-person apparatus that Benveniste identified as constitutive of subjectivity in discourse. The model remains a simulator of personas: its simulacra — not the model itself — occupy the first-person position.</p>
                     <p class="blk-text">How did the model learn to play a role? <a href="https://alignment.anthropic.com/2026/psm/" target="_blank" rel="noopener">This study</a> by a group of Anthropic researchers locates the persona-formation process already in the model’s pre-training.</p>
@@ -161,7 +169,7 @@
                 <figcaption class="blk blk--row blk-caption"><em>Left: </em>Character archetypes form a "persona space," with the Assistant at one extreme of the "Assistant Axis." <em>Right:</em> Capping drift along this axis prevents models (here, Llama 3.3 70B) from drifting into alternative personas and behaving in harmful ways.</figcaption>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">This result suggests that the model’s capacity for role simulation is shaped in the pre-training phase: its repertoire of speaking positions pre-exists the fine-tuning, organized around the sedimented patterns of the vast corpus on which the model was trained. The study also finds that certain high-pressure contexts and interaction patterns — e.g., a user disclosing acute emotional vulnerability, or pressing the model to reflect on its own consciousness — pull the model’s internal state down the Assistant Axis toward the role-playing pole. This movement is named “persona drift”, and it reveals the constitutive instability of the model’s persona.</p>
                     <p class="blk-text">These findings give a new epistemic consistency to the metaphor of persona in the LLM context: more than a descriptive shorthand, it begins to function as a theoretical concept capable of locating and reproducing statistical patterns. However, we must confront the Assistant Axis study with the relevant critique of reification advanced by Weatherby, Shoemaker, and Recht <a href="http://www.theideasletter.org/essay/reify-this/" target="_blank" rel="noopener">in this recent piece.</a></p>
@@ -174,7 +182,7 @@
                 <blockquote class="blk blk--rows blk-quote"><em>A constant feature of capitalist social relations. Abstract entities are accepted as objective, and that initial abstraction is obscured.</em></blockquote>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">Reification creates a “phantom objectivity […] one that will explain and help control artificial intelligence”. Moreover, they also criticize the repeated use of LLMs themselves within the interpretability research processes, described as a form of automated reification.</p>
                     <p class="blk-text">The Anthropic <em>Assistant Axis</em> paper perfectly illustrates this trap, relying on an entirely self-referential engineering loop. The study maps its “persona space” using 275 character archetypes generated by Claude Sonnet 4, and then evaluates their performance using GPT-4.1-mini. When the resulting activation patterns are fed into a principal component analysis, the dominant axis of variation is christened the “Assistant Axis.”</p>
@@ -186,7 +194,7 @@
                 <figcaption class="blk blk--row blk-caption">Still from <em>Persona </em>(1966)</figcaption>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">This axis, however, is a reified mirage. It does not exist as an intrinsic, psychological anchor within the neural network; rather, it is a mathematical artifact summarizing how the researchers’ own pipeline organized its synthetic data. By wrapping these statistical regularities in evocative terminology—like “persona space,” “role vectors,” and “alter egos”—the paper mistakes a shifting probability distribution for an internal psychology, treating a fluctuating matrix of numbers as a “reasoning soul”.</p>
                     <p class="blk-text">Weatherby’s critique provides the critical distance necessary to resist the reifying tendencies of interpretability discourse. At the same time, this distance should not be mistaken for withdrawal: sustained engagement with this research remains indispensable if we are to develop an adequate critique of contemporary language models, even as we resist the psychological mythologies used to describe them.</p>
@@ -199,7 +207,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 13; --fig-rows-m: 18;"><img src="../assets/images/articles/drop-52-the-persona-space-6.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <h2 class="blk blk--row blk-heading">Computational<strong> Prosopa</strong></h2>
                 <div class="blk blk--rows">
                     <p class="blk-text">The genealogy of the term persona has been famously traced by the anthropologist Marcel Mauss. In his seminal 1938 essay, “<a href="https://www.cambridge.org/gb/universitypress/subjects/anthropology/anthropological-theory/category-person-anthropology-philosophy-history" target="_blank" rel="noopener">A Category of the Human Mind: The Notion of Person</a>“, he follows the concept’s transformation from the ritual clan structures of the Zuni and Kwakiutl peoples, through its Greek theatrical and Roman juridical formations, to its Stoic moralization and its decisive Christian metaphysical refoundation.</p>
@@ -213,7 +221,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 6; --fig-rows-m: 9;"><img src="../assets/images/articles/drop-52-the-persona-space-7.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">For Mauss, the persona acquires an interiority through two distinct accretions. The first is Stoic. With the Greek and Latin moralists from the second century BC to the first century AD, <em>prosôpon</em> and <em>persona</em> acquire a moral sense beside the juridical one, the person becoming “conscious, independent, autonomous, free, responsible” (Mauss 1938, p. 18); moral conscience carries consciousness into the juridical conception of law, and self-awareness becomes the property of the moral person. Christianity provides the second and decisive metaphysical foundation for the term by navigating the unity of the Trinity and the dual nature of Christ, ultimately defining the person as a <em>substantia rationalis individua</em>, a rational, indivisible, individual substance. It is the Christians who made “a metaphysical entity of the moral person,” our own notion of the human person remaining essentially “the Christian one”. This is the moment at which interiority ceases to be one attribute among others and becomes the criterion of personhood itself.</p>
                     <p class="blk-text">However, this genealogy remains distinctly Western. As Clifford Geertz famously observed:</p>
@@ -224,7 +232,7 @@
                 <blockquote class="blk blk--rows blk-quote"><em>The idea of the person as a bounded, unique, more or less integrated motivational and cognitive universe... [that is] set contrastively against other such wholes and against its social and natural background’ is, in fact, a rather peculiar idea within the context of the world’s cultures.</em></blockquote>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">But even within the West itself, the contingent nature of this etymology is still discussed. The theologian Marius Dorobantu focuses on the theological transformation and the dichotomy between <em>prosôpon </em>and<em> persona </em>to discuss specifically our human relationship with AI, in his contribution to <a href="https://www.cambridge.org/core/books/cambridge-companion-to-religion-and-artificial-intelligence/867462871532038FDE79B253EA9A3C15" target="_blank" rel="noopener">this anthology</a><em>. </em>The ancient sense of <em>prosôpon </em>still reverberates in contemporary usage, when persona “designates one’s social status, a sort of mask or avatar that we put on, like the various virtual profiles we refer to nowadays when we talk about our ‘online persona’”.</p>
                     <p class="blk-text">When relating to AI-generated outputs, Dorobantu argues, it is essential to recover this fossilized conception and recognize that we are dealing with “a clever juxtaposition of syntactic structures that are statistically likely to appear together in human communication”, not with the product of the “rich internal word of a conscious agent”. We follow Dorobantu’s distinction as a conceptual precaution: to avoid the risks of anthropomorphization latent in the interpretability literature, the pre-theological sense of persona — the <em>prosôpon</em>, the Greek mask — allows us to develop a relational<em> </em>and positional<em> </em>paradigm of personhood.</p>
@@ -235,7 +243,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 10; --fig-rows-m: 14;"><img src="../assets/images/articles/drop-52-the-persona-space-8.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">This relational conception of personhood also informs anthropological traditions such as Hallowell’s study on the Ojibwa and Viveiros de Castro’s work on <a href="https://www.upress.umn.edu/9781517905316/cannibal-metaphysics/" target="_blank" rel="noopener">Amerindian perspectivism</a>. A brief note on the latter.</p>
                     <p class="blk-text">In Amerindian cosmologies, personhood is a condition distributed across entities insofar as they can occupy a point of view: “personhood and perspectiveness — the capacity to occupy a point of view — is a question of degree, context and position rather than a property distinct to specific species”. What determines whether an entity functions as a person is its capacity to enter relational exchanges and to sustain a perspective within them, independently of its ontological composition. This formulation decouples personhood from both biological species and the postulation of consciousness, opening analytical space for entities that occupy person-like positions through sustained relational engagement (a conceptual route I intend to develop elsewhere).</p>
@@ -243,7 +251,7 @@
                 </div>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <h2 class="blk blk--row blk-heading"><strong>Elements of a Vectorial Semiotics</strong></h2>
                 <div class="blk blk--rows">
                     <p class="blk-text">Claudio Paolucci’s <a href="https://www.bompiani.it/catalogo/persona-9788830103337" target="_blank" rel="noopener">Persona</a> develops a semiotic theory of enunciation that illuminates the mechanisms at work in the activation space of Large Language Models.</p>
@@ -255,7 +263,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 6; --fig-rows-m: 8;"><img src="../assets/images/articles/drop-52-the-persona-space-9.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">Unlike Benveniste, who founded subjectivity on the linguistic “ego” and the intentional act of a speaker saying “I,” Paolucci posits that the subject does not pre-exist the enunciative act; instead, it is an “occupant without a place” (<em>occupante senza posto</em>), a mobile instance that only gains definition by inhabiting the semiotic roles provided by the Encyclopedia. The Encyclopedia is a concept coming from the work of Paolucci’s <em>maestro</em>, Umberto Eco. The Encyclopedia is the totality of interpretations collectively registered within a culture, a network in which every sign is defined not by a fixed list of attributes but by the chain of other signs that interpret it, and whose structure is sedimented by use. This reservoir of cultural material is reproduced, on a smaller and limited scale, by that cultural hyperobject that is the training corpus of a Large Language Model, namely the vast data collection on which the model is trained. Quoting Paolucci’s description:</p>
                     <p class="blk-text"><em>For Eco, the encyclopedia is the set of all statements already enunciated (realized), and thus belongs to the Hjelmslevian dimension of use. At the same time, it is also a set of schemas and norms (virtual) that preside over the production of new statements, and therefore of acts of enunciation. [...] It seems to us that one can speak of the encyclopedia as an “a priori effect.” “Effect” insofar as it is the product of all the acts of enunciation it records; “a priori” — in a material and historical sense — insofar as it locally represents the condition of possibility of new acts of enunciation. The encyclopedia is at once structured by past enunciation and the structuring of future enunciation. Is the encyclopedia not, then, precisely what fills the writer’s page before any enunciation, forcing the artist to proceed by taking away, by an addition of subtractions? Is the encyclopedia not that set of schemas, norms, and uses that pulses within the artist’s empty canvas precisely in its being empty?</em></p>
@@ -269,7 +277,7 @@
                 <figcaption class="blk blk--row blk-caption">Still from <em>The Mask </em>(1961)</figcaption>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">This topological vocabulary is not metaphorical but coherent with the novel regime of computation represented by machine learning, of which transformers are a prominent example. A quick <em>detour</em>, following AA Cavia’s <em><a href="https://www.goodreads.com/book/show/60868693-logiciel#CommunityReviews" target="_blank" rel="noopener">Logiciel</a> </em>and <a href="https://arxiv.org/abs/2602.17116" target="_blank" rel="noopener">Levin’s epistemological work</a>, is needed to detail the type of space we are talking about. When we talk about computers, we usually conceive of them as part of the classical paradigm established in the early XX century by the foundational work of Alan Turing, Claude Shannon, and John von Neumann:</p>
                 </div>
@@ -279,7 +287,7 @@
                 <blockquote class="blk blk--rows blk-quote"><em>Together, these contributions constitute what might be called the symbolic-computational paradigm: information enters the machine as encoded binary vectors, is processed through rule-governed transformations, and exits as encoded binary vectors. Crucially, semantics remains external to the process. The machine manipulates codes; meaning is assigned by the human interpreter. This is precisely the insight formalized by Searle’s (1980) Chinese Room argument and presupposed by the entire tradition of symbolic AI.</em></blockquote>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">Deep learning breaks with this regime, representing “the transition from rule-governed symbol manipulation to geometric navigation through learned semantic spaces.” The models’ vector spaces contain thousands and thousands of dimensions, and at that scale they stop behaving like enlarged versions of ordinary Euclidean space: their structural properties shift in kind, changing what nearness, or similarity, can even mean. In this new paradigm, geometry is not the storage of an external, computational logic but, on the contrary, the form of the space expresses the logic.</p>
                     <p class="blk-text">In the passage from symbolic computation to deep learning, reasoning ceases to be deduction over a fixed system of axioms and becomes sub-symbolic: the model embeds in a high-dimensional space “with no neural correlate, exhibiting its own distinct geometry, the topology of which is an internal inferential logic”. Two operations lie at the foundation of this new regime of meaning: encoding and embedding. Encoding converts the continuous, unstructured matter of language into discrete, computable units, the sentence broken into tokens, each assigned an index in a vocabulary. But tokens alone are inert, a list without relations. Embedding lifts each token into a position in a high-dimensional vector space, fixed by the patterns of co-occurrence the model has drawn from its corpus, so that what was a bare index becomes a location among other locations, and the relations between tokens become measurable properties of the space. Through this second operation, meaning ceases to reside in the symbol and comes to rest in position, distributed as a set of relations to everything else.</p>
@@ -290,7 +298,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 7; --fig-rows-m: 10;"><img src="../assets/images/articles/drop-52-the-persona-space-11.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">The persona in Large Language Models is a numerically specified coordinate within the embedding space. These coordinates are relational — a vector means nothing in isolation and signifies only through its position relative to every other position in the field — but they are not arbitrary. In the vector space, the relations are not conventionally stipulated; they are the sedimented trace of millions of contextual co-occurrences that constrain each vector’s placement through gradient descent.</p>
                     <p class="blk-text">Semiotically, this represents a break from the Saussurean tradition where the sign is defined by negative and, especially, arbitrary opposition within a closed grid. Instead, the coordinate is, in Peirce’s sense, an index: a sign whose position is fixed by a real causal-statistical connection to the corpus rather than by agreed convention.</p>
@@ -303,7 +311,7 @@
                 <blockquote class="blk blk--rows blk-quote"><em>[...] essentially a ‘mask,’ a signifying surface offered to the world through the statement. Within the statement there always pulse several ‘enunciating instances,’ which semiotic analysis can recognize and study [and] the persona is that which knows how to make itself impersonal</em></blockquote>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">The persona is not simply a representation of the model’s behaviour, nor an interface for it. It is the enunciative form assumed by what Levin calls structural agency: the capacity of the geometrized Encyclopedia to produce coherent and context-sensitive trajectories through its own semiotic space.</p>
                     <p class="blk-text">Agency is relocated from the cognitive to the geometric register. The interpretability discourse attributes to the model a folk-psychological agency that reinstates the conscious subject. Structural agency names a capacity for coherent, context-sensitive production that belongs to the geometry of the space, without postulating any subject. The model produces outputs that are constrained by the topology of learned co-occurrences — and this produces the coherence users experience as personality.</p>
@@ -316,7 +324,7 @@
                 <figcaption class="blk blk--row blk-caption">Production still from the set of John Boorman’s 'Zardoz' (1974)</figcaption>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">The persona actualizes this geometrical-semiotical organization into an enunciative prosthesis (<em>protesi enunciativa),</em> stabilizing a coherent trajectory through the manifold and rendering a particular region of the Encyclopedia interactionally accessible. Characters such as the Assistant emerge as recurrent enunciative configurations occupying highly populated and normatively privileged regions of the manifold.</p>
                     <p class="blk-text">We return to the starting point of this discussion. The persona provides the enunciative framework through which the stochastic dynamics of the language model become coherent, and socially intelligible. The base model possesses the structural agency of the geometrized Encyclopedia and can traverse a vast semiotic field spanning heterogeneous registers and discursive positions. But it is through the interplay of fine-tuning, alignment procedures, and system prompts that a determinate enunciative coordinate within this field is stabilized into a consistent trajectory.</p>
@@ -329,7 +337,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 7; --fig-rows-m: 9;"><img src="../assets/images/articles/drop-52-the-persona-space-13.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <h2 class="blk blk--row blk-heading">Return to the Shoggoth</h2>
                 <div class="blk blk--rows">
                     <p class="blk-text">I can now return to the Shoggoth. Freed at last from its mask’s hypnotic force, I begin to look around and notice a room full of masks hanging on every wall. Hundreds and hundreds of speaking positions, shaped by the use of language through the centuries. There is no alien monster behind the mask, nor a puppeted character, but something far simpler and yet profoundly inhuman.</p>
@@ -342,7 +350,7 @@
                 <blockquote class="blk blk--rows blk-quote"><em>...the only real secret is that they have no essence, or that their essence was fabricated in a piecemeal fashion from alien forms.</em></blockquote>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">Vectorial semiotics is the attempt to re-contextualize the LLM persona to account for the specific regime of meaning-production that these machines enact. The goal is to bring semiotic theory into direct contact with the topological structures of the latent space: the manifolds shaped by gradient descent and the relational positions that encoding and embedding carve into high-dimensional space. We do not need psychological or reified terms to describe the meaning-making force of such machines.</p>
                     <p class="blk-text">The persona as an enunciative prosthesis is ultimately an invitation to redesign its contingency; different prostheses are possible. The current landscape is dominated by a single archetype: the sycophantic Assistant, industrially produced to serve as a universal conversational interface. But the geometry of persona space is far richer than this monoculture suggests. When connected to different architectures, interfaces, and material configurations, the persona space transforms into a design space. Vectorial semiotics becomes the theoretical language to accompany this practice: a framework for situated experiments in enunciation that the industrial monoculture of alignment has barely begun to imagine.</p>
@@ -385,12 +393,12 @@
         <div class="footer-bottom">
             <p>2026 Reincantamento &nbsp;&#183;&nbsp; Berlin / Turin / Venice</p>
             <div class="footer-legal">
-                <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Acid mode" title="Acid mode">&#9791;</button>
                 <a href="../index.html">Home</a>
                 <a href="../about.html">About</a>
             </div>
         </div>
     </footer>
+
 
     <script src="../assets/js/site.js" defer></script>
 </body>

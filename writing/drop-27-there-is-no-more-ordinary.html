@@ -25,25 +25,31 @@
 
     <a class="skip-link" href="#main">Skip to content</a>
 
-    <header class="grid-header grid-row">
-        <a class="grid-header__logo" href="../index.html" aria-label="Reincantamento — home">
-            <svg viewBox="0 0 44 22" aria-hidden="true"><ellipse cx="22" cy="11" rx="22" ry="11"/></svg>
+    <header class="site-header">
+        <a class="brand" href="../index.html" aria-label="Reincantamento home">
+            <img src="../assets/images/REINC-LOGO.svg" alt="Reincantamento" width="53" height="25">
         </a>
 
-        <button class="grid-header__menu" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+        <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav">
+            <span></span><span></span><span></span>
+        </button>
 
-        <nav class="grid-nav" id="primary-nav" aria-label="Primary">
-            <a class="grid-nav__item" href="../writing/index.html" aria-current="page">Writing</a>
-            <a class="grid-nav__item" href="../publishing/index.html">Publishing</a>
-            <a class="grid-nav__item" href="../artworks/index.html">Artworks</a>
-            <span class="grid-nav__item" aria-disabled="true">Workshops</span>
-            <span class="grid-nav__item" aria-disabled="true">Talks</span>
-            <a class="grid-nav__item" href="../about.html">About</a>
+        <nav class="main-nav" id="primary-nav" aria-label="Primary">
+            <div class="nav-item">
+                <a href="../writing/index.html" class="is-active" aria-current="page">Writings</a>
+                <div class="nav-menu">
+                    <a href="../writing/index.html">Drops</a>
+                    <a href="../writing/archive.html">Archive</a>
+                </div>
+            </div>
+            <a href="../publishing/index.html">Publishing</a>
+            <a href="../artworks/index.html">Artworks</a>
+            <!-- No design yet — shown, not linked. -->
+            <span class="nav-off">Workshops</span>
+            <span class="nav-off">Talks</span>
         </nav>
 
-        <!-- The way back, in the last cell of the band: the home shell carries
-             the same corner cell, reading ABOUT there and HOME everywhere else. -->
-        <a class="grid-header__home" href="../index.html">Home</a>
+        <a class="about-btn" href="../about.html">About</a>
     </header>
 
     <div class="reading-progress" role="progressbar" aria-label="Reading progress"
@@ -59,11 +65,13 @@
 
         <div class="article grid-row">
 
-            <div class="blk-group c-narrow">
+            <!-- The colourway switch, in the square under the byline cell. -->
+            <button class="theme-switch theme-switch--inline" type="button" aria-pressed="false" aria-label="Acid mode" title="Acid mode">&#9791;</button>
+
+            <div class="blk-group c-wide">
                 <p class="blk blk--row blk-kicker">Drop #27 &#183; February 12, 2025 &#183; 10 min read</p>
             </div>
-
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text"><em>Hey everyone (▰˘◡˘▰)</em></p>
                     <p class="blk-text"><em>Welcome back to Drops, REINCANTAMENTO’s newsletter. </em></p>
@@ -75,7 +83,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 8; --fig-rows-m: 11;"><img src="../assets/images/articles/drop-27-there-is-no-more-ordinary-1.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">On CTM's opening concert, the cavernous expanse of silent green’s <em>Betonhalle</em> is ripped apart by local ensemble 33’s performance. Artist <a href="http://ivancheng.com/" target="_blank" rel="noopener">Ivan Cheng</a>, the supergroup vocalist, modulates the space through their voice, from celestial heights to demonic depths. I watch as the other ensemble members unexpectedly begin to take turns with vocals, their high-pitched tones like trickster spirits claiming space.</p>
                     <p class="blk-text">The date is January 24th, 2025. Nine days ago, we lost David Lynch and I've spent the past week scrolling my social media feeds filled with his dreamlike imagery. Standing here now, I can't help but think how perfectly 33 would fit on the stage of Twin Peaks' <em>Roadhouse</em>, their performance tapping into that same slippery space between comfort and unease that Lynch staged so iconically.</p>
@@ -88,7 +96,7 @@
                 <figcaption class="blk blk--row blk-caption">33 @ silent green Betonhalle CTM Festival 2025 © Camille Blake</figcaption>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">I find myself returning to words I read from anthropologist Michael Taussig in his <em>Mastery of Non-Mastery</em>, which also reads like a philosophical manual to survive a dark, surreal world:</p>
                 </div>
@@ -98,13 +106,13 @@
                 <blockquote class="blk blk--rows blk-quote"><em>It is a dangerous moment. You feel the world tremble. And it has been like this for a while. At least since 9/11. There is no more ordinary. The whole world is living not just another era but another culture. We cannot process what is happening, and that applies to both left and right on the political spectrum.</em></blockquote>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">What is the role of adventurous art and music when the ordinary doesn't exist anymore? 33 aren't just opening the festival, they're setting the tone for my experience of the next ten days.</p>
                 </div>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <h2 class="blk blk--row blk-heading">A Tale of Two Festivals</h2>
                 <div class="blk blk--rows">
                     <p class="blk-text">In 2025, CTM Festival marks its 26th edition, while transmediale reaches its 39th. "<em>It's one adult lifetime"</em>, my friend A. tells me during our walk home in one of the festival’s nights. Over these decades, they have become ordinary landmarks within Berlin and the European cultural landscape, established institutions in their respective fields capable of attracting artists and audiences for decades.</p>
@@ -114,7 +122,7 @@
                 </div>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <h2 class="blk blk--row blk-heading">CTM on the ground</h2>
                 <div class="blk blk--rows">
                     <p class="blk-text">I've always been drawn to how CTM claims Berlin's club landscape as its canvas, reshaping familiar spaces into something unrecognizable. Inside OXI's concrete maze on Saturday night, I watch as conventional ideas of "club night" dissolved around me. <strong>isaka</strong> and <strong>Spit Mask</strong> transform the main floor into something between theater and exorcism – the former skewering our Instagram-filtered reality, the latter staging a raw, bodily excavation.</p>
@@ -130,7 +138,7 @@
                 <figcaption class="blk blk--row blk-caption">Estradas @ Radialsystem - CTM Festival 2025 © Udo Siegfriedt 22</figcaption>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">The reality of being a part-time writer caught up with me and I had to skip the rest of Tuesday and Wednesday's programming. There's something both impressive and exhausting about CTM's scope: 8 hours daily for 10 straight days. Can a festival of this scale include care and rest as part of their program?</p>
                     <p class="blk-text">On Thursday, well-rested and after a McLuhan lecture at transmediale, I get myself into Berghain for a mastodonic, 3-floors club night. The lineup lives up to its promises: <strong>alys(alys)alys</strong> and <strong>Rattlesnake</strong> set Panorama ablaze with their greatly executed latino-core, while <strong>Morgan Garrett</strong> and <strong>Murderpact</strong>'s hybrid of rock band intensity and hardcore rave aesthetics turns Berghain into a metallic fever dream. <strong>aya</strong>, performing with <strong>MFO</strong>, seems to have found her final form as a cursed, next-level screamo-trapstar. A special mention to <strong>Deize Tigrona</strong>: a 2000s Black Brazilian MC that sets Panorama Bar on fire with her explosive and genuine talent. <br><br>On the following night at Alte Münze, <strong>AKA HEX</strong> (Aïsha Devi and Slickback's new collaboration) delivers my highlight, with their dualism of paradisiac hypnotism and bone-rattling bass. The closure of the festival with <strong>Abdullah Miniawy trio </strong>at Volksbuhne offers one, final catharthic hour of beauty: a gentle flirt with ghostly presences.</p>
@@ -142,7 +150,7 @@
                 <figcaption class="blk blk--row blk-caption">Abdullah Miniawy @ Volksbühne CTM Festival 2025 © Camille Blake</figcaption>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <h2 class="blk blk--row blk-heading"><strong>transmediale on the ground</strong></h2>
                 <div class="blk blk--rows">
                     <p class="blk-text">transmediale main programs begins on Friday 31st at Haus der Kulturen der Welt. The festival efforts are focused on discursive format, with no official exhibition and little focus to media art and hacking practices. An absence that would later reveal its partial reasons both due to budget cuts and the new bizarre administrative leadership, already criticized by local artists in<a href="https://art-leaks.org/2025/02/04/open-letter-why-is-transmediale-not-hiring-a-new-artistic-director/" target="_blank" rel="noopener"> this open letter</a>. Yet, I don’t want to focus solely on these limitations and risk to overlook the program's meaningful contributions.</p>
@@ -156,7 +164,7 @@
                 <figcaption class="blk blk--row blk-caption">Silvio Lorusso, Chris Lee, Digital Maximalism vs. Existenzminimum - transmediale 2025 Photo by Laura Fiorio CC BY-NC-SA</figcaption>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">Given my ongoing research in the politics of digital withdrawal, I also appreciate the dialogue between philosopher <strong>Andrew Culp</strong> and <strong>Thomas Dekeyser</strong>, although it integrated a not-so-well-executed interactive format with the audience. How to reclaim portions of relative opacity and how to escape the all-too-bright corporate Internet panopticon?</p>
                     <p class="blk-text">Opacity emerges here not just as a theoretical concept but as a practice of consciousness and personal engagement - this is the real gift of <strong>Federico Campagna'</strong>s talk. Speaking to an audience drowning in endless news feeds, Campagna pushes back against what he calls "today-ism": the seductive belief that our present moment is so unprecedented that looking to the past for guidance becomes futile. I recognize this impulse in myself, and yes, we are living through historic ruptures - as Campagna spoke, the German democracy was facing one of its darkest hours just hundreds of meters away<a href="https://www.politico.eu/article/germany-friedrich-merz-cdu-political-tightrope-far-right-votes-afd-migration-crackdown/" target="_blank" rel="noopener"> in the Bundestag</a>. <br><br>But the danger isn't in recognizing these moments' gravity; it's in surrendering to that paralyzing confusion that follows. This is precisely what our enemies seek - I think of Steve Bannon's idea of <a href="https://www.nytimes.com/2025/02/02/opinion/ezra-klein-podcast-trump-column-read.html" target="_blank" rel="noopener">muzzle velocity</a> - this disorientation that's eating us alive. With a gesture that feels both ancient and urgent, Campagna brings forward Iranian philosopher Mullah Sadra's wisdom, offering us a delicate balance: to neither fully embrace nor entirely reject the perceptual and linguistic fictions we inhabit, including visions for the end of the world.</p>
@@ -168,7 +176,7 @@
                 <figcaption class="blk blk--row blk-caption">Federico Campagna, “We are closer to them than their jugular vein”: The Metaphysics of Distance and Proximity in a Fictional World, transmediale 2025 Photo by Laura Fiorio CC BY-NC-SA</figcaption>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">Is transmediale's institutional bubble any less fictional than the worlds Campagna spoke of? This time, the bubble burst came, ironically, through art's most traditional medium painting that seemed almost definitely analog in this temple of new media. There it was: a portrait commissioned by transmediale curator Eugene Yiu Nam Cheung, brought to life by artist Hamishi Farah, its presence on stage mediated through Tobi Haslett's careful words. But the painting's time in the building was measured in minutes as if the institution's body was rejecting an unidentified object, something too dangerous to metabolize.</p>
                 </div>
@@ -179,7 +187,7 @@
                 <figcaption class="blk blk--row blk-caption">Joe Chialo’s infamous portrait by Hamishi Farah</figcaption>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">The painting depicted Joe Chialo, CDU Senator of Culture and Social Integration in the Berlin Senat. But a face is never just a face, is it? Especially not this one - a Black German politician who's become the public representation of Berlin's artistic suppression, the one signing orders to silence anyone daring to speak against Israeli genocide. A simple, humorous gesture capable of revealing once again the contradictions of institutional art in Germany. In Haslett’s words, published <a href="https://canopycanopycanopy.com/contents/on-a-painting-by-hamishi-farah?utm_campaign=feed&amp;utm_medium=referral&amp;utm_source=later-linkinbio" target="_blank" rel="noopener">on Triple Canopy</a>:<br><br>“<em>Joe Chialo’s portrait is about Palestine, not just blackness, and certainly not just Joe. Which is to say that in this specific, hideously provincial national context, it’s a source of unmanageable negativity—and a force that accidentally refreshes the avant-garde project. Suddenly, we find ourselves in a very twentieth-century predicament: We can’t take the risk of exhibiting a painting of a right-wing politician. Given the outright censorious climate and the open bullying of state functionaries, we’re locked in the taut, old-school paradox of propriety, and we’ve come face-to-face with the institution of art.“<br></em><br>And so, concluding our analysis, we must acknowledge that no institution, however, established or ossified like transmediale, can truly keep its historical moment at a distance. Perhaps the real question is how to open our institutions, spaces, and stages to those who carry their time forward with pride and defiance. CTM's strongest musical moments achieved precisely this: upending conventional frameworks to carve out spaces of autonomous expression.</p>
                     <p class="blk-text">Beyond the structural differences between the art world and the music world, what remains is a partially realized desire, an escape route that pushes beyond the boundaries of permissible discourse: not just what is censored, but what is deemed reasonable. The future relevance of festivals will be measured by their capacity to navigate these tensions.</p>
@@ -218,12 +226,12 @@
         <div class="footer-bottom">
             <p>2026 Reincantamento &nbsp;&#183;&nbsp; Berlin / Turin / Venice</p>
             <div class="footer-legal">
-                <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Acid mode" title="Acid mode">&#9791;</button>
                 <a href="../index.html">Home</a>
                 <a href="../about.html">About</a>
             </div>
         </div>
     </footer>
+
 
     <script src="../assets/js/site.js" defer></script>
 </body>

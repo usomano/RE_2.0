@@ -25,25 +25,31 @@
 
     <a class="skip-link" href="#main">Skip to content</a>
 
-    <header class="grid-header grid-row">
-        <a class="grid-header__logo" href="../index.html" aria-label="Reincantamento — home">
-            <svg viewBox="0 0 44 22" aria-hidden="true"><ellipse cx="22" cy="11" rx="22" ry="11"/></svg>
+    <header class="site-header">
+        <a class="brand" href="../index.html" aria-label="Reincantamento home">
+            <img src="../assets/images/REINC-LOGO.svg" alt="Reincantamento" width="53" height="25">
         </a>
 
-        <button class="grid-header__menu" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+        <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav">
+            <span></span><span></span><span></span>
+        </button>
 
-        <nav class="grid-nav" id="primary-nav" aria-label="Primary">
-            <a class="grid-nav__item" href="../writing/index.html" aria-current="page">Writing</a>
-            <a class="grid-nav__item" href="../publishing/index.html">Publishing</a>
-            <a class="grid-nav__item" href="../artworks/index.html">Artworks</a>
-            <span class="grid-nav__item" aria-disabled="true">Workshops</span>
-            <span class="grid-nav__item" aria-disabled="true">Talks</span>
-            <a class="grid-nav__item" href="../about.html">About</a>
+        <nav class="main-nav" id="primary-nav" aria-label="Primary">
+            <div class="nav-item">
+                <a href="../writing/index.html" class="is-active" aria-current="page">Writings</a>
+                <div class="nav-menu">
+                    <a href="../writing/index.html">Drops</a>
+                    <a href="../writing/archive.html">Archive</a>
+                </div>
+            </div>
+            <a href="../publishing/index.html">Publishing</a>
+            <a href="../artworks/index.html">Artworks</a>
+            <!-- No design yet — shown, not linked. -->
+            <span class="nav-off">Workshops</span>
+            <span class="nav-off">Talks</span>
         </nav>
 
-        <!-- The way back, in the last cell of the band: the home shell carries
-             the same corner cell, reading ABOUT there and HOME everywhere else. -->
-        <a class="grid-header__home" href="../index.html">Home</a>
+        <a class="about-btn" href="../about.html">About</a>
     </header>
 
     <div class="reading-progress" role="progressbar" aria-label="Reading progress"
@@ -59,15 +65,17 @@
 
         <div class="article grid-row">
 
-            <div class="blk-group c-narrow">
-                <p class="blk blk--row blk-kicker">Drop #45 &#183; January 16, 2026 &#183; 5 min read</p>
-            </div>
+            <!-- The colourway switch, in the square under the byline cell. -->
+            <button class="theme-switch theme-switch--inline" type="button" aria-pressed="false" aria-label="Acid mode" title="Acid mode">&#9791;</button>
 
-            <div class="blk-group c-narrow">
+            <div class="blk-group c-wide">
                 <p class="blk blk--row blk-lede">A sound chronicle of the Italian October Strike</p>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide">
+                <p class="blk blk--row blk-kicker">Drop #45 &#183; January 16, 2026 &#183; 5 min read</p>
+            </div>
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text"><em>Hey everyone (▰˘◡˘▰),</em></p>
                     <p class="blk-text"><em>First of all, happy 2026 and welcome back to Drops, REINCANTAMENTO’s newsletter. Amidst the tumultuous flow of events that marked the beginning of the year, we return with something different: a sound piece. <strong>“In The Air of Those Days"</strong> chronicles the general strikes in Italy of September–October 2025 in solidarity with G4z4. Moving between the joyful heat of those weeks and the quiet winter that followed, it holds the lost hopes of my, our, generation.</em></p>
@@ -87,7 +95,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 10; --fig-rows-m: 14;"><img src="../assets/images/articles/drop-45-in-the-air-of-those-days-1.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <h2 class="blk blk--row blk-heading"><strong>In The Air of Those Days Transcript</strong></h2>
                 <div class="blk blk--rows">
                     <p class="blk-text">The sequence begins at the port of Genoa. The anti-fascist spirit of this coastal city awakens the country, as it did in 1960 against Tambroni’s government — with the most right-wing republican history until today’s, obviously.</p>
@@ -107,7 +115,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 11; --fig-rows-m: 15;"><img src="../assets/images/articles/drop-45-in-the-air-of-those-days-2.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">This is not the country we know and complain about endlessly, accustomed as we are to our childish, cosmetic Italian pessimism. This doesn’t look like the same country governed by a neo-fascist party, now in power for nearly three years and enjoying stable popular support while the opposition fails to make any impact — corrupt, divided, and exhausted as it is.</p>
                     <p class="blk-text">Italy is a country trapped in its unresolved history, in the projection of so many father figures: Mussolini, Andreotti, Craxi, Berlusconi, and now Meloni — not a father, but playing the same role. The country with the fewest university graduates in the EU, wages stagnant for 40 years, a bleeding North-South divide with few equals in the world, a country that has pushed out an entire generation, its hinterlands hollowing, its cities surrendered to the most vulgar tourism imaginable.</p>
@@ -119,7 +127,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 8; --fig-rows-m: 11;"><img src="../assets/images/articles/drop-45-in-the-air-of-those-days-3.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">An old quote from Mark Fisher’s blog comes back to me: <em>What if they had a protest and everyone came?</em></p>
                     <p class="blk-text">On Friday, October 3rd, 2025, everyone comes.</p>
@@ -135,7 +143,7 @@
                 <blockquote class="blk blk--rows blk-quote"><em>The real opposite of nostalgia is psychedelic, the reverse of remembering is hallucinating…</em></blockquote>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">What if we had kept going in October? Until we stopped Italian support for Israel. Until we brought down the government. Maybe the winter would have felt less cold.</p>
                     <p class="blk-text">For now, they have won. But they are still afraid.</p>
@@ -179,12 +187,12 @@
         <div class="footer-bottom">
             <p>2026 Reincantamento &nbsp;&#183;&nbsp; Berlin / Turin / Venice</p>
             <div class="footer-legal">
-                <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Acid mode" title="Acid mode">&#9791;</button>
                 <a href="../index.html">Home</a>
                 <a href="../about.html">About</a>
             </div>
         </div>
     </footer>
+
 
     <script src="../assets/js/site.js" defer></script>
 </body>

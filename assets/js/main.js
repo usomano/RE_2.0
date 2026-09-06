@@ -54,7 +54,7 @@
         const natH = statement.offsetHeight;
 
         // colW/rowH divide the viewport exactly, so these counts are exact.
-        const colsAvail = Math.round(window.innerWidth / colW);
+        const colsAvail = Math.round(root.clientWidth / colW);
         const rowsAvail = Math.round(window.innerHeight / rowH);
         // Hug the text to a whole number of columns and centre it: equal side
         // margins (no left/right asymmetry) and the mask never stretches past the
@@ -79,15 +79,38 @@
         statement.style.height = (hCells * rowH - LINE) + 'px';
     };
 
+
+    /* Snap the WRITINGS cell to the grid. The nav is a row of text with gaps,
+       so the item lands wherever the labels put it; its blue square and the
+       menu under it are cell-sized, and a square that misses the painted lines
+       reads as a mistake on a page made of them. Shifting a relatively
+       positioned item leaves the row's spacing untouched. */
+    const navItem = document.querySelector('.nav-item');
+
+    const snapNavItem = (colW) => {
+        if (!navItem) return;
+        navItem.style.left = '';
+        if (window.innerWidth <= MOBILE_BP) return;
+        const x = navItem.getBoundingClientRect().left;
+        navItem.style.left = (Math.round(x / colW) * colW - x) + 'px';
+    };
+
     const fitGrid = () => {
         fitQueued = false;
-        const w = window.innerWidth, h = window.innerHeight;
+        // clientWidth, not innerWidth: the page scrolls now that it carries a
+        // footer, and a classic (non-overlay) scrollbar would otherwise leave a
+        // partial column against the right edge.
+        const w = root.clientWidth, h = window.innerHeight;
         const cols = Math.max(1, Math.round(w / TARGET_CELL));
         const rows = Math.max(1, Math.round(h / TARGET_CELL));
         const colW = w / cols;   // columns divide the width  with no partial column
         const rowH = h / rows;   // rows    divide the height with no partial row
         root.style.setProperty('--grid-col', colW + 'px');
         root.style.setProperty('--grid-row', rowH + 'px');
+        // Where the colourway switch sits: the last row of the screen. The rows
+        // divide the height exactly here, so this is simply the one before last.
+        root.style.setProperty('--screen-last-row', ((rows - 1) * rowH) + 'px');
+        snapNavItem(colW);
         placeStatement(colW, rowH);
     };
 
@@ -107,9 +130,10 @@
 
     /* ---- Acid mode ----
        theme.js has already applied the stored choice before first paint; here we
-       only wire the header switch and persist what the reader picks. The section
-       pages run the same logic from their footer control (site.js). */
-    const themeSwitch = document.querySelector('.theme-switch');
+       only wire the switch and persist what the reader picks. It sits in the
+       footer here as it does on the section pages (site.js runs the same logic);
+       About and Lab, which have no footer, carry it in the header row. */
+    const themeSwitch = document.querySelector('.theme-switch, .theme-toggle');
 
     if (themeSwitch) {
         const syncSwitch = () => {

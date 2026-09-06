@@ -25,25 +25,31 @@
 
     <a class="skip-link" href="#main">Skip to content</a>
 
-    <header class="grid-header grid-row">
-        <a class="grid-header__logo" href="../index.html" aria-label="Reincantamento — home">
-            <svg viewBox="0 0 44 22" aria-hidden="true"><ellipse cx="22" cy="11" rx="22" ry="11"/></svg>
+    <header class="site-header">
+        <a class="brand" href="../index.html" aria-label="Reincantamento home">
+            <img src="../assets/images/REINC-LOGO.svg" alt="Reincantamento" width="53" height="25">
         </a>
 
-        <button class="grid-header__menu" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+        <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav">
+            <span></span><span></span><span></span>
+        </button>
 
-        <nav class="grid-nav" id="primary-nav" aria-label="Primary">
-            <a class="grid-nav__item" href="../writing/index.html" aria-current="page">Writing</a>
-            <a class="grid-nav__item" href="../publishing/index.html">Publishing</a>
-            <a class="grid-nav__item" href="../artworks/index.html">Artworks</a>
-            <span class="grid-nav__item" aria-disabled="true">Workshops</span>
-            <span class="grid-nav__item" aria-disabled="true">Talks</span>
-            <a class="grid-nav__item" href="../about.html">About</a>
+        <nav class="main-nav" id="primary-nav" aria-label="Primary">
+            <div class="nav-item">
+                <a href="../writing/index.html" class="is-active" aria-current="page">Writings</a>
+                <div class="nav-menu">
+                    <a href="../writing/index.html">Drops</a>
+                    <a href="../writing/archive.html">Archive</a>
+                </div>
+            </div>
+            <a href="../publishing/index.html">Publishing</a>
+            <a href="../artworks/index.html">Artworks</a>
+            <!-- No design yet — shown, not linked. -->
+            <span class="nav-off">Workshops</span>
+            <span class="nav-off">Talks</span>
         </nav>
 
-        <!-- The way back, in the last cell of the band: the home shell carries
-             the same corner cell, reading ABOUT there and HOME everywhere else. -->
-        <a class="grid-header__home" href="../index.html">Home</a>
+        <a class="about-btn" href="../about.html">About</a>
     </header>
 
     <div class="reading-progress" role="progressbar" aria-label="Reading progress"
@@ -59,15 +65,17 @@
 
         <div class="article grid-row">
 
-            <div class="blk-group c-narrow">
-                <p class="blk blk--row blk-kicker">Drop #6 &#183; September 26, 2023 &#183; 7 min read</p>
-            </div>
+            <!-- The colourway switch, in the square under the byline cell. -->
+            <button class="theme-switch theme-switch--inline" type="button" aria-pressed="false" aria-label="Acid mode" title="Acid mode">&#9791;</button>
 
-            <div class="blk-group c-narrow">
+            <div class="blk-group c-wide">
                 <p class="blk blk--row blk-lede">On a Berlin experience of cosmic interweaving</p>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide">
+                <p class="blk blk--row blk-kicker">Drop #6 &#183; September 26, 2023 &#183; 7 min read</p>
+            </div>
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text"><em>Hey everyone (▰˘◡˘▰)</em></p>
                     <p class="blk-text"><em>Today, we share a report from a special performance we participated in Berlin some time ago and resonated with what we do.</em> <em>We like to use this space as a spotlight for other fascinating realities that foster our milieu. This is a first attempt. This also marks the first DROP written by Anna. Yu-uh. </em></p>
@@ -82,7 +90,7 @@
                 <blockquote class="blk blk--rows blk-quote"><em>One cannot separate the plant—neither physically nor metaphysically—from the world that accommodates it. It is the most intense, radical, and paradigmatic form of being in the world. To interrogate plants means to understand what it means to be in the world. Plants embody the most direct and elementary connection that life can establish with the world. The opposite is equally true: the plant is the purest observer when it comes to contemplating the world in its totality. Under the sun or under the clouds, mixing with water and wind, their life is an endless cosmic contemplation, one that does not distinguish between objects and substances—or, to put differently, one that accepts all their nuances to the point of melting with the world, to the point of coinciding with its very substance. We will never be able to understand a plant unless we have understood what the world is.<br></em>Emanuele Coccia, <em>The Life of Plants</em></blockquote>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">At the beginning of September in Berlin, <a href="https://www.urbanepraxis.berlin/?lang=en" target="_blank" rel="noopener">Urbane Praxis e.V.</a> hosted the “<a href="https://www.urbanepraxis.berlin/programm/praxis-woche-2023-en/?lang=en" target="_blank" rel="noopener">Praxis Week</a>” with the theme “Own your city!”. It was a week filled with artistic and activist interventions all over Berlin, aimed at asserting the right to shape and use the city we live according to our values and actions.</p>
                     <p class="blk-text">The artistic interventions during the week began with a set of questions that activists and artists sought to answer in their unique ways. Who owns the streets in our neighborhoods? Who claims ownership of the parks we stroll through? What activities are permitted in public spaces, and who holds the authority to determine their design and use?</p>
@@ -94,7 +102,7 @@
                 <blockquote class="blk blk--rows blk-quote"><em>A project initiative of migrant artists and researchers working at the intersection of visual arts and science. We understand our practice as an artistic bridge that emerges between human and non-human actors, where intercultural and interdisciplinary projects are generated.</em></blockquote>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">We met its founders, Valentina Buitrago (curator and researcher) and Garcia Charles Gonzalez Bernal (multidisciplinary artist), both from Colombia. Their work brought a piece of their homeland to Berlin, delving into the colonial history of the Amazon, all to decolonize its representation.</p>
                     <p class="blk-text">The workshop took place on a floating platform situated in the Landwerks Canal. This wooden platform hosted an installation where living plants and sounds converged with the inhabitants of Berlin and their urban environment. Visitors could engage with the installation, which hung above them, offering a visual, physical, and auditory experience: ambient sounds propagated through the boat and the waves. The installation created a pedestal, offering a post-anthropocentric oasis in the urban flow. Within it, the visitors, us, were reminded of the bubbling, green aliveness surrounding the concrete buildings and the U-Bahn rails.</p>
@@ -105,7 +113,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 4; --fig-rows-m: 6;"><img src="../assets/images/articles/drop-6-notes-on-post-colonial-plants-2.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">The platform felt like an attempt to reveal the essence of plant life, the forgotten importance of their intrinsic value as living entities of their own. Indeed, as explained in this touching extract from <em>The Ends of the World</em> by Viveiros de Castro and Danowski), we often forget about the humanity of other beings, where humanity here is intended as being alive. According to the authors, plants and animals possess their own form of humanity, which is intrinsic to their existence. In encounters between species, one often imposes its own concept of humanity upon the other, causing the latter to forget its own humanity.</p>
                 </div>
@@ -115,7 +123,7 @@
                 <blockquote class="blk blk--rows blk-quote"><em>Every existent being in the cosmos thus sees itself as a human, but does not see other species in the same way. (Needless to say, this also applies to our own species.) ‘Humanity’ is therefore at once a universal condition and strictly dietic, self-referential perspective. Different species cannot occupy the point of view of ‘I’ simultaneously, owing to deictic restrictions; in every confrontation here and now between two species, it is inevitable that one will finish by imposing its humanity on the other, that is, that it will finish by making the other ‘forget’ its own humanity. This entails that we humans (Amerindian humans, that is) do not see animals as humans. They are not human for us; but we know that they are humans for themselves. We know just as well that we are not humans for them … Like all human beings – or more precisely: like all animals – Amerindians must eat or in some way destroy other forms of life in order to live. They know that human action inevitably leaves an ecological footprint. Differently to us, however, the ground on which they leave their footprints is equally alive and alert. </em></blockquote>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">Similarly, in the urban environment, plants occupy a secondary position. They are shrunk between concrete, sometimes making space for themselves, but often are removed and treated like weeds. In our cities, "nature" is assigned to a predefined, confined space enclosed within parks or designated green areas and not allowed to thrive beyond those boundaries. This compartmentalization of nature within metropolitan landscapes underscores the dominance of the human perspective, symbolized by the "I," while the plants’ humanity - their essence - is largely ignored. The potential for a profound interdependence and coexistence between plants and human beings remains unexplored: we live in an unfolding climate disaster, yet, our governments opt for dull choices in terms of overbuilding and uncontrolled development (as the <a href="https://www.exberliner.com/english-news-berlin/tempelhofer-feld-development-housing-ideas-competition/" target="_blank" rel="noopener">recent news about Berlin </a>sadly shows).</p>
                 </div>
@@ -126,7 +134,7 @@
                 <figcaption class="blk blk--row blk-caption">Dreams, Akira Kurosawa, 1990</figcaption>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">In other words, the opportunity to create more harmonious and sustainable urban ecosystems where humans and plants can mutually benefit from their reciprocal presence is often missing.</p>
                     <p class="blk-text">Neotropico’s installation serves as a powerful reminder of the fundamental importance of nature and the need to rethink our cities in a more harmonious and equilibrate co-existence with nature. In times of climate crisis, this necessity is widely perceived and announced. But how to do this?<strong> </strong></p>
@@ -139,7 +147,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 8; --fig-rows-m: 11;"><img src="../assets/images/articles/drop-6-notes-on-post-colonial-plants-4.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">Seated on the wooden platform, people from around the world could come together in the art of embroidering the silhouette of these plants and reflecting on power hierarchies still in place today. Using the <a href="https://www.instagram.com/p/CwckwqsI6cl/" target="_blank" rel="noopener">collective’s words</a>: <em>“The workshop allowed participants to reflect on colonial hierarchies by looking to create a space for exchange between migrant and non-migrant bodies.”</em></p>
                     <p class="blk-text">Studio Neotropico re-enchanted the Berlin urban landscape for one afternoon by injecting new values through a collective urban intervention.</p>
@@ -180,12 +188,12 @@
         <div class="footer-bottom">
             <p>2026 Reincantamento &nbsp;&#183;&nbsp; Berlin / Turin / Venice</p>
             <div class="footer-legal">
-                <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Acid mode" title="Acid mode">&#9791;</button>
                 <a href="../index.html">Home</a>
                 <a href="../about.html">About</a>
             </div>
         </div>
     </footer>
+
 
     <script src="../assets/js/site.js" defer></script>
 </body>

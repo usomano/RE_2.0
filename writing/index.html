@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>REINCANTAMENTO &#8212; Writing</title>
-    <meta name="description" content="DROPS, the newsletter by Reincantamento, one year at a time.">
+    <title>REINCANTAMENTO &#8212; Drops</title>
+    <meta name="description" content="DROPS is Reincantamento’s online publication on technology, culture, and the worlds they produce together.">
 
-    <meta property="og:title" content="REINCANTAMENTO &#8212; Writing">
-    <meta property="og:description" content="DROPS, the newsletter by Reincantamento, one year at a time.">
+    <meta property="og:title" content="REINCANTAMENTO &#8212; Drops">
+    <meta property="og:description" content="DROPS is Reincantamento’s online publication on technology, culture, and the worlds they produce together.">
     <meta property="og:type" content="website">
 
     <link rel="icon" href="../assets/images/REINC-LOGO.svg" type="image/svg+xml">
@@ -25,45 +25,54 @@
 
     <a class="skip-link" href="#main">Skip to content</a>
 
-    <header class="grid-header grid-row">
-        <a class="grid-header__logo" href="../index.html" aria-label="Reincantamento — home">
-            <svg viewBox="0 0 44 22" aria-hidden="true"><ellipse cx="22" cy="11" rx="22" ry="11"/></svg>
+    <header class="site-header">
+        <a class="brand" href="../index.html" aria-label="Reincantamento home">
+            <img src="../assets/images/REINC-LOGO.svg" alt="Reincantamento" width="53" height="25">
         </a>
 
-        <button class="grid-header__menu" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+        <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav">
+            <span></span><span></span><span></span>
+        </button>
 
-        <nav class="grid-nav" id="primary-nav" aria-label="Primary">
-            <a class="grid-nav__item" href="../writing/index.html" aria-current="page">Writing</a>
-            <a class="grid-nav__item" href="../publishing/index.html">Publishing</a>
-            <a class="grid-nav__item" href="../artworks/index.html">Artworks</a>
-            <span class="grid-nav__item" aria-disabled="true">Workshops</span>
-            <span class="grid-nav__item" aria-disabled="true">Talks</span>
-            <a class="grid-nav__item" href="../about.html">About</a>
+        <nav class="main-nav" id="primary-nav" aria-label="Primary">
+            <div class="nav-item">
+                <a href="../writing/index.html" class="is-active" aria-current="page">Writings</a>
+                <div class="nav-menu">
+                    <a href="../writing/index.html">Drops</a>
+                    <a href="../writing/archive.html">Archive</a>
+                </div>
+            </div>
+            <a href="../publishing/index.html">Publishing</a>
+            <a href="../artworks/index.html">Artworks</a>
+            <!-- No design yet — shown, not linked. -->
+            <span class="nav-off">Workshops</span>
+            <span class="nav-off">Talks</span>
         </nav>
 
-        <!-- The way back, in the last cell of the band: the home shell carries
-             the same corner cell, reading ABOUT there and HOME everywhere else. -->
-        <a class="grid-header__home" href="../index.html">Home</a>
+        <a class="about-btn" href="../about.html">About</a>
     </header>
 
     <main id="main" tabindex="-1">
 
-        <!-- Mobile only: the desktop frame names the section through the nav. -->
-        <div class="grid-row">
-            <h1 class="section-title">Writing</h1>
+        <div class="masthead grid-row">
+            <h1 class="masthead__mark"><img src="../assets/images/drops-mark.png" alt="DROPS" width="1660" height="254"></h1>
+
+            <nav class="year-nav" aria-label="By year">
+                <a class="year-nav__step" href="#" data-step="-1" aria-label="Previous year"><svg viewBox="0 0 14 22" aria-hidden="true"><polyline points="12,2 3,11 12,20"/></svg></a>
+                <span class="year-nav__years">
+                <a class="year-nav__year" href="#2023" data-year="2023">2023</a>
+                <a class="year-nav__year" href="#2024" data-year="2024">2024</a>
+                <a class="year-nav__year" href="#2025" data-year="2025">2025</a>
+                <a class="year-nav__year" href="#2026" data-year="2026" aria-current="true">2026</a>
+                </span>
+                <a class="year-nav__step" href="#" data-step="1" aria-label="Next year"><svg viewBox="0 0 14 22" aria-hidden="true"><polyline points="2,2 11,11 2,20"/></svg></a>
+                <a class="year-nav__other" href="archive.html#2022">Archive</a>
+            </nav>
         </div>
 
-        <nav class="year-nav grid-row" aria-label="By year">
-            <a class="year-nav__step" href="#" data-step="-1" aria-label="Previous year"><svg viewBox="0 0 14 22" aria-hidden="true"><polyline points="12,2 3,11 12,20"/></svg></a>
-            <span class="year-nav__years">
-            <a class="year-nav__year" href="#2023" data-year="2023">2023</a>
-            <a class="year-nav__year" href="#2024" data-year="2024">2024</a>
-            <a class="year-nav__year" href="#2025" data-year="2025">2025</a>
-            <a class="year-nav__year" href="#2026" data-year="2026" aria-current="true">2026</a>
-            </span>
-            <a class="year-nav__step" href="#" data-step="1" aria-label="Next year"><svg viewBox="0 0 14 22" aria-hidden="true"><polyline points="2,2 11,11 2,20"/></svg></a>
-            <a class="year-nav__other" href="archive.html#2022">Archive</a>
-        </nav>
+        <div class="grid-row">
+            <p class="blk blk--row blk-text masthead__note">DROPS is REINCANTAMENTO’s online publication on technology, culture, and the worlds they produce together. We publish essays, notes, interviews, and stories: dispatches from the enchanted present.</p>
+        </div>
 
         <div class="cards grid-row">
             <ul class="card-grid" id="card-grid">
@@ -732,12 +741,16 @@
         <div class="footer-bottom">
             <p>2026 Reincantamento &nbsp;&#183;&nbsp; Berlin / Turin / Venice</p>
             <div class="footer-legal">
-                <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Acid mode" title="Acid mode">&#9791;</button>
                 <a href="../index.html">Home</a>
                 <a href="../about.html">About</a>
             </div>
         </div>
     </footer>
+
+
+    <!-- The colourway switch is a cell of its own: bottom right of the first
+         screen, under the ABOUT cell at the top of the same column. -->
+    <button class="theme-switch" type="button" aria-pressed="false" aria-label="Acid mode" title="Acid mode">&#9791;</button>
 
     <script src="../assets/js/site.js" defer></script>
 </body>

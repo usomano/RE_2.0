@@ -25,25 +25,31 @@
 
     <a class="skip-link" href="#main">Skip to content</a>
 
-    <header class="grid-header grid-row">
-        <a class="grid-header__logo" href="../index.html" aria-label="Reincantamento — home">
-            <svg viewBox="0 0 44 22" aria-hidden="true"><ellipse cx="22" cy="11" rx="22" ry="11"/></svg>
+    <header class="site-header">
+        <a class="brand" href="../index.html" aria-label="Reincantamento home">
+            <img src="../assets/images/REINC-LOGO.svg" alt="Reincantamento" width="53" height="25">
         </a>
 
-        <button class="grid-header__menu" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+        <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav">
+            <span></span><span></span><span></span>
+        </button>
 
-        <nav class="grid-nav" id="primary-nav" aria-label="Primary">
-            <a class="grid-nav__item" href="../writing/index.html" aria-current="page">Writing</a>
-            <a class="grid-nav__item" href="../publishing/index.html">Publishing</a>
-            <a class="grid-nav__item" href="../artworks/index.html">Artworks</a>
-            <span class="grid-nav__item" aria-disabled="true">Workshops</span>
-            <span class="grid-nav__item" aria-disabled="true">Talks</span>
-            <a class="grid-nav__item" href="../about.html">About</a>
+        <nav class="main-nav" id="primary-nav" aria-label="Primary">
+            <div class="nav-item">
+                <a href="../writing/index.html" class="is-active" aria-current="page">Writings</a>
+                <div class="nav-menu">
+                    <a href="../writing/index.html">Drops</a>
+                    <a href="../writing/archive.html">Archive</a>
+                </div>
+            </div>
+            <a href="../publishing/index.html">Publishing</a>
+            <a href="../artworks/index.html">Artworks</a>
+            <!-- No design yet — shown, not linked. -->
+            <span class="nav-off">Workshops</span>
+            <span class="nav-off">Talks</span>
         </nav>
 
-        <!-- The way back, in the last cell of the band: the home shell carries
-             the same corner cell, reading ABOUT there and HOME everywhere else. -->
-        <a class="grid-header__home" href="../index.html">Home</a>
+        <a class="about-btn" href="../about.html">About</a>
     </header>
 
     <div class="reading-progress" role="progressbar" aria-label="Reading progress"
@@ -59,15 +65,17 @@
 
         <div class="article grid-row">
 
-            <div class="blk-group c-narrow">
-                <p class="blk blk--row blk-kicker">Drop #15 &#183; June 6, 2024 &#183; 10 min read</p>
-            </div>
+            <!-- The colourway switch, in the square under the byline cell. -->
+            <button class="theme-switch theme-switch--inline" type="button" aria-pressed="false" aria-label="Acid mode" title="Acid mode">&#9791;</button>
 
-            <div class="blk-group c-narrow">
+            <div class="blk-group c-wide">
                 <p class="blk blk--row blk-lede">A Geometrical Revolution</p>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide">
+                <p class="blk blk--row blk-kicker">Drop #15 &#183; June 6, 2024 &#183; 10 min read</p>
+            </div>
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text"><em>Hey everyone (▰˘◡˘▰)</em></p>
                     <p class="blk-text"><em>Welcome back to Drops, REINCANTAMENTO’s newsletter. Today we host a new text by Alessandro De Frenza, who authored <a href="https://reincantamentox.substack.com/p/drop-11-quantum-visions" target="_blank" rel="noopener">Drop #11 </a>some months ago. <br><br>Like Alessandro’s previous text, this DROP is a foray into a forest of mathematical and scientific concepts not so common on these pages. He guides us through the concept of symmetry, considering its manifold applications, from fractals to crystallography to new design patterns. The piece leads to consider a new perspective on the physical world, a harbinger of a geometric revolution.<br></em></p>
@@ -80,7 +88,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 8; --fig-rows-m: 11;"><img src="../assets/images/articles/drop-15-paths-of-symmetry-1.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">The study of symmetry operations and forms has always attracted researchers from different fields, particularly mathematicians, chemists, and computer scientists. Historically, human beings are fascinated by how geometrical figures can fulfill their sense of order and how they are interconnected to form repeating and non-repeating patterns. <br><br>One of the simplest examples is tiling a bathroom floor. By using square tiles, you can cover the entire floor without leaving any gaps, creating a '<strong>periodic</strong>' pattern where the same tile is repeated throughout the space.<br><br>However, not just periodic repetition is interesting (and useful too), but more recently, starting from the 1960s, scientists started to explore <strong>aperiodic</strong> tiles, and in general, the contrast between periodic and aperiodic structures. A periodic shape or, more generally speaking, a periodic entity is definable through a symmetry operation while you can’t do the same when dealing with aperiodic entities. <br><br>So, what is symmetry, or better, a symmetry operation? Although it is not easy to give a simple and clear definition, symmetry can be defined as “<em>the periodic repetition of an object in a space</em>”. We notice how symmetry is not a fixed property but one discovered through a procedure namely <em>by repeating an object in n-D space</em>. Indeed, mathematicians provide a striking elegant definition of the symmetry operation:</p>
                 </div>
@@ -90,7 +98,7 @@
                 <blockquote class="blk blk--rows blk-quote">“<em>A symmetry operation leaves an object invariant after the application of it</em></blockquote>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">So, for instance, my image reflected in the mirror is the product of a symmetry operation: it is a repetition of an object - my body - that leaves the object itself invariant. The same can be said for different geometrical figures like squares or equilateral triangles, which all possess symmetrical axes. The discreet charm of symmetry has intrigued the human brain since Antiquity: from Pythagoras to Aristotle through the crucial work of Plato’s Timeus, the Apollonian Greek mind fell in love with the harmony and elegance of symmetrical figures.</p>
                 </div>
@@ -100,7 +108,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 5; --fig-rows-m: 7;"><img src="../assets/images/articles/drop-15-paths-of-symmetry-2.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">Yet, what is intriguing about symmetry, both from mathematical and philosophical perspectives, is that it offers a more complex worldview than a pristine image of natural grace. The ​​long-standing study of symmetry has deeply evolved with the emergence of powerful computing machines that were able to give birth to major discoveries, by allowing for new forms of complexity to appear.</p>
                     <p class="blk-text">Furthermore, what particularly captivates the attention of researchers is the continuous and dynamic relation between periodic and aperiodic symmetry in reality. <br>By knowing the fluid interchange between periodic and aperiodic structures ( structures repeated infinitely in space and not respectively), one can perceive the world as an entity in constant evolution, not only through time but also through space.</p>
@@ -113,7 +121,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 8; --fig-rows-m: 11;"><img src="../assets/images/articles/drop-15-paths-of-symmetry-3.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">Going back to periodic structures, several important scientists have devoted their lives to studying these complex structures. Another historical figure is the Polish-French mathematician <strong>Benoît Mandelbrot, </strong>inventor of the alluring idea of <em>fractal objects. </em>His work revolutionized the way of seeing nature's shapes, inspired by concepts of mathematics such as <em>self-similarity </em>- an object similar or identical to a part of itself. He postulated that many forms in the natural world can be described as fractals. These objects are an ensemble of complex numbers whose contours are definable as a mathematical series expressed as <strong>z<sub>(n+1) </sub>= z<sub>n</sub><sup>2 </sup>+ c,</strong> where c is a complex number and z is a general number starting from z<sub>0</sub>=0. From a mathematical point of view, it is a notably simple expression. Still, its importance became relevant with the first use of computers when it was shown that this series led to a fractal object (what is known as the <a href="https://en.wikipedia.org/wiki/Mandelbrot_set" target="_blank" rel="noopener">Mandelbrot Set</a>).</p>
                 </div>
@@ -124,7 +132,7 @@
                 <figcaption class="blk blk--row blk-caption">Zooming into the boundary of the Mandelbrot set (source: Wikipedia)</figcaption>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">What was the starting point to develop this idea? Mandelbrot came back to the main feature of symmetry operation: periodicity. The mathematician began his research with a seemingly smooth shape and iteratively broke it down, only to discover that this process consistently led to the same resulting shape. It's akin to a mathematician examining a triangle and realizing it can be decomposed into multiple smaller triangles. By relying on the mathematical concept of <em>iteration,</em> Mandelbrot pioneered the application of symmetry to the visualization of natural shapes, birthing a new perceptual approach with consequences in the realms of aesthetics and design. Mandelbrot’s discovery fascinated also a philosopher like Gilles Deleuze, who extensively discuss this concept in <em><a href="https://www.upress.umn.edu/book-division/books/the-fold" target="_blank" rel="noopener">The Fold</a>. </em><br><br>A computer vision researcher - <strong>Loren Carpenter - </strong>developed a new algorithm, revolutionizing computer graphics by using fractal geometry to create realistic landscapes. His approach involved recursive subdivision, producing natural-looking textures and terrains. In 1980, he revealed it to the world through a 2-minute animated movie <a href="https://archive.org/details/vollibre1980_202002" target="_blank" rel="noopener">“</a><em><a href="https://archive.org/details/vollibre1980_202002" target="_blank" rel="noopener">Vol Libre”</a>; </em>shortly after Carpenter will join Lucasfilm's Computer Division (which would become Pixar).<br></p>
                     <p class="blk-text">Carpenter contributed to the "genesis effect" scene in <em>Star Trek II: The Wrath of Khan</em>, which showcased a planet with a landscape entirely generated using fractal geometry.</p>
@@ -133,7 +141,7 @@
                 </div>
             </div>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <h2 class="blk blk--row blk-heading">A fractal design</h2>
                 <div class="blk blk--rows">
                     <p class="blk-text">Nathan Cohen encountered fractals in 1988. At the time, he was immersed in the study of physics and radio astronomy but he rapidly directed his focus on fractal geometry. Cohen wanted to apply these new surfaces to tangible objects by turning them into design patterns. His efforts led to the invention of the <em><strong>fractal antenna</strong></em>.</p>
@@ -150,7 +158,7 @@
                 <div class="blk-figure blk-figure--auto" style="--fig-rows: 8; --fig-rows-m: 11;"><img src="../assets/images/articles/drop-15-paths-of-symmetry-5.webp" alt="" loading="lazy"></div>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">Domokos and his team explored another intriguing aspect of atoms: <strong>self-assembling</strong>. This process involves molecules adopting a defined arrangement without external guidance, based on geometric principles.</p>
                     <p class="blk-text">he findings revealed that most natural mosaics, from rock cracks to molecular monolayers, are not perfectly periodic tessellations. With help from scientists like Regős, who described molecular patterns as simple tessellations, and Kostya Novoselov, a Nobel laureate for his work on graphene, the team redefined their model as Molecular Tesselations. Fundamentally, this method uses geometry and symmetry to reproduce 2-D materials.</p>
@@ -162,7 +170,7 @@
                 <figcaption class="blk blk--row blk-caption">The different steps of molecular tessellations</figcaption>
             </figure>
 
-            <div class="blk-group c-narrow is-spaced">
+            <div class="blk-group c-wide is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">In their quest to validate their model, the scientists needed to offer concrete proof of their theory by not just formulating equations describing the system, so they conducted experiments at a large-scale facility in Basel, where they made a significant discovery. By mathematically connecting large-scale mosaics with molecular bonds on a much smaller scale, they unraveled part of the invisible web of interactions that govern how molecular patterns emerge. Their geometry could “see” things the machine could not.</p>
                     <p class="blk-text">This project has enlightened new avenues for using geometric shapes to interpret geological phenomena and, more broadly, condensed matter. The allure of studying symmetry and its correlation with natural phenomena has always hinted at unlocking new perspectives. The latest research adopts also an interdisciplinary approach, holding promises to advance our understanding of the world's dynamics amidst ongoing climate change. This approach is poised to redefine mathematics, transcending mere formulas to become tangible applications in our living reality.</p>
@@ -202,12 +210,12 @@
         <div class="footer-bottom">
             <p>2026 Reincantamento &nbsp;&#183;&nbsp; Berlin / Turin / Venice</p>
             <div class="footer-legal">
-                <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Acid mode" title="Acid mode">&#9791;</button>
                 <a href="../index.html">Home</a>
                 <a href="../about.html">About</a>
             </div>
         </div>
     </footer>
+
 
     <script src="../assets/js/site.js" defer></script>
 </body>
