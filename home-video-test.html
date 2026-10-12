@@ -28,23 +28,17 @@
             z-index: 5;
             width: min(540px, calc(100vw - 180px));
             aspect-ratio: 1;
-            overflow: hidden;
-            isolation: isolate;
-            background: var(--bg);
+            overflow: visible;
+            pointer-events: none;
+            background: transparent;
         }
 
         .home-video-test__media video {
-            position: relative;
-            z-index: 1;
             display: block;
             width: 100%;
             height: 100%;
             object-fit: contain;
-            background: var(--bg);
-            /* The exported MP4 background is #d3d3d3 while the home is #d9d9d9.
-               This small correction makes the encoded background visually merge
-               with the page without changing the production asset. */
-            filter: brightness(1.0285);
+            background: transparent;
         }
 
         @media (max-width: 768px) {
@@ -93,7 +87,7 @@
     <main class="home-video-test" id="main" tabindex="-1">
         <figure class="home-video-test__media">
             <video autoplay muted loop playsinline preload="auto" aria-label="REINCANTAMENTO animated logo test">
-                <source src="assets/videos/VIDEO LOGO.mp4" type="video/mp4">
+                <source src="assets/videos/video-logo-transparent.webm" type="video/webm">
             </video>
         </figure>
     </main>
