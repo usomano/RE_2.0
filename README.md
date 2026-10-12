@@ -1,5 +1,7 @@
 # reincantamento-site
 
+**Live site:** [https://usomano.github.io/RE_2.0/](https://usomano.github.io/RE_2.0/)
+
 The website of **REINCANTAMENTO** — an independent research and publishing
 collective exploring technology, radical imagination and rituality.
 Berlin / Turin / Venice.
@@ -9,8 +11,12 @@ server. Open `index.html` in a browser and it works.
 
 ## Preview
 
-Double-click `index.html`. That is the whole story — the site runs from disk
-over `file://`, no server needed.
+The repository includes a GitHub Pages workflow that deploys `main` automatically.
+For the first deployment, set **Settings → Pages → Build and deployment → Source**
+to **GitHub Actions**. After that, pushes to `main` update the live site.
+
+For local preview, double-click `index.html`. The site runs from disk over
+`file://`, no server needed.
 
 If you prefer a server (closer to production, and required if you ever add
 `fetch`):
@@ -75,7 +81,7 @@ is still missing, so they are safe to re-run:
 
 ```sh
 python3 tools/fetch_drops.py   # new issues → drops-source/ + drops.json
-python3 tools/fetch_images.py  # their images → assets/images/
+python3 tools/fetch_images.py  # the images those files reference
 python3 tools/build.py
 ```
 
