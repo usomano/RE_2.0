@@ -23,10 +23,17 @@
             padding: var(--grid-row) var(--grid-col);
         }
 
+        /* Use the largest square that fits between the first/last grid rows and
+           columns. The source stays the same 1080×1080 file: increasing its CSS
+           size does not add any network weight. */
         .home-video-test__media {
             position: relative;
             z-index: 5;
-            width: min(540px, calc(100vw - 180px));
+            width: min(
+                1080px,
+                calc(100vw - var(--grid-col) - var(--grid-col)),
+                calc(100dvh - var(--grid-row) - var(--grid-row))
+            );
             aspect-ratio: 1;
             pointer-events: none;
             background: transparent;
@@ -40,8 +47,8 @@
         }
 
         /* The MP4 is still the real media being loaded/decoded. It stays offscreen;
-           the canvas below removes its flat grey background frame by frame so the
-           result works in browsers that ignore WebM alpha (notably Safari). */
+           the canvas removes its flat grey background frame by frame so the result
+           also works in browsers that ignore WebM alpha. */
         .home-video-test__source {
             position: fixed;
             left: -9999px;
@@ -57,8 +64,10 @@
                 padding-inline: 30px;
             }
 
+            /* 390px frame → 30px margins → 330px maximum, with a height guard for
+               small landscape screens. */
             .home-video-test__media {
-                width: min(330px, calc(100vw - 60px));
+                width: min(calc(100vw - 60px), calc(100dvh - 120px));
             }
         }
     </style>
@@ -143,13 +152,19 @@
         const ctx = canvas.getContext('2d', { willReadFrequently: true });
         const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         const BG = 211; // encoded MP4 background: #d3d3d3
+        const MATERIAL_OPACITY = 0.96; // subtle grid visibility through the blue material
         let running = false;
 
         const fitCanvas = () => {
-            const size = Math.max(1, Math.round(media.getBoundingClientRect().width));
-            if (canvas.width !== size || canvas.height !== size) {
-                canvas.width = size;
-                canvas.height = size;
+            const cssSize = Math.max(1, media.getBoundingClientRect().width);
+            const dpr = Math.max(1, window.devicePixelRatio || 1);
+            const sourceSize = video.videoWidth || 1080;
+            /* Never create more pixels than exist in the source. On Retina this
+               preserves as much of the 1080px master as the display can use. */
+            const pixelSize = Math.min(sourceSize, Math.max(1, Math.round(cssSize * dpr)));
+            if (canvas.width !== pixelSize || canvas.height !== pixelSize) {
+                canvas.width = pixelSize;
+                canvas.height = pixelSize;
             }
         };
 
@@ -167,14 +182,23 @@
                 const dr = px[i] - BG;
                 const dg = px[i + 1] - BG;
                 const db = px[i + 2] - BG;
-                const distance = Math.sqrt(dr * dr + dg * dg + db * db);
+                const distance2 = dr * dr + dg * dg + db * db;
 
                 // Full transparency on the flat grey; a soft transition keeps
                 // anti-aliased / translucent blue edges from developing halos.
                 let alpha;
-                if (distance <= 10) alpha = 0;
-                else if (distance >= 55) alpha = 255;
-                else alpha = Math.round(255 * Math.pow((distance - 10) / 45, 1.15));
+                if (distance2 <= 100) {
+                    alpha = 0;
+                } else if (distance2 >= 3025) {
+                    alpha = 255;
+                } else {
+                    const distance = Math.sqrt(distance2);
+                    alpha = Math.round(255 * Math.pow((distance - 10) / 45, 1.15));
+                }
+
+                // Keep the material just slightly translucent so the underlying
+                // grid remains perceptible without flattening the blue object.
+                if (alpha > 0) alpha = Math.round(alpha * MATERIAL_OPACITY);
                 px[i + 3] = alpha;
             }
             ctx.putImageData(frame, 0, 0);
