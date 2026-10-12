@@ -25,19 +25,26 @@
 
         .home-video-test__media {
             position: relative;
-            z-index: 2;
+            z-index: 5;
             width: min(540px, calc(100vw - 180px));
             aspect-ratio: 1;
             overflow: hidden;
+            isolation: isolate;
             background: var(--bg);
         }
 
         .home-video-test__media video {
+            position: relative;
+            z-index: 1;
             display: block;
             width: 100%;
             height: 100%;
             object-fit: contain;
             background: var(--bg);
+            /* The exported MP4 background is #d3d3d3 while the home is #d9d9d9.
+               This small correction makes the encoded background visually merge
+               with the page without changing the production asset. */
+            filter: brightness(1.0285);
         }
 
         @media (max-width: 768px) {
