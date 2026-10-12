@@ -1,0 +1,50 @@
+name: Generate transparent home logo video
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/generate-transparent-video.yml'
+      - 'assets/videos/VIDEO LOGO.mp4'
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Install ffmpeg
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg
+
+      - name: Generate transparent WebM
+        run: |
+          ffmpeg -y \
+            -i "assets/videos/VIDEO LOGO.mp4" \
+            -vf "format=rgba,colorkey=0xd3d3d3:0.08:0.06,format=yuva420p" \
+            -an \
+            -c:v libvpx-vp9 \
+            -b:v 0 \
+            -crf 28 \
+            -deadline good \
+            -cpu-used 2 \
+            -auto-alt-ref 0 \
+            "assets/videos/video-logo-transparent.webm"
+
+      - name: Commit generated video
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "assets/videos/video-logo-transparent.webm"
+          if git diff --cached --quiet; then
+            echo "Transparent video is already up to date."
+            exit 0
+          fi
+          git commit -m "Generate transparent home logo video"
+          git push
