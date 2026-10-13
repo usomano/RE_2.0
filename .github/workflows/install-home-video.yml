@@ -1,0 +1,39 @@
+name: Install supplied home background video
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.tmp-home-video/part11'
+
+permissions:
+  contents: write
+
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Rebuild supplied video
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat .tmp-home-video/part* | base64 --decode > assets/videos/site-animation-smooth.mp4
+          echo "a32574753d790dac7d481bcec711516fcf3f9b6d3d6b848c3d6490227cfc55de  assets/videos/site-animation-smooth.mp4" | sha256sum -c -
+          test "$(stat -c%s assets/videos/site-animation-smooth.mp4)" = "504565"
+
+      - name: Commit video and remove transfer files
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf .tmp-home-video
+          rm -f .github/workflows/install-home-video.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A assets/videos/site-animation-smooth.mp4 .tmp-home-video .github/workflows/install-home-video.yml
+          git commit -m "Install supplied home background video"
+          git push
