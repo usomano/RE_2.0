@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
     paths:
-      - '.tmp-home-video/part11'
+      - '.tmp-home-video/part06'
 
 permissions:
   contents: write
