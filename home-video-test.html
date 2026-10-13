@@ -7,7 +7,7 @@
     <title>REINCANTAMENTO — Home Video Test</title>
     <meta name="description" content="REINCANTAMENTO home background video test.">
 
-    <link rel="icon" href="assets/images/REINC-LOGO.svg" type="image/svg+xml">
+    <link rel="icon" href="assets/images/REINC-LOGO-2026.svg" type="image/svg+xml">
     <link rel="icon" href="assets/images/reinc-eye-nero.png" type="image/png">
     <link rel="preload" href="assets/fonts/ApfelGrotezk-Mittel.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="assets/css/styles.css">
@@ -47,16 +47,6 @@
             object-position: center;
         }
 
-        .plugin-home__grid {
-            position: absolute;
-            inset: 0;
-            pointer-events: none;
-            z-index: 3;
-            background-image:
-                repeating-linear-gradient(to right, var(--line) 0, var(--line) 1px, transparent 1px, transparent var(--test-cell)),
-                repeating-linear-gradient(to bottom, var(--line) 0, var(--line) 1px, transparent 1px, transparent var(--test-cell));
-        }
-
         .plugin-header {
             position: absolute;
             inset: 0 0 auto 0;
@@ -64,6 +54,10 @@
             z-index: 5;
             font-family: var(--font-menu);
             color: var(--ink);
+            background-color: var(--bg);
+            background-image:
+                repeating-linear-gradient(to right, var(--line) 0, var(--line) 1px, transparent 1px, transparent var(--test-cell)),
+                repeating-linear-gradient(to bottom, var(--line) 0, var(--line) 1px, transparent 1px, transparent var(--test-cell));
         }
 
         .plugin-logo {
@@ -124,10 +118,7 @@
             color: var(--on-band);
         }
 
-        .plugin-menu {
-            display: none;
-        }
-
+        .plugin-menu,
         .plugin-mobile-panel {
             display: none;
         }
@@ -157,7 +148,7 @@
                 --test-header-h: calc(var(--test-cell) * 2);
             }
 
-            .plugin-home__grid {
+            .plugin-header {
                 background-image:
                     repeating-linear-gradient(to right, var(--line) 0, var(--line) .5px, transparent .5px, transparent var(--test-cell)),
                     repeating-linear-gradient(to bottom, var(--line) 0, var(--line) .5px, transparent .5px, transparent var(--test-cell));
@@ -165,7 +156,6 @@
 
             .plugin-logo {
                 width: calc(var(--test-cell) * 2);
-                background: var(--bg);
             }
 
             .plugin-logo img {
@@ -234,11 +224,9 @@
             </video>
         </div>
 
-        <div class="plugin-home__grid" aria-hidden="true"></div>
-
         <header class="plugin-header">
             <a class="plugin-logo" href="index.html" aria-label="Reincantamento home">
-                <img src="assets/images/REINC-LOGO.svg" alt="Reincantamento">
+                <img src="assets/images/REINC-LOGO-2026.svg" alt="Reincantamento">
             </a>
 
             <nav class="plugin-nav" aria-label="Primary navigation">
@@ -250,7 +238,6 @@
             </nav>
 
             <a class="plugin-about" href="about.html">About</a>
-
             <button class="plugin-menu" id="plugin-menu" type="button" aria-expanded="false" aria-controls="plugin-mobile-panel">Menu</button>
         </header>
 
