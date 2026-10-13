@@ -1,292 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="noindex,nofollow">
-  <title>REINCANTAMENTO — Home Video Test</title>
-  <meta name="description" content="REINCANTAMENTO home animation layout test.">
-  <link rel="icon" href="assets/images/REINC-LOGO.svg" type="image/svg+xml">
-  <link rel="preload" href="assets/fonts/ApfelGrotezk-Mittel.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="assets/css/styles.css">
-  <style>
-    :root {
-      --test-bg: #d9d9d9;
-      --test-blue: #0009ff;
-      --test-white: #fff;
-      --test-desktop-cell: 90px;
-      --test-mobile-cell: 30px;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex,nofollow">
+    <title>REINCANTAMENTO — Home Video Test</title>
+    <meta name="description" content="REINCANTAMENTO home background video test.">
 
-    html, body { margin: 0; }
-    body.home-animation-test {
-      background: var(--test-bg);
-      background-image: none;
-      overflow-x: hidden;
-    }
+    <link rel="icon" href="assets/images/REINC-LOGO.svg" type="image/svg+xml">
+    <link rel="icon" href="assets/images/reinc-eye-nero.png" type="image/png">
+    <link rel="preload" href="assets/fonts/ApfelGrotezk-Mittel.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="assets/css/styles.css">
 
-    .test-header {
-      position: relative;
-      z-index: 20;
-      height: var(--test-desktop-cell);
-      background-color: var(--test-bg);
-      background-image:
-        repeating-linear-gradient(to right, rgba(255,255,255,.9) 0, rgba(255,255,255,.9) 1px, transparent 1px, transparent var(--test-desktop-cell)),
-        linear-gradient(to bottom, transparent calc(100% - 1px), rgba(255,255,255,.9) calc(100% - 1px));
-      font-family: var(--font-menu, 'Apfel Grotezk', Arial, sans-serif);
-    }
-
-    .test-brand {
-      position: absolute;
-      inset: 0 auto 0 0;
-      width: var(--test-desktop-cell);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .test-brand img { width: 44px; height: auto; display: block; }
-
-    .test-desktop-nav {
-      position: absolute;
-      right: calc(var(--test-desktop-cell) * 2);
-      top: 0;
-      height: var(--test-desktop-cell);
-      display: grid;
-      grid-template-columns: repeat(5, var(--test-desktop-cell));
-    }
-    .test-desktop-nav a,
-    .test-desktop-nav span,
-    .test-about,
-    .test-menu-button {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--font-menu, 'Apfel Grotezk', Arial, sans-serif);
-      font-size: 11px;
-      line-height: 1;
-      font-weight: 500;
-      letter-spacing: 0;
-      text-transform: uppercase;
-      text-decoration: none;
-    }
-    .test-desktop-nav a,
-    .test-desktop-nav span { color: var(--test-blue); }
-
-    .test-about {
-      position: absolute;
-      right: 0;
-      top: 0;
-      width: var(--test-desktop-cell);
-      height: var(--test-desktop-cell);
-      background: var(--test-blue);
-      color: var(--test-white);
-    }
-
-    .test-menu-button,
-    .test-mobile-nav { display: none; }
-
-    .animation-hero {
-      position: relative;
-      height: calc(100dvh - var(--test-desktop-cell));
-      min-height: 420px;
-      overflow: hidden;
-      background: var(--test-blue);
-      isolation: isolate;
-    }
-
-    /* Animated fallback based on the supplied blue/white movie. It remains below
-       the real video and guarantees that the composition never falls back to grey. */
-    .animation-fallback {
-      position: absolute;
-      z-index: 0;
-      inset: -18%;
-      background:
-        radial-gradient(ellipse 38% 34% at 23% 18%, rgba(217,217,217,1) 0 42%, rgba(217,217,217,.72) 58%, rgba(217,217,217,0) 76%),
-        radial-gradient(ellipse 30% 38% at 67% 47%, rgba(217,217,217,1) 0 34%, rgba(217,217,217,.60) 55%, rgba(217,217,217,0) 75%),
-        radial-gradient(ellipse 32% 30% at 55% 82%, rgba(217,217,217,.96) 0 35%, rgba(217,217,217,.55) 56%, rgba(217,217,217,0) 74%),
-        radial-gradient(ellipse 28% 30% at 91% 22%, rgba(217,217,217,.72) 0 28%, rgba(217,217,217,0) 72%),
-        var(--test-blue);
-      filter: blur(24px);
-      transform: scale(1.18) translate3d(-2%, -2%, 0);
-      animation: fallback-drift 16.6s ease-in-out infinite alternate;
-      will-change: transform;
-    }
-
-    @keyframes fallback-drift {
-      0%   { transform: scale(1.18) translate3d(-5%,  3%, 0) rotate(-2deg); }
-      35%  { transform: scale(1.20) translate3d( 3%, -4%, 0) rotate( 1deg); }
-      70%  { transform: scale(1.16) translate3d(-1%,  5%, 0) rotate( 2deg); }
-      100% { transform: scale(1.20) translate3d( 5%, -1%, 0) rotate(-1deg); }
-    }
-
-    .animation-hero video {
-      position: absolute;
-      z-index: 1;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-      display: block;
-      transform: scale(1.01);
-    }
-
-    .animation-grid {
-      position: absolute;
-      z-index: 2;
-      inset: 0;
-      pointer-events: none;
-      background-image:
-        repeating-linear-gradient(to right, rgba(255,255,255,.72) 0, rgba(255,255,255,.72) 1px, transparent 1px, transparent var(--test-desktop-cell)),
-        repeating-linear-gradient(to bottom, rgba(255,255,255,.72) 0, rgba(255,255,255,.72) 1px, transparent 1px, transparent var(--test-desktop-cell));
-    }
-
-    .home-animation-test .site-footer { margin-top: 0; }
-
-    @media (max-width: 768px) {
-      .test-header {
-        height: 60px;
-        background-image:
-          repeating-linear-gradient(to right, rgba(255,255,255,.9) 0, rgba(255,255,255,.9) .5px, transparent .5px, transparent var(--test-mobile-cell)),
-          repeating-linear-gradient(to bottom, rgba(255,255,255,.9) 0, rgba(255,255,255,.9) .5px, transparent .5px, transparent var(--test-mobile-cell));
-      }
-      .test-brand { width: 60px; }
-      .test-brand img { width: 36px; }
-      .test-desktop-nav, .test-about { display: none; }
-      .test-menu-button {
-        position: absolute;
-        display: flex;
-        right: 0;
-        top: 0;
-        width: 60px;
-        height: 60px;
-        padding: 0;
-        border: 0;
-        background: var(--test-blue);
-        color: var(--test-white);
-        cursor: pointer;
-        font-size: 12px;
-      }
-      .test-mobile-nav {
-        position: fixed;
-        z-index: 30;
-        top: 60px;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        padding: 30px;
-        background: var(--test-bg);
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 24px;
-      }
-      .test-mobile-nav[data-open="true"] { display: flex; }
-      .test-mobile-nav a,
-      .test-mobile-nav span {
-        color: var(--test-blue);
-        font-family: var(--font-menu, 'Apfel Grotezk', Arial, sans-serif);
-        font-size: 20px;
-        font-weight: 500;
-        text-transform: uppercase;
-        text-decoration: none;
-      }
-      .animation-hero {
-        height: calc(100dvh - 60px);
-        min-height: 360px;
-      }
-      .animation-fallback {
-        inset: -28%;
-        filter: blur(18px);
-      }
-      .animation-grid {
-        background-image:
-          repeating-linear-gradient(to right, rgba(255,255,255,.72) 0, rgba(255,255,255,.72) .5px, transparent .5px, transparent var(--test-mobile-cell)),
-          repeating-linear-gradient(to bottom, rgba(255,255,255,.72) 0, rgba(255,255,255,.72) .5px, transparent .5px, transparent var(--test-mobile-cell));
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .animation-fallback { animation: none; }
-    }
-  </style>
-</head>
-<body class="home-animation-test">
-  <header class="test-header">
-    <a class="test-brand" href="index.html" aria-label="Reincantamento home">
-      <img src="assets/images/REINC-LOGO.svg" alt="Reincantamento">
-    </a>
-
-    <nav class="test-desktop-nav" aria-label="Primary navigation">
-      <a href="writing/index.html">Writings</a>
-      <a href="publishing/index.html">Publishing</a>
-      <a href="artworks/index.html">Artworks</a>
-      <span>Workshops</span>
-      <span>Talks</span>
-    </nav>
-
-    <a class="test-about" href="about.html">About</a>
-
-    <button class="test-menu-button" id="test-menu-button" type="button" aria-expanded="false" aria-controls="test-mobile-nav">Menu</button>
-  </header>
-
-  <nav class="test-mobile-nav" id="test-mobile-nav" data-open="false" aria-label="Mobile navigation">
-    <a href="writing/index.html">Writings</a>
-    <a href="publishing/index.html">Publishing</a>
-    <a href="artworks/index.html">Artworks</a>
-    <span>Workshops</span>
-    <span>Talks</span>
-    <a href="about.html">About</a>
-  </nav>
-
-  <main class="animation-hero" id="main">
-    <div class="animation-fallback" aria-hidden="true"></div>
-    <video autoplay muted loop playsinline preload="auto" aria-label="REINCANTAMENTO home animation">
-      <source src="assets/videos/site-animation-smooth.mp4" type="video/mp4">
-    </video>
-    <div class="animation-grid" aria-hidden="true"></div>
-  </main>
-
-  <footer class="site-footer site-footer--flush">
-    <p class="site-footer__mark">REINCANTAMENTO</p>
-    <div class="footer-cols">
-      <form class="newsletter" action="https://reincantamentox.substack.com/subscribe" method="get" target="_blank">
-        <label class="newsletter__label" for="nl-email">Subscribe to drops</label>
-        <div class="newsletter__field">
-          <input id="nl-email" type="email" name="email" placeholder="your@email.com" autocomplete="email">
-          <button type="submit" aria-label="Subscribe">&#8594;</button>
-        </div>
-      </form>
-      <nav class="footer-social" aria-label="Nodes">
-        <a href="mailto:reincantamento@proton.me">Email</a>
-        <a href="https://www.instagram.com/re.incantamento/" target="_blank" rel="noopener">Instagram</a>
-        <a href="https://t.me/+C1fjM6yVcdJmYzI0" target="_blank" rel="noopener">Telegram</a>
-        <a href="https://reincantamentox.substack.com/" target="_blank" rel="noopener">Newsletter</a>
-        <a href="https://www.are.na/reincantamento/channels/" target="_blank" rel="noopener">Are.na</a>
-      </nav>
-    </div>
-    <div class="footer-bottom">
-      <p>2026 Reincantamento &nbsp;&#183;&nbsp; Berlin / Turin / Venice</p>
-      <div class="footer-legal"><a href="about.html">About</a></div>
-    </div>
-  </footer>
-
-  <script>
-    (() => {
-      const button = document.getElementById('test-menu-button');
-      const nav = document.getElementById('test-mobile-nav');
-      if (!button || !nav) return;
-      button.addEventListener('click', () => {
-        const open = button.getAttribute('aria-expanded') === 'true';
-        button.setAttribute('aria-expanded', String(!open));
-        nav.dataset.open = String(!open);
-      });
-      nav.addEventListener('click', (event) => {
-        if (event.target.closest('a')) {
-          button.setAttribute('aria-expanded', 'false');
-          nav.dataset.open = 'false';
+    <style>
+        /* Test-only layout. The header markup and behaviour are exactly the same
+           as the production home; only the empty home field is replaced by the
+           supplied moving background. */
+        .home-video-test .video-hero {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            height: 100dvh;
+            overflow: hidden;
         }
-      });
-    })();
-  </script>
+
+        .home-video-test .video-layer {
+            position: absolute;
+            top: var(--grid-row);
+            right: 0;
+            bottom: 0;
+            left: 0;
+            overflow: hidden;
+            background: var(--bg);
+        }
+
+        .home-video-test .video-layer video {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+            object-position: center center;
+        }
+
+        /* The same site grid remains visible on top of the movie. Because the
+           movie starts exactly one --grid-row from the document origin, these
+           lines continue the header grid without an offset. */
+        .home-video-test .video-grid {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background-image:
+                repeating-linear-gradient(to right, var(--line) 0, var(--line) 1px, transparent 1px, transparent var(--grid-col)),
+                repeating-linear-gradient(to bottom, var(--line) 0, var(--line) 1px, transparent 1px, transparent var(--grid-row));
+        }
+
+        .home-video-test .site-footer {
+            margin-top: 0;
+        }
+
+        @media (max-width: 768px) {
+            .home-video-test .video-grid {
+                background-image:
+                    repeating-linear-gradient(to right, var(--line) 0, var(--line) .5px, transparent .5px, transparent var(--grid-col)),
+                    repeating-linear-gradient(to bottom, var(--line) 0, var(--line) .5px, transparent .5px, transparent var(--grid-row));
+            }
+        }
+    </style>
+</head>
+<body class="home-video-test">
+
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <!-- Production site header: same markup/classes as index.html. -->
+    <header class="site-header">
+        <a class="brand" href="index.html" aria-label="Reincantamento home">
+            <img src="assets/images/REINC-LOGO.svg" alt="Reincantamento" width="53" height="25">
+        </a>
+
+        <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav">
+            <span></span><span></span><span></span>
+        </button>
+
+        <nav class="main-nav" id="primary-nav" aria-label="Primary">
+            <div class="nav-item">
+                <a href="writing/index.html">Writings</a>
+                <div class="nav-menu">
+                    <a href="writing/index.html">Drops</a>
+                    <a href="writing/archive.html">Archive</a>
+                </div>
+            </div>
+            <a href="publishing/index.html">Publishing</a>
+            <a href="artworks/index.html">Artworks</a>
+            <span class="nav-off">Workshops</span>
+            <span class="nav-off">Talks</span>
+        </nav>
+
+        <a class="about-btn" href="about.html">About</a>
+    </header>
+
+    <main class="video-hero" id="main" tabindex="-1">
+        <div class="video-layer">
+            <video autoplay muted loop playsinline preload="auto" aria-label="REINCANTAMENTO home animation">
+                <source src="assets/videos/site-animation-smooth.mp4" type="video/mp4">
+            </video>
+            <div class="video-grid" aria-hidden="true"></div>
+        </div>
+    </main>
+
+    <footer class="site-footer site-footer--flush">
+        <p class="site-footer__mark">REINCANTAMENTO</p>
+
+        <div class="footer-cols">
+            <form class="newsletter" action="https://reincantamentox.substack.com/subscribe" method="get" target="_blank">
+                <label class="newsletter__label" for="nl-email">Subscribe to drops</label>
+                <div class="newsletter__field">
+                    <input id="nl-email" type="email" name="email" placeholder="your@email.com" autocomplete="email">
+                    <button type="submit" aria-label="Subscribe">&#8594;</button>
+                </div>
+            </form>
+
+            <nav class="footer-social" aria-label="Nodes">
+                <a href="mailto:reincantamento@proton.me">Email</a>
+                <a href="https://www.instagram.com/re.incantamento/" target="_blank" rel="noopener">Instagram</a>
+                <a href="https://t.me/+C1fjM6yVcdJmYzI0" target="_blank" rel="noopener">Telegram</a>
+                <a href="https://reincantamentox.substack.com/" target="_blank" rel="noopener">Newsletter</a>
+                <a href="https://www.are.na/reincantamento/channels/" target="_blank" rel="noopener">Are.na</a>
+            </nav>
+        </div>
+
+        <div class="footer-bottom">
+            <p>2026 Reincantamento &nbsp;&#183;&nbsp; Berlin / Turin / Venice</p>
+            <div class="footer-legal">
+                <a href="about.html">About</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js" defer></script>
 </body>
 </html>
