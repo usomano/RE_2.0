@@ -23,8 +23,8 @@ jobs:
         run: |
           set -euo pipefail
           cat .tmp-home-video/part* | base64 --decode > assets/videos/site-animation-smooth.mp4
-          echo "a32574753d790dac7d481bcec711516fcf3f9b6d3d6b848c3d6490227cfc55de  assets/videos/site-animation-smooth.mp4" | sha256sum -c -
-          test "$(stat -c%s assets/videos/site-animation-smooth.mp4)" = "504565"
+          echo "9659f875a6f0548168cf0269078f75f1265bdf253e70fd5d6989db08f4302051  assets/videos/site-animation-smooth.mp4" | sha256sum -c -
+          test "$(stat -c%s assets/videos/site-animation-smooth.mp4)" = "171647"
 
       - name: Commit video and remove transfer files
         shell: bash
