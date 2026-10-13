@@ -1,0 +1,34 @@
+name: Restore home test video
+
+on:
+  push:
+    branches: [fix-home-video]
+    paths:
+      - '.video-upload/READY'
+
+permissions:
+  contents: write
+
+jobs:
+  restore:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: fix-home-video
+          fetch-depth: 0
+      - name: Rebuild supplied video
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat .video-upload/0*.txt | base64 -d > assets/videos/site-animation-smooth.mp4
+          test -s assets/videos/site-animation-smooth.mp4
+          rm -rf .video-upload
+      - name: Commit rebuilt video
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/videos/site-animation-smooth.mp4 .video-upload
+          git commit -m "Replace home test video with supplied animation" || exit 0
+          git push origin HEAD:fix-home-video
