@@ -11,11 +11,9 @@
     <link rel="icon" href="assets/images/reinc-eye-nero.png" type="image/png">
     <link rel="preload" href="assets/fonts/ApfelGrotezk-Mittel.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="assets/css/styles.css">
+    <script src="assets/js/theme.js"></script>
 
     <style>
-        /* Test-only layout. The header markup and behaviour are exactly the same
-           as the production home; only the empty home field is replaced by the
-           supplied moving background. */
         .home-video-test .video-hero {
             position: relative;
             width: 100%;
@@ -44,12 +42,10 @@
             object-position: center center;
         }
 
-        /* The same site grid remains visible on top of the movie. Because the
-           movie starts exactly one --grid-row from the document origin, these
-           lines continue the header grid without an offset. */
         .home-video-test .video-grid {
             position: absolute;
             inset: 0;
+            z-index: 2;
             pointer-events: none;
             background-image:
                 repeating-linear-gradient(to right, var(--line) 0, var(--line) 1px, transparent 1px, transparent var(--grid-col)),
@@ -73,7 +69,6 @@
 
     <a class="skip-link" href="#main">Skip to content</a>
 
-    <!-- Production site header: same markup/classes as index.html. -->
     <header class="site-header">
         <a class="brand" href="index.html" aria-label="Reincantamento home">
             <img src="assets/images/REINC-LOGO.svg" alt="Reincantamento" width="53" height="25">
@@ -103,6 +98,7 @@
     <main class="video-hero" id="main" tabindex="-1">
         <div class="video-layer">
             <video autoplay muted loop playsinline preload="auto" aria-label="REINCANTAMENTO home animation">
+                <source src="assets/videos/site-animation-smooth.webm" type="video/webm">
                 <source src="assets/videos/site-animation-smooth.mp4" type="video/mp4">
             </video>
             <div class="video-grid" aria-hidden="true"></div>
