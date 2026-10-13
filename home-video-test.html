@@ -14,42 +14,137 @@
     <script src="assets/js/theme.js"></script>
 
     <style>
-        .home-video-test .video-hero {
-            position: relative;
-            width: 100%;
-            height: 100vh;
-            height: 100dvh;
-            overflow: hidden;
+        :root {
+            --test-cell: calc(100vw / 16);
+            --test-header-h: var(--test-cell);
         }
 
-        .home-video-test .video-layer {
-            position: absolute;
-            top: var(--grid-row);
-            right: 0;
-            bottom: 0;
-            left: 0;
+        body.home-video-test {
+            background: var(--bg);
+            background-image: none;
+        }
+
+        .plugin-home {
+            position: relative;
+            width: 100%;
+            min-height: 100dvh;
             overflow: hidden;
             background: var(--bg);
         }
 
-        .home-video-test .video-layer video {
+        .plugin-home__video {
             position: absolute;
-            inset: 0;
+            inset: var(--test-header-h) 0 0 0;
+            overflow: hidden;
+            background: var(--bg);
+        }
+
+        .plugin-home__video video {
             width: 100%;
             height: 100%;
             display: block;
             object-fit: cover;
-            object-position: center center;
+            object-position: center;
         }
 
-        .home-video-test .video-grid {
+        .plugin-home__grid {
             position: absolute;
             inset: 0;
-            z-index: 2;
             pointer-events: none;
+            z-index: 3;
             background-image:
-                repeating-linear-gradient(to right, var(--line) 0, var(--line) 1px, transparent 1px, transparent var(--grid-col)),
-                repeating-linear-gradient(to bottom, var(--line) 0, var(--line) 1px, transparent 1px, transparent var(--grid-row));
+                repeating-linear-gradient(to right, var(--line) 0, var(--line) 1px, transparent 1px, transparent var(--test-cell)),
+                repeating-linear-gradient(to bottom, var(--line) 0, var(--line) 1px, transparent 1px, transparent var(--test-cell));
+        }
+
+        .plugin-header {
+            position: absolute;
+            inset: 0 0 auto 0;
+            height: var(--test-header-h);
+            z-index: 5;
+            font-family: var(--font-menu);
+            color: var(--ink);
+        }
+
+        .plugin-logo {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: var(--test-cell);
+            height: var(--test-header-h);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg);
+        }
+
+        .plugin-logo img {
+            width: 56px;
+            height: auto;
+            display: block;
+        }
+
+        .plugin-nav {
+            position: absolute;
+            right: calc(var(--test-cell) * 2);
+            top: 0;
+            height: var(--test-header-h);
+            display: grid;
+            grid-template-columns: repeat(5, var(--test-cell));
+        }
+
+        .plugin-nav a,
+        .plugin-nav span,
+        .plugin-about,
+        .plugin-menu {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-menu);
+            font-size: 12px;
+            line-height: 1;
+            font-weight: 500;
+            letter-spacing: 0;
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+
+        .plugin-nav a,
+        .plugin-nav span {
+            color: var(--ink);
+        }
+
+        .plugin-about {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: var(--test-cell);
+            height: var(--test-header-h);
+            background: var(--band);
+            color: var(--on-band);
+        }
+
+        .plugin-menu {
+            display: none;
+        }
+
+        .plugin-mobile-panel {
+            display: none;
+        }
+
+        .plugin-home__theme {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            width: var(--test-cell);
+            height: var(--test-cell);
+            z-index: 6;
+            border: 0;
+            background: transparent;
+            color: var(--ink);
+            font-family: var(--font-menu);
+            font-size: 20px;
+            cursor: pointer;
         }
 
         .home-video-test .site-footer {
@@ -57,52 +152,118 @@
         }
 
         @media (max-width: 768px) {
-            .home-video-test .video-grid {
+            :root {
+                --test-cell: calc(100vw / 13);
+                --test-header-h: calc(var(--test-cell) * 2);
+            }
+
+            .plugin-home__grid {
                 background-image:
-                    repeating-linear-gradient(to right, var(--line) 0, var(--line) .5px, transparent .5px, transparent var(--grid-col)),
-                    repeating-linear-gradient(to bottom, var(--line) 0, var(--line) .5px, transparent .5px, transparent var(--grid-row));
+                    repeating-linear-gradient(to right, var(--line) 0, var(--line) .5px, transparent .5px, transparent var(--test-cell)),
+                    repeating-linear-gradient(to bottom, var(--line) 0, var(--line) .5px, transparent .5px, transparent var(--test-cell));
+            }
+
+            .plugin-logo {
+                width: calc(var(--test-cell) * 2);
+                background: var(--bg);
+            }
+
+            .plugin-logo img {
+                width: 36px;
+            }
+
+            .plugin-nav,
+            .plugin-about {
+                display: none;
+            }
+
+            .plugin-menu {
+                position: absolute;
+                right: 0;
+                top: 0;
+                display: flex;
+                width: calc(var(--test-cell) * 2);
+                height: var(--test-header-h);
+                border: 0;
+                background: var(--band);
+                color: var(--on-band);
+                cursor: pointer;
+                font-size: 12px;
+            }
+
+            .plugin-mobile-panel {
+                position: fixed;
+                z-index: 20;
+                top: var(--test-header-h);
+                left: 0;
+                right: 0;
+                bottom: 0;
+                padding: var(--test-cell);
+                background: var(--bg);
+                flex-direction: column;
+                gap: 22px;
+                font-family: var(--font-menu);
+                text-transform: uppercase;
+            }
+
+            .plugin-mobile-panel[data-open="true"] {
+                display: flex;
+            }
+
+            .plugin-mobile-panel a,
+            .plugin-mobile-panel span {
+                color: var(--ink);
+                font-size: 18px;
+            }
+
+            .plugin-home__theme {
+                width: var(--test-cell);
+                height: var(--test-cell);
+                font-size: 15px;
             }
         }
     </style>
 </head>
 <body class="home-video-test">
 
-    <a class="skip-link" href="#main">Skip to content</a>
-
-    <header class="site-header">
-        <a class="brand" href="index.html" aria-label="Reincantamento home">
-            <img src="assets/images/REINC-LOGO.svg" alt="Reincantamento" width="53" height="25">
-        </a>
-
-        <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav">
-            <span></span><span></span><span></span>
-        </button>
-
-        <nav class="main-nav" id="primary-nav" aria-label="Primary">
-            <div class="nav-item">
-                <a href="writing/index.html">Writings</a>
-                <div class="nav-menu">
-                    <a href="writing/index.html">Drops</a>
-                    <a href="writing/archive.html">Archive</a>
-                </div>
-            </div>
-            <a href="publishing/index.html">Publishing</a>
-            <a href="artworks/index.html">Artworks</a>
-            <span class="nav-off">Workshops</span>
-            <span class="nav-off">Talks</span>
-        </nav>
-
-        <a class="about-btn" href="about.html">About</a>
-    </header>
-
-    <main class="video-hero" id="main" tabindex="-1">
-        <div class="video-layer">
-            <video autoplay muted loop playsinline preload="auto" aria-label="REINCANTAMENTO home animation">
+    <main class="plugin-home" id="main">
+        <div class="plugin-home__video" aria-hidden="true">
+            <video autoplay muted loop playsinline preload="auto">
                 <source src="assets/videos/site-animation-smooth.webm" type="video/webm">
                 <source src="assets/videos/site-animation-smooth.mp4" type="video/mp4">
             </video>
-            <div class="video-grid" aria-hidden="true"></div>
         </div>
+
+        <div class="plugin-home__grid" aria-hidden="true"></div>
+
+        <header class="plugin-header">
+            <a class="plugin-logo" href="index.html" aria-label="Reincantamento home">
+                <img src="assets/images/REINC-LOGO.svg" alt="Reincantamento">
+            </a>
+
+            <nav class="plugin-nav" aria-label="Primary navigation">
+                <a href="writing/index.html">Writings</a>
+                <a href="publishing/index.html">Publishing</a>
+                <a href="artworks/index.html">Artworks</a>
+                <span>Workshops</span>
+                <span>Talks</span>
+            </nav>
+
+            <a class="plugin-about" href="about.html">About</a>
+
+            <button class="plugin-menu" id="plugin-menu" type="button" aria-expanded="false" aria-controls="plugin-mobile-panel">Menu</button>
+        </header>
+
+        <nav class="plugin-mobile-panel" id="plugin-mobile-panel" data-open="false" aria-label="Mobile navigation">
+            <a href="writing/index.html">Writings</a>
+            <a href="publishing/index.html">Publishing</a>
+            <a href="artworks/index.html">Artworks</a>
+            <span>Workshops</span>
+            <span>Talks</span>
+            <a href="about.html">About</a>
+        </nav>
+
+        <button class="plugin-home__theme" type="button" aria-pressed="false" aria-label="Acid mode" title="Acid mode">&#9791;</button>
     </main>
 
     <footer class="site-footer site-footer--flush">
@@ -135,5 +296,24 @@
     </footer>
 
     <script src="assets/js/main.js" defer></script>
+    <script>
+        (() => {
+            const menu = document.getElementById('plugin-menu');
+            const panel = document.getElementById('plugin-mobile-panel');
+            if (menu && panel) {
+                menu.addEventListener('click', () => {
+                    const open = menu.getAttribute('aria-expanded') === 'true';
+                    menu.setAttribute('aria-expanded', String(!open));
+                    panel.dataset.open = String(!open);
+                });
+                panel.addEventListener('click', (event) => {
+                    if (event.target.closest('a')) {
+                        menu.setAttribute('aria-expanded', 'false');
+                        panel.dataset.open = 'false';
+                    }
+                });
+            }
+        })();
+    </script>
 </body>
 </html>
