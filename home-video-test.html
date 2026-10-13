@@ -55,7 +55,6 @@
             object-position: center;
         }
 
-        /* Header geometry/typography copied from the current plugin build. */
         .plugin-header {
             position: absolute;
             inset: 0 0 auto 0;
@@ -127,7 +126,6 @@
             text-align: center;
         }
 
-        /* One empty grid module remains between TALKS and ABOUT. */
         .plugin-about {
             position: absolute;
             right: 0;
@@ -245,9 +243,9 @@
 
     <main class="plugin-home" id="main">
         <div class="plugin-home__video" aria-hidden="true">
-            <video autoplay muted loop playsinline preload="auto">
-                <source src="assets/videos/site-animation-smooth.webm" type="video/webm">
+            <video id="background-video" autoplay muted loop playsinline preload="auto">
                 <source src="assets/videos/site-animation-smooth.mp4" type="video/mp4">
+                <source src="assets/videos/site-animation-smooth.webm" type="video/webm">
             </video>
         </div>
 
@@ -315,6 +313,28 @@
     <script src="assets/js/main.js" defer></script>
     <script>
         (() => {
+            const video = document.getElementById('background-video');
+            if (video) {
+                video.loop = true;
+                video.muted = true;
+
+                const restartVideo = () => {
+                    try { video.currentTime = 0; } catch (e) {}
+                    const playPromise = video.play();
+                    if (playPromise && typeof playPromise.catch === 'function') {
+                        playPromise.catch(() => {});
+                    }
+                };
+
+                video.addEventListener('ended', restartVideo);
+                video.addEventListener('pause', () => {
+                    if (!document.hidden) restartVideo();
+                });
+                document.addEventListener('visibilitychange', () => {
+                    if (!document.hidden && video.paused) restartVideo();
+                });
+            }
+
             const menu = document.getElementById('plugin-menu');
             const panel = document.getElementById('plugin-mobile-panel');
             if (menu && panel) {
