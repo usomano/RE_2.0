@@ -1,236 +1,260 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="noindex,nofollow">
-    <title>REINCANTAMENTO — Home Video Test</title>
-    <meta name="description" content="Isolated home-page video loading and layout test.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex,nofollow">
+  <title>REINCANTAMENTO — Home Video Test</title>
+  <meta name="description" content="REINCANTAMENTO home animation layout test.">
+  <link rel="icon" href="assets/images/REINC-LOGO.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/ApfelGrotezk-Mittel.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <style>
+    :root {
+      --test-bg: #d9d9d9;
+      --test-blue: #0009ff;
+      --test-white: #fff;
+      --test-desktop-cell: 90px;
+      --test-mobile-cell: 30px;
+    }
 
-    <link rel="icon" href="assets/images/REINC-LOGO.svg" type="image/svg+xml">
-    <link rel="icon" href="assets/images/reinc-eye-nero.png" type="image/png">
-    <link rel="preload" href="assets/fonts/ApfelGrotezk-Mittel.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="assets/css/styles.css">
+    html, body { margin: 0; }
+    body.home-animation-test {
+      background: var(--test-bg);
+      background-image: none;
+      overflow-x: hidden;
+    }
 
-    <style>
-        /* Isolated home-video test. Nothing here changes the production home. */
-        .home-video-test {
-            position: relative;
-            min-height: 100vh;
-            min-height: 100dvh;
-            display: grid;
-            place-items: center;
-            padding: var(--grid-row) var(--grid-col);
-        }
+    /* New header approved in Figma: 16 × 90 desktop grid. */
+    .test-header {
+      position: relative;
+      z-index: 20;
+      height: var(--test-desktop-cell);
+      background-color: var(--test-bg);
+      background-image:
+        repeating-linear-gradient(to right, rgba(255,255,255,.9) 0, rgba(255,255,255,.9) 1px, transparent 1px, transparent var(--test-desktop-cell)),
+        linear-gradient(to bottom, transparent calc(100% - 1px), rgba(255,255,255,.9) calc(100% - 1px));
+      font-family: var(--font-menu, 'Apfel Grotezk', Arial, sans-serif);
+    }
 
-        /* Use the largest square that fits between the first/last grid rows and
-           columns. The source stays the same 1080×1080 file: increasing its CSS
-           size does not add any network weight. */
-        .home-video-test__media {
-            position: relative;
-            z-index: 5;
-            width: min(
-                1080px,
-                calc(100vw - var(--grid-col) - var(--grid-col)),
-                calc(100dvh - var(--grid-row) - var(--grid-row))
-            );
-            aspect-ratio: 1;
-            pointer-events: none;
-            background: transparent;
-        }
+    .test-brand {
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: var(--test-desktop-cell);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .test-brand img { width: 44px; height: auto; display: block; }
 
-        .home-video-test__canvas {
-            display: block;
-            width: 100%;
-            height: 100%;
-            background: transparent;
-        }
+    .test-desktop-nav {
+      position: absolute;
+      right: calc(var(--test-desktop-cell) * 2);
+      top: 0;
+      height: var(--test-desktop-cell);
+      display: grid;
+      grid-template-columns: repeat(5, var(--test-desktop-cell));
+    }
+    .test-desktop-nav a,
+    .test-desktop-nav span,
+    .test-about,
+    .test-menu-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-menu, 'Apfel Grotezk', Arial, sans-serif);
+      font-size: 11px;
+      line-height: 1;
+      font-weight: 500;
+      letter-spacing: 0;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+    .test-desktop-nav a,
+    .test-desktop-nav span { color: var(--test-blue); }
 
-        /* The MP4 is still the real media being loaded/decoded. It stays offscreen;
-           the canvas removes its flat grey background frame by frame so the result
-           also works in browsers that ignore WebM alpha. */
-        .home-video-test__source {
-            position: fixed;
-            left: -9999px;
-            top: -9999px;
-            width: 1px;
-            height: 1px;
-            opacity: 0;
-            pointer-events: none;
-        }
+    .test-about {
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: var(--test-desktop-cell);
+      height: var(--test-desktop-cell);
+      background: var(--test-blue);
+      color: var(--test-white);
+    }
 
-        @media (max-width: 768px) {
-            .home-video-test {
-                padding-inline: 30px;
-            }
+    .test-menu-button,
+    .test-mobile-nav { display: none; }
 
-            /* 390px frame → 30px margins → 330px maximum, with a height guard for
-               small landscape screens. */
-            .home-video-test__media {
-                width: min(calc(100vw - 60px), calc(100dvh - 120px));
-            }
-        }
-    </style>
+    /* Video occupies the complete first screen below the header. */
+    .animation-hero {
+      position: relative;
+      height: calc(100dvh - var(--test-desktop-cell));
+      min-height: 420px;
+      overflow: hidden;
+      background: var(--test-bg);
+    }
+    .animation-hero video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      transform: scale(1.01);
+    }
+    .animation-grid {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        repeating-linear-gradient(to right, rgba(255,255,255,.72) 0, rgba(255,255,255,.72) 1px, transparent 1px, transparent var(--test-desktop-cell)),
+        repeating-linear-gradient(to bottom, rgba(255,255,255,.72) 0, rgba(255,255,255,.72) 1px, transparent 1px, transparent var(--test-desktop-cell));
+    }
 
-    <script src="assets/js/theme.js"></script>
+    /* Keep the existing footer below the one-screen home composition. */
+    .home-animation-test .site-footer { margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .test-header {
+        height: 60px;
+        background-image:
+          repeating-linear-gradient(to right, rgba(255,255,255,.9) 0, rgba(255,255,255,.9) .5px, transparent .5px, transparent var(--test-mobile-cell)),
+          repeating-linear-gradient(to bottom, rgba(255,255,255,.9) 0, rgba(255,255,255,.9) .5px, transparent .5px, transparent var(--test-mobile-cell));
+      }
+      .test-brand { width: 60px; }
+      .test-brand img { width: 36px; }
+      .test-desktop-nav, .test-about { display: none; }
+      .test-menu-button {
+        position: absolute;
+        display: flex;
+        right: 0;
+        top: 0;
+        width: 60px;
+        height: 60px;
+        padding: 0;
+        border: 0;
+        background: var(--test-blue);
+        color: var(--test-white);
+        cursor: pointer;
+        font-size: 12px;
+      }
+      .test-mobile-nav {
+        position: fixed;
+        z-index: 30;
+        top: 60px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: 30px;
+        background: var(--test-bg);
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
+      }
+      .test-mobile-nav[data-open="true"] { display: flex; }
+      .test-mobile-nav a,
+      .test-mobile-nav span {
+        color: var(--test-blue);
+        font-family: var(--font-menu, 'Apfel Grotezk', Arial, sans-serif);
+        font-size: 20px;
+        font-weight: 500;
+        text-transform: uppercase;
+        text-decoration: none;
+      }
+      .animation-hero {
+        height: calc(100dvh - 60px);
+        min-height: 360px;
+      }
+      .animation-grid {
+        background-image:
+          repeating-linear-gradient(to right, rgba(255,255,255,.72) 0, rgba(255,255,255,.72) .5px, transparent .5px, transparent var(--test-mobile-cell)),
+          repeating-linear-gradient(to bottom, rgba(255,255,255,.72) 0, rgba(255,255,255,.72) .5px, transparent .5px, transparent var(--test-mobile-cell));
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .animation-hero video { animation: none; }
+    }
+  </style>
 </head>
-<body>
+<body class="home-animation-test">
+  <header class="test-header">
+    <a class="test-brand" href="index.html" aria-label="Reincantamento home">
+      <img src="assets/images/REINC-LOGO.svg" alt="Reincantamento">
+    </a>
 
-    <a class="skip-link" href="#main">Skip to content</a>
+    <nav class="test-desktop-nav" aria-label="Primary navigation">
+      <a href="writing/index.html">Writings</a>
+      <a href="publishing/index.html">Publishing</a>
+      <a href="artworks/index.html">Artworks</a>
+      <span>Workshops</span>
+      <span>Talks</span>
+    </nav>
 
-    <header class="site-header">
-        <a class="brand" href="index.html" aria-label="Reincantamento home">
-            <img src="assets/images/REINC-LOGO.svg" alt="Reincantamento" width="53" height="25">
-        </a>
+    <a class="test-about" href="about.html">About</a>
 
-        <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav">
-            <span></span><span></span><span></span>
-        </button>
+    <button class="test-menu-button" id="test-menu-button" type="button" aria-expanded="false" aria-controls="test-mobile-nav">Menu</button>
+  </header>
 
-        <nav class="main-nav" id="primary-nav" aria-label="Primary">
-            <div class="nav-item">
-                <a href="writing/index.html">Writings</a>
-                <div class="nav-menu">
-                    <a href="writing/index.html">Drops</a>
-                    <a href="writing/archive.html">Archive</a>
-                </div>
-            </div>
-            <a href="publishing/index.html">Publishing</a>
-            <a href="artworks/index.html">Artworks</a>
-            <span class="nav-off">Workshops</span>
-            <span class="nav-off">Talks</span>
-        </nav>
+  <nav class="test-mobile-nav" id="test-mobile-nav" data-open="false" aria-label="Mobile navigation">
+    <a href="writing/index.html">Writings</a>
+    <a href="publishing/index.html">Publishing</a>
+    <a href="artworks/index.html">Artworks</a>
+    <span>Workshops</span>
+    <span>Talks</span>
+    <a href="about.html">About</a>
+  </nav>
 
-        <a class="about-btn" href="about.html">About</a>
-    </header>
+  <main class="animation-hero" id="main">
+    <video autoplay muted loop playsinline preload="auto" aria-label="REINCANTAMENTO home animation">
+      <source src="assets/videos/site-animation-smooth.mp4" type="video/mp4">
+    </video>
+    <div class="animation-grid" aria-hidden="true"></div>
+  </main>
 
-    <main class="home-video-test" id="main" tabindex="-1">
-        <figure class="home-video-test__media" id="logo-media">
-            <canvas class="home-video-test__canvas" id="logo-canvas" width="540" height="540" aria-label="REINCANTAMENTO animated logo test"></canvas>
-            <video class="home-video-test__source" id="logo-video-source" autoplay muted loop playsinline preload="auto" aria-hidden="true">
-                <source src="assets/videos/VIDEO LOGO.mp4" type="video/mp4">
-            </video>
-        </figure>
-    </main>
-
-    <button class="theme-switch" type="button" aria-pressed="false" aria-label="Acid mode" title="Acid mode">&#9791;</button>
-
-    <footer class="site-footer site-footer--flush">
-        <p class="site-footer__mark">REINCANTAMENTO</p>
-
-        <div class="footer-cols">
-            <form class="newsletter" action="https://reincantamentox.substack.com/subscribe" method="get" target="_blank">
-                <label class="newsletter__label" for="nl-email">Subscribe to drops</label>
-                <div class="newsletter__field">
-                    <input id="nl-email" type="email" name="email" placeholder="your@email.com" autocomplete="email">
-                    <button type="submit" aria-label="Subscribe">&#8594;</button>
-                </div>
-            </form>
-
-            <nav class="footer-social" aria-label="Nodes">
-                <a href="mailto:reincantamento@proton.me">Email</a>
-                <a href="https://www.instagram.com/re.incantamento/" target="_blank" rel="noopener">Instagram</a>
-                <a href="https://t.me/+C1fjM6yVcdJmYzI0" target="_blank" rel="noopener">Telegram</a>
-                <a href="https://reincantamentox.substack.com/" target="_blank" rel="noopener">Newsletter</a>
-                <a href="https://www.are.na/reincantamento/channels/" target="_blank" rel="noopener">Are.na</a>
-            </nav>
+  <footer class="site-footer site-footer--flush">
+    <p class="site-footer__mark">REINCANTAMENTO</p>
+    <div class="footer-cols">
+      <form class="newsletter" action="https://reincantamentox.substack.com/subscribe" method="get" target="_blank">
+        <label class="newsletter__label" for="nl-email">Subscribe to drops</label>
+        <div class="newsletter__field">
+          <input id="nl-email" type="email" name="email" placeholder="your@email.com" autocomplete="email">
+          <button type="submit" aria-label="Subscribe">&#8594;</button>
         </div>
+      </form>
+      <nav class="footer-social" aria-label="Nodes">
+        <a href="mailto:reincantamento@proton.me">Email</a>
+        <a href="https://www.instagram.com/re.incantamento/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://t.me/+C1fjM6yVcdJmYzI0" target="_blank" rel="noopener">Telegram</a>
+        <a href="https://reincantamentox.substack.com/" target="_blank" rel="noopener">Newsletter</a>
+        <a href="https://www.are.na/reincantamento/channels/" target="_blank" rel="noopener">Are.na</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <p>2026 Reincantamento &nbsp;&#183;&nbsp; Berlin / Turin / Venice</p>
+      <div class="footer-legal"><a href="about.html">About</a></div>
+    </div>
+  </footer>
 
-        <div class="footer-bottom">
-            <p>2026 Reincantamento &nbsp;&#183;&nbsp; Berlin / Turin / Venice</p>
-            <div class="footer-legal">
-                <a href="about.html">About</a>
-            </div>
-        </div>
-    </footer>
-
-    <script>
+  <script>
     (() => {
-        const video = document.getElementById('logo-video-source');
-        const canvas = document.getElementById('logo-canvas');
-        const media = document.getElementById('logo-media');
-        const ctx = canvas.getContext('2d', { willReadFrequently: true });
-        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        const BG = 211; // encoded MP4 background: #d3d3d3
-        const MATERIAL_OPACITY = 0.88; // clearer grid visibility through the blue material
-        let running = false;
-
-        const fitCanvas = () => {
-            const cssSize = Math.max(1, media.getBoundingClientRect().width);
-            const dpr = Math.max(1, window.devicePixelRatio || 1);
-            const sourceSize = video.videoWidth || 1080;
-            /* Never create more pixels than exist in the source. On Retina this
-               preserves as much of the 1080px master as the display can use. */
-            const pixelSize = Math.min(sourceSize, Math.max(1, Math.round(cssSize * dpr)));
-            if (canvas.width !== pixelSize || canvas.height !== pixelSize) {
-                canvas.width = pixelSize;
-                canvas.height = pixelSize;
-            }
-        };
-
-        const keyFrame = () => {
-            if (video.readyState < 2) return;
-            fitCanvas();
-            const w = canvas.width;
-            const h = canvas.height;
-            ctx.clearRect(0, 0, w, h);
-            ctx.drawImage(video, 0, 0, w, h);
-
-            const frame = ctx.getImageData(0, 0, w, h);
-            const px = frame.data;
-            for (let i = 0; i < px.length; i += 4) {
-                const dr = px[i] - BG;
-                const dg = px[i + 1] - BG;
-                const db = px[i + 2] - BG;
-                const distance2 = dr * dr + dg * dg + db * db;
-
-                // Full transparency on the flat grey; a soft transition keeps
-                // anti-aliased / translucent blue edges from developing halos.
-                let alpha;
-                if (distance2 <= 100) {
-                    alpha = 0;
-                } else if (distance2 >= 3025) {
-                    alpha = 255;
-                } else {
-                    const distance = Math.sqrt(distance2);
-                    alpha = Math.round(255 * Math.pow((distance - 10) / 45, 1.15));
-                }
-
-                // Keep the material just slightly translucent so the underlying
-                // grid remains perceptible without flattening the blue object.
-                if (alpha > 0) alpha = Math.round(alpha * MATERIAL_OPACITY);
-                px[i + 3] = alpha;
-            }
-            ctx.putImageData(frame, 0, 0);
-        };
-
-        const loop = () => {
-            if (!running) return;
-            keyFrame();
-            if (reduceMotion) {
-                running = false;
-                video.pause();
-                return;
-            }
-            if ('requestVideoFrameCallback' in HTMLVideoElement.prototype) {
-                video.requestVideoFrameCallback(loop);
-            } else {
-                requestAnimationFrame(loop);
-            }
-        };
-
-        const start = () => {
-            if (running) return;
-            running = true;
-            loop();
-        };
-
-        video.addEventListener('loadeddata', start, { once: true });
-        video.addEventListener('play', start);
-        window.addEventListener('resize', fitCanvas, { passive: true });
-        video.play().catch(() => {});
+      const button = document.getElementById('test-menu-button');
+      const nav = document.getElementById('test-mobile-nav');
+      if (!button || !nav) return;
+      button.addEventListener('click', () => {
+        const open = button.getAttribute('aria-expanded') === 'true';
+        button.setAttribute('aria-expanded', String(!open));
+        nav.dataset.open = String(!open);
+      });
+      nav.addEventListener('click', (event) => {
+        if (event.target.closest('a')) {
+          button.setAttribute('aria-expanded', 'false');
+          nav.dataset.open = 'false';
+        }
+      });
     })();
-    </script>
-    <script src="assets/js/main.js" defer></script>
+  </script>
 </body>
 </html>
