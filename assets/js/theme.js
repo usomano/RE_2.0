@@ -39,6 +39,10 @@
             font-style: italic !important;
             font-synthesis: none !important;
         }
+        .home-video-test .home-statement > p {
+            position: relative;
+            z-index: 1;
+        }
         .home-statement__adaptive-canvas {
             position: absolute;
             inset: 0;
@@ -47,9 +51,6 @@
             display: block;
             pointer-events: none;
             z-index: 2;
-        }
-        .home-statement.is-adaptive-ready > p {
-            color: transparent !important;
         }
         @media (max-width: 768px) {
             .home-video-test .home-statement {
@@ -88,19 +89,16 @@
         const maskCtx = mask.getContext('2d', { willReadFrequently: true });
         const sampleCtx = sample.getContext('2d', { willReadFrequently: true });
         const outCtx = canvas.getContext('2d');
+
         let layout = null;
-        let raf = 0;
-        let lastPaint = 0;
         let resizeTimer = 0;
+        let videoFrameHandle = 0;
+        let rafHandle = 0;
 
         const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
         const smooth = (a, b, x) => {
             const t = clamp((x - a) / (b - a), 0, 1);
             return t * t * (3 - 2 * t);
-        };
-        const parseRGB = (value) => {
-            const m = value.match(/[\d.]+/g) || [];
-            return [+(m[0] || 0), +(m[1] || 9), +(m[2] || 255)];
         };
 
         function collectRuns(root, rootRect, dpr) {
@@ -119,15 +117,15 @@
                 const computed = getComputedStyle(node.parentElement);
                 const fontSize = parseFloat(computed.fontSize);
                 const fontStyle = computed.fontStyle === 'italic' ? 'italic' : 'normal';
-                const parts = [...text.matchAll(/\S+\s*/g)];
 
-                for (const part of parts) {
+                for (const part of text.matchAll(/\S+\s*/g)) {
                     const visible = part[0].trimEnd();
                     if (!visible) continue;
                     const range = document.createRange();
                     range.setStart(node, part.index);
                     range.setEnd(node, part.index + visible.length);
-                    for (const rect of range.getClientRects()) {
+                    const rects = range.getClientRects();
+                    for (const rect of rects) {
                         if (!rect.width || !rect.height) continue;
                         runs.push({
                             text: visible,
@@ -144,7 +142,6 @@
         }
 
         function rebuild() {
-            statement.classList.remove('is-adaptive-ready');
             const rect = statement.getBoundingClientRect();
             if (rect.width < 2 || rect.height < 2) return;
 
@@ -177,7 +174,13 @@
                 if (maskData[i]) active.push(i - 3);
             }
 
-            layout = { w, h, active, maskData, out: outCtx.createImageData(w, h) };
+            layout = {
+                w,
+                h,
+                active,
+                maskData,
+                out: outCtx.createImageData(w, h)
+            };
         }
 
         function drawVideoCrop() {
@@ -203,19 +206,13 @@
             return true;
         }
 
-        function paint(ts) {
-            raf = requestAnimationFrame(paint);
-            if (!layout || ts - lastPaint < 33) return;
-            lastPaint = ts;
-            if (!drawVideoCrop()) return;
+        function paintCurrentVideoFrame() {
+            if (!layout || !drawVideoCrop()) return;
 
             const bg = sampleCtx.getImageData(0, 0, layout.w, layout.h).data;
             const out = layout.out.data;
             const md = layout.maskData;
             out.fill(0);
-
-            const base = parseRGB(getComputedStyle(statement).color);
-            const light = [217, 217, 217];
 
             for (const i of layout.active) {
                 const r = bg[i];
@@ -223,24 +220,43 @@
                 const b = bg[i + 2];
                 const dominance = b - (r + g) * 0.5;
                 const chroma = Math.max(r, g, b) - Math.min(r, g, b);
-                let t = smooth(42, 120, dominance) * smooth(45, 120, chroma);
-                t = smooth(0.08, 0.92, t);
 
-                out[i] = Math.round(base[0] + (light[0] - base[0]) * t);
-                out[i + 1] = Math.round(base[1] + (light[1] - base[1]) * t);
-                out[i + 2] = Math.round(base[2] + (light[2] - base[2]) * t);
-                out[i + 3] = md[i + 3];
+                // Soft boundary: only the overlay changes. The real DOM text stays intact below.
+                let t = smooth(34, 112, dominance) * smooth(38, 108, chroma);
+                t = smooth(0.04, 0.96, t);
+
+                out[i] = 217;
+                out[i + 1] = 217;
+                out[i + 2] = 217;
+                out[i + 3] = Math.round(md[i + 3] * t);
             }
 
             outCtx.putImageData(layout.out, 0, 0);
-            statement.classList.add('is-adaptive-ready');
+        }
+
+        function startFrameSync() {
+            if ('requestVideoFrameCallback' in HTMLVideoElement.prototype) {
+                const onVideoFrame = () => {
+                    paintCurrentVideoFrame();
+                    videoFrameHandle = video.requestVideoFrameCallback(onVideoFrame);
+                };
+                if (videoFrameHandle) video.cancelVideoFrameCallback?.(videoFrameHandle);
+                videoFrameHandle = video.requestVideoFrameCallback(onVideoFrame);
+            } else {
+                const fallback = () => {
+                    paintCurrentVideoFrame();
+                    rafHandle = requestAnimationFrame(fallback);
+                };
+                cancelAnimationFrame(rafHandle);
+                rafHandle = requestAnimationFrame(fallback);
+            }
         }
 
         function scheduleRebuild() {
             clearTimeout(resizeTimer);
             resizeTimer = setTimeout(() => {
                 rebuild();
-                if (!raf) raf = requestAnimationFrame(paint);
+                paintCurrentVideoFrame();
             }, 80);
         }
 
@@ -249,10 +265,13 @@
             document.fonts.load('italic 400 24px "Redaction20 Adaptive"')
         ]).then(() => {
             rebuild();
-            if (!raf) raf = requestAnimationFrame(paint);
+            paintCurrentVideoFrame();
+            startFrameSync();
         });
 
         if (video.readyState < 2) video.addEventListener('loadeddata', scheduleRebuild, { once: true });
+        video.addEventListener('seeked', paintCurrentVideoFrame);
+        video.addEventListener('play', paintCurrentVideoFrame);
         window.addEventListener('resize', scheduleRebuild);
     }
 
