@@ -10,6 +10,29 @@
     const root = document.documentElement;
     root.classList.add('js');
 
+    /* Home video test: keep the REINCANTAMENTO SVG inset from the viewport with
+       one proportional gap used on the left, right and bottom. This preserves
+       the supplied artwork while keeping its surrounding whitespace balanced
+       at every viewport width. */
+    if (document.body && document.body.classList.contains('home-video-test')) {
+        const style = document.createElement('style');
+        style.textContent = `
+            .home-video-test .home-wordmark {
+                --home-wordmark-gap: clamp(18px, 2.4vw, 42px);
+                left: var(--home-wordmark-gap) !important;
+                right: var(--home-wordmark-gap) !important;
+                bottom: var(--home-wordmark-gap) !important;
+                width: auto !important;
+            }
+            @media (max-width: 768px) {
+                .home-video-test .home-wordmark {
+                    --home-wordmark-gap: clamp(14px, 4vw, 24px);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    }
+
     /* ---- Grid-fit ----
        Size the grid module per axis so whole columns fill the viewport WIDTH and
        whole rows fill its HEIGHT — no partial column on the right edge, no gutter
