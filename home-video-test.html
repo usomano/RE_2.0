@@ -8,10 +8,13 @@
   <link rel="icon" href="assets/images/REINC-LOGO-2026.svg" type="image/svg+xml">
   <link rel="preload" href="assets/fonts/ApfelGrotezk-Mittel.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/Redaction20-Regular.woff" as="font" type="font/woff" crossorigin>
+  <link rel="preload" href="assets/fonts/Redaction20-Italic.woff" as="font" type="font/woff" crossorigin>
   <link rel="stylesheet" href="assets/css/styles.css">
   <script src="assets/js/theme.js"></script>
   <style>
     @font-face{font-family:'Apfel Grotezk Mittel Exact';src:url('assets/fonts/ApfelGrotezk-Mittel.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+    @font-face{font-family:'Redaction20 Exact';src:url('assets/fonts/Redaction20-Regular.woff') format('woff');font-weight:400;font-style:normal;font-display:swap}
+    @font-face{font-family:'Redaction20 Exact';src:url('assets/fonts/Redaction20-Italic.woff') format('woff');font-weight:400;font-style:italic;font-display:swap}
     :root{--test-cell:calc(100vw / 16);--test-header-h:var(--test-cell);--wordmark-gap:clamp(28px,3.25vw,56px)}
     body.home-video-test{background:var(--bg);background-image:none}
     .plugin-home{position:relative;width:100%;min-height:100dvh;overflow:hidden;background:var(--bg)}
@@ -25,8 +28,8 @@
     .plugin-nav a,.plugin-nav span{color:var(--ink);width:var(--test-cell);height:var(--test-header-h);padding:0 calc(var(--test-cell) * 5 / 90);text-align:center}
     .plugin-about{position:absolute;right:0;top:0;width:var(--test-cell);height:var(--test-header-h);background:var(--band);color:var(--on-band);text-align:center}
     .plugin-menu,.plugin-mobile-panel{display:none}
-    .home-statement{position:absolute;z-index:5;left:50%;top:49%;width:min(760px,58vw);transform:translate(-50%,-50%);color:var(--ink);font-family:'Redaction20',Georgia,serif;font-size:24px;line-height:26px;font-weight:400;letter-spacing:0;text-align:center;pointer-events:none}
-    .home-statement em{font-family:'Redaction20',Georgia,serif;font-style:italic;font-weight:400}
+    .home-statement{position:absolute;z-index:5;left:50%;top:49%;width:min(760px,58vw);transform:translate(-50%,-50%);color:var(--ink);font-family:'Redaction20 Exact','Redaction20',Georgia,serif;font-size:24px;line-height:26px;font-weight:400;font-style:normal;font-synthesis:none;letter-spacing:0;text-align:center;pointer-events:none}
+    .home-statement em{font-family:'Redaction20 Exact','Redaction20',Georgia,serif;font-style:italic;font-weight:400;font-synthesis:none}
     .home-statement p + p{margin-top:28px}
     .home-wordmark{position:absolute;z-index:5;left:var(--wordmark-gap);right:var(--wordmark-gap);bottom:var(--wordmark-gap);pointer-events:none}
     .home-wordmark svg{display:block;width:100%;height:auto}
@@ -41,8 +44,9 @@
       .plugin-mobile-panel{position:fixed;z-index:20;top:var(--test-header-h);left:0;right:0;bottom:0;padding:var(--test-cell);background:var(--bg);flex-direction:column;gap:22px;font-family:var(--font-menu);text-transform:uppercase}
       .plugin-mobile-panel[data-open="true"]{display:flex}
       .plugin-mobile-panel a,.plugin-mobile-panel span{color:var(--ink);font-size:18px}
-      .home-statement{top:45%;width:88%;font-size:18px;line-height:20px}
-      .home-statement p + p{margin-top:22px}
+      .home-statement{top:44%;width:86%;max-width:350px;font-size:clamp(17px,4.6vw,19px);line-height:1.08;text-wrap:balance}
+      .home-statement p + p{margin-top:20px}
+      .home-statement .desktop-break{display:none}
     }
   </style>
 </head>
@@ -62,9 +66,8 @@
       <a class="plugin-about" href="about.html">About</a>
       <button class="plugin-menu" id="plugin-menu" type="button" aria-expanded="false" aria-controls="plugin-mobile-panel">Menu</button>
     </header>
-    <div class="home-statement" aria-label="Reincantamento introduction"><p>Reincantamento is a research and publishing collective<br>exploring technology, radical imagination and rituality.</p><p>Through <em>writing, publishing, artworks, workshops</em><br>and <em>talks</em>, the group build spaces for collective inquiry<br>beyond disciplinary and institutional boundaries.</p></div>
-    <div class="home-wordmark" aria-hidden="true">
-<svg width="1375" height="108" viewBox="0 0 1375 108" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <div class="home-statement" aria-label="Reincantamento introduction"><p>Reincantamento is a research and publishing collective <br class="desktop-break">exploring technology, radical imagination and rituality.</p><p>Through <em>writing, publishing, artworks, workshops</em> <br class="desktop-break">and <em>talks</em>, the group build spaces for collective inquiry <br class="desktop-break">beyond disciplinary and institutional boundaries.</p></div>
+    <div class="home-wordmark" aria-hidden="true"><svg width="1375" height="108" viewBox="0 0 1375 108" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M238.597 101.658H228.945V96.6514H224.093V16.0898H228.945V11.0654H238.597V6.00684H194.928V11.0654H204.684V16.0898H209.519L209.536 96.6514H204.667V101.658H194.997V106.717H238.597V101.658ZM239.597 12.0654H229.945V17.0898H225.093V95.6514H229.945V100.658H239.597V107.717H193.997V100.658H203.667V95.6514H208.536L208.519 17.0898H203.684V12.0654H193.928V5.00684H239.597V12.0654Z" fill="white"/>
 <path d="M419.776 106.717V101.693H424.628V96.6509H414.924V101.693H395.533V96.6509H385.829V91.6265H380.977V81.561H376.124V66.4536H371.29V41.2808H376.124V26.1733H380.977V21.1313H385.829V16.1069H390.681V11.0659H409.865V16.1587H419.621V21.2183H424.49V26.2769H429.377V36.4116H434.246V41.4702H439.133V26.2769H434.246V21.2183H429.377V16.1587H424.49V11.1001H419.776V6.0415H385.829V11.0659H376.124V16.1069H371.29V21.1313H366.438V26.1733H361.586V41.2808H356.733V76.519H361.586V86.5854H366.438V91.6265H371.29V96.6509H376.124V101.693H385.829V106.717H419.776ZM420.776 10.1001H425.49V15.1587H430.377V20.2183H435.246V25.2769H440.133V42.4702H433.246V37.4116H428.377V27.2769H423.49V22.2183H418.621V17.1587H408.865V12.0659H391.681V17.1069H386.829V22.1313H381.977V27.1733H377.124V42.2808H372.29V65.4536H377.124V80.561H381.977V90.6265H386.829V95.6509H396.533V100.693H413.924V95.6509H425.628V102.693H420.776V107.717H384.829V102.693H375.124V97.6509H370.29V92.6265H365.438V87.5854H360.586V77.519H355.733V40.2808H360.586V25.1733H365.438V20.1313H370.29V15.1069H375.124V10.0659H384.829V5.0415H420.776V10.1001Z" fill="white"/>
 <path d="M181.801 41.2637V6.02441H104.219V11.0488H113.905V101.676H104.219V106.717H181.801V76.502H176.948V86.5684H172.096V96.6338H162.392V101.676H123.61V96.6338H128.462V56.3711H147.853V61.3955H152.705V66.4365H157.557V71.4785H162.392V36.2217H157.557V41.2461H152.963V46.2881H147.853V51.3291H128.462V16.0898H123.61V11.0488H162.392V16.0898H172.096V26.1562H176.948V41.2637H181.801ZM182.801 42.2637H175.948V27.1562H171.096V17.0898H161.392V12.0488H124.61V15.0898H129.462V50.3291H146.853V45.2881H151.963V40.2461H156.557V35.2217H163.392V72.4785H156.557V67.4365H151.705V62.3955H146.853V57.3711H129.462V97.6338H124.61V100.676H161.392V95.6338H171.096V85.5684H175.948V75.502H182.801V107.717H103.219V100.676H112.905V12.0488H103.219V5.02441H182.801V42.2637Z" fill="white"/>
@@ -79,13 +82,15 @@
 <path d="M1267.75 5.0415V6.0415H1268.74V37.2388H1261.89V27.1733H1257.03V17.1069H1252.18V12.0659H1229.94V15.1069H1234.79V95.6685H1239.64V100.709H1249.35V107.751H1203.71V100.709H1213.42V95.6685H1218.27V12.0659H1205.73V17.1069H1196.03V22.1489H1191.17V37.2563H1184.32V5.0415H1267.75ZM1185.32 36.2563H1190.17V21.1489H1195.03V16.1069H1204.73V11.0659H1219.27V96.6685H1214.42V101.709H1204.71V106.751H1248.35V101.709H1238.64V96.6685H1233.79V16.1069H1228.94V11.0659H1253.18V16.1069H1258.03V26.1733H1262.89V36.2388H1267.74V6.0415H1185.32V36.2563Z" fill="white"/>
 <path d="M1353.65 101.676V96.6338H1358.5V91.5928H1363.35V86.5508H1368.2V71.4434H1373.06V36.2051H1368.2V26.1387H1363.35V21.0977H1358.5V16.0557H1353.65V11.0146H1343.94V5.97266H1310V11.0146H1300.29V16.0557H1295.44V21.0977H1290.59V26.1387H1285.74V41.2461H1280.88V76.4854H1285.74V86.5508H1290.59V91.5928H1295.44V96.6338H1300.29V101.676H1310V106.717H1343.94V101.676H1353.65ZM1338.09 12.0312H1315.85V17.0732H1306.14V27.1387H1301.29V37.2051H1296.44V70.4434H1301.29V85.5508H1306.14V90.5928H1311V95.6338H1315.85V100.676H1338.09V95.6514H1342.94V90.6094H1347.8V85.5684H1352.65V70.4609H1357.5V47.2881H1352.65V32.1807H1347.8V22.1143H1342.94V17.0732H1338.09V12.0312ZM1343.94 16.0732V21.1143H1348.8V31.1807H1353.65V46.2881H1358.5V71.4609H1353.65V86.5684H1348.8V91.6094H1343.94V96.6514H1339.09V101.676H1314.85V96.6338H1310V91.5928H1305.14V86.5508H1300.29V71.4434H1295.44V36.2051H1300.29V26.1387H1305.14V16.0732H1314.85V11.0312H1339.09V16.0732H1343.94ZM1344.94 10.0146H1354.65V15.0557H1359.5V20.0977H1364.35V25.1387H1369.2V35.2051H1374.06V72.4434H1369.2V87.5508H1364.35V92.5928H1359.5V97.6338H1354.65V102.676H1344.94V107.717H1309V102.676H1299.29V97.6338H1294.44V92.5928H1289.59V87.5508H1284.74V77.4854H1279.88V40.2461H1284.74V25.1387H1289.59V20.0977H1294.44V15.0557H1299.29V10.0146H1309V4.97266H1344.94V10.0146Z" fill="white"/>
 <path d="M1059.56 41.2808V6.0415H981.981V11.0659H991.686V101.693H981.981V106.717H1059.56V76.519H1054.73V86.5854H1049.88V96.6509H1040.17V101.693H1001.39V96.6509H1006.24V56.3882H1025.63V61.4126H1030.49V66.4536H1035.32V71.4956H1040.17V36.2388H1035.32V41.2632H1030.73V46.3052H1025.63V51.3462H1006.24V16.1069H1001.39V11.0659H1040.17V16.1069H1049.88V26.1733H1054.73V41.2808H1059.56ZM1060.56 42.2808H1053.73V27.1733H1048.88V17.1069H1039.17V12.0659H1002.39V15.1069H1007.24V50.3462H1024.63V45.3052H1029.73V40.2632H1034.32V35.2388H1041.17V72.4956H1034.32V67.4536H1029.49V62.4126H1024.63V57.3882H1007.24V97.6509H1002.39V100.693H1039.17V95.6509H1048.88V85.5854H1053.73V75.519H1060.56V107.717H980.981V100.693H990.686V12.0659H980.981V5.0415H1060.56V42.2808Z" fill="white"/>
-</svg>
-    </div>
+</svg></div>
     <nav class="plugin-mobile-panel" id="plugin-mobile-panel" data-open="false" aria-label="Mobile navigation"><a href="writing/index.html">Writings</a><a href="publishing/index.html">Publishing</a><a href="artworks/index.html">Artworks</a><span>Workshops</span><span>Talks</span><a href="about.html">About</a></nav>
   </main>
   <footer class="site-footer site-footer--flush">
     <p class="site-footer__mark">REINCANTAMENTO</p>
-    <div class="footer-cols"><form class="newsletter" action="https://reincantamentox.substack.com/subscribe" method="get" target="_blank"><label class="newsletter__label" for="nl-email">Subscribe to drops</label><div class="newsletter__field"><input id="nl-email" type="email" name="email" placeholder="your@email.com" autocomplete="email"><button type="submit" aria-label="Subscribe">→</button></div></form><nav class="footer-social" aria-label="Nodes"><a href="mailto:reincantamento@proton.me">Email</a><a href="https://www.instagram.com/re.incantamento/" target="_blank" rel="noopener">Instagram</a><a href="https://t.me/+C1fjM6yVcdJmYzI0" target="_blank" rel="noopener">Telegram</a><a href="https://reincantamentox.substack.com/" target="_blank" rel="noopener">Newsletter</a><a href="https://www.are.na/reincantamento/channels/" target="_blank" rel="noopener">Are.na</a></nav></div>
+    <div class="footer-cols">
+      <form class="newsletter" action="https://reincantamentox.substack.com/subscribe" method="get" target="_blank"><label class="newsletter__label" for="nl-email">Subscribe to drops</label><div class="newsletter__field"><input id="nl-email" type="email" name="email" placeholder="your@email.com" autocomplete="email"><button type="submit" aria-label="Subscribe">→</button></div></form>
+      <nav class="footer-social" aria-label="Nodes"><a href="mailto:reincantamento@proton.me">Email</a><a href="https://www.instagram.com/re.incantamento/" target="_blank" rel="noopener">Instagram</a><a href="https://t.me/+C1fjM6yVcdJmYzI0" target="_blank" rel="noopener">Telegram</a><a href="https://reincantamentox.substack.com/" target="_blank" rel="noopener">Newsletter</a><a href="https://www.are.na/reincantamento/channels/" target="_blank" rel="noopener">Are.na</a></nav>
+    </div>
     <div class="footer-bottom"><p>2026 Reincantamento · Berlin / Turin / Venice</p><div class="footer-legal"><a href="about.html">About</a></div></div>
   </footer>
   <script src="assets/js/main.js" defer></script>
