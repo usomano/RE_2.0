@@ -52,8 +52,9 @@
         }
         .home-statement__light-overlay p { margin: 0; }
         .home-statement__light-overlay p + p { margin-top: 28px; }
-        .home-statement__light-overlay--edge { opacity: .08; z-index: 2; }
-        .home-statement__light-overlay--strong { opacity: 1; z-index: 3; }
+        .home-statement__light-overlay--soft { opacity: .18; z-index: 2; }
+        .home-statement__light-overlay--mid { opacity: .52; z-index: 3; }
+        .home-statement__light-overlay--strong { opacity: 1; z-index: 4; }
         @media (max-width: 768px) {
             .home-video-test .home-statement {
                 top: 44% !important;
@@ -92,7 +93,8 @@
             return overlay;
         };
 
-        const edgeOverlay = makeOverlay('edge');
+        const softOverlay = makeOverlay('soft');
+        const midOverlay = makeOverlay('mid');
         const strongOverlay = makeOverlay('strong');
 
         const sample = document.createElement('canvas');
@@ -172,8 +174,12 @@
         function paintCurrentVideoFrame() {
             if (!geometry || !drawVideoCrop()) return;
             const data = sampleCtx.getImageData(0, 0, geometry.w, geometry.h).data;
-            setLocalClip(edgeOverlay, pathForThreshold(data, 77));
-            setLocalClip(strongOverlay, pathForThreshold(data, 81));
+
+            // Three close bands follow the blurred blob edge instead of waiting for fully saturated blue.
+            // This removes the perceived lag while keeping the transition local to the moving blue area.
+            setLocalClip(softOverlay, pathForThreshold(data, 42));
+            setLocalClip(midOverlay, pathForThreshold(data, 58));
+            setLocalClip(strongOverlay, pathForThreshold(data, 74));
         }
 
         function startFrameSync() {
