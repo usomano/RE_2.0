@@ -39,18 +39,18 @@
             font-style: italic !important;
             font-synthesis: none !important;
         }
-        .home-video-test .home-statement > p {
-            position: relative;
-            z-index: 1;
+        .home-video-test .home-statement--adaptive {
+            color: #d9d9d9 !important;
+            z-index: 6;
+            aria-hidden: true;
         }
-        .home-statement__adaptive-canvas {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            display: block;
-            pointer-events: none;
-            z-index: 2;
+        .home-video-test .home-statement--adaptive-edge {
+            opacity: .22;
+            z-index: 6;
+        }
+        .home-video-test .home-statement--adaptive-strong {
+            opacity: 1;
+            z-index: 7;
         }
         @media (max-width: 768px) {
             .home-video-test .home-statement {
@@ -72,119 +72,80 @@
         if (wordmark) wordmark.src = 'assets/images/reincantamento-wordmark.svg?v=022d6dc6';
 
         const video = document.getElementById('background-video');
-        const statement = document.querySelector('.home-statement');
+        const statement = document.querySelector('.home-statement:not(.home-statement--adaptive)');
         const videoBox = document.querySelector('.plugin-home__video');
         if (!video || !statement || !videoBox) return;
 
-        let canvas = statement.querySelector('.home-statement__adaptive-canvas');
-        if (!canvas) {
-            canvas = document.createElement('canvas');
-            canvas.className = 'home-statement__adaptive-canvas';
-            canvas.setAttribute('aria-hidden', 'true');
-            statement.appendChild(canvas);
-        }
+        // Remove the previous canvas implementation if a stale cached script created it.
+        statement.querySelectorAll('.home-statement__adaptive-canvas').forEach((node) => node.remove());
 
-        const mask = document.createElement('canvas');
+        const makeOverlay = (variant) => {
+            const overlay = statement.cloneNode(true);
+            overlay.removeAttribute('aria-label');
+            overlay.setAttribute('aria-hidden', 'true');
+            overlay.classList.add('home-statement--adaptive', `home-statement--adaptive-${variant}`);
+            statement.parentNode.insertBefore(overlay, statement.nextSibling);
+            return overlay;
+        };
+
+        const edgeOverlay = makeOverlay('edge');
+        const strongOverlay = makeOverlay('strong');
+
+        const svgNS = 'http://www.w3.org/2000/svg';
+        const svg = document.createElementNS(svgNS, 'svg');
+        svg.setAttribute('width', '0');
+        svg.setAttribute('height', '0');
+        svg.setAttribute('aria-hidden', 'true');
+        svg.style.position = 'absolute';
+        svg.style.pointerEvents = 'none';
+
+        const defs = document.createElementNS(svgNS, 'defs');
+        const edgeClip = document.createElementNS(svgNS, 'clipPath');
+        const strongClip = document.createElementNS(svgNS, 'clipPath');
+        edgeClip.setAttribute('id', 'home-statement-blue-edge');
+        strongClip.setAttribute('id', 'home-statement-blue-strong');
+        edgeClip.setAttribute('clipPathUnits', 'userSpaceOnUse');
+        strongClip.setAttribute('clipPathUnits', 'userSpaceOnUse');
+
+        const edgePath = document.createElementNS(svgNS, 'path');
+        const strongPath = document.createElementNS(svgNS, 'path');
+        edgeClip.appendChild(edgePath);
+        strongClip.appendChild(strongPath);
+        defs.appendChild(edgeClip);
+        defs.appendChild(strongClip);
+        svg.appendChild(defs);
+        document.body.appendChild(svg);
+
+        edgeOverlay.style.clipPath = 'url(#home-statement-blue-edge)';
+        strongOverlay.style.clipPath = 'url(#home-statement-blue-strong)';
+        edgeOverlay.style.webkitClipPath = 'url(#home-statement-blue-edge)';
+        strongOverlay.style.webkitClipPath = 'url(#home-statement-blue-strong)';
+
         const sample = document.createElement('canvas');
-        const maskCtx = mask.getContext('2d', { willReadFrequently: true });
         const sampleCtx = sample.getContext('2d', { willReadFrequently: true });
-        const outCtx = canvas.getContext('2d');
-
-        let layout = null;
+        let geometry = null;
         let resizeTimer = 0;
         let videoFrameHandle = 0;
         let rafHandle = 0;
 
-        const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
-        const smooth = (a, b, x) => {
-            const t = clamp((x - a) / (b - a), 0, 1);
-            return t * t * (3 - 2 * t);
-        };
-
-        function collectRuns(root, rootRect, dpr) {
-            const runs = [];
-            const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
-                acceptNode(node) {
-                    if (!node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
-                    if (node.parentElement.closest('.home-statement__adaptive-canvas')) return NodeFilter.FILTER_REJECT;
-                    return NodeFilter.FILTER_ACCEPT;
-                }
-            });
-
-            while (walker.nextNode()) {
-                const node = walker.currentNode;
-                const text = node.nodeValue;
-                const computed = getComputedStyle(node.parentElement);
-                const fontSize = parseFloat(computed.fontSize);
-                const fontStyle = computed.fontStyle === 'italic' ? 'italic' : 'normal';
-
-                for (const part of text.matchAll(/\S+\s*/g)) {
-                    const visible = part[0].trimEnd();
-                    if (!visible) continue;
-                    const range = document.createRange();
-                    range.setStart(node, part.index);
-                    range.setEnd(node, part.index + visible.length);
-                    const rects = range.getClientRects();
-                    for (const rect of rects) {
-                        if (!rect.width || !rect.height) continue;
-                        runs.push({
-                            text: visible,
-                            x: (rect.left - rootRect.left) * dpr,
-                            y: (rect.top - rootRect.top) * dpr,
-                            h: rect.height * dpr,
-                            fontSize: fontSize * dpr,
-                            fontStyle
-                        });
-                    }
-                }
-            }
-            return runs;
-        }
-
-        function rebuild() {
+        function rebuildGeometry() {
             const rect = statement.getBoundingClientRect();
             if (rect.width < 2 || rect.height < 2) return;
 
-            const dpr = Math.min(window.devicePixelRatio || 1, 2);
-            const w = Math.max(1, Math.round(rect.width * dpr));
-            const h = Math.max(1, Math.round(rect.height * dpr));
+            // One sample per CSS pixel keeps the transition accurate without fuzzy text rendering.
+            const w = Math.max(1, Math.round(rect.width));
+            const h = Math.max(1, Math.round(rect.height));
+            sample.width = w;
+            sample.height = h;
+            geometry = { rect, w, h };
 
-            canvas.width = mask.width = sample.width = w;
-            canvas.height = mask.height = sample.height = h;
-            canvas.style.width = rect.width + 'px';
-            canvas.style.height = rect.height + 'px';
-
-            maskCtx.clearRect(0, 0, w, h);
-            maskCtx.fillStyle = '#fff';
-            maskCtx.textBaseline = 'alphabetic';
-
-            const runs = collectRuns(statement, rect, dpr);
-            for (const run of runs) {
-                maskCtx.font = `${run.fontStyle} 400 ${run.fontSize}px "Redaction20 Adaptive"`;
-                const metrics = maskCtx.measureText(run.text);
-                const ascent = metrics.actualBoundingBoxAscent || run.fontSize * 0.78;
-                const descent = metrics.actualBoundingBoxDescent || run.fontSize * 0.18;
-                const baseline = run.y + (run.h + ascent - descent) / 2;
-                maskCtx.fillText(run.text, run.x, baseline);
-            }
-
-            const maskData = maskCtx.getImageData(0, 0, w, h).data;
-            const active = [];
-            for (let i = 3; i < maskData.length; i += 4) {
-                if (maskData[i]) active.push(i - 3);
-            }
-
-            layout = {
-                w,
-                h,
-                active,
-                maskData,
-                out: outCtx.createImageData(w, h)
-            };
+            // Keep both DOM overlays exactly on the same box as the original text.
+            edgeOverlay.style.width = getComputedStyle(statement).width;
+            strongOverlay.style.width = getComputedStyle(statement).width;
         }
 
         function drawVideoCrop() {
-            if (!layout || video.readyState < 2 || !video.videoWidth) return false;
+            if (!geometry || video.readyState < 2 || !video.videoWidth) return false;
 
             const vr = videoBox.getBoundingClientRect();
             const sr = statement.getBoundingClientRect();
@@ -201,37 +162,49 @@
             const sw = sr.width / scale;
             const sh = sr.height / scale;
 
-            sampleCtx.clearRect(0, 0, layout.w, layout.h);
-            sampleCtx.drawImage(video, sx, sy, sw, sh, 0, 0, layout.w, layout.h);
+            sampleCtx.clearRect(0, 0, geometry.w, geometry.h);
+            sampleCtx.drawImage(video, sx, sy, sw, sh, 0, 0, geometry.w, geometry.h);
             return true;
         }
 
-        function paintCurrentVideoFrame() {
-            if (!layout || !drawVideoCrop()) return;
+        function scoreBlue(r, g, b) {
+            const dominance = b - (r + g) * 0.5;
+            const chroma = Math.max(r, g, b) - Math.min(r, g, b);
+            // Both must be high: this rejects the pale blue/grey areas of the background.
+            return Math.min(dominance, chroma);
+        }
 
-            const bg = sampleCtx.getImageData(0, 0, layout.w, layout.h).data;
-            const out = layout.out.data;
-            const md = layout.maskData;
-            out.fill(0);
+        function pathForThreshold(data, threshold) {
+            const { w, h } = geometry;
+            let d = '';
 
-            for (const i of layout.active) {
-                const r = bg[i];
-                const g = bg[i + 1];
-                const b = bg[i + 2];
-                const dominance = b - (r + g) * 0.5;
-                const chroma = Math.max(r, g, b) - Math.min(r, g, b);
+            for (let y = 0; y < h; y += 1) {
+                let runStart = -1;
+                for (let x = 0; x <= w; x += 1) {
+                    let active = false;
+                    if (x < w) {
+                        const i = (y * w + x) * 4;
+                        active = scoreBlue(data[i], data[i + 1], data[i + 2]) >= threshold;
+                    }
 
-                // Soft boundary: only the overlay changes. The real DOM text stays intact below.
-                let t = smooth(34, 112, dominance) * smooth(38, 108, chroma);
-                t = smooth(0.04, 0.96, t);
-
-                out[i] = 217;
-                out[i + 1] = 217;
-                out[i + 2] = 217;
-                out[i + 3] = Math.round(md[i + 3] * t);
+                    if (active && runStart < 0) runStart = x;
+                    if ((!active || x === w) && runStart >= 0) {
+                        const width = x - runStart;
+                        if (width > 0) d += `M${runStart} ${y}h${width}v1h-${width}Z`;
+                        runStart = -1;
+                    }
+                }
             }
+            return d;
+        }
 
-            outCtx.putImageData(layout.out, 0, 0);
+        function paintCurrentVideoFrame() {
+            if (!geometry || !drawVideoCrop()) return;
+            const data = sampleCtx.getImageData(0, 0, geometry.w, geometry.h).data;
+
+            // Narrow transition band: 64→78. The previous version faded across a much wider range.
+            edgePath.setAttribute('d', pathForThreshold(data, 64));
+            strongPath.setAttribute('d', pathForThreshold(data, 78));
         }
 
         function startFrameSync() {
@@ -255,16 +228,16 @@
         function scheduleRebuild() {
             clearTimeout(resizeTimer);
             resizeTimer = setTimeout(() => {
-                rebuild();
+                rebuildGeometry();
                 paintCurrentVideoFrame();
-            }, 80);
+            }, 60);
         }
 
         Promise.all([
             document.fonts.load('400 24px "Redaction20 Adaptive"'),
             document.fonts.load('italic 400 24px "Redaction20 Adaptive"')
         ]).then(() => {
-            rebuild();
+            rebuildGeometry();
             paintCurrentVideoFrame();
             startFrameSync();
         });
