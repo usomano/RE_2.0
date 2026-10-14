@@ -169,21 +169,29 @@
         .home-wordmark {
             position: absolute;
             z-index: 5;
-            left: 50%;
+            left: 0;
+            right: 0;
             bottom: 2.7%;
-            transform: translateX(-50%);
-            width: 96%;
-            color: transparent;
+            width: 100%;
+            pointer-events: none;
+        }
+
+        .home-wordmark svg {
+            display: block;
+            width: 100%;
+            height: auto;
+            overflow: visible;
+        }
+
+        .home-wordmark text {
+            fill: transparent;
+            stroke: var(--on-band);
+            stroke-width: 1.25;
+            paint-order: stroke fill;
             font-family: 'Redaction35', Georgia, serif;
-            font-size: 6.7vw;
-            line-height: .9;
             font-weight: 400;
             letter-spacing: -0.015em;
-            text-align: center;
-            white-space: nowrap;
-            -webkit-text-stroke: max(1px, .075vw) var(--on-band);
-            paint-order: stroke fill;
-            pointer-events: none;
+            vector-effect: non-scaling-stroke;
         }
 
         .home-video-test .site-footer {
@@ -272,9 +280,6 @@
 
             .home-wordmark {
                 bottom: 3%;
-                width: 96%;
-                font-size: 7.8vw;
-                -webkit-text-stroke-width: 1px;
             }
         }
     </style>
@@ -314,7 +319,11 @@
             <p>Through <em>writing, publishing, artworks, workshops</em><br>and <em>talks</em>, the group build spaces for collective inquiry<br>beyond disciplinary and institutional boundaries.</p>
         </div>
 
-        <div class="home-wordmark" aria-hidden="true">REINCANTAMENTO</div>
+        <div class="home-wordmark" aria-hidden="true">
+            <svg viewBox="0 0 1440 128" role="presentation" aria-hidden="true">
+                <text x="3" y="112" font-size="118" textLength="1434" lengthAdjust="spacingAndGlyphs">REINCANTAMENTO</text>
+            </svg>
+        </div>
 
         <nav class="plugin-mobile-panel" id="plugin-mobile-panel" data-open="false" aria-label="Mobile navigation">
             <a href="writing/index.html">Writings</a>
