@@ -10,6 +10,8 @@
     <link rel="icon" href="assets/images/REINC-LOGO-2026.svg" type="image/svg+xml">
     <link rel="icon" href="assets/images/reinc-eye-nero.png" type="image/png">
     <link rel="preload" href="assets/fonts/ApfelGrotezk-Mittel.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/Redaction20-Regular.woff" as="font" type="font/woff" crossorigin>
+    <link rel="preload" href="assets/fonts/Redaction35-Regular.woff" as="font" type="font/woff" crossorigin>
     <link rel="stylesheet" href="assets/css/styles.css">
     <script src="assets/js/theme.js"></script>
 
@@ -59,7 +61,7 @@
             position: absolute;
             inset: 0 0 auto 0;
             height: var(--test-header-h);
-            z-index: 5;
+            z-index: 10;
             font-family: 'Apfel Grotezk Mittel Exact', sans-serif;
             font-synthesis: none;
             color: var(--ink);
@@ -83,7 +85,7 @@
         }
 
         .plugin-logo svg {
-            width: 44px;
+            width: calc(var(--test-cell) * 44 / 90);
             height: auto;
             display: block;
             fill: currentColor;
@@ -91,7 +93,7 @@
 
         .plugin-nav {
             position: absolute;
-            right: calc(var(--test-cell) * 2);
+            right: var(--test-cell);
             top: 0;
             height: var(--test-header-h);
             display: grid;
@@ -106,11 +108,11 @@
             align-items: center;
             justify-content: center;
             font-family: 'Apfel Grotezk Mittel Exact', sans-serif;
-            font-size: 12px;
-            line-height: 15px;
+            font-size: calc(var(--test-cell) * 12 / 90);
+            line-height: 1.25;
             font-weight: 400;
             font-synthesis: none;
-            letter-spacing: 0.5px;
+            letter-spacing: calc(var(--test-cell) * .5 / 90);
             text-transform: uppercase;
             text-decoration: none;
             -webkit-font-smoothing: antialiased;
@@ -122,7 +124,7 @@
             color: var(--ink);
             width: var(--test-cell);
             height: var(--test-header-h);
-            padding: 0 5px;
+            padding: 0 calc(var(--test-cell) * 5 / 90);
             text-align: center;
         }
 
@@ -134,7 +136,7 @@
             height: var(--test-header-h);
             background: var(--band);
             color: var(--on-band);
-            padding: 0 5px;
+            padding: 0 calc(var(--test-cell) * 5 / 90);
             text-align: center;
         }
 
@@ -143,19 +145,45 @@
             display: none;
         }
 
-        .plugin-home__theme {
+        .home-statement {
             position: absolute;
-            right: 0;
-            bottom: 0;
-            width: var(--test-cell);
-            height: var(--test-cell);
-            z-index: 6;
-            border: 0;
-            background: transparent;
+            z-index: 5;
+            left: 50%;
+            top: 49%;
+            width: 56%;
+            transform: translate(-50%, -50%);
             color: var(--ink);
-            font-family: var(--font-menu);
-            font-size: 20px;
-            cursor: pointer;
+            font-family: 'Redaction20', Georgia, serif;
+            font-size: calc(100vw * 22 / 1440);
+            line-height: 1.08;
+            font-weight: 400;
+            text-align: center;
+            text-wrap: balance;
+            pointer-events: none;
+        }
+
+        .home-statement p + p {
+            margin-top: 1.15em;
+        }
+
+        .home-wordmark {
+            position: absolute;
+            z-index: 5;
+            left: 50%;
+            bottom: 2.7%;
+            transform: translateX(-50%);
+            width: 96%;
+            color: transparent;
+            font-family: 'Redaction35', Georgia, serif;
+            font-size: 6.7vw;
+            line-height: .9;
+            font-weight: 400;
+            letter-spacing: -0.015em;
+            text-align: center;
+            white-space: nowrap;
+            -webkit-text-stroke: max(1px, .075vw) var(--on-band);
+            paint-order: stroke fill;
+            pointer-events: none;
         }
 
         .home-video-test .site-footer {
@@ -201,7 +229,7 @@
                 cursor: pointer;
                 font-size: 12px;
                 line-height: 15px;
-                letter-spacing: 0.5px;
+                letter-spacing: .5px;
                 font-weight: 400;
                 text-align: center;
             }
@@ -231,10 +259,22 @@
                 font-size: 18px;
             }
 
-            .plugin-home__theme {
-                width: var(--test-cell);
-                height: var(--test-cell);
-                font-size: 15px;
+            .home-statement {
+                top: 45%;
+                width: 86%;
+                font-size: 18px;
+                line-height: 1.08;
+            }
+
+            .home-statement p + p {
+                margin-top: 1.1em;
+            }
+
+            .home-wordmark {
+                bottom: 3%;
+                width: 96%;
+                font-size: 7.8vw;
+                -webkit-text-stroke-width: 1px;
             }
         }
     </style>
@@ -269,6 +309,13 @@
             <button class="plugin-menu" id="plugin-menu" type="button" aria-expanded="false" aria-controls="plugin-mobile-panel">Menu</button>
         </header>
 
+        <div class="home-statement" aria-label="Reincantamento introduction">
+            <p>Reincantamento is a research and publishing collective<br>exploring technology, radical imagination and rituality.</p>
+            <p>Through <em>writing, publishing, artworks, workshops</em><br>and <em>talks</em>, the group build spaces for collective inquiry<br>beyond disciplinary and institutional boundaries.</p>
+        </div>
+
+        <div class="home-wordmark" aria-hidden="true">REINCANTAMENTO</div>
+
         <nav class="plugin-mobile-panel" id="plugin-mobile-panel" data-open="false" aria-label="Mobile navigation">
             <a href="writing/index.html">Writings</a>
             <a href="publishing/index.html">Publishing</a>
@@ -277,8 +324,6 @@
             <span>Talks</span>
             <a href="about.html">About</a>
         </nav>
-
-        <button class="plugin-home__theme" type="button" aria-pressed="false" aria-label="Acid mode" title="Acid mode">&#9791;</button>
     </main>
 
     <footer class="site-footer site-footer--flush">
@@ -317,19 +362,12 @@
             if (video) {
                 video.loop = true;
                 video.muted = true;
-
                 const restartVideo = () => {
                     try { video.currentTime = 0; } catch (e) {}
                     const playPromise = video.play();
-                    if (playPromise && typeof playPromise.catch === 'function') {
-                        playPromise.catch(() => {});
-                    }
+                    if (playPromise && typeof playPromise.catch === 'function') playPromise.catch(() => {});
                 };
-
                 video.addEventListener('ended', restartVideo);
-                video.addEventListener('pause', () => {
-                    if (!document.hidden) restartVideo();
-                });
                 document.addEventListener('visibilitychange', () => {
                     if (!document.hidden && video.paused) restartVideo();
                 });
