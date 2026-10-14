@@ -67,6 +67,9 @@
     document.head.appendChild(style);
 
     function initAdaptiveStatement() {
+        const wordmark = document.querySelector('.home-wordmark img');
+        if (wordmark) wordmark.src = 'assets/images/reincantamento-wordmark.svg?v=022d6dc6';
+
         const video = document.getElementById('background-video');
         const statement = document.querySelector('.home-statement');
         const videoBox = document.querySelector('.plugin-home__video');
@@ -113,9 +116,9 @@
             while (walker.nextNode()) {
                 const node = walker.currentNode;
                 const text = node.nodeValue;
-                const style = getComputedStyle(node.parentElement);
-                const fontSize = parseFloat(style.fontSize);
-                const fontStyle = style.fontStyle === 'italic' ? 'italic' : 'normal';
+                const computed = getComputedStyle(node.parentElement);
+                const fontSize = parseFloat(computed.fontSize);
+                const fontStyle = computed.fontStyle === 'italic' ? 'italic' : 'normal';
                 const parts = [...text.matchAll(/\S+\s*/g)];
 
                 for (const part of parts) {
@@ -174,13 +177,7 @@
                 if (maskData[i]) active.push(i - 3);
             }
 
-            layout = {
-                w,
-                h,
-                active,
-                maskData,
-                out: outCtx.createImageData(w, h)
-            };
+            layout = { w, h, active, maskData, out: outCtx.createImageData(w, h) };
         }
 
         function drawVideoCrop() {
@@ -226,9 +223,6 @@
                 const b = bg[i + 2];
                 const dominance = b - (r + g) * 0.5;
                 const chroma = Math.max(r, g, b) - Math.min(r, g, b);
-
-                // Strong blue -> #D9D9D9. Pale/neutral background -> normal blue.
-                // The smoothstep thresholds give a small soft transition at the blob edge.
                 let t = smooth(42, 120, dominance) * smooth(45, 120, chroma);
                 t = smooth(0.08, 0.92, t);
 
