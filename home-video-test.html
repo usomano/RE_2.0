@@ -32,7 +32,7 @@
     .home-statement em{font-family:'Redaction20 Exact','Redaction20',Georgia,serif;font-style:italic;font-weight:400;font-synthesis:none}
     .home-statement p + p{margin-top:28px}
     .home-wordmark{position:absolute;z-index:5;left:var(--wordmark-gap);right:var(--wordmark-gap);bottom:var(--wordmark-gap);pointer-events:none}
-    .home-wordmark img{display:block;width:100%;height:auto}
+    .home-wordmark img{display:block;width:100%;height:auto;transform:translateY(calc((100vw - 2 * var(--wordmark-gap)) * .255))}
     .home-video-test .site-footer{margin-top:0}
     @media(max-width:768px){
       :root{--test-cell:calc(100vw / 13);--test-header-h:calc(var(--test-cell) * 2);--wordmark-gap:clamp(18px,5vw,26px)}
