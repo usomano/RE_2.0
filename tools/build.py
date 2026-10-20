@@ -245,14 +245,24 @@ FIG_COLS, FIG_COLS_M = 8, 11
 
 
 def webp_size(path):
-    """Canvas size of a WebP, straight out of the VP8X header — every image here
-    comes from the same encoder, so there is nothing else to handle."""
+    """Canvas size of a WebP, straight out of its header. The newsletter images
+    are all VP8X; a plain lossy (VP8) or lossless (VP8L) file, as Pillow writes
+    them, keeps its size in the frame header instead."""
     with open(path, 'rb') as f:
         head = f.read(30)
-    if len(head) < 30 or head[12:16] != b'VP8X':
+    if len(head) < 30:
         return None
-    return (int.from_bytes(head[24:27], 'little') + 1,
-            int.from_bytes(head[27:30], 'little') + 1)
+    kind = head[12:16]
+    if kind == b'VP8X':
+        return (int.from_bytes(head[24:27], 'little') + 1,
+                int.from_bytes(head[27:30], 'little') + 1)
+    if kind == b'VP8 ':
+        return (int.from_bytes(head[26:28], 'little') & 0x3fff,
+                int.from_bytes(head[28:30], 'little') & 0x3fff)
+    if kind == b'VP8L':
+        bits = int.from_bytes(head[21:25], 'little')
+        return (bits & 0x3fff) + 1, ((bits >> 14) & 0x3fff) + 1
+    return None
 
 
 def fig_rows(path):
@@ -558,25 +568,87 @@ def reading_minutes(blocks):
     return max(1, round(words / WPM))
 
 
+def is_greeting(p):
+    return re.sub(r'<[^>]+>', '', p).strip().lower().startswith('hey everyone')
+
+
+def plain(html):
+    return re.sub(r'<[^>]+>', '', html).replace('&nbsp;', ' ').strip()
+
+
+REFS = re.compile(r'^(references|bibliography|sources|works cited|notes)\b', re.I)
+
+
+def reading_marks(blocks):
+    """Where the editorial marks fall: the paragraph that opens the piece (it
+    takes the drop cap), the one that closes it (the end mark — before the
+    bibliography, if there is one) and the block index the bibliography
+    starts at."""
+    refs = next((i for i, (k, v) in enumerate(blocks)
+                 if k == 'heading' and REFS.match(plain(v))), len(blocks))
+    texts = [i for i, (k, v) in enumerate(blocks[:refs]) if k == 'text']
+    body = [i for i in texts if not (i == texts[0] and is_greeting(blocks[i][1][0]))]
+    first = None
+    if body:
+        p0 = plain(blocks[body[0]][1][0])
+        # A drop cap wants a real opening paragraph that starts on a letter,
+        # not a one-line aside or a paragraph opening on a quote mark.
+        if len(p0) > 120 and p0[:1].isalpha():
+            first = body[0]
+    last = body[-1] if body else None
+    return first, last, refs
+
+
 def render_blocks(blocks):
-    out, group = [], []
+    """A drop is one centred reading column. Its blocks follow each other a
+    grid line apart, like a printed column ruled between paragraphs; a whole
+    empty row comes only before the piece opens and before each new section,
+    so the gaps say something instead of interrupting every image.
+
+    Returns the HTML and the section index — (id, heading) for each heading."""
+    out, group, toc = [], [], []
+    intro_done = False
+    first, last, refs = reading_marks(blocks)
+
+    def spaced(opens_section):
+        return ' is-spaced' if opens_section or not out else ''
 
     def close():
         if group:
-            out.append('            <div class="blk-group c-wide is-spaced">\n' +
+            head = group[0].lstrip().startswith('<h2')
+            out.append(f'            <div class="blk-group c-read{spaced(head)}">\n' +
                        "\n".join(group) + '\n            </div>')
             del group[:]
 
-    for kind, val in blocks:
+    for n, (kind, val) in enumerate(blocks):
         if kind == 'heading':
             close()
-            group.append(f'                <h2 class="blk blk--row blk-heading">{val}</h2>')
+            sid = 's-' + (re.sub(r'[^a-z0-9]+', '-', plain(val).lower()).strip('-') or str(n))
+            if any(sid == t[0] for t in toc):
+                sid += '-%d' % n
+            toc.append((sid, val))
+            group.append(f'                <h2 class="blk blk--row blk-heading" id="{sid}">{val}</h2>')
+        elif kind == 'text' and not intro_done and is_greeting(val[0]):
+            # The "Hey everyone" note that opens most drops is preamble, not the
+            # piece: it folds behind its own first line, one row tall, and
+            # opens in place. Only the first one — a later greeting is copy.
+            intro_done = True
+            rest = "\n".join(f'                    <p class="blk-text">{p}</p>' for p in val[1:])
+            group.append('                <details class="blk blk--row blk-intro">\n'
+                         f'                    <summary class="blk-text blk-intro__toggle">{re.sub(r"(<br>)+$", "", val[0])}</summary>\n'
+                         f'{rest}\n                </details>')
         elif kind == 'text':
-            body = "\n".join(f'                    <p class="blk-text">{p}</p>' for p in val)
-            group.append(f'                <div class="blk blk--rows">\n{body}\n                </div>')
+            cls = ['blk-text'] * len(val)
+            if n == first:
+                cls[0] += ' has-dropcap'
+            if n == last:
+                cls[-1] += ' has-endmark'
+            body = "\n".join(f'                    <p class="{c}">{p}</p>' for c, p in zip(cls, val))
+            blk = 'blk blk--rows' + (' blk-refs' if n > refs else '')
+            group.append(f'                <div class="{blk}">\n{body}\n                </div>')
         elif kind == 'quote':
             close()
-            out.append('            <div class="blk-group c-quote is-spaced">\n'
+            out.append(f'            <div class="blk-group c-read{spaced(False)}">\n'
                        f'                <blockquote class="blk blk--rows blk-quote">{val}</blockquote>\n'
                        '            </div>')
         elif kind == 'figure':
@@ -593,16 +665,18 @@ def render_blocks(blocks):
             if os.path.exists(local):
                 rows, rows_m, fit = fig_rows(local)
                 cls = 'blk-figure blk-figure--auto' + (' blk-figure--fit' if fit else '')
-                box = (f'<div class="{cls}" '
+                w, h = webp_size(local) or (8, 5)
+                # data-w/data-h let site.js shrink the box to fit the screen.
+                box = (f'<div class="{cls}" data-w="{w}" data-h="{h}" '
                        f'style="--fig-rows: {rows}; --fig-rows-m: {rows_m};">'
                        f'<img src="{src}" alt="" loading="lazy"></div>')
             else:
                 box = '<div class="blk-figure r-8x5"></div>'
-            out.append('            <figure class="blk-group c-narrow is-spaced">\n'
+            out.append(f'            <figure class="blk-group c-fig{spaced(False)}">\n'
                        f'                {box}'
                        f'{capblk}\n            </figure>')
     close()
-    return "\n\n".join(out)
+    return "\n\n".join(out), toc
 
 
 # the Substack export: build input, never served
@@ -611,21 +685,30 @@ for i, d in enumerate(drops):
     src_path = os.path.join(src_dir, d['slug'] + '.html')
     blocks = convert_body(io.open(src_path, encoding='utf-8').read()) if os.path.exists(src_path) else []
     nxt = drops[(i + 1) % len(drops)]
-    lede = (f'''
-            <div class="blk-group c-wide">
-                <p class="blk blk--row blk-lede">{d["subtitle"]}</p>
-            </div>
-''' if d['subtitle'] else '')
     kicker = d['number'] + (' &#183; ' + d['date'] if d['date'] else '')
     if blocks:
         kicker += ' &#183; %d min read' % reading_minutes(blocks)
-    # The standfirst comes first and the line of metadata under it: the reader
-    # meets what the piece is about before its number, date and length.
-    main = (title_row(d['title'], 'index.html', 'Back to Writing', d.get('authors', ())) + f"""{lede}
-            <div class="blk-group c-wide">
-                <p class="blk blk--row blk-kicker">{kicker}</p>
+    # The dek: the line of metadata over the standfirst, in one block, the way
+    # a magazine sets the head of a feature.
+    lede = f'\n                    <p class="blk-lede">{d["subtitle"]}</p>' if d['subtitle'] else ''
+    body, toc = render_blocks(blocks)
+    # A section index for the reads long enough to need one. site.js pins it
+    # in the left margin where the screen leaves room, and marks where you are.
+    toc_html = ''
+    if len(toc) >= 3:
+        items = "\n".join(f'                    <li><a href="#{sid}">{plain(h)}</a></li>'
+                          for sid, h in toc)
+        toc_html = ('\n            <nav class="toc" aria-label="Sections">\n'
+                    '                <p class="toc__label">In this drop</p>\n'
+                    f'                <ol>\n{items}\n                </ol>\n'
+                    '            </nav>\n')
+    main = (title_row(d['title'], 'index.html', 'Back to Writing', d.get('authors', ())) + f"""{toc_html}
+            <div class="blk-group c-read">
+                <div class="blk blk--rows blk-dek">
+                    <p class="blk-kicker">{kicker}</p>{lede}
+                </div>
             </div>
-""" + render_blocks(blocks) + next_band('Next drop', nxt['number'] + ' &#183; ' + nxt['title'],
+""" + body + next_band('Next drop', nxt['number'] + ' &#183; ' + nxt['title'],
                                         nxt['slug'] + '.html'))
     made.append(page('writing/%s.html' % d['slug'],
                      'REINCANTAMENTO &#8212; %s' % d['title'],

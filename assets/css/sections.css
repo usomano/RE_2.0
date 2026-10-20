@@ -421,6 +421,16 @@
 /* ---- Column spans (the design only ever uses these) ---- */
 .c-wide   { grid-column: 3 / -3; }      /* 12 cells — the full content width */
 .c-narrow { grid-column: 3 / 11; }      /*  8 cells — the reading column      */
+
+/* A drop figure: centred, two cells in from each side of the content (the
+   reading column's 8 on the 16-column frame). site.js
+   narrows it (keeping it centred on the grid) when the figure would otherwise
+   run taller than the screen. */
+.c-fig    { grid-column: 5 / -5; }
+/* A drop's reading column: centred, about 720px — some 75 characters of body
+   copy. site.js picks the width in cells for the window (--read-start/-end);
+   the fallback is the 8 cells of the 16-column frame. */
+.c-read   { grid-column: var(--read-start, 5) / var(--read-end, -5); }
 .c-right  { grid-column: 7 / -3; }      /*  8 cells, flush right              */
 .c-quote  { grid-column: 4 / -3; }      /* 11 cells, indented one cell        */
 .c-half   { grid-column: 3 / 9; }       /*  6 cells                           */
@@ -593,6 +603,176 @@
     line-height: 17px;
 }
 
+/* ---- A drop's long read ----
+   The body is set a step up from the section pages' 16px and given more air:
+   this is the one place on the site meant to be read for twenty minutes. */
+.c-read .blk-text {
+    font-size: clamp(16px, calc(var(--cell) * 0.2), 20px);
+    line-height: 1.7;
+}
+
+.c-read .blk-text + .blk-text { margin-top: 0.9em; }
+
+.c-read .blk-heading {
+    display: flex;
+    align-items: center;
+}
+
+/* A quote shares the column and is told apart by its serif italic and a
+   deeper indent — not by a narrower block that would break the ruled run. */
+.c-read .blk-quote {
+    padding-left: calc(var(--card-pad) * 3);
+    padding-right: calc(var(--card-pad) * 2);
+}
+
+/* The dek: the line of metadata over the standfirst, one block. */
+.blk-dek .blk-kicker { margin-bottom: 0.9em; }
+
+/* Balanced breaks for display lines, no widows in the body. */
+.blk-lede, .blk-heading, .title-band { text-wrap: balance; }
+.c-read .blk-text { text-wrap: pretty; hanging-punctuation: first; }
+
+/* The drop cap opens the piece proper, after the greeting: three lines of
+   Redaction, the display face, in the page ink. initial-letter sets it on the
+   baseline grid where the browser can; the float is the fallback. */
+.has-dropcap::first-letter {
+    float: left;
+    font-family: var(--font-serif);
+    font-size: 3.55em;
+    line-height: 0.82;
+    padding: 0.07em 0.1em 0 0;
+}
+
+@supports (initial-letter: 3) or (-webkit-initial-letter: 3) {
+    .has-dropcap::first-letter {
+        float: none;
+        font-size: inherit;
+        line-height: inherit;
+        padding: 0 0.14em 0 0;
+        -webkit-initial-letter: 3;
+        initial-letter: 3;
+    }
+}
+
+/* The end mark: a filled square — one grid cell, small — closes the piece. */
+.has-endmark::after {
+    content: "";
+    display: inline-block;
+    width: 0.55em;
+    height: 0.55em;
+    margin-left: 0.45em;
+    background: currentColor;
+}
+
+/* The bibliography is apparatus, not copy: a size down, each entry hung. */
+.c-read .blk-refs .blk-text {
+    font-size: clamp(13px, calc(var(--cell) * 0.155), 16px);
+    line-height: 1.55;
+    padding-left: 1.6em;
+    text-indent: -1.6em;
+}
+
+.c-read .blk-refs .blk-text + .blk-text { margin-top: 0.55em; }
+
+::selection {
+    background: var(--band);
+    color: var(--on-band);
+}
+
+/* ---- Section index ----
+   Long drops get an index of their sections, pinned in the left margin as you
+   read. site.js places it on the grid (left edge on a column line, width in
+   whole cells), shows it only while the article is on screen and the margin
+   has room, and marks the section you are in. A filled block of page colour,
+   like the fixed eye — it floats over the grid as it scrolls. */
+.toc {
+    display: none;
+    position: fixed;
+    z-index: 50;
+    padding: var(--card-pad);
+    background: var(--bg);
+    color: var(--ink);
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.toc.is-placed { display: block; }
+.toc.is-on     { opacity: 1; }
+
+.toc__label {
+    margin-bottom: 0.9em;
+    font-family: var(--font-menu);
+    font-size: 11px;
+    line-height: 14px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.toc ol { list-style: none; margin: 0; padding: 0; }
+
+.toc li + li { margin-top: 0.55em; }
+
+.toc a {
+    display: block;
+    position: relative;
+    padding-left: 1em;
+    font-family: var(--font-menu);
+    font-size: 13px;
+    line-height: 1.35;
+    opacity: 0.55;
+    transition: opacity 0.15s;
+}
+
+.toc a:hover,
+.toc a[aria-current="true"] { opacity: 1; }
+
+.toc a[aria-current="true"]::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.42em;
+    width: 0.45em;
+    height: 0.45em;
+    background: currentColor;
+}
+
+/* A jump from the index lands the heading a row under the sticky header. */
+.blk-heading[id] { scroll-margin-top: calc(var(--cell) * 2); }
+
+@media (prefers-reduced-motion: no-preference) {
+    html:has(.toc) { scroll-behavior: smooth; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .toc, .toc a { transition: none; }
+}
+
+/* ---- The greeting ----
+   The "Hey everyone" note that opens a drop folds behind its first line. The
+   toggle stays in the page colourway — a block of copy with a mark, not a
+   band. site.js re-snaps the block to whole rows when it opens or closes. */
+.blk-intro__toggle {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1em;
+    cursor: pointer;
+    list-style: none;
+}
+
+.blk-intro__toggle::-webkit-details-marker { display: none; }
+
+.blk-intro__toggle::after {
+    content: "+";
+    flex: none;
+    font-style: normal;
+}
+
+.blk-intro[open] > .blk-intro__toggle::after { content: "\2212"; }
+
+.blk-intro__toggle:hover { opacity: 0.7; }
+
 /* ---- Figures ---- */
 /* Ratios are named in grid cells, so a figure always covers whole squares. */
 .blk-figure {
@@ -717,7 +897,7 @@
     }
 
     /* One column: every block spans the content width, and pairs stack. */
-    .c-wide, .c-narrow, .c-right, .c-quote, .c-half,
+    .c-wide, .c-narrow, .c-fig, .c-read, .c-right, .c-quote, .c-half,
     .c-l4, .c-r7, .c-l7, .c-r4, .c-third, .c-start {
         grid-column: 2 / -2;
     }
@@ -738,6 +918,9 @@
     }
 
     .title-card { height: calc(var(--cell) * 11 - 1px); }
+
+    /* A narrow column of English breaks better with hyphens. */
+    .c-read .blk-text { hyphens: auto; }
 }
 
 /* ===================== */
