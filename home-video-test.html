@@ -20,9 +20,11 @@
     .plugin-home{position:relative;width:100%;height:100vh;height:100dvh;overflow:hidden;background:var(--bg)}
     .plugin-home__video{position:absolute;inset:0;overflow:hidden;background:var(--bg)}
     .plugin-home__video video{width:100%;height:100%;display:block;object-fit:cover;object-position:center}
-    .plugin-home__grid{position:absolute;top:0;left:0;width:100%;height:100vh;height:100dvh;z-index:3;pointer-events:none;overflow:hidden}
-    .plugin-home__grid img{display:block;width:100%;height:100%;object-fit:fill}
-    @media(min-width:769px){.plugin-home__grid img{width:100%;height:100%;object-fit:fill}}
+    /* The desktop grid begins exactly below the 16-column header and ends at the viewport bottom. */
+    .plugin-home__grid{position:absolute;top:var(--test-header-h);right:0;bottom:0;left:0;z-index:3;pointer-events:none;overflow:hidden}
+    .plugin-home__grid svg{display:block;width:100%;height:100%}
+    .plugin-home__grid img{display:none}
+    @media(max-width:768px){.plugin-home__grid{top:0}.plugin-home__grid svg{display:none}.plugin-home__grid img{display:block;width:100%;height:100%;object-fit:fill}}
     @media(min-width:769px){.plugin-home__video video{width:100%;height:100%;object-fit:fill;object-position:top left}}
     .plugin-header{position:absolute;inset:0 0 auto;height:var(--test-header-h);z-index:10;font-family:'Apfel Grotezk Mittel Exact',sans-serif;color:var(--ink);background-color:var(--bg);background-image:repeating-linear-gradient(to right,var(--line) 0,var(--line) 1px,transparent 1px,transparent var(--test-cell)),repeating-linear-gradient(to bottom,var(--line) 0,var(--line) 1px,transparent 1px,transparent var(--test-cell))}
     .plugin-logo{position:absolute;left:0;top:0;width:var(--test-cell);height:var(--test-header-h);display:flex;align-items:center;justify-content:center;background:var(--bg);color:var(--ink)}
@@ -58,7 +60,22 @@
         <source src="assets/videos/HOME.mp4?v=f86fe5f3ab7e" type="video/mp4">
       </video>
     </div>
-    <div class="plugin-home__grid" aria-hidden="true"><img src="assets/HOVER%20GRID%20HOME.svg" alt=""></div>
+    <div class="plugin-home__grid" aria-hidden="true">
+      <!-- Original SVG coordinates y=90..811 are stretched across the space below the header. -->
+      <!-- x=1350 is exactly the ABOUT left edge; y=810 is pinned to the viewport bottom. -->
+      <svg viewBox="0 90 1440 721" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" fill="#F5F5F5" focusable="false">
+        <rect x="0" y="90" width="1440" height="1"/>
+        <rect x="450" y="91" width="1" height="180"/>
+        <rect x="1350" y="91" width="1" height="180"/>
+        <rect x="0" y="270" width="1440" height="1"/>
+        <rect x="0" y="540" width="1440" height="1"/>
+        <rect x="90" y="540" width="1" height="270"/>
+        <rect x="630" y="540" width="1" height="181"/>
+        <rect x="0" y="720" width="1440" height="1"/>
+        <rect x="0" y="810" width="1440" height="1"/>
+      </svg>
+      <img src="assets/HOVER%20GRID%20HOME.svg" alt="">
+    </div>
     <header class="plugin-header">
       <a class="plugin-logo" href="index.html" aria-label="Reincantamento home">
         <svg viewBox="300 208 1320 665" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1536.62,374.45v82.66h-164.88v-82.66h-82.21v-82.66h-82.21v-82.21h-494.18v82.66h-164.43v82.66h-82.21v82.66h-82.21v82.66h-82.66v164.88h82.21v-82.66h164.88v82.66h82.21v82.66h82.21v82.66h494.18v-82.66h164.43v-82.66h82.21v-82.66h82.21v-82.66h82.21v-164.88h-82.21l.45-.45ZM1207.31,539.78v82.66h-82.21v82.66h-82.21v82.66h-164.43v-82.66h-82.21v-82.66h-82.21v-164.88h82.21v-82.66h82.21v-82.66h164.43v82.66h82.21v82.66h82.21v82.66-.45Z"/><rect x="890.2" y="469.32" width="140.03" height="140.48"/></svg>
