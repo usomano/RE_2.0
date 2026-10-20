@@ -121,19 +121,19 @@
             const sr = statement.getBoundingClientRect();
             const vw = video.videoWidth;
             const vh = video.videoHeight;
-            // Desktop: video and overlay SVG share a width-based 1440px coordinate system.
-            // Mobile retains the existing cover crop until its layout is redesigned.
+            // Video and SVG both fill the desktop viewport, with the same x/y scales.
+            // Mobile retains its existing cover crop until that layout is redesigned.
             const desktop = window.matchMedia('(min-width: 769px)').matches;
-            const scale = desktop ? vr.width / vw : Math.max(vr.width / vw, vr.height / vh);
-            const renderedW = vw * scale;
-            const renderedH = vh * scale;
-            const cropX = desktop ? 0 : (renderedW - vr.width) / 2;
-            const cropY = desktop ? 0 : (renderedH - vr.height) / 2;
+            const coverScale = Math.max(vr.width / vw, vr.height / vh);
+            const scaleX = desktop ? vr.width / vw : coverScale;
+            const scaleY = desktop ? vr.height / vh : coverScale;
+            const cropX = desktop ? 0 : (vw * coverScale - vr.width) / 2;
+            const cropY = desktop ? 0 : (vh * coverScale - vr.height) / 2;
 
-            const sx = (sr.left - vr.left + cropX) / scale;
-            const sy = (sr.top - vr.top + cropY) / scale;
-            const sw = sr.width / scale;
-            const sh = sr.height / scale;
+            const sx = (sr.left - vr.left + cropX) / scaleX;
+            const sy = (sr.top - vr.top + cropY) / scaleY;
+            const sw = sr.width / scaleX;
+            const sh = sr.height / scaleY;
 
             sampleCtx.clearRect(0, 0, geometry.w, geometry.h);
             sampleCtx.drawImage(video, sx, sy, sw, sh, 0, 0, geometry.w, geometry.h);
