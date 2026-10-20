@@ -15,7 +15,7 @@
     @font-face{font-family:'Apfel Grotezk Mittel Exact';src:url('assets/fonts/ApfelGrotezk-Mittel.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
     @font-face{font-family:'Redaction20 Exact';src:url('assets/fonts/Redaction20-Regular.woff') format('woff');font-weight:400;font-style:normal;font-display:swap}
     @font-face{font-family:'Redaction20 Exact';src:url('assets/fonts/Redaction20-Italic.woff') format('woff');font-weight:400;font-style:italic;font-display:swap}
-    :root{--test-cell:calc(100vw / 16);--test-header-h:var(--test-cell);--wordmark-gap:clamp(28px,3.25vw,56px)}
+    :root{--test-cell:calc(100vw / 16);--test-header-h:var(--test-cell)}
     body.home-video-test{background:var(--bg);background-image:none}
     .plugin-home{position:relative;width:100%;min-height:100dvh;overflow:hidden;background:var(--bg)}
     .plugin-home__video{position:absolute;inset:var(--test-header-h) 0 0;overflow:hidden;background:var(--bg)}
@@ -31,11 +31,9 @@
     .home-statement{position:absolute;z-index:5;left:50%;top:49%;width:min(760px,58vw);transform:translate(-50%,-50%);color:var(--ink);font-family:'Redaction20 Exact','Redaction20',Georgia,serif;font-size:24px;line-height:26px;font-weight:400;font-style:normal;font-synthesis:none;letter-spacing:0;text-align:center;pointer-events:none;-webkit-text-stroke:0 transparent;paint-order:normal;text-shadow:none}
     .home-statement em{font-family:'Redaction20 Exact','Redaction20',Georgia,serif;font-style:italic;font-weight:400;font-synthesis:none}
     .home-statement p + p{margin-top:28px}
-    .home-wordmark{position:absolute;z-index:5;left:var(--wordmark-gap);right:var(--wordmark-gap);bottom:var(--wordmark-gap);pointer-events:none}
-    .home-wordmark img{display:block;width:100%;height:auto;transform:translateY(calc((100vw - 2 * var(--wordmark-gap)) * .255))}
     .home-video-test .site-footer{margin-top:0}
     @media(max-width:768px){
-      :root{--test-cell:calc(100vw / 13);--test-header-h:calc(var(--test-cell) * 2);--wordmark-gap:clamp(18px,5vw,26px)}
+      :root{--test-cell:calc(100vw / 13);--test-header-h:calc(var(--test-cell) * 2)}
       .plugin-header{background-image:repeating-linear-gradient(to right,var(--line) 0,var(--line) .5px,transparent .5px,transparent var(--test-cell)),repeating-linear-gradient(to bottom,var(--line) 0,var(--line) .5px,transparent .5px,transparent var(--test-cell))}
       .plugin-logo{width:calc(var(--test-cell) * 2)}
       .plugin-logo svg{width:40px}
@@ -54,8 +52,7 @@
   <main class="plugin-home" id="main">
     <div class="plugin-home__video" aria-hidden="true">
       <video id="background-video" autoplay muted loop playsinline preload="auto">
-        <source src="assets/videos/site-animation-smooth.mp4" type="video/mp4">
-        <source src="assets/videos/site-animation-smooth.webm" type="video/webm">
+        <source src="assets/videos/HOME.mp4?v=f3442a6369" type="video/mp4">
       </video>
     </div>
     <header class="plugin-header">
@@ -67,7 +64,6 @@
       <button class="plugin-menu" id="plugin-menu" type="button" aria-expanded="false" aria-controls="plugin-mobile-panel">Menu</button>
     </header>
     <div class="home-statement" aria-label="Reincantamento introduction"><p>Reincantamento is a research and publishing collective <br class="desktop-break">exploring technology, radical imagination and rituality.</p><p>Through <em>writing, publishing, artworks, workshops</em> <br class="desktop-break">and <em>talks</em>, the group build spaces for collective inquiry <br class="desktop-break">beyond disciplinary and institutional boundaries.</p></div>
-    <div class="home-wordmark" aria-hidden="true"><img src="assets/images/reincantamento-wordmark.png?v=dc6849ae0dba" alt=""></div>
     <nav class="plugin-mobile-panel" id="plugin-mobile-panel" data-open="false" aria-label="Mobile navigation"><a href="writing/index.html">Writings</a><a href="publishing/index.html">Publishing</a><a href="artworks/index.html">Artworks</a><span>Workshops</span><span>Talks</span><a href="about.html">About</a></nav>
   </main>
   <footer class="site-footer site-footer--flush">
