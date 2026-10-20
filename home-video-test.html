@@ -28,7 +28,7 @@
     @media(min-width:769px){.plugin-home__video video{object-fit:cover;object-position:center 40%}}
     .plugin-header{position:absolute;inset:0 0 auto;height:var(--test-header-h);z-index:10;font-family:'Apfel Grotezk Mittel Exact',sans-serif;color:var(--ink);background-color:var(--bg);background-image:repeating-linear-gradient(to right,var(--line) 0,var(--line) 1px,transparent 1px,transparent var(--test-cell)),repeating-linear-gradient(to bottom,var(--line) 0,var(--line) 1px,transparent 1px,transparent var(--test-cell))}
     .plugin-logo{position:absolute;left:0;top:0;width:var(--test-cell);height:var(--test-header-h);display:flex;align-items:center;justify-content:center;background:var(--bg);color:var(--ink)}
-    .plugin-logo svg{width:calc(var(--test-cell) * 44 / 90);height:auto;display:block;fill:currentColor}
+    .plugin-logo video{width:calc(var(--test-cell) * 44 / 90);height:auto;max-height:calc(var(--test-header-h) * .8);display:block;object-fit:contain}
     .plugin-nav{position:absolute;right:var(--test-cell);top:0;height:var(--test-header-h);display:grid;grid-template-columns:repeat(5,var(--test-cell))}
     .plugin-nav a,.plugin-nav span,.plugin-about,.plugin-menu{display:flex;align-items:center;justify-content:center;font-family:'Apfel Grotezk Mittel Exact',sans-serif;font-size:calc(var(--test-cell) * 12 / 90);line-height:1.25;font-weight:400;letter-spacing:calc(var(--test-cell) * .5 / 90);text-transform:uppercase;text-decoration:none;-webkit-font-smoothing:antialiased;text-rendering:geometricPrecision}
     .plugin-nav a,.plugin-nav span{color:var(--ink);width:var(--test-cell);height:var(--test-header-h);padding:0 calc(var(--test-cell) * 5 / 90);text-align:center}
@@ -41,7 +41,7 @@
       :root{--test-cell:calc(100vw / 13);--test-header-h:calc(var(--test-cell) * 2)}
       .plugin-header{background-image:repeating-linear-gradient(to right,var(--line) 0,var(--line) .5px,transparent .5px,transparent var(--test-cell)),repeating-linear-gradient(to bottom,var(--line) 0,var(--line) .5px,transparent .5px,transparent var(--test-cell))}
       .plugin-logo{width:calc(var(--test-cell) * 2)}
-      .plugin-logo svg{width:40px}
+      .plugin-logo video{width:40px}
       .plugin-nav,.plugin-about{display:none}
       .plugin-menu{position:absolute;right:0;top:0;display:flex;width:calc(var(--test-cell) * 2);height:var(--test-header-h);border:0;background:var(--band);color:var(--on-band);font-size:12px;line-height:15px;letter-spacing:.5px;font-weight:400}
       .plugin-mobile-panel{position:fixed;z-index:20;top:var(--test-header-h);left:0;right:0;bottom:0;padding:var(--test-cell);background:var(--bg);flex-direction:column;gap:22px;font-family:var(--font-menu);text-transform:uppercase}
@@ -77,7 +77,7 @@
     </div>
     <header class="plugin-header">
       <a class="plugin-logo" href="index.html" aria-label="Reincantamento home">
-        <svg viewBox="300 208 1320 665" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1536.62,374.45v82.66h-164.88v-82.66h-82.21v-82.66h-82.21v-82.21h-494.18v82.66h-164.43v82.66h-82.21v82.66h-82.21v82.66h-82.66v164.88h82.21v-82.66h164.88v82.66h82.21v82.66h82.21v82.66h494.18v-82.66h164.43v-82.66h82.21v-82.66h82.21v-82.66h82.21v-164.88h-82.21l.45-.45ZM1207.31,539.78v82.66h-82.21v82.66h-82.21v82.66h-164.43v-82.66h-82.21v-82.66h-82.21v-164.88h82.21v-82.66h82.21v-82.66h164.43v82.66h82.21v82.66h82.21v82.66-.45Z"/><rect x="890.2" y="469.32" width="140.03" height="140.48"/></svg>
+        <video autoplay muted loop playsinline preload="auto" aria-hidden="true"><source src="assets/videos/blink.mp4" type="video/mp4"></video>
       </a>
       <nav class="plugin-nav" aria-label="Primary navigation"><a href="writing/index.html">Writings</a><a href="publishing/index.html">Publishing</a><a href="artworks/index.html">Artworks</a><span>Workshops</span><span>Talks</span></nav>
       <a class="plugin-about" href="about.html">About</a>
