@@ -121,19 +121,16 @@
             const sr = statement.getBoundingClientRect();
             const vw = video.videoWidth;
             const vh = video.videoHeight;
-            // Video and SVG both fill the desktop viewport, with the same x/y scales.
-            // Mobile retains its existing cover crop until that layout is redesigned.
-            const desktop = window.matchMedia('(min-width: 769px)').matches;
-            const coverScale = Math.max(vr.width / vw, vr.height / vh);
-            const scaleX = desktop ? vr.width / vw : coverScale;
-            const scaleY = desktop ? vr.height / vh : coverScale;
-            const cropX = desktop ? 0 : (vw * coverScale - vr.width) / 2;
-            const cropY = desktop ? 0 : (vh * coverScale - vr.height) / 2;
+            // Video uses object-fit: cover and object-position: center.
+            // Sample the same visible crop so the adaptive text stays synchronized.
+            const scale = Math.max(vr.width / vw, vr.height / vh);
+            const cropX = (vw * scale - vr.width) / 2;
+            const cropY = (vh * scale - vr.height) / 2;
 
-            const sx = (sr.left - vr.left + cropX) / scaleX;
-            const sy = (sr.top - vr.top + cropY) / scaleY;
-            const sw = sr.width / scaleX;
-            const sh = sr.height / scaleY;
+            const sx = (sr.left - vr.left + cropX) / scale;
+            const sy = (sr.top - vr.top + cropY) / scale;
+            const sw = sr.width / scale;
+            const sh = sr.height / scale;
 
             sampleCtx.clearRect(0, 0, geometry.w, geometry.h);
             sampleCtx.drawImage(video, sx, sy, sw, sh, 0, 0, geometry.w, geometry.h);
