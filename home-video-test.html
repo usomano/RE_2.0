@@ -110,8 +110,10 @@
 
     function renderFrame() {
       if (video.readyState < 2 || !video.videoWidth || !video.videoHeight) return;
-      const w = video.videoWidth;
-      const h = video.videoHeight;
+      // More than enough resolution for the small header mark, without
+      // processing a full-size video frame on every blink.
+      const w = Math.min(320, video.videoWidth);
+      const h = Math.max(1, Math.round(video.videoHeight * w / video.videoWidth));
       if (scratch.width !== w || scratch.height !== h) {
         scratch.width = canvas.width = w;
         scratch.height = canvas.height = h;
