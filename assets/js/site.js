@@ -57,6 +57,7 @@
         root.style.setProperty('--screen-last-row', ((rows - 1) * cell) + 'px');
         snapNavItem(cell);
         snapBlocks(cell);
+        fitFigures(cell, cols, rows);
     };
 
     /* ---- Snap text blocks to whole grid rows ----
@@ -94,6 +95,111 @@
         blocks.forEach((el, i) => { el.style.height = (rows[i] * cell - 1) + 'px'; });
     };
 
+    /* ---- Fit drop figures to the screen ----
+       A figure is the 8-cell reading column wide (the whole column on mobile)
+       and as many rows tall as its shape asks, which for a portrait image is
+       more than a screen. Here each one gives up width until it, its caption
+       and the header row fit the viewport, staying centred on the painted grid:
+       a figure's width keeps the parity of the content width (12 → even,
+       the mobile 11 → odd) so the gap either side is whole cells. Heights stay in whole rows; an image too far from one
+       is shown whole (--fit) rather than cropped. Without JS the figures keep
+       the size build.py gave them. */
+    const FIT_OFF = 0.12;   // the crop tolerance build.py uses
+
+    /* ---- Section index ----
+       Pinned in the left margin: from the second column line to a cell short
+       of the reading column (figures may stand a cell proud of the text), a
+       row under the header. Only where that leaves two whole cells. */
+    const toc = document.querySelector('.toc');
+
+    const placeToc = (cell, readStart) => {
+        if (!toc) return;
+        const span = readStart - 3;     // cells between line 2 and readStart - 1
+        const ok = span >= 2;
+        toc.classList.toggle('is-placed', ok);
+        if (!ok) return;
+        toc.style.left = (cell + 1) + 'px';
+        toc.style.top = (cell * 2 + 1) + 'px';
+        toc.style.width = (Math.min(span, 3) * cell - 1) + 'px';
+        toc.style.maxHeight = (window.innerHeight - cell * 3) + 'px';
+        toc.style.overflowY = 'auto';
+        queueToc();
+    };
+
+    let tocQueued = false;
+    const tocLinks = toc ? [...toc.querySelectorAll('a')] : [];
+    const tocHeads = tocLinks.map((a) => document.getElementById(a.hash.slice(1)));
+    const tocArticle = document.querySelector('.article');
+
+    const updateToc = () => {
+        tocQueued = false;
+        if (!toc || !tocArticle) return;
+        const vh = window.innerHeight;
+        const box = tocArticle.getBoundingClientRect();
+        // Shown from the first section on, until the article ends.
+        const firstTop = tocHeads[0] ? tocHeads[0].getBoundingClientRect().top : box.top;
+        toc.classList.toggle('is-on', firstTop < vh * 0.6 && box.bottom > vh * 0.5);
+        let cur = -1;
+        tocHeads.forEach((h, i) => {
+            if (h && h.getBoundingClientRect().top < vh * 0.35) cur = i;
+        });
+        tocLinks.forEach((a, i) => {
+            if (i === cur) a.setAttribute('aria-current', 'true');
+            else a.removeAttribute('aria-current');
+        });
+    };
+
+    const queueToc = () => {
+        if (tocQueued) return;
+        tocQueued = true;
+        requestAnimationFrame(updateToc);
+    };
+
+    if (toc) window.addEventListener('scroll', queueToc, { passive: true });
+
+    const READ_WIDTH = 720;     // px — about 75 characters of body copy
+
+    const fitFigures = (cell, cols, screenRows) => {
+        const mobile = root.clientWidth <= MOBILE_BP;
+        const content = mobile ? cols - 2 : cols - 4;
+        const firstLine = mobile ? 2 : 3;
+        // The reading column: the width in cells nearest 720px, of the same
+        // parity as the content (9, 12, 15 … cells) so it sits centred on
+        // whole cells. On mobile it is the whole content width.
+        let read = content;
+        if (!mobile) {
+            read = Math.round(READ_WIDTH / cell);
+            if ((content - read) % 2) read += (READ_WIDTH / cell > read ? 1 : -1);
+            read = Math.min(content, Math.max(3, read));
+        }
+        const inset = (content - read) / 2;
+        root.style.setProperty('--read-start', String(firstLine + inset));
+        root.style.setProperty('--read-end', String(-(firstLine + inset)));
+        placeToc(cell, mobile ? 0 : firstLine + inset);
+        // A landscape figure may stand a cell proud of the text either side.
+        const maxCols = Math.min(content, read + 2);
+        document.querySelectorAll('figure.c-fig').forEach((fig) => {
+            const box = fig.querySelector('.blk-figure[data-w]');
+            if (!box) return;
+            const ratio = (+box.dataset.h) / (+box.dataset.w);
+            const cap = fig.querySelector('figcaption');
+            const capRows = cap ? Math.round((cap.offsetHeight + 1) / cell) : 0;
+            const avail = Math.max(2, screenRows - 1 - capRows);
+            let c = maxCols;
+            if (c * ratio > avail) {
+                c = Math.floor(avail / ratio);
+                if ((content - c) % 2) c -= 1;
+                c = Math.max(content % 2 ? 1 : 2, c);
+            }
+            const ideal = c * ratio;
+            const r = Math.min(avail, Math.max(1, Math.round(ideal)));
+            const off = Math.abs(r - ideal) / Math.max(r, ideal);
+            fig.style.gridColumn = (firstLine + (content - c) / 2) + ' / span ' + c;
+            box.style.height = (r * cell - 1) + 'px';
+            box.classList.toggle('blk-figure--fit', off > FIT_OFF);
+        });
+    };
+
     const scheduleFit = () => {
         if (queued) return;
         queued = true;
@@ -102,6 +208,10 @@
 
     fitGrid();
     window.addEventListener('resize', scheduleFit);
+    // An opened or closed greeting changes its block's height.
+    document.querySelectorAll('.blk-intro').forEach((d) => {
+        d.addEventListener('toggle', fitGrid);
+    });
     window.addEventListener('orientationchange', scheduleFit);
     // Web fonts change how the copy wraps — re-snap once they have loaded.
     if (document.fonts && document.fonts.ready) {
