@@ -34,9 +34,9 @@
     .plugin-nav a,.plugin-nav span{color:var(--ink);width:var(--test-cell);height:var(--test-header-h);padding:0 calc(var(--test-cell) * 5 / 90);text-align:center}
     .plugin-about{position:absolute;right:0;top:0;width:var(--test-cell);height:var(--test-header-h);background:var(--band);color:var(--on-band);text-align:center}
     .plugin-menu,.plugin-mobile-panel{display:none}
-    .home-statement{position:absolute;z-index:5;left:50%;top:49%;width:min(760px,58vw);transform:translate(-50%,-50%);color:var(--ink);font-family:'Redaction20 Exact','Redaction20',Georgia,serif;font-size:24px;line-height:26px;font-weight:400;font-style:normal;font-synthesis:none;letter-spacing:0;text-align:center;pointer-events:none;-webkit-text-stroke:0 transparent;paint-order:normal;text-shadow:none}
+    .home-statement{position:absolute;z-index:5;left:45.1%;top:calc(var(--test-header-h) + (100dvh - var(--test-header-h)) * .648);width:51.5%;transform:none;color:var(--ink);font-family:'Redaction20 Exact','Redaction20',Georgia,serif;font-size:3.26389vw;line-height:3.40278vw;font-weight:400;font-style:normal;font-synthesis:none;letter-spacing:0;text-align:left;pointer-events:none;-webkit-text-stroke:0 transparent;paint-order:normal;text-shadow:none}
     .home-statement em{font-family:'Redaction20 Exact','Redaction20',Georgia,serif;font-style:italic;font-weight:400;font-synthesis:none}
-    .home-statement p + p{margin-top:28px}
+    .home-statement p{margin:0}
     @media(max-width:768px){
       :root{--test-cell:calc(100vw / 13);--test-header-h:calc(var(--test-cell) * 2)}
       .plugin-header{background-image:repeating-linear-gradient(to right,var(--line) 0,var(--line) .5px,transparent .5px,transparent var(--test-cell)),repeating-linear-gradient(to bottom,var(--line) 0,var(--line) .5px,transparent .5px,transparent var(--test-cell))}
@@ -48,8 +48,8 @@
       .plugin-mobile-panel[data-open="true"]{display:flex}
       .plugin-mobile-panel a,.plugin-mobile-panel span{color:var(--ink);font-size:18px}
       .home-statement{top:44%;width:86%;max-width:350px;font-size:clamp(17px,4.6vw,19px);line-height:1.08;text-wrap:balance}
-      .home-statement p + p{margin-top:20px}
       .home-statement .desktop-break{display:none}
+      .home-statement .desktop-break::after{content:' '}
     }
   </style>
 </head>
@@ -65,12 +65,12 @@
       <!-- x=1350 is exactly the ABOUT left edge; y=810 is pinned to the viewport bottom. -->
       <svg viewBox="0 90 1440 721" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" fill="#F5F5F5" focusable="false">
         <rect x="0" y="90" width="1440" height="1"/>
-        <rect x="450" y="91" width="1" height="180"/>
+        <rect x="449" y="91" width="1" height="180"/>
         <rect x="1350" y="91" width="1" height="180"/>
         <rect x="0" y="270" width="1440" height="1"/>
         <rect x="0" y="540" width="1440" height="1"/>
         <rect x="90" y="540" width="1" height="270"/>
-        <rect x="630" y="540" width="1" height="181"/>
+        <rect x="631" y="540" width="1" height="181"/>
         <rect x="0" y="720" width="1440" height="1"/>
         <rect x="0" y="810" width="1440" height="1"/>
       </svg>
@@ -84,7 +84,7 @@
       <a class="plugin-about" href="about.html">About</a>
       <button class="plugin-menu" id="plugin-menu" type="button" aria-expanded="false" aria-controls="plugin-mobile-panel">Menu</button>
     </header>
-    <div class="home-statement" aria-label="Reincantamento introduction"><p>Reincantamento is a research and publishing collective <br class="desktop-break">exploring technology, radical imagination and rituality.</p><p>Through <em>writing, publishing, artworks, workshops</em> <br class="desktop-break">and <em>talks</em>, the group build spaces for collective inquiry <br class="desktop-break">beyond disciplinary and institutional boundaries.</p></div>
+    <div class="home-statement" aria-label="Reincantamento introduction"><p>Reincantamento is a <em>research</em><br class="desktop-break">and <em>development</em> group exploring<br class="desktop-break">technology, politics and spirituality.</p></div>
     <nav class="plugin-mobile-panel" id="plugin-mobile-panel" data-open="false" aria-label="Mobile navigation"><a href="writing/index.html">Writings</a><a href="publishing/index.html">Publishing</a><a href="artworks/index.html">Artworks</a><span>Workshops</span><span>Talks</span><a href="about.html">About</a></nav>
   </main>
   <script src="assets/js/main.js" defer></script>
