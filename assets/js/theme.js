@@ -121,11 +121,14 @@
             const sr = statement.getBoundingClientRect();
             const vw = video.videoWidth;
             const vh = video.videoHeight;
-            const scale = Math.max(vr.width / vw, vr.height / vh);
+            // Desktop: video and overlay SVG share a width-based 1440px coordinate system.
+            // Mobile retains the existing cover crop until its layout is redesigned.
+            const desktop = window.matchMedia('(min-width: 769px)').matches;
+            const scale = desktop ? vr.width / vw : Math.max(vr.width / vw, vr.height / vh);
             const renderedW = vw * scale;
             const renderedH = vh * scale;
-            const cropX = (renderedW - vr.width) / 2;
-            const cropY = (renderedH - vr.height) / 2;
+            const cropX = desktop ? 0 : (renderedW - vr.width) / 2;
+            const cropY = desktop ? 0 : (renderedH - vr.height) / 2;
 
             const sx = (sr.left - vr.left + cropX) / scale;
             const sy = (sr.top - vr.top + cropY) / scale;
