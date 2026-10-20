@@ -15,6 +15,7 @@
     @font-face{font-family:'Apfel Grotezk Mittel Exact';src:url('assets/fonts/ApfelGrotezk-Mittel.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
     @font-face{font-family:'Redaction20 Exact';src:url('assets/fonts/Redaction20-Regular.woff') format('woff');font-weight:400;font-style:normal;font-display:swap}
     @font-face{font-family:'Redaction20 Exact';src:url('assets/fonts/Redaction20-Italic.woff') format('woff');font-weight:400;font-style:italic;font-display:swap}
+    :root{--test-cell:calc(100vw / 16);--test-header-h:var(--test-cell)}
     body.home-video-test{background:var(--bg);background-image:none}
     .plugin-home{position:relative;width:100%;height:100vh;height:100dvh;overflow:hidden;background:var(--bg)}
     .plugin-home__video{position:absolute;inset:0;overflow:hidden;background:var(--bg)}
@@ -23,11 +24,27 @@
     .plugin-home__grid img{display:block;width:100%;height:100%;object-fit:fill}
     @media(min-width:769px){.plugin-home__grid img{width:100%;height:100%;object-fit:fill}}
     @media(min-width:769px){.plugin-home__video video{width:100%;height:100%;object-fit:fill;object-position:top left}}
+    .plugin-header{position:absolute;inset:0 0 auto;height:var(--test-header-h);z-index:10;font-family:'Apfel Grotezk Mittel Exact',sans-serif;color:var(--ink);background-color:var(--bg);background-image:repeating-linear-gradient(to right,var(--line) 0,var(--line) 1px,transparent 1px,transparent var(--test-cell)),repeating-linear-gradient(to bottom,var(--line) 0,var(--line) 1px,transparent 1px,transparent var(--test-cell))}
+    .plugin-logo{position:absolute;left:0;top:0;width:var(--test-cell);height:var(--test-header-h);display:flex;align-items:center;justify-content:center;background:var(--bg);color:var(--ink)}
+    .plugin-logo svg{width:calc(var(--test-cell) * 44 / 90);height:auto;display:block;fill:currentColor}
+    .plugin-nav{position:absolute;right:var(--test-cell);top:0;height:var(--test-header-h);display:grid;grid-template-columns:repeat(5,var(--test-cell))}
+    .plugin-nav a,.plugin-nav span,.plugin-about,.plugin-menu{display:flex;align-items:center;justify-content:center;font-family:'Apfel Grotezk Mittel Exact',sans-serif;font-size:calc(var(--test-cell) * 12 / 90);line-height:1.25;font-weight:400;letter-spacing:calc(var(--test-cell) * .5 / 90);text-transform:uppercase;text-decoration:none;-webkit-font-smoothing:antialiased;text-rendering:geometricPrecision}
+    .plugin-nav a,.plugin-nav span{color:var(--ink);width:var(--test-cell);height:var(--test-header-h);padding:0 calc(var(--test-cell) * 5 / 90);text-align:center}
+    .plugin-about{position:absolute;right:0;top:0;width:var(--test-cell);height:var(--test-header-h);background:var(--band);color:var(--on-band);text-align:center}
+    .plugin-menu,.plugin-mobile-panel{display:none}
     .home-statement{position:absolute;z-index:5;left:50%;top:49%;width:min(760px,58vw);transform:translate(-50%,-50%);color:var(--ink);font-family:'Redaction20 Exact','Redaction20',Georgia,serif;font-size:24px;line-height:26px;font-weight:400;font-style:normal;font-synthesis:none;letter-spacing:0;text-align:center;pointer-events:none;-webkit-text-stroke:0 transparent;paint-order:normal;text-shadow:none}
     .home-statement em{font-family:'Redaction20 Exact','Redaction20',Georgia,serif;font-style:italic;font-weight:400;font-synthesis:none}
     .home-statement p + p{margin-top:28px}
-    .home-video-test .site-footer{margin-top:0}
     @media(max-width:768px){
+      :root{--test-cell:calc(100vw / 13);--test-header-h:calc(var(--test-cell) * 2)}
+      .plugin-header{background-image:repeating-linear-gradient(to right,var(--line) 0,var(--line) .5px,transparent .5px,transparent var(--test-cell)),repeating-linear-gradient(to bottom,var(--line) 0,var(--line) .5px,transparent .5px,transparent var(--test-cell))}
+      .plugin-logo{width:calc(var(--test-cell) * 2)}
+      .plugin-logo svg{width:40px}
+      .plugin-nav,.plugin-about{display:none}
+      .plugin-menu{position:absolute;right:0;top:0;display:flex;width:calc(var(--test-cell) * 2);height:var(--test-header-h);border:0;background:var(--band);color:var(--on-band);font-size:12px;line-height:15px;letter-spacing:.5px;font-weight:400}
+      .plugin-mobile-panel{position:fixed;z-index:20;top:var(--test-header-h);left:0;right:0;bottom:0;padding:var(--test-cell);background:var(--bg);flex-direction:column;gap:22px;font-family:var(--font-menu);text-transform:uppercase}
+      .plugin-mobile-panel[data-open="true"]{display:flex}
+      .plugin-mobile-panel a,.plugin-mobile-panel span{color:var(--ink);font-size:18px}
       .home-statement{top:44%;width:86%;max-width:350px;font-size:clamp(17px,4.6vw,19px);line-height:1.08;text-wrap:balance}
       .home-statement p + p{margin-top:20px}
       .home-statement .desktop-break{display:none}
@@ -42,17 +59,18 @@
       </video>
     </div>
     <div class="plugin-home__grid" aria-hidden="true"><img src="assets/HOVER%20GRID%20HOME.svg" alt=""></div>
+    <header class="plugin-header">
+      <a class="plugin-logo" href="index.html" aria-label="Reincantamento home">
+        <svg viewBox="300 208 1320 665" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1536.62,374.45v82.66h-164.88v-82.66h-82.21v-82.66h-82.21v-82.21h-494.18v82.66h-164.43v82.66h-82.21v82.66h-82.21v82.66h-82.66v164.88h82.21v-82.66h164.88v82.66h82.21v82.66h82.21v82.66h494.18v-82.66h164.43v-82.66h82.21v-82.66h82.21v-82.66h82.21v-164.88h-82.21l.45-.45ZM1207.31,539.78v82.66h-82.21v82.66h-82.21v82.66h-164.43v-82.66h-82.21v-82.66h-82.21v-164.88h82.21v-82.66h82.21v-82.66h164.43v82.66h82.21v82.66h82.21v82.66-.45Z"/><rect x="890.2" y="469.32" width="140.03" height="140.48"/></svg>
+      </a>
+      <nav class="plugin-nav" aria-label="Primary navigation"><a href="writing/index.html">Writings</a><a href="publishing/index.html">Publishing</a><a href="artworks/index.html">Artworks</a><span>Workshops</span><span>Talks</span></nav>
+      <a class="plugin-about" href="about.html">About</a>
+      <button class="plugin-menu" id="plugin-menu" type="button" aria-expanded="false" aria-controls="plugin-mobile-panel">Menu</button>
+    </header>
     <div class="home-statement" aria-label="Reincantamento introduction"><p>Reincantamento is a research and publishing collective <br class="desktop-break">exploring technology, radical imagination and rituality.</p><p>Through <em>writing, publishing, artworks, workshops</em> <br class="desktop-break">and <em>talks</em>, the group build spaces for collective inquiry <br class="desktop-break">beyond disciplinary and institutional boundaries.</p></div>
+    <nav class="plugin-mobile-panel" id="plugin-mobile-panel" data-open="false" aria-label="Mobile navigation"><a href="writing/index.html">Writings</a><a href="publishing/index.html">Publishing</a><a href="artworks/index.html">Artworks</a><span>Workshops</span><span>Talks</span><a href="about.html">About</a></nav>
   </main>
-  <footer class="site-footer site-footer--flush">
-    <p class="site-footer__mark">REINCANTAMENTO</p>
-    <div class="footer-cols">
-      <form class="newsletter" action="https://reincantamentox.substack.com/subscribe" method="get" target="_blank"><label class="newsletter__label" for="nl-email">Subscribe to drops</label><div class="newsletter__field"><input id="nl-email" type="email" name="email" placeholder="your@email.com" autocomplete="email"><button type="submit" aria-label="Subscribe">→</button></div></form>
-      <nav class="footer-social" aria-label="Nodes"><a href="mailto:reincantamento@proton.me">Email</a><a href="https://www.instagram.com/re.incantamento/" target="_blank" rel="noopener">Instagram</a><a href="https://t.me/+C1fjM6yVcdJmYzI0" target="_blank" rel="noopener">Telegram</a><a href="https://reincantamentox.substack.com/" target="_blank" rel="noopener">Newsletter</a><a href="https://www.are.na/reincantamento/channels/" target="_blank" rel="noopener">Are.na</a></nav>
-    </div>
-    <div class="footer-bottom"><p>2026 Reincantamento · Berlin / Turin / Venice</p><div class="footer-legal"><a href="about.html">About</a></div></div>
-  </footer>
   <script src="assets/js/main.js" defer></script>
-  <script>(()=>{const video=document.getElementById('background-video');if(video){video.loop=true;video.muted=true;const restart=()=>{try{video.currentTime=0}catch(e){}const p=video.play();if(p&&p.catch)p.catch(()=>{})};video.addEventListener('ended',restart);document.addEventListener('visibilitychange',()=>{if(!document.hidden&&video.paused)restart()})}})();</script>
+  <script>(()=>{const video=document.getElementById('background-video');if(video){video.loop=true;video.muted=true;const restart=()=>{try{video.currentTime=0}catch(e){}const p=video.play();if(p&&p.catch)p.catch(()=>{})};video.addEventListener('ended',restart);document.addEventListener('visibilitychange',()=>{if(!document.hidden&&video.paused)restart()})}const menu=document.getElementById('plugin-menu');const panel=document.getElementById('plugin-mobile-panel');if(menu&&panel){menu.addEventListener('click',()=>{const open=menu.getAttribute('aria-expanded')==='true';menu.setAttribute('aria-expanded',String(!open));panel.dataset.open=String(!open)});panel.addEventListener('click',e=>{if(e.target.closest('a')){menu.setAttribute('aria-expanded','false');panel.dataset.open='false'}})}})();</script>
 </body>
 </html>
