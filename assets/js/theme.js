@@ -125,7 +125,8 @@
             // Sample the same visible crop so the adaptive text stays synchronized.
             const scale = Math.max(vr.width / vw, vr.height / vh);
             const cropX = (vw * scale - vr.width) / 2;
-            const cropY = (vh * scale - vr.height) / 2;
+            // Desktop object-position: center 40% moves the embedded wordmark slightly downward.
+            const cropY = (vh * scale - vr.height) * (window.matchMedia('(min-width: 769px)').matches ? 0.4 : 0.5);
 
             const sx = (sr.left - vr.left + cropX) / scale;
             const sy = (sr.top - vr.top + cropY) / scale;
