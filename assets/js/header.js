@@ -54,6 +54,7 @@
       }
       ctx.clearRect(0, 0, w, h);
       ctx.putImageData(frame, 0, 0);
+      canvas.closest('.plugin-logo')?.classList.add('is-animated');
     }
 
     function onFrame() {
