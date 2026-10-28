@@ -39,10 +39,10 @@
     .plugin-nav a,.plugin-nav span{color:var(--ink);width:var(--test-cell);height:var(--test-header-h);padding:0 calc(var(--test-cell) * 5 / 90);text-align:center}
     .plugin-about{position:absolute;right:0;top:0;width:var(--test-cell);height:var(--test-header-h);background:var(--band);color:var(--on-band);text-align:center}
     .plugin-menu,.plugin-mobile-panel{display:none}
-    .home-statement{position:relative;grid-row:3;grid-column:1;z-index:5;min-width:0;box-sizing:border-box;margin-left:40.7639%;width:59.2361%;max-width:100%;padding:clamp(22px,3dvh,38px) clamp(18px,2vw,40px) clamp(22px,3dvh,38px) clamp(20px,2vw,36px);color:var(--ink);font-family:'Redaction20 Exact','Redaction20',Georgia,serif;font-size:clamp(20px,min(2.7vw,5dvh),46px);line-height:1.07;font-weight:400;font-style:normal;font-synthesis:none;letter-spacing:0;text-align:left;pointer-events:none;-webkit-text-stroke:0 transparent;paint-order:normal;text-shadow:none}
+    .home-statement{position:relative;grid-row:3;grid-column:1;z-index:5;min-width:0;box-sizing:border-box;margin-left:40.7639%;width:59.2361%;max-width:100%;padding:clamp(22px,3dvh,38px) clamp(18px,2vw,40px) clamp(22px,3dvh,38px) clamp(20px,2vw,36px);color:var(--ink);font-family:'Redaction20 Exact','Redaction20',Georgia,serif;font-size:clamp(20px,min(2.18vw,4.4dvh),36px);line-height:1.1;font-weight:400;font-style:normal;font-synthesis:none;letter-spacing:0;text-align:left;pointer-events:none;-webkit-text-stroke:0 transparent;paint-order:normal;text-shadow:none}
     /* Prevent any previously cached adaptive overlay from duplicating the text. */
     .home-statement em{font-family:'Redaction20 Exact','Redaction20',Georgia,serif;font-style:italic;font-weight:400;font-synthesis:none}
-    .home-statement p{margin:0;text-wrap:balance}.home-statement p + p{margin-top:1em}.home-statement .keep-together{white-space:nowrap}
+     .home-statement p{margin:0;text-wrap:balance;overflow-wrap:normal}.home-statement p + p{margin-top:1em}.home-statement .keep-together{white-space:nowrap}
     @media(max-width:768px){
       :root{--test-cell:calc(100vw / 13);--test-header-h:calc(var(--test-cell) * 2)}
       .plugin-header{background-image:repeating-linear-gradient(to right,var(--line) 0,var(--line) .5px,transparent .5px,transparent var(--test-cell)),repeating-linear-gradient(to bottom,var(--line) 0,var(--line) .5px,transparent .5px,transparent var(--test-cell))}
@@ -133,7 +133,8 @@
       setLine(1,w-(mobile?2:1)*cell,0,w-(mobile?2:1)*cell,y1);
       setLine(2,0,y1,w,y1);
       setLine(3,0,y2,w,y2);
-      setLine(4,w*587/1440,y2,w*587/1440,y3);
+      const statementEdge=bands[2].getBoundingClientRect().left-box.left;
+      setLine(4,statementEdge,y2,statementEdge,y3);
       setLine(5,0,y3,w,y3);
       setLine(6,cell,y3,cell,h);
     }
