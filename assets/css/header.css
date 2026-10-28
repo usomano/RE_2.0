@@ -42,3 +42,12 @@ body.page{--test-cell:var(--cell)}
   .plugin-mobile-panel[data-open="true"]{display:flex}
   .plugin-mobile-panel a,.plugin-mobile-panel span{color:var(--ink);font-size:18px}
 }
+
+/* Desktop column-count changes are shared with editorial site.js.
+   Keep each label in one geometrically square module. */
+@media (min-width:1350px) and (max-width:1599px){
+ :root{--site-cell:calc(100vw / 13)}
+}
+@media (min-width:1600px){
+ :root{--site-cell:calc(100vw / 16)}
+}
