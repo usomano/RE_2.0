@@ -5,6 +5,7 @@
 .plugin-header{position:absolute;inset:0 0 auto;height:var(--test-header-h);z-index:10;font-family:'Apfel Grotezk Mittel Exact',sans-serif;color:var(--ink);background-color:var(--bg);background-image:repeating-linear-gradient(to right,var(--line) 0,var(--line) 1px,transparent 1px,transparent var(--test-cell)),repeating-linear-gradient(to bottom,var(--line) 0,var(--line) 1px,transparent 1px,transparent var(--test-cell))}
 .plugin-logo{position:absolute;left:0;top:0;width:var(--test-cell);height:var(--test-header-h);display:flex;align-items:center;justify-content:center;background:var(--bg);color:var(--ink)}
 .plugin-logo{overflow:hidden}
+.plugin-logo__fallback{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:56%;height:auto;max-height:65%;object-fit:contain;pointer-events:none}
 .plugin-logo__canvas{display:block;width:calc(var(--test-cell) * 150 / 90);height:auto;aspect-ratio:1320 / 665;object-fit:contain;max-width:none;flex-shrink:0}
 .plugin-logo__source{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
 .plugin-nav{position:absolute;right:var(--test-cell);top:0;height:var(--test-header-h);display:grid;width:calc(5 * var(--test-cell));grid-template-columns:repeat(5,var(--test-cell));background-color:var(--bg);background-image:repeating-linear-gradient(to right,var(--line) 0,var(--line) 1px,transparent 1px,transparent var(--test-cell));background-size:var(--test-cell) 100%}
@@ -51,3 +52,7 @@ body.page{--test-cell:var(--cell)}
 @media (min-width:1600px){
  :root{--site-cell:calc(100vw / 16)}
 }
+
+.plugin-logo__canvas{position:relative;z-index:1}
+.plugin-logo:not(.is-animated) .plugin-logo__canvas{opacity:0}
+.plugin-logo.is-animated .plugin-logo__fallback{visibility:hidden}
