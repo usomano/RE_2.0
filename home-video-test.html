@@ -24,9 +24,8 @@
     .plugin-home__wordmark video{display:block;width:100%;height:auto;object-fit:contain}
     /* The desktop grid begins exactly below the 16-column header and ends at the viewport bottom. */
     .plugin-home__grid{position:absolute;top:var(--test-header-h);right:0;bottom:0;left:0;z-index:3;pointer-events:none;overflow:hidden}
-    .plugin-home__grid svg{display:block;width:100%;height:100%}
-    .plugin-home__grid img{display:none}
-    @media(max-width:768px){.plugin-home__grid{top:0}.plugin-home__grid svg{display:none}.plugin-home__grid img{display:block;width:100%;height:100%;object-fit:fill}}
+    .plugin-home__grid img{display:block;width:100%;height:100%;object-fit:fill}
+    @media(max-width:768px){.plugin-home__grid{top:var(--test-header-h)}}
     @media(min-width:769px){.plugin-home__video video{object-fit:cover;object-position:center 40%}}
     .plugin-header{position:absolute;inset:0 0 auto;height:var(--test-header-h);z-index:10;font-family:'Apfel Grotezk Mittel Exact',sans-serif;color:var(--ink);background-color:var(--bg);background-image:repeating-linear-gradient(to right,var(--line) 0,var(--line) 1px,transparent 1px,transparent var(--test-cell)),repeating-linear-gradient(to bottom,var(--line) 0,var(--line) 1px,transparent 1px,transparent var(--test-cell))}
     .plugin-logo{position:absolute;left:0;top:0;width:var(--test-cell);height:var(--test-header-h);display:flex;align-items:center;justify-content:center;background:var(--bg);color:var(--ink)}
@@ -67,20 +66,7 @@
       <video id="reincantamento-wordmark" autoplay muted loop playsinline preload="metadata"></video>
     </div>
     <div class="plugin-home__grid" aria-hidden="true">
-      <!-- Original SVG coordinates y=90..811 are stretched across the space below the header. -->
-      <!-- x=1350 is exactly the ABOUT left edge; y=810 is pinned to the viewport bottom. -->
-      <svg viewBox="0 90 1440 721" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" fill="#F5F5F5" focusable="false">
-        <rect x="0" y="90" width="1440" height="1"/>
-        <rect x="449" y="91" width="1" height="180"/>
-        <rect x="1350" y="91" width="1" height="180"/>
-        <rect x="0" y="270" width="1440" height="1"/>
-        <rect x="0" y="540" width="1440" height="1"/>
-        <rect x="90" y="540" width="1" height="270"/>
-        <rect x="631" y="540" width="1" height="181"/>
-        <rect x="0" y="720" width="1440" height="1"/>
-        <rect x="0" y="810" width="1440" height="1"/>
-      </svg>
-      <img src="assets/HOVER%20GRID%20HOME.svg" alt="">
+      <img src="assets/HOME%20GRID.svg" alt="">
     </div>
     <header class="plugin-header">
       <a class="plugin-logo" href="index.html" aria-label="Reincantamento home">
