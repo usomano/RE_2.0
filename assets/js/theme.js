@@ -50,17 +50,16 @@
             pointer-events: none;
             overflow: visible;
             box-sizing: border-box;
-            padding: inherit;
+            padding: 0;
         }
-        .home-statement__light-overlay p { margin: 0; }
-        .home-statement__light-overlay p + p { margin-top: 28px; }
+        .home-statement__light-overlay p { position: absolute; margin: 0 !important; width: auto; max-width: none; }
+        .home-statement__light-overlay p + p { margin-top: 0 !important; }
         .home-statement__light-overlay--soft { opacity: .18; z-index: 2; }
         .home-statement__light-overlay--mid { opacity: .52; z-index: 3; }
         .home-statement__light-overlay--strong { opacity: 1; z-index: 4; }
         @media (max-width: 768px) {
             /* Responsive placement is controlled by the page layout. */
-            .home-video-test .home-statement p + p,
-            .home-statement__light-overlay p + p { margin-top: 20px !important; }
+            .home-video-test .home-statement > p + p { margin-top: 20px !important; }
             .home-video-test .home-statement .desktop-break { display: none !important; }
         }
     `;
@@ -99,7 +98,27 @@
         let videoFrameHandle = 0;
         let rafHandle = 0;
 
+        function alignOverlayParagraphs() {
+            const base = statement.getBoundingClientRect();
+            const original = Array.from(statement.children).filter(node => node.tagName === 'P');
+            for (const overlay of [softOverlay, midOverlay, strongOverlay]) {
+                const copies = Array.from(overlay.children).filter(node => node.tagName === 'P');
+                original.forEach((paragraph, i) => {
+                    const copy = copies[i];
+                    if (!copy) return;
+                    const rect = paragraph.getBoundingClientRect();
+                    copy.style.left = (rect.left - base.left) + 'px';
+                    copy.style.top = (rect.top - base.top) + 'px';
+                    copy.style.width = rect.width + 'px';
+                    copy.style.height = rect.height + 'px';
+                    copy.style.font = getComputedStyle(paragraph).font;
+                    copy.style.lineHeight = getComputedStyle(paragraph).lineHeight;
+                });
+            }
+        }
+
         function rebuildGeometry() {
+            alignOverlayParagraphs();
             const rect = statement.getBoundingClientRect();
             if (rect.width < 2 || rect.height < 2) return;
             const w = Math.max(1, Math.round(rect.width));
