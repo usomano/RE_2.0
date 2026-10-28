@@ -65,7 +65,13 @@
     `;
     document.head.appendChild(style);
 
+    // Temporarily disable multi-layer adaptive text: cloned paragraphs do not
+    // currently share the source text's responsive line wrapping.
+    // Keep the single semantic text until the effect is rebuilt safely.
     function initAdaptiveStatement() {
+        document.querySelectorAll('.home-statement__light-overlay').forEach(node => node.remove());
+        return;
+
         const video = document.getElementById('background-video');
         const statement = document.querySelector('.home-statement');
         const videoBox = document.querySelector('.plugin-home__video');
