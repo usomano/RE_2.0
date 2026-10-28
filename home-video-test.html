@@ -37,9 +37,9 @@
     .plugin-nav a,.plugin-nav span{color:var(--ink);width:var(--test-cell);height:var(--test-header-h);padding:0 calc(var(--test-cell) * 5 / 90);text-align:center}
     .plugin-about{position:absolute;right:0;top:0;width:var(--test-cell);height:var(--test-header-h);background:var(--band);color:var(--on-band);text-align:center}
     .plugin-menu,.plugin-mobile-panel{display:none}
-    .home-statement{position:absolute;z-index:5;left:45.1%;top:calc(var(--test-header-h) + (100dvh - var(--test-header-h)) * .648);width:51.5%;transform:none;color:var(--ink);font-family:'Redaction20 Exact','Redaction20',Georgia,serif;font-size:clamp(20px,min(2.7vw,5dvh),46px);line-height:1.07;font-weight:400;font-style:normal;font-synthesis:none;letter-spacing:0;text-align:left;pointer-events:none;-webkit-text-stroke:0 transparent;paint-order:normal;text-shadow:none}
+    .home-statement{position:absolute;z-index:5;left:45.1%;top:calc(var(--test-header-h) + (100dvh - var(--test-header-h)) * 436 / 719 + clamp(12px,1.5dvh,24px));width:51.5%;transform:none;color:var(--ink);font-family:'Redaction20 Exact','Redaction20',Georgia,serif;font-size:clamp(20px,min(2.7vw,5dvh),46px);line-height:1.07;font-weight:400;font-style:normal;font-synthesis:none;letter-spacing:0;text-align:left;pointer-events:none;-webkit-text-stroke:0 transparent;paint-order:normal;text-shadow:none}
     .home-statement em{font-family:'Redaction20 Exact','Redaction20',Georgia,serif;font-style:italic;font-weight:400;font-synthesis:none}
-    .home-statement p{margin:0}
+    .home-statement p{margin:0}.home-statement p + p{margin-top:1em}
     @media(max-width:768px){
       :root{--test-cell:calc(100vw / 13);--test-header-h:calc(var(--test-cell) * 2)}
       .plugin-header{background-image:repeating-linear-gradient(to right,var(--line) 0,var(--line) .5px,transparent .5px,transparent var(--test-cell)),repeating-linear-gradient(to bottom,var(--line) 0,var(--line) .5px,transparent .5px,transparent var(--test-cell))}
@@ -50,7 +50,7 @@
       .plugin-mobile-panel{position:fixed;z-index:20;top:var(--test-header-h);left:0;right:0;bottom:0;padding:var(--test-cell);background:var(--bg);flex-direction:column;gap:22px;font-family:var(--font-menu);text-transform:uppercase}
       .plugin-mobile-panel[data-open="true"]{display:flex}
       .plugin-mobile-panel a,.plugin-mobile-panel span{color:var(--ink);font-size:18px}
-      .home-statement{top:44%;width:86%;max-width:350px;font-size:clamp(17px,4.6vw,19px);line-height:1.08;text-wrap:balance}
+      .home-statement{left:7%;width:86%;max-width:none;font-size:clamp(17px,4.6vw,19px);line-height:1.08;text-wrap:balance}
       .home-statement .desktop-break{display:none}
     }
   </style>
@@ -77,7 +77,7 @@
       <a class="plugin-about" href="about.html">About</a>
       <button class="plugin-menu" id="plugin-menu" type="button" aria-expanded="false" aria-controls="plugin-mobile-panel">Menu</button>
     </header>
-    <div class="home-statement" aria-label="Reincantamento introduction"><p>Reincantamento is a <em>research</em> <br class="desktop-break">and <em>development</em> group exploring <br class="desktop-break">technology, politics and spirituality.</p></div>
+    <div class="home-statement" aria-label="Reincantamento introduction"><p>Reincantamento is a <em>research</em> and <em>development</em> group exploring technology, politics and spirituality.</p><p>We build tools and spaces for collective inquiry.</p></div>
     <nav class="plugin-mobile-panel" id="plugin-mobile-panel" data-open="false" aria-label="Mobile navigation"><a href="writing/index.html">Writings</a><a href="publishing/index.html">Publishing</a><a href="artworks/index.html">Artworks</a><span>Workshops</span><span>Talks</span><a href="about.html">About</a></nav>
   </main>
   <script>
@@ -116,11 +116,21 @@
       line.setAttribute('y2', String(y2));
     };
     const layout = () => {
-      const w = overlay.clientWidth, h = overlay.clientHeight;
-      if (!w || !h) return;
+      const w = overlay.clientWidth;
+      const hero = document.querySelector('.plugin-home');
+      const statement = document.querySelector('.home-statement');
+      if (!w || !hero || !statement) return;
       const mobile = matchMedia('(max-width: 768px)').matches;
       const cell = w / (mobile ? 13 : 16);
-      const y1 = h * 199 / 719, y2 = h * 436 / 719, y3 = h * 629 / 719;
+      const baseline = Math.max(1, window.innerHeight - overlay.offsetTop);
+      const y1 = baseline * 199 / 719, y2 = baseline * 436 / 719;
+      const padding = Math.max(16, Math.min(32, window.innerHeight * .025));
+      const statementBottom = statement.getBoundingClientRect().bottom - overlay.getBoundingClientRect().top;
+      const y3 = Math.max(baseline * 629 / 719, statementBottom + padding);
+      const bottomBand = baseline * 90 / 719;
+      const neededHeight = Math.max(window.innerHeight, overlay.offsetTop + y3 + bottomBand);
+      hero.style.height = neededHeight + 'px';
+      const h = overlay.clientHeight;
       svg.setAttribute('viewBox', `0 0 ${w} ${h}`);
       setLine(0, 3 * cell, 0, 3 * cell, y1);
       setLine(1, w - (mobile ? 2 : 1) * cell, 0, w - (mobile ? 2 : 1) * cell, y1);
@@ -132,6 +142,8 @@
     };
     if (typeof ResizeObserver !== 'undefined') new ResizeObserver(layout).observe(overlay);
     window.addEventListener('resize', layout);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(layout);
+    if (typeof ResizeObserver !== 'undefined') new ResizeObserver(layout).observe(document.querySelector('.home-statement'));
     layout();
   })();
   </script>
