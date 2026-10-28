@@ -24,7 +24,7 @@
     .plugin-home__wordmark video{display:block;width:100%;height:auto;object-fit:contain}
     /* The desktop grid begins exactly below the 16-column header and ends at the viewport bottom. */
     .plugin-home__grid{position:absolute;top:var(--test-header-h);right:0;bottom:0;left:0;z-index:3;pointer-events:none;overflow:hidden}
-    .plugin-home__grid img{display:block;width:100%;height:100%;object-fit:fill}
+    .plugin-home__grid svg{display:block;width:100%;height:100%;overflow:visible}
     @media(max-width:768px){.plugin-home__grid{top:var(--test-header-h)}}
     @media(min-width:769px){.plugin-home__video video{object-fit:cover;object-position:center 40%}}
     .plugin-header{position:absolute;inset:0 0 auto;height:var(--test-header-h);z-index:10;font-family:'Apfel Grotezk Mittel Exact',sans-serif;color:var(--ink);background-color:var(--bg);background-image:repeating-linear-gradient(to right,var(--line) 0,var(--line) 1px,transparent 1px,transparent var(--test-cell)),repeating-linear-gradient(to bottom,var(--line) 0,var(--line) 1px,transparent 1px,transparent var(--test-cell))}
@@ -66,7 +66,7 @@
       <video id="reincantamento-wordmark" autoplay muted loop playsinline preload="metadata"></video>
     </div>
     <div class="plugin-home__grid" aria-hidden="true">
-      <img src="assets/HOME%20GRID.svg" alt="">
+      <svg id="responsive-home-grid" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"></svg>
     </div>
     <header class="plugin-header">
       <a class="plugin-logo" href="index.html" aria-label="Reincantamento home">
@@ -91,6 +91,48 @@
     video.load();
     const playback = video.play();
     if (playback && playback.catch) playback.catch(() => {});
+  })();
+  </script>
+  <script>
+  (() => {
+    // Geometry from HOME GRID.svg; x anchors use the same columns as the header.
+    const overlay = document.querySelector('.plugin-home__grid');
+    const svg = document.getElementById('responsive-home-grid');
+    if (!overlay || !svg) return;
+    const ns = 'http://www.w3.org/2000/svg';
+    const lines = Array.from({ length: 7 }, () => {
+      const line = document.createElementNS(ns, 'line');
+      line.setAttribute('stroke', '#F5F5F5');
+      line.setAttribute('stroke-width', '1');
+      line.setAttribute('vector-effect', 'non-scaling-stroke');
+      svg.appendChild(line);
+      return line;
+    });
+    const setLine = (i, x1, y1, x2, y2) => {
+      const line = lines[i];
+      line.setAttribute('x1', String(x1));
+      line.setAttribute('y1', String(y1));
+      line.setAttribute('x2', String(x2));
+      line.setAttribute('y2', String(y2));
+    };
+    const layout = () => {
+      const w = overlay.clientWidth, h = overlay.clientHeight;
+      if (!w || !h) return;
+      const mobile = matchMedia('(max-width: 768px)').matches;
+      const cell = w / (mobile ? 13 : 16);
+      const y1 = h * 199 / 719, y2 = h * 436 / 719, y3 = h * 629 / 719;
+      svg.setAttribute('viewBox', `0 0 ${w} ${h}`);
+      setLine(0, 3 * cell, 0, 3 * cell, y1);
+      setLine(1, w - (mobile ? 2 : 1) * cell, 0, w - (mobile ? 2 : 1) * cell, y1);
+      setLine(2, 0, y1, w, y1);
+      setLine(3, 0, y2, w, y2);
+      setLine(4, w * 587 / 1440, y2, w * 587 / 1440, y3);
+      setLine(5, 0, y3, w, y3);
+      setLine(6, cell, y3, cell, h);
+    };
+    if (typeof ResizeObserver !== 'undefined') new ResizeObserver(layout).observe(overlay);
+    window.addEventListener('resize', layout);
+    layout();
   })();
   </script>
   <script src="assets/js/main.js" defer></script>
