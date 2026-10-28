@@ -9,24 +9,13 @@
     root.classList.add('js');
 
     /* ---- Grid module ----
-       The Figma frames are 1440 wide on a 90px module → 16 columns, and the
-       layout leans on that count: two empty columns each side, twelve of
-       content, three equal cards. Any column count with (N - 4) divisible by 3
-       preserves that, so we pick the closest such N to width / 90 and divide the
-       viewport by it — cells stay square and every painted block still lands on
-       a real grid line at any window size. Mobile is fixed at the 13 columns of
-       the 390px frame. We measure clientWidth, not 100vw, so a visible
-       scrollbar doesn't push the columns out of alignment. */
-    const TARGET_CELL = 90;
+       The entire desktop layout uses the header's 16-column system.
+       Mobile uses 13 columns. Width is measured from the document to keep
+       the editorial grid and header on the same vertical guides. */
     const MOBILE_BP = 768;
     const MOBILE_COLS = 13;
-    const MIN_COLS = 13;        // the nav alone needs five columns
-
-    const nearestValidCols = (raw) => {
-        // Valid counts are 13, 16, 19, 22 … — step 3 from 13.
-        const steps = Math.max(0, Math.round((raw - MIN_COLS) / 3));
-        return MIN_COLS + steps * 3;
-    };
+    const DESKTOP_COLS = 16;
+    // Same column count as the canonical homepage/header at every desktop width.
 
     let queued = false;
 
@@ -46,7 +35,7 @@
     const fitGrid = () => {
         queued = false;
         const w = root.clientWidth;
-        const cols = w <= MOBILE_BP ? MOBILE_COLS : nearestValidCols(w / TARGET_CELL);
+        const cols = w <= MOBILE_BP ? MOBILE_COLS : DESKTOP_COLS;
         const cell = w / cols;
         root.style.setProperty('--cols', String(cols));
         root.style.setProperty('--cell', cell + 'px');
