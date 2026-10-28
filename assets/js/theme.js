@@ -38,11 +38,12 @@
     const canvas = document.createElement('canvas');
     const ctx = canvas.getContext('2d', {willReadFrequently:true});
     if (!ctx) return;
-    let previous = 0;
+    let previous = -Infinity;
     let failed = false;
+    const smoothed = new WeakMap();
     function paint(timestamp = 0) {
       if (failed || video.readyState < 2 || !video.videoWidth) return;
-      if (timestamp - previous < 110) return;
+      if (timestamp - previous < 50) return;
       previous = timestamp;
       const bounds = videoBox.getBoundingClientRect();
       const scale = Math.max(bounds.width / video.videoWidth, bounds.height / video.videoHeight);
@@ -54,7 +55,7 @@
         for (const p of paragraphs) {
           const rect = p.getBoundingClientRect();
           if (!rect.width || !rect.height) continue;
-          const w = Math.min(800, Math.max(1, Math.round(rect.width * .8)));
+          const w = Math.min(640, Math.max(1, Math.round(rect.width * .7)));
           const h = Math.max(1, Math.round(w * rect.height / rect.width));
           canvas.width = w; canvas.height = h;
           ctx.clearRect(0,0,w,h);
@@ -65,17 +66,22 @@
             renderedW * w / rect.width, renderedH * h / rect.height);
           const frame = ctx.getImageData(0,0,w,h);
           const data = frame.data;
+          const old = smoothed.get(p);
+          const prev = old && old.w === w && old.h === h ? old.pixels : null;
+          const next = new Uint8ClampedArray(data.length);
           for (let i=0; i<data.length; i+=4) {
             const r=data[i], g=data[i+1], b=data[i+2];
             const blue = Math.min(b-(r+g)*.5,Math.max(r,g,b)-Math.min(r,g,b));
             // Smoothly transition from saturated cobalt text to light lettering on blue.
             const t=Math.max(0,Math.min(1,(blue-37)/39));
             const eased=t*t*(3-2*t);
-            data[i]=Math.round(16+(245-16)*eased);
-            data[i+1]=Math.round(16+(245-16)*eased);
-            data[i+2]=Math.round(255+(245-255)*eased);
-            data[i+3]=255;
+            const alpha = prev ? 0.28 : 1;
+            const rgb = [16 + 229 * eased, 16 + 229 * eased, 255 - 10 * eased];
+            for (let k=0;k<3;k++) next[i+k] = Math.round(rgb[k]*alpha + (prev ? prev[i+k]*(1-alpha) : 0));
+            next[i+3]=255;
           }
+          frame.data.set(next);
+          smoothed.set(p,{w,h,pixels:next});
           ctx.putImageData(frame,0,0);
           p.style.backgroundImage='url("'+canvas.toDataURL('image/png')+'")';
         }
