@@ -64,9 +64,7 @@
       </video>
     </div>
     <div class="plugin-home__wordmark" aria-hidden="true">
-      <video autoplay muted loop playsinline preload="metadata">
-        <source src="assets/videos/REINCANTAMENTO_WEB_OPT.webm" type="video/webm">
-      </video>
+      <video id="reincantamento-wordmark" autoplay muted loop playsinline preload="metadata"></video>
     </div>
     <div class="plugin-home__grid" aria-hidden="true">
       <!-- Original SVG coordinates y=90..811 are stretched across the space below the header. -->
@@ -96,6 +94,19 @@
     <div class="home-statement" aria-label="Reincantamento introduction"><p>Reincantamento is a <em>research</em> <br class="desktop-break">and <em>development</em> group exploring <br class="desktop-break">technology, politics and spirituality.</p></div>
     <nav class="plugin-mobile-panel" id="plugin-mobile-panel" data-open="false" aria-label="Mobile navigation"><a href="writing/index.html">Writings</a><a href="publishing/index.html">Publishing</a><a href="artworks/index.html">Artworks</a><span>Workshops</span><span>Talks</span><a href="about.html">About</a></nav>
   </main>
+  <script>
+  (() => {
+    const video = document.getElementById('reincantamento-wordmark');
+    if (!video) return;
+    const isAppleWebKit = /AppleWebKit/i.test(navigator.userAgent) && !/Chrome|Chromium|Edg|OPR/i.test(navigator.userAgent);
+    video.src = isAppleWebKit
+      ? 'assets/videos/REINCANTAMENTO_SAFARI.mov'
+      : 'assets/videos/REINCANTAMENTO_WEB_OPT.webm';
+    video.load();
+    const playback = video.play();
+    if (playback && playback.catch) playback.catch(() => {});
+  })();
+  </script>
   <script src="assets/js/main.js" defer></script>
   <script>(()=>{const video=document.getElementById('background-video');if(video){video.loop=true;video.muted=true;const restart=()=>{try{video.currentTime=0}catch(e){}const p=video.play();if(p&&p.catch)p.catch(()=>{})};video.addEventListener('ended',restart);document.addEventListener('visibilitychange',()=>{if(!document.hidden&&video.paused)restart()})}const menu=document.getElementById('plugin-menu');const panel=document.getElementById('plugin-mobile-panel');if(menu&&panel){menu.addEventListener('click',()=>{const open=menu.getAttribute('aria-expanded')==='true';menu.setAttribute('aria-expanded',String(!open));panel.dataset.open=String(!open)});panel.addEventListener('click',e=>{if(e.target.closest('a')){menu.setAttribute('aria-expanded','false');panel.dataset.open='false'}})}})();</script>
   <script>
