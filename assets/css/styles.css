@@ -177,7 +177,7 @@ img {
     background: var(--band);
     color: var(--on-band);
     font-family: var(--font-menu);
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 500;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -235,7 +235,8 @@ img {
 .main-nav {
     display: flex;
     align-items: center;
-    gap: clamp(20px, 4vw, 48px);
+    gap: clamp(12px, 2vw, 32px);
+    min-width: 0;
     margin-left: auto;          /* push the menu — and the About cell after it — to the right */
 }
 
@@ -255,8 +256,8 @@ img {
 .main-nav a {
     position: relative;
     font-family: var(--font-menu);
-    font-size: 14px;
-    line-height: 17px;
+    font-size: 16px;
+    line-height: 1.25;
     font-weight: 500;          /* Apfel Grotezk "Mittel" */
     letter-spacing: 0.08em;    /* Figma Menu: 8% */
     text-transform: uppercase;
@@ -368,8 +369,8 @@ img {
     background: var(--band);
     color: var(--on-band);
     font-family: var(--font-menu);
-    font-size: 14px;
-    line-height: 17px;
+    font-size: 16px;
+    line-height: 1.25;
     font-weight: 500;           /* Apfel Grotezk "Mittel" */
     letter-spacing: 0.08em;
     text-transform: uppercase;
