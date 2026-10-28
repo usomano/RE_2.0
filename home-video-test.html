@@ -20,6 +20,8 @@
     .plugin-home{position:relative;width:100%;height:100vh;height:100dvh;overflow:hidden;background:var(--bg)}
     .plugin-home__video{position:absolute;inset:0;overflow:hidden;background:var(--bg)}
     .plugin-home__video video{width:100%;height:100%;display:block;object-fit:cover;object-position:center}
+    .plugin-home__wordmark{position:absolute;left:0;bottom:0;width:100%;z-index:2;pointer-events:none;overflow:hidden}
+    .plugin-home__wordmark video{display:block;width:100%;height:auto;object-fit:contain}
     /* The desktop grid begins exactly below the 16-column header and ends at the viewport bottom. */
     .plugin-home__grid{position:absolute;top:var(--test-header-h);right:0;bottom:0;left:0;z-index:3;pointer-events:none;overflow:hidden}
     .plugin-home__grid svg{display:block;width:100%;height:100%}
@@ -58,7 +60,12 @@
   <main class="plugin-home" id="main">
     <div class="plugin-home__video" aria-hidden="true">
       <video id="background-video" autoplay muted loop playsinline preload="auto">
-        <source src="assets/videos/HOME.mp4?v=f86fe5f3ab7e" type="video/mp4">
+        <source src="assets/videos/site-animation-smooth.webm" type="video/webm">
+      </video>
+    </div>
+    <div class="plugin-home__wordmark" aria-hidden="true">
+      <video autoplay muted loop playsinline preload="metadata">
+        <source src="assets/videos/REINCANTAMENTO_WEB_OPT.webm" type="video/webm">
       </video>
     </div>
     <div class="plugin-home__grid" aria-hidden="true">
