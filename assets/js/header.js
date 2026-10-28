@@ -133,6 +133,7 @@
     }
   })();
 document.addEventListener('DOMContentLoaded', () => {
+ if (document.body.classList.contains('home-video-test')) return; // homepage already binds its menu
  const menu=document.getElementById('plugin-menu');
  const panel=document.getElementById('plugin-mobile-panel');
  if(!menu||!panel)return;
