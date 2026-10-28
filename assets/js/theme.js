@@ -49,6 +49,8 @@
             color: #d9d9d9;
             pointer-events: none;
             overflow: visible;
+            box-sizing: border-box;
+            padding: inherit;
         }
         .home-statement__light-overlay p { margin: 0; }
         .home-statement__light-overlay p + p { margin-top: 28px; }
@@ -56,14 +58,7 @@
         .home-statement__light-overlay--mid { opacity: .52; z-index: 3; }
         .home-statement__light-overlay--strong { opacity: 1; z-index: 4; }
         @media (max-width: 768px) {
-            .home-video-test .home-statement {
-                top: 44% !important;
-                width: 86% !important;
-                max-width: 350px !important;
-                font-size: clamp(17px, 4.6vw, 19px) !important;
-                line-height: 1.08 !important;
-                text-wrap: balance;
-            }
+            /* Responsive placement is controlled by the page layout. */
             .home-video-test .home-statement p + p,
             .home-statement__light-overlay p + p { margin-top: 20px !important; }
             .home-video-test .home-statement .desktop-break { display: none !important; }
