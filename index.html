@@ -10,6 +10,7 @@
   <link rel="preload" href="assets/fonts/Redaction20-Regular.woff" as="font" type="font/woff" crossorigin>
   <link rel="preload" href="assets/fonts/Redaction20-Italic.woff" as="font" type="font/woff" crossorigin>
   <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/header.css?v=canonical-1">
   <script src="assets/js/theme.js?v=canonical-home-20261028"></script>
   <style>
     @font-face{font-family:'Apfel Grotezk Mittel Exact';src:url('assets/fonts/ApfelGrotezk-Mittel.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
@@ -29,30 +30,12 @@
     .plugin-home__grid svg{display:block;width:100%;height:100%}
     .home-content__bottom{grid-row:4}
     @media(min-width:769px){.plugin-home__video video{object-fit:cover;object-position:center 40%}}
-    .plugin-header{position:absolute;inset:0 0 auto;height:var(--test-header-h);z-index:10;font-family:'Apfel Grotezk Mittel Exact',sans-serif;color:var(--ink);background-color:var(--bg);background-image:repeating-linear-gradient(to right,var(--line) 0,var(--line) 1px,transparent 1px,transparent var(--test-cell)),repeating-linear-gradient(to bottom,var(--line) 0,var(--line) 1px,transparent 1px,transparent var(--test-cell))}
-    .plugin-logo{position:absolute;left:0;top:0;width:var(--test-cell);height:var(--test-header-h);display:flex;align-items:center;justify-content:center;background:var(--bg);color:var(--ink)}
-    .plugin-logo{overflow:hidden}
-    .plugin-logo__canvas{display:block;width:calc(var(--test-cell) * 150 / 90);height:auto;aspect-ratio:1320 / 665;object-fit:contain;max-width:none;flex-shrink:0}
-    .plugin-logo__source{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
-    .plugin-nav{position:absolute;right:var(--test-cell);top:0;height:var(--test-header-h);display:grid;width:max(calc(5 * var(--test-cell)),600px);grid-template-columns:repeat(5,minmax(0,1fr));background:var(--bg)}
-    .plugin-nav a,.plugin-nav span,.plugin-about,.plugin-menu{display:flex;align-items:center;justify-content:center;font-family:'Apfel Grotezk Mittel Exact',sans-serif;font-size:16px;line-height:1.25;font-weight:400;letter-spacing:calc(var(--test-cell) * .5 / 90);text-transform:uppercase;text-decoration:none;-webkit-font-smoothing:antialiased;text-rendering:geometricPrecision}
-    .plugin-nav a,.plugin-nav span{color:var(--ink);min-width:0;width:100%;height:var(--test-header-h);padding:0 8px;text-align:center;white-space:nowrap;border-left:1px solid var(--line)}
-    .plugin-about{position:absolute;right:0;top:0;width:var(--test-cell);height:var(--test-header-h);background:var(--band);color:var(--on-band);text-align:center}
-    .plugin-menu,.plugin-mobile-panel{display:none}
     .home-statement{position:relative;grid-row:3;grid-column:1;z-index:5;min-width:0;box-sizing:border-box;margin-left:40.7639%;width:59.2361%;max-width:100%;padding:clamp(22px,3dvh,38px) clamp(18px,2vw,40px) clamp(22px,3dvh,38px) clamp(20px,2vw,36px);color:var(--ink);font-family:'Redaction20 Exact','Redaction20',Georgia,serif;font-size:clamp(20px,min(2.18vw,4.4dvh),36px);line-height:1.1;font-weight:400;font-style:normal;font-synthesis:none;letter-spacing:0;text-align:left;pointer-events:none;-webkit-text-stroke:0 transparent;paint-order:normal;text-shadow:none}
     /* Prevent any previously cached adaptive overlay from duplicating the text. */
     .home-statement em{font-family:'Redaction20 Exact','Redaction20',Georgia,serif;font-style:italic;font-weight:400;font-synthesis:none}
      .home-statement p{margin:0;text-wrap:balance;overflow-wrap:normal}.home-statement p + p{margin-top:1em}.home-statement .keep-together{white-space:nowrap}
     @media(max-width:768px){
       :root{--test-cell:calc(100vw / 13);--test-header-h:calc(var(--test-cell) * 2)}
-      .plugin-header{background-image:repeating-linear-gradient(to right,var(--line) 0,var(--line) .5px,transparent .5px,transparent var(--test-cell)),repeating-linear-gradient(to bottom,var(--line) 0,var(--line) .5px,transparent .5px,transparent var(--test-cell))}
-      .plugin-logo{width:calc(var(--test-cell) * 2)}
-      .plugin-logo__canvas{width:136px;max-width:none}
-      .plugin-nav,.plugin-about{display:none}
-      .plugin-menu{position:absolute;right:0;top:0;display:flex;width:calc(var(--test-cell) * 2);height:var(--test-header-h);border:0;background:var(--band);color:var(--on-band);font-size:16px;line-height:1.25;letter-spacing:.5px;font-weight:400}
-      .plugin-mobile-panel{position:fixed;z-index:20;top:var(--test-header-h);left:0;right:0;bottom:0;padding:var(--test-cell);background:var(--bg);flex-direction:column;gap:22px;font-family:var(--font-menu);text-transform:uppercase}
-      .plugin-mobile-panel[data-open="true"]{display:flex}
-      .plugin-mobile-panel a,.plugin-mobile-panel span{color:var(--ink);font-size:18px}
       .home-content{grid-template-rows:minmax(60px,199fr) minmax(95px,237fr) auto minmax(35px,90fr)}
       .home-statement{margin-left:7%;width:93%;padding:clamp(20px,3dvh,32px) 7% clamp(20px,3dvh,32px) 16px;font-size:clamp(17px,4.6vw,19px);line-height:1.08;text-wrap:balance}
       .home-statement .desktop-break{display:none}
@@ -150,140 +133,7 @@
   </script>
   <script src="assets/js/main.js" defer></script>
   <script>(()=>{const video=document.getElementById('background-video');if(video){video.loop=true;video.muted=true;const restart=()=>{try{video.currentTime=0}catch(e){}const p=video.play();if(p&&p.catch)p.catch(()=>{})};video.addEventListener('ended',restart);document.addEventListener('visibilitychange',()=>{if(!document.hidden&&video.paused)restart()})}const menu=document.getElementById('plugin-menu');const panel=document.getElementById('plugin-mobile-panel');if(menu&&panel){menu.addEventListener('click',()=>{const open=menu.getAttribute('aria-expanded')==='true';menu.setAttribute('aria-expanded',String(!open));panel.dataset.open=String(!open)});panel.addEventListener('click',e=>{if(e.target.closest('a')){menu.setAttribute('aria-expanded','false');panel.dataset.open='false'}})}})();</script>
-  <script>
-  (() => {
-    const video = document.getElementById('blink-source');
-    const canvas = document.getElementById('blink-logo');
-    if (!video || !canvas) return;
-    const ctx = canvas.getContext('2d', { alpha: true });
-    if (!ctx) return;
+  <script src="assets/js/header.js?v=canonical-1" defer></script>
 
-    const scratch = document.createElement('canvas');
-    const sourceCtx = scratch.getContext('2d', { willReadFrequently: true });
-    if (!sourceCtx) return;
-
-    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-    let timeoutId = 0;
-    let frameId = 0;
-    let playing = false;
-
-    function renderFrame() {
-      if (video.readyState < 2 || !video.videoWidth || !video.videoHeight) return;
-      // More than enough resolution for the small header mark, without
-      // processing a full-size video frame on every blink.
-      const w = Math.min(320, video.videoWidth);
-      const h = Math.max(1, Math.round(video.videoHeight * w / video.videoWidth));
-      if (scratch.width !== w || scratch.height !== h) {
-        scratch.width = canvas.width = w;
-        scratch.height = canvas.height = h;
-      }
-      sourceCtx.drawImage(video, 0, 0, w, h);
-      const frame = sourceCtx.getImageData(0, 0, w, h);
-      const pixels = frame.data;
-      // A flat opaque video background is keyed against four sampled corners.
-      // Soft alpha edges preserve anti-aliasing around the moving symbol.
-      const corners = [0, (w - 1) * 4, ((h - 1) * w) * 4, (w * h - 1) * 4];
-      const bg = [0, 0, 0];
-      for (const offset of corners) {
-        for (let c = 0; c < 3; c++) bg[c] += pixels[offset + c] / 4;
-      }
-      for (let i = 0; i < pixels.length; i += 4) {
-        const dr = pixels[i] - bg[0];
-        const dg = pixels[i + 1] - bg[1];
-        const db = pixels[i + 2] - bg[2];
-        const distance = Math.sqrt(dr * dr + dg * dg + db * db);
-        const alpha = Math.max(0, Math.min(1, (distance - 9) / 48));
-        if (alpha < 0.005) {
-          pixels[i + 3] = 0;
-        } else {
-          // Recover the original foreground color from its background blend.
-          for (let c = 0; c < 3; c++) {
-            pixels[i + c] = Math.max(0, Math.min(255,
-              (pixels[i + c] - (1 - alpha) * bg[c]) / alpha));
-          }
-          pixels[i + 3] = Math.round(255 * alpha);
-        }
-      }
-      ctx.clearRect(0, 0, w, h);
-      ctx.putImageData(frame, 0, 0);
-    }
-
-    function onFrame() {
-      renderFrame();
-      if (playing && video.requestVideoFrameCallback) {
-        frameId = video.requestVideoFrameCallback(onFrame);
-      }
-    }
-
-    function stopFrameTracking() {
-      playing = false;
-      if (frameId && video.cancelVideoFrameCallback) {
-        video.cancelVideoFrameCallback(frameId);
-        frameId = 0;
-      }
-    }
-
-    function scheduleBlink() {
-      clearTimeout(timeoutId);
-      if (reducedMotion.matches || document.hidden) return;
-      // Random rest between single blinks, rather than a regular video loop.
-      timeoutId = setTimeout(() => {
-        if (document.hidden || reducedMotion.matches) return;
-        video.currentTime = 0;
-        const attempt = video.play();
-        if (attempt && attempt.catch) attempt.catch(() => scheduleBlink());
-      }, 1800 + Math.random() * 5600);
-    }
-
-    video.addEventListener('loadeddata', () => {
-      video.pause();
-      renderFrame();
-      scheduleBlink();
-    }, { once: true });
-    video.addEventListener('seeked', renderFrame);
-    video.addEventListener('play', () => {
-      stopFrameTracking();
-      playing = true;
-      if (video.requestVideoFrameCallback) {
-        frameId = video.requestVideoFrameCallback(onFrame);
-      } else {
-        const fallback = () => {
-          if (!playing) return;
-          renderFrame();
-          frameId = requestAnimationFrame(fallback);
-        };
-        frameId = requestAnimationFrame(fallback);
-      }
-    });
-    video.addEventListener('ended', () => {
-      stopFrameTracking();
-      video.currentTime = 0;
-      scheduleBlink();
-    });
-    document.addEventListener('visibilitychange', () => {
-      clearTimeout(timeoutId);
-      if (document.hidden) {
-        video.pause();
-        stopFrameTracking();
-      } else {
-        video.currentTime = 0;
-        scheduleBlink();
-      }
-    });
-    reducedMotion.addEventListener?.('change', () => {
-      clearTimeout(timeoutId);
-      if (reducedMotion.matches) {
-        video.pause();
-        stopFrameTracking();
-        video.currentTime = 0;
-      } else scheduleBlink();
-    });
-    if (video.readyState >= 2) {
-      video.pause();
-      renderFrame();
-      scheduleBlink();
-    }
-  })();
-  </script>
 </body>
 </html>
