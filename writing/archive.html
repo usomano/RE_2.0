@@ -17,6 +17,7 @@
 
     <link rel="stylesheet" href="../assets/css/styles.css">
     <link rel="stylesheet" href="../assets/css/sections.css">
+<link rel="stylesheet" href="../assets/css/header.css?v=canonical-1">
 
     <!-- Not deferred: applies the stored palette before first paint. -->
     <script src="../assets/js/theme.js"></script>
@@ -25,26 +26,20 @@
 
     <a class="skip-link" href="#main">Skip to content</a>
 
-    <header class="site-header">
-        <a class="brand" href="../index.html" aria-label="Reincantamento home">
-            <img src="../assets/images/REINC-LOGO-2026.svg" alt="Reincantamento" width="53" height="25">
-        </a>
-
-        <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav">
-            <span></span><span></span><span></span>
-        </button>
-
-        <nav class="main-nav" id="primary-nav" aria-label="Primary">
-            <a href="../writing/index.html" class="is-active" aria-current="page">Drops</a>
-            <a href="../publishing/index.html">Publishing</a>
-            <a href="../artworks/index.html">Artworks</a>
-            <!-- No design yet — shown, not linked. -->
-            <span class="nav-off">Workshops</span>
-            <span class="nav-off">Talks</span>
-        </nav>
-
-        <a class="about-btn" href="../about.html">About</a>
-    </header>
+    <header class="plugin-header">
+ <a class="plugin-logo" href="../index.html" aria-label="Reincantamento home">
+  <canvas class="plugin-logo__canvas" id="blink-logo" aria-hidden="true"></canvas>
+  <video class="plugin-logo__source" id="blink-source" muted playsinline preload="auto" aria-hidden="true"><source src="../assets/videos/blink.mp4" type="video/mp4"></video>
+ </a>
+ <nav class="plugin-nav" aria-label="Primary navigation">
+  <a href="../writing/index.html">Drops</a><a href="../publishing/index.html">Publishing</a><a href="../artworks/index.html">Artworks</a><span>Workshops</span><span>Talks</span>
+ </nav>
+ <a class="plugin-about" href="../about.html">About</a>
+ <button class="plugin-menu" id="plugin-menu" type="button" aria-expanded="false" aria-controls="plugin-mobile-panel">Menu</button>
+</header>
+<nav class="plugin-mobile-panel" id="plugin-mobile-panel" data-open="false" aria-label="Mobile navigation">
+ <a href="../writing/index.html">Drops</a><a href="../publishing/index.html">Publishing</a><a href="../artworks/index.html">Artworks</a><span>Workshops</span><span>Talks</span><a href="../about.html">About</a>
+</nav>
 
     <main id="main" tabindex="-1">
 
@@ -556,5 +551,6 @@
     <button class="theme-switch" type="button" aria-pressed="false" aria-label="Acid mode" title="Acid mode">&#9791;</button>
 
     <script src="../assets/js/site.js" defer></script>
+<script src="../assets/js/header.js?v=canonical-1" defer></script>
 </body>
 </html>
