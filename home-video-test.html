@@ -20,12 +20,14 @@
     .plugin-home{position:relative;width:100%;height:100vh;height:100dvh;overflow:hidden;background:var(--bg)}
     .plugin-home__video{position:absolute;inset:0;overflow:hidden;background:var(--bg)}
     .plugin-home__video video{width:100%;height:100%;display:block;object-fit:cover;object-position:center}
-    .plugin-home__wordmark{position:absolute;left:0;right:0;top:calc(var(--test-header-h) + (100dvh - var(--test-header-h)) * 199 / 719);height:calc((100dvh - var(--test-header-h)) * 237 / 719);z-index:2;pointer-events:none;display:flex;align-items:center;justify-content:center;overflow:hidden}
+    /* Shared responsive bands: the wordmark, text and overlay follow one layout. */
+    .home-content{position:relative;z-index:2;margin-top:var(--test-header-h);min-height:calc(100dvh - var(--test-header-h));display:grid;grid-template-rows:minmax(90px,199fr) minmax(140px,237fr) minmax(max-content,193fr) minmax(40px,90fr)}
+    .home-content__top{grid-row:1}
+    .plugin-home__wordmark{grid-row:2;min-width:0;z-index:2;pointer-events:none;display:flex;align-items:center;justify-content:center;overflow:hidden}
     .plugin-home__wordmark video{display:block;width:100%;height:100%;object-fit:contain}
-    /* The desktop grid begins exactly below the 16-column header and ends at the viewport bottom. */
-    .plugin-home__grid{position:absolute;top:var(--test-header-h);right:0;bottom:0;left:0;z-index:3;pointer-events:none;overflow:hidden}
-    .plugin-home__grid svg{display:block;width:100%;height:100%;overflow:visible}
-    @media(max-width:768px){.plugin-home__grid{top:var(--test-header-h)}}
+    .plugin-home__grid{position:absolute;inset:0;z-index:3;pointer-events:none;overflow:hidden}
+    .plugin-home__grid svg{display:block;width:100%;height:100%}
+    .home-content__bottom{grid-row:4}
     @media(min-width:769px){.plugin-home__video video{object-fit:cover;object-position:center 40%}}
     .plugin-header{position:absolute;inset:0 0 auto;height:var(--test-header-h);z-index:10;font-family:'Apfel Grotezk Mittel Exact',sans-serif;color:var(--ink);background-color:var(--bg);background-image:repeating-linear-gradient(to right,var(--line) 0,var(--line) 1px,transparent 1px,transparent var(--test-cell)),repeating-linear-gradient(to bottom,var(--line) 0,var(--line) 1px,transparent 1px,transparent var(--test-cell))}
     .plugin-logo{position:absolute;left:0;top:0;width:var(--test-cell);height:var(--test-header-h);display:flex;align-items:center;justify-content:center;background:var(--bg);color:var(--ink)}
@@ -37,7 +39,7 @@
     .plugin-nav a,.plugin-nav span{color:var(--ink);width:var(--test-cell);height:var(--test-header-h);padding:0 calc(var(--test-cell) * 5 / 90);text-align:center}
     .plugin-about{position:absolute;right:0;top:0;width:var(--test-cell);height:var(--test-header-h);background:var(--band);color:var(--on-band);text-align:center}
     .plugin-menu,.plugin-mobile-panel{display:none}
-    .home-statement{position:absolute;z-index:5;left:45.1%;top:calc(var(--test-header-h) + (100dvh - var(--test-header-h)) * 436 / 719 + clamp(12px,1.5dvh,24px));width:51.5%;transform:none;color:var(--ink);font-family:'Redaction20 Exact','Redaction20',Georgia,serif;font-size:clamp(20px,min(2.7vw,5dvh),46px);line-height:1.07;font-weight:400;font-style:normal;font-synthesis:none;letter-spacing:0;text-align:left;pointer-events:none;-webkit-text-stroke:0 transparent;paint-order:normal;text-shadow:none}
+    .home-statement{grid-row:3;z-index:5;min-width:0;box-sizing:border-box;margin-left:40.76%;width:56%;padding:clamp(16px,1.5dvh,24px) 2% clamp(20px,2.5dvh,36px) 0;color:var(--ink);font-family:'Redaction20 Exact','Redaction20',Georgia,serif;font-size:clamp(20px,min(2.7vw,5dvh),46px);line-height:1.07;font-weight:400;font-style:normal;font-synthesis:none;letter-spacing:0;text-align:left;pointer-events:none;-webkit-text-stroke:0 transparent;paint-order:normal;text-shadow:none}
     .home-statement em{font-family:'Redaction20 Exact','Redaction20',Georgia,serif;font-style:italic;font-weight:400;font-synthesis:none}
     .home-statement p{margin:0;text-wrap:balance}.home-statement p + p{margin-top:1em}.home-statement .keep-together{white-space:nowrap}
     @media(max-width:768px){
@@ -50,7 +52,8 @@
       .plugin-mobile-panel{position:fixed;z-index:20;top:var(--test-header-h);left:0;right:0;bottom:0;padding:var(--test-cell);background:var(--bg);flex-direction:column;gap:22px;font-family:var(--font-menu);text-transform:uppercase}
       .plugin-mobile-panel[data-open="true"]{display:flex}
       .plugin-mobile-panel a,.plugin-mobile-panel span{color:var(--ink);font-size:18px}
-      .home-statement{left:7%;width:86%;max-width:none;font-size:clamp(17px,4.6vw,19px);line-height:1.08;text-wrap:balance}
+      .home-content{grid-template-rows:minmax(60px,199fr) minmax(95px,237fr) minmax(max-content,193fr) minmax(35px,90fr)}
+      .home-statement{margin-left:7%;width:86%;padding:18px 0 24px;font-size:clamp(17px,4.6vw,19px);line-height:1.08;text-wrap:balance}
       .home-statement .desktop-break{display:none}
     }
   </style>
@@ -62,12 +65,6 @@
         <source src="assets/videos/site-animation-smooth.webm" type="video/webm">
       </video>
     </div>
-    <div class="plugin-home__wordmark" aria-hidden="true">
-      <video id="reincantamento-wordmark" autoplay muted loop playsinline preload="metadata"></video>
-    </div>
-    <div class="plugin-home__grid" aria-hidden="true">
-      <svg id="responsive-home-grid" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"></svg>
-    </div>
     <header class="plugin-header">
       <a class="plugin-logo" href="index.html" aria-label="Reincantamento home">
         <canvas class="plugin-logo__canvas" id="blink-logo" aria-hidden="true"></canvas>
@@ -77,7 +74,17 @@
       <a class="plugin-about" href="about.html">About</a>
       <button class="plugin-menu" id="plugin-menu" type="button" aria-expanded="false" aria-controls="plugin-mobile-panel">Menu</button>
     </header>
-    <div class="home-statement" aria-label="Reincantamento introduction"><p>Reincantamento is a <em>research</em> and <em>development</em> group exploring technology, politics <span class="keep-together">and spirituality.</span></p><p>We build tools and spaces for collective inquiry.</p></div>
+    <div class="home-content">
+      <div class="home-content__top" aria-hidden="true"></div>
+      <div class="plugin-home__wordmark" aria-hidden="true">
+        <video id="reincantamento-wordmark" autoplay muted loop playsinline preload="metadata"></video>
+      </div>
+      <div class="home-statement" aria-label="Reincantamento introduction"><p>Reincantamento is a <em>research</em> and <em>development</em> group exploring technology, politics <span class="keep-together">and spirituality.</span></p><p>We build tools and spaces for collective inquiry.</p></div>
+      <div class="home-content__bottom" aria-hidden="true"></div>
+      <div class="plugin-home__grid" aria-hidden="true">
+        <svg id="responsive-home-grid" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"></svg>
+      </div>
+    </div>
     <nav class="plugin-mobile-panel" id="plugin-mobile-panel" data-open="false" aria-label="Mobile navigation"><a href="writing/index.html">Writings</a><a href="publishing/index.html">Publishing</a><a href="artworks/index.html">Artworks</a><span>Workshops</span><span>Talks</span><a href="about.html">About</a></nav>
   </main>
   <script>
@@ -95,55 +102,47 @@
   </script>
   <script>
   (() => {
-    // Geometry from HOME GRID.svg; x anchors use the same columns as the header.
+    // Draw lines from actual CSS grid band boundaries, not viewport estimates.
     const overlay = document.querySelector('.plugin-home__grid');
     const svg = document.getElementById('responsive-home-grid');
-    if (!overlay || !svg) return;
+    const bands = ['.home-content__top','.plugin-home__wordmark','.home-statement','.home-content__bottom'].map(sel => document.querySelector(sel));
+    if (!overlay || !svg || bands.some(b => !b)) return;
     const ns = 'http://www.w3.org/2000/svg';
-    const lines = Array.from({ length: 7 }, () => {
-      const line = document.createElementNS(ns, 'line');
-      line.setAttribute('stroke', '#F5F5F5');
-      line.setAttribute('stroke-width', '1');
-      line.setAttribute('vector-effect', 'non-scaling-stroke');
+    const lines = Array.from({length:7}, () => {
+      const line=document.createElementNS(ns,'line');
+      line.setAttribute('stroke','#F5F5F5');
+      line.setAttribute('stroke-width','1');
+      line.setAttribute('vector-effect','non-scaling-stroke');
       svg.appendChild(line);
       return line;
     });
-    const setLine = (i, x1, y1, x2, y2) => {
-      const line = lines[i];
-      line.setAttribute('x1', String(x1));
-      line.setAttribute('y1', String(y1));
-      line.setAttribute('x2', String(x2));
-      line.setAttribute('y2', String(y2));
-    };
-    const layout = () => {
-      const w = overlay.clientWidth;
-      const hero = document.querySelector('.plugin-home');
-      const statement = document.querySelector('.home-statement');
-      if (!w || !hero || !statement) return;
-      const mobile = matchMedia('(max-width: 768px)').matches;
-      const cell = w / (mobile ? 13 : 16);
-      const baseline = Math.max(1, window.innerHeight - overlay.offsetTop);
-      const y1 = baseline * 199 / 719, y2 = baseline * 436 / 719;
-      const padding = Math.max(16, Math.min(32, window.innerHeight * .025));
-      const statementBottom = statement.getBoundingClientRect().bottom - overlay.getBoundingClientRect().top;
-      const y3 = Math.max(baseline * 629 / 719, statementBottom + padding);
-      const bottomBand = baseline * 90 / 719;
-      const neededHeight = Math.max(window.innerHeight, overlay.offsetTop + y3 + bottomBand);
-      hero.style.height = neededHeight + 'px';
-      const h = overlay.clientHeight;
-      svg.setAttribute('viewBox', `0 0 ${w} ${h}`);
-      setLine(0, 3 * cell, 0, 3 * cell, y1);
-      setLine(1, w - (mobile ? 2 : 1) * cell, 0, w - (mobile ? 2 : 1) * cell, y1);
-      setLine(2, 0, y1, w, y1);
-      setLine(3, 0, y2, w, y2);
-      setLine(4, w * 587 / 1440, y2, w * 587 / 1440, y3);
-      setLine(5, 0, y3, w, y3);
-      setLine(6, cell, y3, cell, h);
-    };
-    if (typeof ResizeObserver !== 'undefined') new ResizeObserver(layout).observe(overlay);
-    window.addEventListener('resize', layout);
-    if (document.fonts && document.fonts.ready) document.fonts.ready.then(layout);
-    if (typeof ResizeObserver !== 'undefined') new ResizeObserver(layout).observe(document.querySelector('.home-statement'));
+    function setLine(i,x1,y1,x2,y2){
+      const l=lines[i];l.setAttribute('x1',x1);l.setAttribute('y1',y1);l.setAttribute('x2',x2);l.setAttribute('y2',y2);
+    }
+    function layout(){
+      const box=overlay.getBoundingClientRect(),w=box.width,h=box.height;
+      if(!w||!h)return;
+      const mobile=matchMedia('(max-width: 768px)').matches;
+      const cell=w/(mobile?13:16);
+      const y1=bands[0].getBoundingClientRect().bottom-box.top;
+      const y2=bands[1].getBoundingClientRect().bottom-box.top;
+      const y3=bands[2].getBoundingClientRect().bottom-box.top;
+      svg.setAttribute('viewBox',`0 0 ${w} ${h}`);
+      setLine(0,3*cell,0,3*cell,y1);
+      setLine(1,w-(mobile?2:1)*cell,0,w-(mobile?2:1)*cell,y1);
+      setLine(2,0,y1,w,y1);
+      setLine(3,0,y2,w,y2);
+      setLine(4,w*587/1440,y2,w*587/1440,y3);
+      setLine(5,0,y3,w,y3);
+      setLine(6,cell,y3,cell,h);
+    }
+    if(typeof ResizeObserver!=='undefined'){
+      const observer=new ResizeObserver(layout);
+      observer.observe(overlay);
+      bands.forEach(b=>observer.observe(b));
+    }
+    window.addEventListener('resize',layout);
+    if(document.fonts?.ready)document.fonts.ready.then(layout);
     layout();
   })();
   </script>
