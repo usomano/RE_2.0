@@ -35,10 +35,11 @@
     const fitGrid = () => {
         queued = false;
         const w = root.clientWidth;
-        const cols = w <= MOBILE_BP ? MOBILE_COLS : DESKTOP_COLS;
+        const cols = w <= MOBILE_BP ? MOBILE_COLS : (w >= 1350 && w < 1600 ? 13 : DESKTOP_COLS);
         const cell = w / cols;
         root.style.setProperty('--cols', String(cols));
         root.style.setProperty('--cell', cell + 'px');
+        root.style.setProperty('--site-cell', cell + 'px');
         // The colourway switch sits in the last WHOLE row of the first screen.
         // The module is square here, so the viewport height rarely divides by
         // it: measure where that row starts rather than hanging off the bottom.
