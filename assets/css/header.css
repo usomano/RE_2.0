@@ -31,10 +31,10 @@ body:not(.home-video-test) .plugin-mobile-panel{z-index:200}
 }
 
 /* Editorial pages receive exactly the same module from site.js. */
-body.page{--test-cell:var(--cell)}
+/* All pages derive header geometry from the same viewport-based module. */
 
 @media (min-width: 769px) {
-  :root { --test-cell: var(--site-cell, calc(100vw / 16)); --test-header-h: var(--test-cell); }
+  :root { --test-cell: calc(100vw / 16); --test-header-h: var(--test-cell); }
   .plugin-nav a,.plugin-nav span {padding-inline:2px;letter-spacing:0;font-size:16px}
 }
 @media (min-width:769px) and (max-width:1349px) {
@@ -48,10 +48,10 @@ body.page{--test-cell:var(--cell)}
 /* Desktop column-count changes are shared with editorial site.js.
    Keep each label in one geometrically square module. */
 @media (min-width:1350px) and (max-width:1599px){
- :root{--site-cell:calc(100vw / 13)}
+ :root{--test-cell:calc(100vw / 13);--test-header-h:var(--test-cell)}
 }
 @media (min-width:1600px){
- :root{--site-cell:calc(100vw / 16)}
+ :root{--test-cell:calc(100vw / 16);--test-header-h:var(--test-cell)}
 }
 
 .plugin-logo__canvas{position:relative;z-index:1}
