@@ -20,8 +20,8 @@
     .plugin-home{position:relative;width:100%;height:100vh;height:100dvh;overflow:hidden;background:var(--bg)}
     .plugin-home__video{position:absolute;inset:0;overflow:hidden;background:var(--bg)}
     .plugin-home__video video{width:100%;height:100%;display:block;object-fit:cover;object-position:center}
-    .plugin-home__wordmark{position:absolute;left:0;bottom:0;width:100%;z-index:2;pointer-events:none;overflow:hidden}
-    .plugin-home__wordmark video{display:block;width:100%;height:auto;object-fit:contain}
+    .plugin-home__wordmark{position:absolute;left:0;right:0;top:calc(var(--test-header-h) + (100dvh - var(--test-header-h)) * 199 / 719);height:calc((100dvh - var(--test-header-h)) * 237 / 719);z-index:2;pointer-events:none;display:flex;align-items:center;justify-content:center;overflow:hidden}
+    .plugin-home__wordmark video{display:block;width:100%;height:100%;object-fit:contain}
     /* The desktop grid begins exactly below the 16-column header and ends at the viewport bottom. */
     .plugin-home__grid{position:absolute;top:var(--test-header-h);right:0;bottom:0;left:0;z-index:3;pointer-events:none;overflow:hidden}
     .plugin-home__grid svg{display:block;width:100%;height:100%;overflow:visible}
