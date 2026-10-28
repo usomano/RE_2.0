@@ -8,7 +8,7 @@
         }
     } catch (err) {}
 
-    const isHomeVideoTest = location.pathname.endsWith('/home-video-test.html') || location.pathname.endsWith('home-video-test.html');
+    const isHomeVideoTest = /(?:\/|\/index\.html|\/home-video-test\.html)$/.test(location.pathname);
     if (!isHomeVideoTest) return;
 
     const style = document.createElement('style');
