@@ -634,16 +634,19 @@ img {
     gap: 20px;
 }
 
-/* Desktop header: match the canonical homepage's cell-based navigation. */
+/* Canonical desktop header: same 16-column geometry as index.html.
+   Section page grids keep their independent card/content column modules. */
 @media (min-width: 769px) {
     .site-header {
-        --header-cell: var(--grid-col);
-        height: var(--grid-row);
+        --header-cell: calc(100vw / 16);
+        height: var(--header-cell);
+        min-height: var(--header-cell);
         align-items: stretch;
         background: var(--bg);
         background-image: repeating-linear-gradient(to right, var(--line) 0 1px, transparent 1px var(--header-cell));
     }
     .site-header .brand {
+        flex: 0 0 var(--header-cell);
         width: var(--header-cell);
         min-width: var(--header-cell);
         background: var(--bg);
@@ -654,13 +657,14 @@ img {
         object-fit: contain;
     }
     .site-header .main-nav {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        flex: 0 0 auto;
+        width: max(calc(5 * var(--header-cell)), 600px);
+        height: 100%;
         margin-left: auto;
         padding: 0;
         gap: 0;
-        display: grid;
-        grid-template-columns: repeat(5, minmax(0, 1fr));
-        width: max(calc(5 * var(--header-cell)), 600px);
-        height: 100%;
         background: var(--bg);
     }
     .site-header .main-nav > a,
@@ -672,25 +676,27 @@ img {
         width: 100%;
         height: 100%;
         padding: 0 8px;
+        border-left: 1px solid var(--line);
+        color: var(--ink);
         text-align: center;
         white-space: nowrap;
+        font-family: var(--font-menu);
         font-size: 16px;
+        font-weight: 400;
         line-height: 1.25;
         letter-spacing: .005em;
-        font-weight: 400;
-        border-left: 1px solid var(--line);
         text-transform: uppercase;
     }
     .site-header .main-nav > a::after { display: none; }
     .site-header .about-btn {
+        flex: 0 0 var(--header-cell);
         width: var(--header-cell);
         min-width: var(--header-cell);
         font-size: 16px;
-        line-height: 1.25;
         font-weight: 400;
+        line-height: 1.25;
         letter-spacing: .005em;
     }
-    .site-header .nav-off { color: var(--ink); }
 }
 /* ===================== */
 /* RESPONSIVE            */
@@ -906,7 +912,7 @@ body.theme-blue .about-btn {
    Set in the same BLU as the links so the menu reads as one row of five. */
 .main-nav .nav-off {
     font-family: var(--font-menu);
-    font-size: 14px;
+    font-size: 16px;
     line-height: 17px;
     font-weight: 500;
     letter-spacing: 0.08em;
