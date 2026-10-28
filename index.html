@@ -107,7 +107,8 @@
       const box=overlay.getBoundingClientRect(),w=box.width,h=box.height;
       if(!w||!h)return;
       const mobile=matchMedia('(max-width: 768px)').matches;
-      const cell=w/(mobile?13:16);
+      const cols=mobile?13:(w>=1350&&w<1600?13:16);
+      const cell=w/cols;
       const y1=bands[0].getBoundingClientRect().bottom-box.top;
       const y2=bands[1].getBoundingClientRect().bottom-box.top;
       const y3=bands[2].getBoundingClientRect().bottom-box.top;
