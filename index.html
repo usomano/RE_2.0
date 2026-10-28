@@ -83,6 +83,17 @@
     video.load();
     const playback = video.play();
     if (playback && playback.catch) playback.catch(() => {});
+    // Keep the lettering running after returning to a backgrounded tab.
+    video.addEventListener('ended', () => {
+      video.currentTime = 0;
+      video.play().catch(() => {});
+    });
+    document.addEventListener('visibilitychange', () => {
+      if (!document.hidden && video.paused && !video.ended) video.play().catch(() => {});
+    });
+    window.addEventListener('pageshow', () => {
+      if (video.paused) video.play().catch(() => {});
+    });
   })();
   </script>
   <script>
@@ -134,7 +145,7 @@
   })();
   </script>
   <script src="assets/js/main.js" defer></script>
-  <script>(()=>{const video=document.getElementById('background-video');if(video){video.loop=true;video.muted=true;const restart=()=>{try{video.currentTime=0}catch(e){}const p=video.play();if(p&&p.catch)p.catch(()=>{})};video.addEventListener('ended',restart);document.addEventListener('visibilitychange',()=>{if(!document.hidden&&video.paused)restart()})}const menu=document.getElementById('plugin-menu');const panel=document.getElementById('plugin-mobile-panel');if(menu&&panel){menu.addEventListener('click',()=>{const open=menu.getAttribute('aria-expanded')==='true';menu.setAttribute('aria-expanded',String(!open));panel.dataset.open=String(!open)});panel.addEventListener('click',e=>{if(e.target.closest('a')){menu.setAttribute('aria-expanded','false');panel.dataset.open='false'}})}})();</script>
+  <script>(()=>{const video=document.getElementById('background-video');if(video){video.loop=true;video.muted=true;const restart=()=>{try{video.currentTime=0}catch(e){}const p=video.play();if(p&&p.catch)p.catch(()=>{})};video.addEventListener('ended',restart);document.addEventListener('visibilitychange',()=>{if(!document.hidden&&video.paused){const p=video.play();if(p&&p.catch)p.catch(()=>{})}});window.addEventListener('pageshow',()=>{if(video.paused){const p=video.play();if(p&&p.catch)p.catch(()=>{})}})}const menu=document.getElementById('plugin-menu');const panel=document.getElementById('plugin-mobile-panel');if(menu&&panel){menu.addEventListener('click',()=>{const open=menu.getAttribute('aria-expanded')==='true';menu.setAttribute('aria-expanded',String(!open));panel.dataset.open=String(!open)});panel.addEventListener('click',e=>{if(e.target.closest('a')){menu.setAttribute('aria-expanded','false');panel.dataset.open='false'}})}})();</script>
   <script src="assets/js/header.js?v=logo-fallback-5" defer></script>
 
 </body>
