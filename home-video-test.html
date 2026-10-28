@@ -39,7 +39,7 @@
     .plugin-menu,.plugin-mobile-panel{display:none}
     .home-statement{position:absolute;z-index:5;left:45.1%;top:calc(var(--test-header-h) + (100dvh - var(--test-header-h)) * 436 / 719 + clamp(12px,1.5dvh,24px));width:51.5%;transform:none;color:var(--ink);font-family:'Redaction20 Exact','Redaction20',Georgia,serif;font-size:clamp(20px,min(2.7vw,5dvh),46px);line-height:1.07;font-weight:400;font-style:normal;font-synthesis:none;letter-spacing:0;text-align:left;pointer-events:none;-webkit-text-stroke:0 transparent;paint-order:normal;text-shadow:none}
     .home-statement em{font-family:'Redaction20 Exact','Redaction20',Georgia,serif;font-style:italic;font-weight:400;font-synthesis:none}
-    .home-statement p{margin:0}.home-statement p + p{margin-top:1em}
+    .home-statement p{margin:0;text-wrap:balance}.home-statement p + p{margin-top:1em}.home-statement .keep-together{white-space:nowrap}
     @media(max-width:768px){
       :root{--test-cell:calc(100vw / 13);--test-header-h:calc(var(--test-cell) * 2)}
       .plugin-header{background-image:repeating-linear-gradient(to right,var(--line) 0,var(--line) .5px,transparent .5px,transparent var(--test-cell)),repeating-linear-gradient(to bottom,var(--line) 0,var(--line) .5px,transparent .5px,transparent var(--test-cell))}
@@ -77,7 +77,7 @@
       <a class="plugin-about" href="about.html">About</a>
       <button class="plugin-menu" id="plugin-menu" type="button" aria-expanded="false" aria-controls="plugin-mobile-panel">Menu</button>
     </header>
-    <div class="home-statement" aria-label="Reincantamento introduction"><p>Reincantamento is a <em>research</em> and <em>development</em> group exploring technology, politics and spirituality.</p><p>We build tools and spaces for collective inquiry.</p></div>
+    <div class="home-statement" aria-label="Reincantamento introduction"><p>Reincantamento is a <em>research</em> and <em>development</em> group exploring technology, politics <span class="keep-together">and spirituality.</span></p><p>We build tools and spaces for collective inquiry.</p></div>
     <nav class="plugin-mobile-panel" id="plugin-mobile-panel" data-open="false" aria-label="Mobile navigation"><a href="writing/index.html">Writings</a><a href="publishing/index.html">Publishing</a><a href="artworks/index.html">Artworks</a><span>Workshops</span><span>Talks</span><a href="about.html">About</a></nav>
   </main>
   <script>
