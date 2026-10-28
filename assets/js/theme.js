@@ -1,4 +1,4 @@
-/* REINCANTAMENTO — theme bootstrap and single-layer adaptive home text. */
+/* REINCANTAMENTO — palette bootstrap and pixel-accurate adaptive home text. */
 (() => {
   'use strict';
   try {
@@ -9,111 +9,94 @@
 
   if (!location.pathname.endsWith('/home-video-test.html')) return;
 
-  const init = () => {
+  function init() {
     const video = document.getElementById('background-video');
     const statement = document.querySelector('.home-statement');
-    const container = document.querySelector('.plugin-home__video');
-    if (!video || !statement || !container) return;
-
-    // Older versions built three independent copies of the text.
+    const videoBox = document.querySelector('.plugin-home__video');
+    if (!video || !statement || !videoBox) return;
     statement.querySelectorAll('.home-statement__light-overlay').forEach(el => el.remove());
 
-    const words = [];
-    const walker = document.createTreeWalker(statement, NodeFilter.SHOW_TEXT);
-    const textNodes = [];
-    while (walker.nextNode()) textNodes.push(walker.currentNode);
-    for (const node of textNodes) {
-      if (!node.nodeValue.trim()) continue;
-      const frag = document.createDocumentFragment();
-      const pieces = node.nodeValue.match(/\s+|\S+/g) || [];
-      for (const piece of pieces) {
-        if (/^\s+$/.test(piece)) {
-          frag.appendChild(document.createTextNode(piece));
-        } else {
-          const word = document.createElement('span');
-          word.className = 'home-adaptive-word';
-          word.textContent = piece;
-          frag.appendChild(word);
-          words.push(word);
-        }
+    // Paint colour through the original glyphs: no duplicate markup or text layout.
+    const paragraphs = Array.from(statement.children).filter(el => el.tagName === 'P');
+    const style = document.createElement('style');
+    style.textContent = `
+      .home-video-test .home-statement > p {
+        color: transparent !important;
+        -webkit-text-fill-color: transparent !important;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        background-clip: text;
+        -webkit-background-clip: text;
       }
-      node.replaceWith(frag);
-    }
+      .home-video-test .home-statement > p * {
+        color: inherit !important;
+        -webkit-text-fill-color: inherit !important;
+      }
+    `;
+    document.head.appendChild(style);
 
-    // Sample the already-displayed video once per update, then sample each
-    // word in the SAME DOM layout. No duplicate text or independent wrapping.
     const canvas = document.createElement('canvas');
-    const ctx = canvas.getContext('2d', { willReadFrequently: true });
+    const ctx = canvas.getContext('2d', {willReadFrequently:true});
     if (!ctx) return;
-    const width = 320;
-    let lastPaint = -Infinity;
-    let disabled = false;
-    const light = '#f5f5f5';
-    const dark = '#1010ff';
-
-    function update(now = performance.now()) {
-      if (disabled || !video.videoWidth || video.readyState < 2) return;
-      if (now - lastPaint < 90) return;
-      lastPaint = now;
-
-      const vr = container.getBoundingClientRect();
-      if (vr.width <= 0 || vr.height <= 0) return;
-      const scale = Math.max(vr.width / video.videoWidth, vr.height / video.videoHeight);
-      const shownW = video.videoWidth * scale;
-      const shownH = video.videoHeight * scale;
-      const excessX = shownW - vr.width;
-      const excessY = shownH - vr.height;
-      const posY = matchMedia('(min-width:769px)').matches ? 0.4 : 0.5;
-      const h = Math.max(1, Math.round(width * vr.height / vr.width));
-      if (canvas.width !== width || canvas.height !== h) {
-        canvas.width = width;
-        canvas.height = h;
-      }
+    let previous = 0;
+    let failed = false;
+    function paint(timestamp = 0) {
+      if (failed || video.readyState < 2 || !video.videoWidth) return;
+      if (timestamp - previous < 110) return;
+      previous = timestamp;
+      const bounds = videoBox.getBoundingClientRect();
+      const scale = Math.max(bounds.width / video.videoWidth, bounds.height / video.videoHeight);
+      const renderedW = video.videoWidth * scale;
+      const renderedH = video.videoHeight * scale;
+      const offsetX = (bounds.width - renderedW) * .5;
+      const offsetY = (bounds.height - renderedH) * (matchMedia('(min-width:769px)').matches ? .4 : .5);
       try {
-        ctx.clearRect(0, 0, width, h);
-        const sx = excessX * .5 / scale;
-        const sy = excessY * posY / scale;
-        ctx.drawImage(video, sx, sy, vr.width / scale, vr.height / scale, 0, 0, width, h);
-        const pixels = ctx.getImageData(0, 0, width, h).data;
-        for (const word of words) {
-          const rects = word.getClientRects();
-          if (!rects.length) continue;
-          const rect = rects[0];
-          const x = Math.max(0, Math.min(width - 1, Math.floor((rect.left + rect.width / 2 - vr.left) / vr.width * width)));
-          const y = Math.max(0, Math.min(h - 1, Math.floor((rect.top + rect.height / 2 - vr.top) / vr.height * h)));
-          const i = (y * width + x) * 4;
-          const r = pixels[i], g = pixels[i + 1], b = pixels[i + 2];
-          const luminance = (0.2126 * r + 0.7152 * g + 0.0722 * b) / 255;
-          const blue = b - (r + g) / 2;
-          word.style.color = blue > 32 && luminance < 0.64 ? light : dark;
+        for (const p of paragraphs) {
+          const rect = p.getBoundingClientRect();
+          if (!rect.width || !rect.height) continue;
+          const w = Math.min(800, Math.max(1, Math.round(rect.width * .8)));
+          const h = Math.max(1, Math.round(w * rect.height / rect.width));
+          canvas.width = w; canvas.height = h;
+          ctx.clearRect(0,0,w,h);
+          // Map the displayed background video exactly to this paragraph rectangle.
+          ctx.drawImage(video,
+            (bounds.left + offsetX - rect.left) * w / rect.width,
+            (bounds.top + offsetY - rect.top) * h / rect.height,
+            renderedW * w / rect.width, renderedH * h / rect.height);
+          const frame = ctx.getImageData(0,0,w,h);
+          const data = frame.data;
+          for (let i=0; i<data.length; i+=4) {
+            const r=data[i], g=data[i+1], b=data[i+2];
+            const blue = Math.min(b-(r+g)*.5,Math.max(r,g,b)-Math.min(r,g,b));
+            // Smoothly transition from saturated cobalt text to light lettering on blue.
+            const t=Math.max(0,Math.min(1,(blue-37)/39));
+            const eased=t*t*(3-2*t);
+            data[i]=Math.round(16+(245-16)*eased);
+            data[i+1]=Math.round(16+(245-16)*eased);
+            data[i+2]=Math.round(255+(245-255)*eased);
+            data[i+3]=255;
+          }
+          ctx.putImageData(frame,0,0);
+          p.style.backgroundImage='url("'+canvas.toDataURL('image/png')+'")';
         }
-      } catch (_) {
-        disabled = true;
-        words.forEach(word => { word.style.color = ''; });
+      } catch (error) {
+        failed=true;
+        paragraphs.forEach(p => {p.style.backgroundImage='none';});
+        style.remove();
       }
     }
-
-    let handle = 0;
     if ('requestVideoFrameCallback' in video) {
-      const onFrame = (_, metadata) => {
-        update(metadata?.expectedDisplayTime);
-        handle = video.requestVideoFrameCallback(onFrame);
-      };
-      handle = video.requestVideoFrameCallback(onFrame);
+      const onFrame = (now) => { if (!document.hidden) paint(now); video.requestVideoFrameCallback(onFrame); };
+      video.requestVideoFrameCallback(onFrame);
     } else {
-      const onFrame = (now) => {
-        if (!document.hidden) update(now);
-        requestAnimationFrame(onFrame);
-      };
+      const onFrame=(now)=>{if(!document.hidden)paint(now);requestAnimationFrame(onFrame);};
       requestAnimationFrame(onFrame);
     }
-    video.addEventListener('loadeddata', () => update());
-    video.addEventListener('seeked', () => update());
-    window.addEventListener('resize', () => { lastPaint = -Infinity; update(); });
-    if (document.fonts?.ready) document.fonts.ready.then(() => update());
-    update();
-  };
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init, {once:true});
-  } else init();
+    window.addEventListener('resize',()=>{previous=0;paint(performance.now());});
+    if (document.fonts?.ready) document.fonts.ready.then(()=>{previous=0;paint(performance.now());});
+    video.addEventListener('loadeddata',()=>paint(performance.now()));
+    paint(performance.now());
+  }
+  if (document.readyState==='loading') document.addEventListener('DOMContentLoaded',init,{once:true});
+  else init();
 })();
