@@ -57,3 +57,12 @@ body:not(.home-video-test) .plugin-mobile-panel{z-index:200}
 .plugin-logo__canvas{position:relative;z-index:1}
 .plugin-logo:not(.is-animated) .plugin-logo__canvas{opacity:0}
 .plugin-logo.is-animated .plugin-logo__fallback{visibility:hidden}
+
+/* Desktop navigation: highlight only the hovered square, not the entire header. */
+@media (hover:hover) and (pointer:fine) and (min-width:769px) {
+  .plugin-nav > a:hover,
+  .plugin-nav > a:focus-visible {
+    background-color: var(--band);
+    color: var(--on-band);
+  }
+}
