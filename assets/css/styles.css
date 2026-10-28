@@ -934,3 +934,19 @@ body.theme-blue .about-btn {
 :root[data-theme="acid"] .brand img {
     filter: hue-rotate(228deg) brightness(4.2) saturate(0.6);
 }
+
+/* Shared fluid type for sitewide utility and footer content.
+   Editorial page typography lives in sections.css. */
+:root {
+    --type-ui: 16px;
+    --type-utility: clamp(14px, .9vw, 16px);
+}
+.newsletter__label { font-size: var(--type-utility); line-height: 1.35; }
+.newsletter__field input { font-size: var(--type-ui); line-height: 1.4; min-width: 0; }
+.footer-social { font-size: var(--type-ui); line-height: 1.4; flex-wrap: wrap; }
+.footer-bottom { font-size: var(--type-utility); line-height: 1.4; flex-wrap: wrap; }
+@media(max-width:768px) {
+    .footer-cols { flex-wrap: wrap; }
+    .newsletter__field { width: 100%; }
+    .footer-bottom, .footer-social { overflow-wrap: anywhere; }
+}
