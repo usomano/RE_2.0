@@ -66,3 +66,48 @@ body:not(.home-video-test) .plugin-mobile-panel{z-index:200}
     color: var(--on-band);
   }
 }
+
+/* REINCANTAMENTO footer 2026 — desktop.svg (1440×218), mobile.svg (390×440).
+   Use live links over the supplied visual geometry. */
+.site-footer.site-footer--redesign{
+  position:relative;box-sizing:border-box;width:100%;height:auto;
+  aspect-ratio:1440 / 218;min-height:160px;margin:0;padding:0;
+  background:#0009ff;color:#fff;isolation:isolate;z-index:1;
+  font-family:'Redaction35','Times New Roman',serif;
+}
+.site-footer--redesign .footer-redesign__social{
+  position:absolute;left:3.55%;top:50%;transform:translateY(-50%);
+  display:flex;align-items:center;white-space:nowrap;gap:.42em;
+  font-size:clamp(11px,1.52vw,22px);line-height:1.2;
+}
+.site-footer--redesign .footer-redesign__social a{color:#fff;text-decoration:none}
+.site-footer--redesign .footer-redesign__social a:hover{text-decoration:underline;text-underline-offset:.2em}
+.site-footer--redesign .footer-redesign__eye{
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:9.55%;height:auto;display:block;
+  filter:brightness(0) invert(1);
+}
+.site-footer--redesign .footer-redesign__subscribe{
+  position:absolute;right:3.4%;top:50%;transform:translateY(-50%);
+  box-sizing:border-box;display:flex;align-items:center;justify-content:center;
+  width:14.45%;height:23.4%;min-height:34px;
+  padding:0 8px;background:#fff;color:#0009ff;
+  font-size:clamp(10px,1.45vw,21px);line-height:1.1;
+  white-space:nowrap;text-decoration:none;
+}
+.site-footer--redesign .footer-redesign__subscribe:hover{background:#dedede}
+.site-footer--redesign a:focus-visible{outline:2px solid #fff;outline-offset:4px}
+.site-footer--redesign .footer-redesign__subscribe:focus-visible{outline-color:#fff}
+@media(max-width:768px){
+  .site-footer.site-footer--redesign{aspect-ratio:390 / 440;min-height:0}
+  .site-footer--redesign .footer-redesign__eye{left:50%;top:21.7%;width:35.25%}
+  .site-footer--redesign .footer-redesign__subscribe{
+    left:23.34%;right:auto;top:55.8%;transform:translateY(-50%);
+    width:53.33%;height:11.59%;min-height:0;
+    padding:0 3px;font-size:clamp(13px,5.15vw,21px);
+  }
+  .site-footer--redesign .footer-redesign__social{
+    left:50%;top:88.4%;transform:translate(-50%,-50%);
+    font-size:clamp(12px,4.35vw,18px);gap:.35em;
+  }
+}
