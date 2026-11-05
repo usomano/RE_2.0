@@ -167,6 +167,23 @@ def page(relpath, title, desc, current, up, main, switch=True):
     return write(relpath, head(title, desc, up) + header(current, up) + main + footer(up, switch))
 
 
+NAME_PARTICLES = {'de', 'di', 'da', 'del', 'della', 'van', 'von', 'la', 'le'}
+
+
+def byline_name(name):
+    """A byline name as first name over surname: the last word (with a particle
+    such as "De" in front of it) goes on the second line. A single word, or a
+    group rather than a person, stays as it is."""
+    words = name.split()
+    if len(words) < 2 or name == 'Algorithmic Sabotage Research Group':
+        return f'<span>{name}</span>'
+    k = len(words) - 1
+    if k >= 2 and words[k - 1].lower() in NAME_PARTICLES:
+        k -= 1
+    return (f'<span><span class="name-first">{" ".join(words[:k])}</span> '
+            f'<span class="name-last">{" ".join(words[k:])}</span></span>')
+
+
 def title_row(title, back_href, back_label, authors=()):
     """The head of a long read: the progress rail, then the title band.
 
@@ -176,7 +193,7 @@ def title_row(title, back_href, back_label, authors=()):
     The band stops one cell short of the edge; that last cell is where a guest
     byline goes, one name per line. Pieces written in-house leave it empty, the
     way the frame draws it."""
-    names = "".join(f'<span>{a}</span>' for a in authors)
+    names = "".join(byline_name(a) for a in authors)
     byline = f'\n            <p class="title-authors">{names}</p>' if names else ''
     return f"""
     <div class="reading-progress" role="progressbar" aria-label="Reading progress"
@@ -361,11 +378,8 @@ def masthead(years, current, other_href, other_label):
 {chr(10).join(cells)}
                 </span>
                 <a class="year-nav__step" href="#" data-step="1" aria-label="Next year">{CHEV_R}</a>
-                <a class="year-nav__other" href="{other_href}">{other_label}</a>
             </nav>
-        </div>
 
-        <div class="grid-row">
             <p class="blk blk--row blk-text masthead__note">DROPS is REINCANTAMENTO’s online publication on technology, culture, and the worlds they produce together. We publish essays, notes, interviews, and stories: dispatches from the enchanted present.</p>
         </div>
 """
@@ -435,8 +449,12 @@ main = """
 
             </ul>
         </div>
+
+        <div class="grid-row drops-archive">
+            <a class="year-nav__other" href="archive.html#%d">Archive</a>
+        </div>
     </main>
-"""
+""" % archive_years[-1]
 made.append(page('writing/index.html', 'REINCANTAMENTO &#8212; Drops',
                  'DROPS is Reincantamento\u2019s online publication on technology, '
                  'culture, and the worlds they produce together.',
@@ -718,7 +736,7 @@ for i, d in enumerate(drops):
                     <p class="blk-kicker">{kicker}</p>{lede}
                 </div>
             </div>
-""" + body + next_band('Next drop', nxt['number'] + ' &#183; ' + nxt['title'],
+""" + body + next_band('Next drop', nxt['number'] + ' ' + nxt['title'],
                                         nxt['slug'] + '.html'))
     made.append(page('writing/%s.html' % d['slug'],
                      'REINCANTAMENTO &#8212; %s' % d['title'],

@@ -80,7 +80,9 @@
             const padBottom = parseFloat(getComputedStyle(el).paddingBottom) || 0;
             const needed = el.getBoundingClientRect().height
                 - padBottom + Math.min(padBottom, CLEARANCE) + 1;
-            rows.push(Math.max(1, Math.ceil(needed / cell)));
+            // A hair of tolerance: Firefox measures a one-row block a fraction
+            // of a pixel over the row, which would tip it into a second one.
+            rows.push(Math.max(1, Math.ceil(needed / cell - 0.02)));
         });
         blocks.forEach((el, i) => { el.style.height = (rows[i] * cell - 1) + 'px'; });
     };
@@ -327,7 +329,8 @@
         const links = Array.from(band.querySelectorAll('.year-nav__year'));
         const years = links.map((a) => a.dataset.year);
         const steps = Array.from(band.querySelectorAll('.year-nav__step'));
-        const other = band.querySelector('.year-nav__other');
+        // the crossing to the archive sits at the foot of the list, not in the band
+        const other = document.querySelector('.year-nav__other');
         const otherYear = other && (other.getAttribute('href').split('#')[1] || '');
         // which direction the other page lies in: older years, or newer ones
         const otherDir = otherYear && otherYear < years[0] ? -1 : 1;

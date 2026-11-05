@@ -169,11 +169,25 @@
     overflow: hidden;
 }
 
-/* Drop covers from #30 on are 4:5 posters: a 4 × 5 cell frame fits them
-   exactly, as 4 × 4 fits the square ones before. build.py marks which. */
+/* Drop covers take the shape of their art. A card is (cols - 4) / 3 cells
+   wide — 3 at 13 columns, 4 at 16, 5 at 19 — so the frame is measured from
+   that: square covers get as many rows as the card has columns, the 4:5
+   posters from #30 on (build.py marks them) that × 1.25, rounded to a whole
+   row and filled edge to edge. Where the width is a multiple of 4 the poster
+   fits exactly; elsewhere a sliver of it is cropped instead of a band. */
 @media (min-width: 769px) {
-    .card__media--tall {
-        height: calc(var(--cell) * 5 - 1px);
+    .cards:not(.is-archive) .card__media {
+        --card-cols: calc((var(--cols, 16) - 4) / 3);
+        height: calc(var(--cell) * var(--card-cols) - 1px);
+    }
+
+    .cards:not(.is-archive) .card__media--tall {
+        height: calc(var(--cell) * 5 - 1px);    /* fallback: no round() */
+        height: calc(var(--cell) * round(nearest, var(--card-cols) * 1.25, 1) - 1px);
+    }
+
+    .card__media.card__media--tall img {
+        object-fit: cover;
     }
 }
 
@@ -472,6 +486,20 @@
     letter-spacing: 0.4px;
     text-transform: uppercase;
     text-wrap: balance;
+    align-items: center;
+    text-align: center;
+}
+
+/* First name over surname, each on a line of its own. */
+.title-authors .name-first,
+.title-authors .name-last {
+    display: block;
+}
+
+/* With no band, the byline closes the title module: the cell right after
+   the reading column, wherever the window puts it. */
+.title-row--plain .title-authors {
+    grid-column: var(--read-end, -5) / span 1;
 }
 
 .title-band {
@@ -488,6 +516,57 @@
     line-height: 1.15;
     font-weight: 400;
 }
+
+/* A title row with no band (trial, drop #53): the title and its subtitle take
+   the band's place as a grey module over the reading column, both in
+   Redaction, one row tall; the line of metadata moves down into the dek. */
+.title-head {
+    margin: 1px 0 0 1px;
+    height: calc(var(--cell) - 1px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 var(--card-pad);
+    background: var(--bg);
+    overflow: hidden;
+}
+
+.blk-title {
+    font-family: var(--font-serif);
+    font-size: clamp(24px, calc(var(--cell) * 0.4), 44px);
+    line-height: 1.1;
+    font-weight: 400;
+    text-wrap: balance;
+}
+
+.page .title-head .blk-lede {
+    font-size: clamp(17px, calc(var(--cell) * 0.24), 26px);
+    line-height: 1.25;
+}
+
+.title-row--plain {
+    row-gap: 0;
+}
+
+/* The line of metadata: the row under the title, three modules from the start
+   of the reading column. */
+.title-meta {
+    grid-row: 2;
+    grid-column: var(--read-start, 5) / span 3;
+    margin: 1px 0 0 1px;
+    height: calc(var(--cell) - 1px);
+    display: flex;
+    align-items: center;
+    padding: 0 var(--card-pad);
+    background: var(--bg);
+}
+
+.title-row--plain > :not(.title-meta) { grid-row: 1; }
+
+/* No separators: the three facts stand apart by space alone, and where three
+   modules are too narrow for one line each takes a line of its own. */
+.title-meta { flex-wrap: wrap; column-gap: 1.4em; align-content: center; }
+.title-meta span { white-space: nowrap; }
 
 .back-cell {
     grid-column: 1;
@@ -1004,19 +1083,18 @@
 /* ===================== */
 /* DROPS MASTHEAD        */
 /* ===================== */
-/* The row under the header carries the publication's name on the left and the
-   year band on the last five cells, with a cell of air between them, and the
-   standfirst sits a grid line under the nameplate — one group, as blocks do
-   everywhere on this grid. */
+/* The row under the header carries the publication's name — one row tall — on
+   the left and the year band on the last four cells, with a cell of air
+   between them. The next row holds the standfirst under the nameplate. */
 .masthead {
     margin-top: var(--cell);
 }
 
 .masthead__mark {
-    grid-column: 3 / -7;                /* stops one cell short of the band */
+    grid-column: 3 / 7;                 /* four modules wide, one tall */
     grid-row: 1;
     margin: 1px 0 0 1px;
-    min-height: calc(var(--cell) * 2 - 1px);
+    height: calc(var(--cell) - 1px);    /* one module */
     display: flex;
     align-items: center;
     padding: 0 var(--card-pad);
@@ -1037,6 +1115,7 @@
 
 .masthead__note {
     grid-column: 3 / 11;                /* the reading column, as .c-narrow */
+    grid-row: 2;
     margin: 1px 0 0 1px;
 }
 
@@ -1068,10 +1147,10 @@
     transition: opacity 0.2s ease;
 }
 
-.year-nav > :nth-child(1) { grid-column: -6 / -5; }
-.year-nav > :nth-child(2) { grid-column: -5 / -3; }
-.year-nav > :nth-child(3) { grid-column: -3 / -2; }
-.year-nav > :nth-child(4) { grid-column: -2 / -1; }
+.year-nav > * { grid-row: 1; }
+.year-nav > :nth-child(1) { grid-column: -5 / -4; }
+.year-nav > :nth-child(2) { grid-column: -4 / -2; }
+.year-nav > :nth-child(3) { grid-column: -2 / -1; }
 
 .year-nav__step svg {
     width: calc(var(--cell) * 0.147);
@@ -1093,8 +1172,8 @@
     display: none;
 }
 
-.year-nav[data-end="next"] > :nth-child(2) { grid-column: -5 / -2; }
-.year-nav[data-end="prev"] > :nth-child(2) { grid-column: -6 / -3; }
+.year-nav[data-end="next"] > :nth-child(2) { grid-column: -4 / -1; }
+.year-nav[data-end="prev"] > :nth-child(2) { grid-column: -5 / -2; }
 
 .year-nav__years {
     gap: 0.6em;
@@ -1122,6 +1201,16 @@
     text-transform: uppercase;
 }
 
+/* The crossing to the archive closes the list: the last cell of the page, an
+   empty row under the last cards. */
+.drops-archive {
+    margin-top: var(--cell);
+}
+
+.drops-archive .year-nav__other {
+    grid-column: -2 / -1;
+}
+
 /* One column: the band spreads over the content width, the year taking
    whatever the arrows and the crossing cell leave. */
 @media (max-width: 768px) {
@@ -1136,22 +1225,27 @@
         font-size: clamp(40px, calc(var(--cell) * 1.6), 72px);
     }
 
+    .masthead__mark img {
+        width: 100%;
+        height: auto;
+    }
+
     /* The band lands between the two here, so the standfirst opens a group of
        its own — a whole empty row before it — instead of hugging the band. */
     .masthead__note {
         grid-column: 2 / -2;
-        margin-top: var(--cell);
+        grid-row: 3;
     }
 
     .year-nav > * { grid-row: 2; }
 
     .year-nav > :nth-child(1) { grid-column: 2 / 3; }
-    .year-nav > :nth-child(2) { grid-column: 3 / -5; }
-    .year-nav > :nth-child(3) { grid-column: -5 / -4; }
-    .year-nav > :nth-child(4) { grid-column: -4 / -2; }
+    .year-nav > :nth-child(2) { grid-column: 3 / -3; }
+    .year-nav > :nth-child(3) { grid-column: -3 / -2; }
+    .drops-archive .year-nav__other { grid-column: -5 / -2; }
 
-    .year-nav[data-end="next"] > :nth-child(2) { grid-column: 3 / -4; }
-    .year-nav[data-end="prev"] > :nth-child(2) { grid-column: 2 / -5; }
+    .year-nav[data-end="next"] > :nth-child(2) { grid-column: 3 / -2; }
+    .year-nav[data-end="prev"] > :nth-child(2) { grid-column: 2 / -3; }
 
     /* One column: the byline runs under the title band instead of beside it. */
     .title-authors {
