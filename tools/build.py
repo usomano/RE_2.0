@@ -52,13 +52,13 @@ def head(title, desc, up):
     <meta property="og:description" content="{desc}">
     <meta property="og:type" content="website">
 
-    <link rel="icon" href="{up}assets/images/REINC-LOGO.svg" type="image/svg+xml">
-    <link rel="icon" href="{up}assets/images/reinc-eye-nero.png" type="image/png"><!-- fallback -->
+    <link rel="icon" href="{up}assets/images/REINC-LOGO-2026.svg?v=20261105" type="image/svg+xml">
 
     <link rel="preload" href="{up}assets/fonts/ApfelGrotezk-Mittel.woff2" as="font" type="font/woff2" crossorigin>
 
-    <link rel="stylesheet" href="{up}assets/css/styles.css">
-    <link rel="stylesheet" href="{up}assets/css/sections.css">
+    <link rel="stylesheet" href="{up}assets/css/styles.css?v=type-scale-20261028">
+    <link rel="stylesheet" href="{up}assets/css/sections.css?v=drops-title-20261105i">
+    <link rel="stylesheet" href="{up}assets/css/header.css?v=footer-redesign-20261105">
 
     <!-- Not deferred: applies the stored palette before first paint. -->
     <script src="{up}assets/js/theme.js"></script>
