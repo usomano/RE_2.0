@@ -397,7 +397,17 @@ def writing_card(it):
     # the frame draws a missing one. An archive article only gets it once its
     # cover has been pulled across from the old site; the years still without
     # art stay text only rather than becoming a wall of empty grey.
-    media_block = f'<div class="card__media">{media}</div>' if (it['kind'] == 'drop' or media) else ''
+    # From drop #30 the covers are 4:5 posters, before that square: the frame
+    # takes the shape of its own cover, 4 × 5 cells or 4 × 4, so neither kind
+    # sits inside bands of the media colour.
+    tall = ''
+    if it['kind'] == 'drop' and media:
+        size = webp_size(os.path.join(ROOT, 'assets/images/covers/drop%d.webp' % it['n']))
+        # Only a true 4:5 — drop #16 (800 × 1037) is a one-off among squares,
+        # and a taller frame there would break its row of cards.
+        if size and abs(size[1] / size[0] - 1.25) < 0.02:
+            tall = ' card__media--tall'
+    media_block = f'<div class="card__media{tall}">{media}</div>' if (it['kind'] == 'drop' or media) else ''
     return f"""                <li class="card" data-year="{year_of(it)}">
                     <a href="{href}"{ext}>
                         {media_block}

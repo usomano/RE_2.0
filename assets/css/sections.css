@@ -169,6 +169,14 @@
     overflow: hidden;
 }
 
+/* Drop covers from #30 on are 4:5 posters: a 4 × 5 cell frame fits them
+   exactly, as 4 × 4 fits the square ones before. build.py marks which. */
+@media (min-width: 769px) {
+    .card__media--tall {
+        height: calc(var(--cell) * 5 - 1px);
+    }
+}
+
 /* Drop covers are posters: the number sits at the top edge, the title at the
    bottom. Cropping them to the square frame cut both lines off, so they are
    fitted whole and the media colour fills what is left — the square covers
