@@ -70,45 +70,30 @@ def head(title, desc, up):
 
 
 def header(current, up):
-    """The same header everywhere: the eye in the first cell (and the way back
-    to the home page), the five sections on a mask of the page fill, then the
-    filled ABOUT cell in the corner."""
-    items = []
-    for label, href, sub in NAV:
-        if href is None:
-            if not any('nav-off' in it for it in items):
-                items.append('            <!-- No design yet — shown, not linked. -->')
-            items.append(f'            <span class="nav-off">{label}</span>')
-            continue
-        cur = ' class="is-active" aria-current="page"' if label == current else ''
-        if not sub:
-            items.append(f'            <a href="{up}{href}"{cur}>{label}</a>')
-            continue
-        drop = "\n".join(f'                    <a href="{up}{h}">{l}</a>' for l, h in sub)
-        items.append(f'''            <div class="nav-item">
-                <a href="{up}{href}"{cur}>{label}</a>
-                <div class="nav-menu">
-{drop}
-                </div>
-            </div>''')
+    """Canonical animated header, identical to the hand-maintained pages."""
     return f"""
-    <header class="site-header">
-        <a class="brand" href="{up}index.html" aria-label="Reincantamento home">
-            <img src="{up}assets/images/REINC-LOGO.svg" alt="Reincantamento" width="53" height="25">
-        </a>
-
-        <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav">
-            <span></span><span></span><span></span>
-        </button>
-
-        <nav class="main-nav" id="primary-nav" aria-label="Primary">
-""" + "\n".join(items) + f"""
-        </nav>
-
-        <a class="about-btn" href="{up}about.html">About</a>
+    <header class="plugin-header">
+      <a class="plugin-logo" href="{up}index.html" aria-label="Reincantamento home">
+        <img class="plugin-logo__fallback" src="{up}assets/images/REINC-LOGO-2026.svg" alt="" aria-hidden="true">
+        <canvas class="plugin-logo__canvas" id="blink-logo" aria-hidden="true"></canvas>
+        <video class="plugin-logo__source" id="blink-source" muted playsinline preload="auto" aria-hidden="true"><source src="{up}assets/videos/blink.mp4" type="video/mp4"></video>
+      </a>
+      <nav class="plugin-nav" aria-label="Primary navigation">
+        <a href="{up}writing/index.html">Drops</a>
+        <a href="{up}publishing/index.html">Publishing</a>
+        <a href="{up}artworks/index.html">Artworks</a>
+        <span>Workshops</span><span>Talks</span>
+      </nav>
+      <a class="plugin-about" href="{up}about.html">About</a>
+      <button class="plugin-menu" id="plugin-menu" type="button" aria-expanded="false" aria-controls="plugin-mobile-panel">Menu</button>
     </header>
+    <nav class="plugin-mobile-panel" id="plugin-mobile-panel" data-open="false" aria-label="Mobile navigation">
+      <a href="{up}writing/index.html">Drops</a>
+      <a href="{up}publishing/index.html">Publishing</a>
+      <a href="{up}artworks/index.html">Artworks</a>
+      <span>Workshops</span><span>Talks</span><a href="{up}about.html">About</a>
+    </nav>
 """
-
 
 def footer(up, switch=True):
     corner = ('''
@@ -117,38 +102,20 @@ def footer(up, switch=True):
     <button class="theme-switch" type="button" aria-pressed="false" aria-label="Acid mode" title="Acid mode">&#9791;</button>
 ''' if switch else '')
     return f"""
-    <footer class="site-footer">
-        <p class="site-footer__mark">REINCANTAMENTO</p>
-
-        <div class="footer-cols">
-            <form class="newsletter" action="https://reincantamentox.substack.com/subscribe" method="get" target="_blank">
-                <label class="newsletter__label" for="nl-email">Subscribe to drops</label>
-                <div class="newsletter__field">
-                    <input id="nl-email" type="email" name="email" placeholder="your@email.com" autocomplete="email">
-                    <button type="submit" aria-label="Subscribe">&#8594;</button>
-                </div>
-            </form>
-
-            <nav class="footer-social" aria-label="Nodes">
-                <a href="mailto:reincantamento@proton.me">Email</a>
-                <a href="https://www.instagram.com/re.incantamento/" target="_blank" rel="noopener">Instagram</a>
-                <a href="https://t.me/+C1fjM6yVcdJmYzI0" target="_blank" rel="noopener">Telegram</a>
-                <a href="https://reincantamentox.substack.com/" target="_blank" rel="noopener">Newsletter</a>
-                <a href="https://www.are.na/reincantamento/channels/" target="_blank" rel="noopener">Are.na</a>
-            </nav>
-        </div>
-
-        <div class="footer-bottom">
-            <p>2026 Reincantamento &nbsp;&#183;&nbsp; Berlin / Turin / Venice</p>
-            <div class="footer-legal">
-                <a href="{up}index.html">Home</a>
-                <a href="{up}about.html">About</a>
-            </div>
-        </div>
+    <footer class="site-footer site-footer--redesign" aria-label="Reincantamento footer">
+      <nav class="footer-redesign__social" aria-label="Social media">
+        <a href="https://www.instagram.com/re.incantamento/" target="_blank" rel="noopener noreferrer">INSTAGRAM</a>
+        <span aria-hidden="true">-</span>
+        <a href="https://t.me/+C1fjM6yVcdJmYzI0" target="_blank" rel="noopener noreferrer">TELEGRAM</a>
+        <span aria-hidden="true">-</span>
+        <a href="https://www.are.na/reincantamento/channels/" target="_blank" rel="noopener noreferrer">ARE.NA</a>
+      </nav>
+      <img class="footer-redesign__eye" src="{up}assets/images/REINC-LOGO-2026.svg" alt="" aria-hidden="true">
+      <a class="footer-redesign__subscribe" href="https://reincantamentox.substack.com/subscribe" target="_blank" rel="noopener noreferrer">SUBSCRIBE TO DROPS</a>
     </footer>
-
 {corner}
-    <script src="{up}assets/js/site.js" defer></script>
+    <script src="{up}assets/js/site.js?v=drops-reading-20261105" defer></script>
+    <script src="{up}assets/js/header.js?v=footer-redesign-20261105" defer></script>
 </body>
 </html>
 """
