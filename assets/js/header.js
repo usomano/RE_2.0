@@ -149,3 +149,32 @@ document.addEventListener('DOMContentLoaded', () => {
    }
  });
 });
+
+/* Shared responsive footer: replaces older generated footers without changing
+   article content, and adds the footer to the home/about pages. */
+document.addEventListener('DOMContentLoaded', () => {
+  const oldFooter = document.querySelector('footer.site-footer');
+  if (oldFooter?.classList.contains('site-footer--redesign')) return;
+  const nested = /\/(?:writing|publishing|artworks)\//.test(location.pathname);
+  const assetRoot = nested ? '../' : '';
+  const el = document.createElement('footer');
+  el.className = 'site-footer site-footer--redesign';
+  el.setAttribute('aria-label', 'Reincantamento footer');
+  el.innerHTML = `
+    <nav class="footer-redesign__social" aria-label="Social media">
+      <a href="https://www.instagram.com/re.incantamento/" target="_blank" rel="noopener noreferrer">INSTAGRAM</a>
+      <span aria-hidden="true">-</span>
+      <a href="https://t.me/+C1fjM6yVcdJmYzI0" target="_blank" rel="noopener noreferrer">TELEGRAM</a>
+      <span aria-hidden="true">-</span>
+      <a href="https://www.are.na/reincantamento/channels/" target="_blank" rel="noopener noreferrer">ARE.NA</a>
+    </nav>
+    <img class="footer-redesign__eye" src="${assetRoot}assets/images/REINC-LOGO-2026.svg" alt="" aria-hidden="true">
+    <a class="footer-redesign__subscribe" href="https://reincantamentox.substack.com/subscribe" target="_blank" rel="noopener noreferrer">SUBSCRIBE TO DROPS</a>
+  `;
+  if (oldFooter) oldFooter.replaceWith(el);
+  else {
+    const switcher = document.querySelector('.theme-switch');
+    if (switcher) switcher.before(el);
+    else document.body.append(el);
+  }
+});
