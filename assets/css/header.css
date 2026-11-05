@@ -78,7 +78,7 @@ body:not(.home-video-test) .plugin-mobile-panel{z-index:200}
 .site-footer--redesign .footer-redesign__social{
   position:absolute;left:3.55%;top:50%;transform:translateY(-50%);
   display:flex;align-items:center;white-space:nowrap;gap:.42em;
-  font-size:clamp(11px,1.52vw,22px);line-height:1.2;
+  font-size:clamp(12px,1.12vw,16px);line-height:1.2;
 }
 .site-footer--redesign .footer-redesign__social a{color:#fff;text-decoration:none}
 .site-footer--redesign .footer-redesign__social a:hover{text-decoration:underline;text-underline-offset:.2em}
@@ -92,7 +92,7 @@ body:not(.home-video-test) .plugin-mobile-panel{z-index:200}
   box-sizing:border-box;display:flex;align-items:center;justify-content:center;
   width:14.45%;height:23.4%;min-height:34px;
   padding:0 8px;background:#fff;color:#0009ff;
-  font-size:clamp(10px,1.45vw,21px);line-height:1.1;
+  font-size:clamp(11px,1.12vw,16px);line-height:1.1;
   white-space:nowrap;text-decoration:none;
 }
 .site-footer--redesign .footer-redesign__subscribe:hover{background:#dedede}
@@ -104,10 +104,10 @@ body:not(.home-video-test) .plugin-mobile-panel{z-index:200}
   .site-footer--redesign .footer-redesign__subscribe{
     left:23.34%;right:auto;top:55.8%;transform:translateY(-50%);
     width:53.33%;height:11.59%;min-height:0;
-    padding:0 3px;font-size:clamp(13px,5.15vw,21px);
+    padding:0 3px;font-size:clamp(12px,4.1vw,16px);
   }
   .site-footer--redesign .footer-redesign__social{
     left:50%;top:88.4%;transform:translate(-50%,-50%);
-    font-size:clamp(12px,4.35vw,18px);gap:.35em;
+    font-size:clamp(12px,4.1vw,16px);gap:.35em;
   }
 }
