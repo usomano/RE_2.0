@@ -14,7 +14,7 @@
 
   const legacy = document.querySelector('header.site-header');
   if (!legacy) return;
-  const nested = /\\/(?:writing|publishing|artworks)\\//.test(location.pathname);
+  const nested = location.pathname.split('/').some(part => ['writing', 'publishing', 'artworks'].includes(part));
   const up = nested ? '../' : '';
   document.body.classList.add('has-legacy-header');
   const wrapper = document.createElement('div');
