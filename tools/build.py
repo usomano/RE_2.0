@@ -58,7 +58,7 @@ def head(title, desc, up):
 
     <link rel="stylesheet" href="{up}assets/css/styles.css?v=type-scale-20261028">
     <link rel="stylesheet" href="{up}assets/css/sections.css?v=drops-title-20261105i">
-    <link rel="stylesheet" href="{up}assets/css/header.css?v=mobile-footer-113-20261106">
+    <link rel="stylesheet" href="{up}assets/css/header.css?v=next-gap-20261106">
 
     <!-- Not deferred: applies the stored palette before first paint. -->
     <script src="{up}assets/js/theme.js"></script>
@@ -212,8 +212,10 @@ def title_row_plain(title, subtitle, facts, back_href, back_label, authors=()):
 """
 
 
-# Drops set with the plain title row (design-system proposal, testata B).
-PLAIN_TITLE = {'Drop #52', 'Drop #53'}
+# Every drop takes the plain title row (testata B, as #52 and #53). Kept as a
+# predicate so a drop could still be set with the band if ever needed.
+def plain_title(d):
+    return True
 
 
 def next_band(label, title, href):
@@ -567,6 +569,10 @@ def convert_body(html_src):
               'Share Reincantamento', 'Thanks for reading', 'Monthly:', 'Yearly:',
               'continually shrinking', 'sustained by voluntary work', 'consider donating')
 
+    # Substack's buttons arrive as one-link paragraphs of their own.
+    BUTTONS = {'subscribe now', 'subscribe', 'share', 'leave a comment', 'donate',
+               'upgrade to paid', 'get 50% off for 1 year', 'give a gift subscription'}
+
     for fig, h, q, p in tokens:
         if fig != '':
             flush()
@@ -581,7 +587,8 @@ def convert_body(html_src):
                 blocks.append(('quote', t))
         elif p.strip():
             t = clean_inline(p)
-            if t and t not in ('&nbsp;', '&#160;') and not any(c in t for c in CHROME):
+            if (t and t not in ('&nbsp;', '&#160;') and not any(c in t for c in CHROME)
+                    and plain(t).lower().rstrip('!. ') not in BUTTONS):
                 para.append(t)
     flush()
     return blocks
@@ -699,7 +706,10 @@ def render_blocks(blocks):
             if any(sid == t[0] for t in toc):
                 sid += '-%d' % n
             toc.append((sid, val))
-            group.append(f'                <h2 class="blk blk--row blk-heading" id="{sid}">{val}</h2>')
+            # A section title is set whole in <strong>, as in #52 and #53: the
+            # export's partial bold (or none) is cleared first.
+            whole = re.sub(r'</?(strong|b)>', '', val).strip()
+            group.append(f'                <h2 class="blk blk--row blk-heading" id="{sid}"><strong>{whole}</strong></h2>')
         elif kind == 'text':
             cls = ['blk-text'] * len(val)
             if n == first:
@@ -766,7 +776,7 @@ for i, d in enumerate(drops):
                     '                <p class="toc__label">In this drop</p>\n'
                     f'                <ol>\n{items}\n                </ol>\n'
                     '            </nav>\n')
-    if d['number'] in PLAIN_TITLE:
+    if plain_title(d):
         facts = [d['number']] + ([d['date']] if d['date'] else [])
         if blocks:
             facts.append('%d min read' % reading_minutes(blocks))

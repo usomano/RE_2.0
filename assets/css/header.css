@@ -188,3 +188,9 @@ body:not(.home-video-test) .plugin-mobile-panel{z-index:200}
     gap:.3em;
   }
 }
+
+/* A whole empty grid row between the Next band (next drop, publication,
+   artwork) and the footer: the band closes the read, the row lets it land. */
+body:has(.next-band) .site-footer {
+  margin-top: var(--cell, var(--test-cell));
+}
