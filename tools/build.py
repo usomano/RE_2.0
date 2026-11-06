@@ -58,7 +58,7 @@ def head(title, desc, up):
 
     <link rel="stylesheet" href="{up}assets/css/styles.css?v=type-scale-20261028">
     <link rel="stylesheet" href="{up}assets/css/sections.css?v=drops-title-20261105i">
-    <link rel="stylesheet" href="{up}assets/css/header.css?v=footer-final-20261106">
+    <link rel="stylesheet" href="{up}assets/css/header.css?v=mobile-footer-113-20261106">
 
     <!-- Not deferred: applies the stored palette before first paint. -->
     <script src="{up}assets/js/theme.js"></script>
