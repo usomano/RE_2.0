@@ -111,3 +111,50 @@ body:not(.home-video-test) .plugin-mobile-panel{z-index:200}
     font-size:clamp(12px,4.1vw,16px);gap:.35em;
   }
 }
+
+/* Definitive compact footer — desktop(1).svg 1440 × 114;
+   mobile(1).svg 390 × 212. Original proportions and placements. */
+.site-footer.site-footer--redesign{
+  aspect-ratio:1440 / 114;
+  min-height:0;
+  font-family:"Times New Roman",Times,serif;
+}
+.site-footer--redesign .footer-redesign__eye{
+  width:5.67%;
+}
+.site-footer--redesign .footer-redesign__subscribe{
+  width:14.4444%;
+  height:44.7368%;
+  min-height:0;
+  font-family:"Times New Roman",Times,serif;
+  font-size:clamp(10px,1.1111vw,16px);
+}
+.site-footer--redesign .footer-redesign__social{
+  font-family:"Times New Roman",Times,serif;
+  font-size:clamp(10px,1.1111vw,16px);
+}
+@media(max-width:768px){
+  .site-footer.site-footer--redesign{
+    aspect-ratio:390 / 212;
+    min-height:0;
+  }
+  .site-footer--redesign .footer-redesign__eye{
+    left:50%;
+    top:20.047%;
+    width:20.94%;
+  }
+  .site-footer--redesign .footer-redesign__subscribe{
+    left:23.3333%;
+    top:53.5377%;
+    width:53.3333%;
+    height:24.0566%;
+    min-height:0;
+    font-size:clamp(11px,4.1026vw,16px);
+  }
+  .site-footer--redesign .footer-redesign__social{
+    left:50%;
+    top:82.7358%;
+    font-size:clamp(11px,4.1026vw,16px);
+    gap:.35em;
+  }
+}
