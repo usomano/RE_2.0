@@ -15,7 +15,7 @@
     <link rel="preload" href="../assets/fonts/ApfelGrotezk-Mittel.woff2" as="font" type="font/woff2" crossorigin>
 
     <link rel="stylesheet" href="../assets/css/styles.css?v=type-scale-20261028">
-    <link rel="stylesheet" href="../assets/css/sections.css?v=drops-title-20261105i">
+    <link rel="stylesheet" href="../assets/css/sections.css?v=testata-b-20261106">
     <link rel="stylesheet" href="../assets/css/header.css?v=next-gap-20261106">
 
     <!-- Not deferred: applies the stored palette before first paint. -->
@@ -46,9 +46,13 @@
 
     <main id="main" tabindex="-1">
 
-        <div class="title-row grid-row">
+        <div class="title-row title-row--plain grid-row">
+            <p class="title-meta blk-kicker"><span>Drop #49</span> <span>April 7, 2026</span> <span>19 min read</span></p>
             <a class="back-cell" href="index.html" aria-label="Back to Writing"><svg viewBox="0 0 14 22" aria-hidden="true"><polyline points="12,2 3,11 12,20"/></svg></a>
-            <h1 class="title-band">Love Means Taking Action</h1>
+            <div class="title-head c-read">
+                <h1 class="blk-title">Love Means Taking Action</h1>
+                <p class="blk-lede">Autonomia and Solidarity in the Coming Crisis</p>
+            </div>
             <p class="title-authors"><span><span class="name-first">Alessandro Y.</span> <span class="name-last">Longo</span></span></p>
         </div>
 
@@ -66,24 +70,13 @@
                 </ol>
             </nav>
 
-            <div class="blk-group c-read">
-                <div class="blk blk--rows blk-dek">
-                    <p class="blk-kicker">Drop #49 &#183; April 7, 2026 &#183; 19 min read</p>
-                    <p class="blk-lede">Autonomia and Solidarity in the Coming Crisis</p>
-                </div>
-            </div>
             <div class="blk-group c-read is-spaced">
-                <details class="blk blk--row blk-intro">
-                    <summary class="blk-text blk-intro__toggle"><em>Hey everyone (▰˘◡˘▰)</em></summary>
-                    <p class="blk-text"><em>I’ll be honest: I’m worried. I think many of us are, even if we don’t say it. The energy crisis unfolding right now is enormous, and it’s moving fast, and the gap between what we know is coming and what we’re actually doing about it feels wider every day. I wrote this piece because I needed to think through that gap for myself, and because thinking alone didn’t feel like enough.</em></p>
+                <div class="blk blk--rows">
+                    <p class="blk-text has-dropcap"><em>I’ll be honest: I’m worried. I think many of us are, even if we don’t say it. The energy crisis unfolding right now is enormous, and it’s moving fast, and the gap between what we know is coming and what we’re actually doing about it feels wider every day. I wrote this piece because I needed to think through that gap for myself, and because thinking alone didn’t feel like enough.</em></p>
                     <p class="blk-text"><em>The idea is maybe too simple: an inventory of solidarity practices for the shock ahead. How have people organized in similar moments of crisis? I explore the legacy of Italian Autonomia and the Solidarity Brigades, and look at projects like community energy cooperatives, mesh networks, and bulk buying clubs. What can we start doing now, before the shockwave fully arrives in Europe? It’s a working document, a first attempt — allow it some naivety. It hopes to be useful.</em></p>
                     <p class="blk-text"><em>Thanks to Erik Bordeleau for the conversations that shaped the conceptual backbone of this piece, especially around Autonomia and the idea of political LARPing. And to Marco, Simone, Matteo, and Frank for their suggestions and edits.</em></p>
-                </details>
+                </div>
             </div>
-
-            <figure class="blk-group c-fig">
-                <div class="blk-figure blk-figure--auto" data-w="1400" data-h="1750" style="--fig-rows: 10; --fig-rows-m: 14;"><img src="../assets/images/articles/drop-49-love-means-taking-action-1.webp" alt="" loading="lazy"></div>
-            </figure>
 
             <div class="blk-group c-read is-spaced">
                 <h2 class="blk blk--row blk-heading" id="s-the-shock-before-the-shock"><strong>The Shock Before the Shock</strong></h2>
@@ -129,7 +122,7 @@
             </div>
 
             <div class="blk-group c-read is-spaced">
-                <h2 class="blk blk--row blk-heading" id="s-the-autonomia-way-autoriduzioni-and-brigate"><em><strong>The Autonomia Way: Autoriduzioni </strong></em>and<strong> </strong><em><strong>Brigate</strong></em></h2>
+                <h2 class="blk blk--row blk-heading" id="s-the-autonomia-way-autoriduzioni-and-brigate"><strong><em>The Autonomia Way: Autoriduzioni </em>and <em>Brigate</em></strong></h2>
                 <div class="blk blk--rows">
                     <p class="blk-text">The Italian tradition of <em>Autonomia</em> is built on the literal meaning of the word: <em>auto-nomos</em>, giving the law to oneself. It is the refusal to wait for a state decree or a market correction that will never come. As my friend Erik Bordeleau often suggests, practicing autonomy is a form of <strong>political LARP</strong> (Live Action Role Play): by “acting as if” we already hold the power, we engage in a dress rehearsal for the world we want to inhabit.</p>
                     <p class="blk-text">This is not the first time an oil and energy crisis has reshaped daily life in the West. In November 1973, following the Arab oil embargo triggered by the Yom Kippur War, the Italian government, similarly to its neighbours, imposed<a href="https://www.ilsole24ore.com/art/austerity-1973-quella-prima-domenica-senza-automobili-AFFH5XrB" target="_blank" rel="noopener"> a series of austerity measures</a>: gas stations closed from Saturday noon to Sunday midnight, speed limits were cut to 100 km/h, shop closures were imposed at 7 pm, television broadcasts ending before 11 pm, and public lighting was reduced by 40%.</p>
@@ -223,8 +216,7 @@
                 <div class="blk-figure blk-figure--auto" data-w="1400" data-h="933" style="--fig-rows: 5; --fig-rows-m: 7;"><img src="../assets/images/articles/drop-49-love-means-taking-action-9.webp" alt="" loading="lazy"></div>
                 <figcaption class="blk blk--row blk-caption">A photo of our planet captured by the astronauts on the Artemis II, 2026</figcaption>
             </figure>
-            <a class="next-band is-spaced" href="drop-48-political-mysticism-against.html">
-                <span class="next-band__label">Next drop</span>
+            <a class="next-band is-spaced" href="drop-48-political-mysticism-against.html" aria-label="Next drop: Drop #48, Political Mysticism Against the Empire of Sleep">
                 <span class="next-band__title">Drop #48 Political Mysticism Against the Empire of Sleep</span>
             </a>
             <a class="next-cell is-spaced" href="drop-48-political-mysticism-against.html" aria-hidden="true" tabindex="-1"><svg viewBox="0 0 14 22" aria-hidden="true"><polyline points="2,2 11,11 2,20"/></svg></a>
@@ -263,7 +255,7 @@
     </footer>
 
 
-    <script src="../assets/js/site.js?v=single-squares-6" defer></script>
+    <script src="../assets/js/site.js?v=testata-b-20261106" defer></script>
     <script src="../assets/js/header.js?v=footer-final-20261106" defer></script>
 </body>
 </html>

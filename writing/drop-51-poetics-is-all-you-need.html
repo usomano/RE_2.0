@@ -15,7 +15,7 @@
     <link rel="preload" href="../assets/fonts/ApfelGrotezk-Mittel.woff2" as="font" type="font/woff2" crossorigin>
 
     <link rel="stylesheet" href="../assets/css/styles.css?v=type-scale-20261028">
-    <link rel="stylesheet" href="../assets/css/sections.css?v=drops-title-20261105i">
+    <link rel="stylesheet" href="../assets/css/sections.css?v=testata-b-20261106">
     <link rel="stylesheet" href="../assets/css/header.css?v=next-gap-20261106">
 
     <!-- Not deferred: applies the stored palette before first paint. -->
@@ -46,9 +46,13 @@
 
     <main id="main" tabindex="-1">
 
-        <div class="title-row grid-row">
+        <div class="title-row title-row--plain grid-row">
+            <p class="title-meta blk-kicker"><span>Drop #51</span> <span>June 11, 2026</span> <span>30 min read</span></p>
             <a class="back-cell" href="index.html" aria-label="Back to Writing"><svg viewBox="0 0 14 22" aria-hidden="true"><polyline points="12,2 3,11 12,20"/></svg></a>
-            <h1 class="title-band">Poetics is All You Need</h1>
+            <div class="title-head c-read">
+                <h1 class="blk-title">Poetics is All You Need</h1>
+                <p class="blk-lede">On Leif Weatherby's Language Machines</p>
+            </div>
             <p class="title-authors"><span><span class="name-first">Alessandro Y.</span> <span class="name-last">Longo</span></span></p>
         </div>
 
@@ -69,28 +73,17 @@
                 </ol>
             </nav>
 
-            <div class="blk-group c-read">
-                <div class="blk blk--rows blk-dek">
-                    <p class="blk-kicker">Drop #51 &#183; June 11, 2026 &#183; 30 min read</p>
-                    <p class="blk-lede">On Leif Weatherby's Language Machines</p>
+            <div class="blk-group c-read is-spaced">
+                <div class="blk blk--rows">
+                    <p class="blk-text has-dropcap"><em>Today's Drop is a mutant review of Leif Weatherby's <strong>Language Machines: Cultural AI and the End of Remainder Humanism</strong>, one of the most important books out so far on AI and language. To make sense of Large Language Models, Weatherby goes back to the structuralists, Ferdinand de Saussure above all, and rebuilds their account of signs into a general poetics for the age of automated language. </em></p>
+                    <p class="blk-text"><em>Suggested listening: <a href="https://daydreamforever.bandcamp.com/album/at-the-mercy-of-the-road-and-the-weather" target="_blank" rel="noopener">at the mercy of the road and the weather - daydream associates</a></em></p>
                 </div>
             </div>
-            <div class="blk-group c-read is-spaced">
-                <details class="blk blk--row blk-intro">
-                    <summary class="blk-text blk-intro__toggle"><em>Hey everyone (▰˘◡˘▰)</em></summary>
-                    <p class="blk-text"><em>Today's Drop is a mutant review of Leif Weatherby's <strong>Language Machines: Cultural AI and the End of Remainder Humanism</strong>, one of the most important books out so far on AI and language. To make sense of Large Language Models, Weatherby goes back to the structuralists, Ferdinand de Saussure above all, and rebuilds their account of signs into a general poetics for the age of automated language. </em></p>
-                    <p class="blk-text"><em>Suggested listening: <a href="https://daydreamforever.bandcamp.com/album/at-the-mercy-of-the-road-and-the-weather" target="_blank" rel="noopener">at the mercy of the road and the weather - daydream associates</a></em></p>
-                </details>
-            </div>
-
-            <figure class="blk-group c-fig">
-                <div class="blk-figure blk-figure--auto" data-w="1400" data-h="1750" style="--fig-rows: 10; --fig-rows-m: 14;"><img src="../assets/images/articles/drop-51-poetics-is-all-you-need-1.webp" alt="" loading="lazy"></div>
-            </figure>
 
             <div class="blk-group c-read is-spaced">
-                <h2 class="blk blk--row blk-heading" id="s-a-formal-introduction">A Formal Introduction</h2>
+                <h2 class="blk blk--row blk-heading" id="s-a-formal-introduction"><strong>A Formal Introduction</strong></h2>
                 <div class="blk blk--rows">
-                    <p class="blk-text has-dropcap">I struggled to find a good incipit for this essay. The plan was to build a narrative wrapper that would walk the reader toward the problems at its core. It didn’t work, so I’m starting with this admission instead of asking my Claude to generate a vapid anecdote to fill the space.</p>
+                    <p class="blk-text">I struggled to find a good incipit for this essay. The plan was to build a narrative wrapper that would walk the reader toward the problems at its core. It didn’t work, so I’m starting with this admission instead of asking my Claude to generate a vapid anecdote to fill the space.</p>
                     <p class="blk-text">That this is a choice and not a default is itself the point. For twenty-six euros a month, I have at my disposal a system that generates human language well enough to pass for my own English, probably better. Language has entered “the age of its algorithmic reproducibility,” as Leif Weatherby puts it in the opening of <em><a href="https://www.upress.umn.edu/9781517919320/language-machines/" target="_blank" rel="noopener">Language Machines</a></em>, so that “the human ability to speak can no longer define our singularity.” That first line sets up one of the most pressing problems facing philosophy, critical thinking, and the humanities at large. Language has been pried loose from cognition, scaffolded inside machines that produce meaning, and released into the world. The people who have spent their lives theorising language, communication, and meaning suddenly find themselves at the front of the problem this invention carries inside it. Beyond the narrow remit of the enterprise known as AI Ethics, I think this is where a real program for what used to be called Digital Humanities, and what Nina Beguš has recently rebranded <a href="https://press.umich.edu/Books/A/Artificial-Humanities3" target="_blank" rel="noopener">Artificial Humanities</a>, can begin.</p>
                     <p class="blk-text">A few of the directions it might take:</p>
                     <p class="blk-text">How do we put AI interpretability, the technical project of reading what goes on inside these models, into dialogue with the interpretive depth of the humanities?</p>
@@ -336,8 +329,7 @@
                     <p class="blk-text">Wolfram, S. (2023) <em>What Is ChatGPT Doing... and Why Does It Work?</em>, Wolfram Media, Champaign IL.<a href="https://writings.stephenwolfram.com/2023/02/what-is-chatgpt-doing-and-why-does-it-work/" target="_blank" rel="noopener"> https://writings.stephenwolfram.com/2023/02/what-is-chatgpt-doing-and-why-does-it-work/</a></p>
                 </div>
             </div>
-            <a class="next-band is-spaced" href="drop-50-hacking-language-words-bugs.html">
-                <span class="next-band__label">Next drop</span>
+            <a class="next-band is-spaced" href="drop-50-hacking-language-words-bugs.html" aria-label="Next drop: Drop #50, Hacking Language. Words, Bugs, and the Politics of the Sayable">
                 <span class="next-band__title">Drop #50 Hacking Language. Words, Bugs, and the Politics of the Sayable</span>
             </a>
             <a class="next-cell is-spaced" href="drop-50-hacking-language-words-bugs.html" aria-hidden="true" tabindex="-1"><svg viewBox="0 0 14 22" aria-hidden="true"><polyline points="2,2 11,11 2,20"/></svg></a>
@@ -376,7 +368,7 @@
     </footer>
 
 
-    <script src="../assets/js/site.js?v=single-squares-6" defer></script>
+    <script src="../assets/js/site.js?v=testata-b-20261106" defer></script>
     <script src="../assets/js/header.js?v=footer-final-20261106" defer></script>
 </body>
 </html>

@@ -15,7 +15,7 @@
     <link rel="preload" href="../assets/fonts/ApfelGrotezk-Mittel.woff2" as="font" type="font/woff2" crossorigin>
 
     <link rel="stylesheet" href="../assets/css/styles.css?v=type-scale-20261028">
-    <link rel="stylesheet" href="../assets/css/sections.css?v=drops-title-20261105i">
+    <link rel="stylesheet" href="../assets/css/sections.css?v=testata-b-20261106">
     <link rel="stylesheet" href="../assets/css/header.css?v=next-gap-20261106">
 
     <!-- Not deferred: applies the stored palette before first paint. -->
@@ -46,9 +46,13 @@
 
     <main id="main" tabindex="-1">
 
-        <div class="title-row grid-row">
+        <div class="title-row title-row--plain grid-row">
+            <p class="title-meta blk-kicker"><span>Drop #21</span> <span>November 30, 2024</span> <span>6 min read</span></p>
             <a class="back-cell" href="index.html" aria-label="Back to Writing"><svg viewBox="0 0 14 22" aria-hidden="true"><polyline points="12,2 3,11 12,20"/></svg></a>
-            <h1 class="title-band">'Till We Gain Control Again</h1>
+            <div class="title-head c-read">
+                <h1 class="blk-title">'Till We Gain Control Again</h1>
+                <p class="blk-lede">On OpenAI and sabotage</p>
+            </div>
             <p class="title-authors"><span><span class="name-first">Alessandro Y.</span> <span class="name-last">Longo</span></span></p>
         </div>
 
@@ -57,24 +61,13 @@
             <!-- The colourway switch, in the square under the byline cell. -->
             <button class="theme-switch theme-switch--inline" type="button" aria-pressed="false" aria-label="Acid mode" title="Acid mode">&#9791;</button>
 
-            <div class="blk-group c-read">
-                <div class="blk blk--rows blk-dek">
-                    <p class="blk-kicker">Drop #21 &#183; November 30, 2024 &#183; 6 min read</p>
-                    <p class="blk-lede">On OpenAI and sabotage</p>
+            <div class="blk-group c-read is-spaced">
+                <div class="blk blk--rows">
+                    <p class="blk-text has-dropcap"><em>In today's DROP, we're looking at a moment of digital resistance at OpenAI - where artists meant to showcase their latest AI video tool decided to flip the script instead. A small ripple in the vast ocean of tech, perhaps, but one that tells us something about power, art, and what happens when communities push back.</em></p>
                 </div>
             </div>
+
             <div class="blk-group c-read is-spaced">
-                <details class="blk blk--row blk-intro">
-                    <summary class="blk-text blk-intro__toggle"><em>Hey everyone (▰˘◡˘▰)</em></summary>
-                    <p class="blk-text"><em>In today's DROP, we're looking at a moment of digital resistance at OpenAI - where artists meant to showcase their latest AI video tool decided to flip the script instead. A small ripple in the vast ocean of tech, perhaps, but one that tells us something about power, art, and what happens when communities push back.<br><br>As always, REINCANTAMENTO is sustained by voluntary work. If you like what we do, consider <a href="https://ko-fi.com/reincantamento" target="_blank" rel="noopener">donating</a> or subscribing to support what we do!</em></p>
-                </details>
-            </div>
-
-            <figure class="blk-group c-fig">
-                <div class="blk-figure blk-figure--auto" data-w="1400" data-h="1400" style="--fig-rows: 8; --fig-rows-m: 11;"><img src="../assets/images/articles/drop-21-till-we-gain-control-again-1.webp" alt="" loading="lazy"></div>
-            </figure>
-
-            <div class="blk-group c-read">
                 <div class="blk blk--rows">
                     <p class="blk-text"><em>“It’s through flows that this world is maintained. Block everything!”</em></p>
                     <p class="blk-text">Another crack appeared in OpenAI's facade last Tuesday afternoon - not through <em>Succession-like </em>boardroom drama this time, but as an act of calculated sabotage. The company's anticipated video generation tool Sora found itself unexpectedly exposed on HuggingFace, an open-source platform, through an organized leak by its own early testers.</p>
@@ -106,7 +99,7 @@
             </div>
 
             <div class="blk-group c-read is-spaced">
-                <h2 class="blk blk--row blk-heading" id="s-the-new-machine-breakers">The New Machine Breakers</h2>
+                <h2 class="blk blk--row blk-heading" id="s-the-new-machine-breakers"><strong>The New Machine Breakers</strong></h2>
                 <div class="blk blk--rows">
                     <p class="blk-text">The PR Puppets' act of sabotage isn't just a singular act of defiance – it's part of a growing constellation of tactical interventions against AI's relentless advance. Their leak illuminates the contradictions lurking within OpenAI's black box of operations, casting sharp shadows across the company's art-washed facade.</p>
                     <p class="blk-text">Sabotage, as a tool of resistance, traces its lineage back to the Luddite movement and the machine-breakers who stood against the first Industrial Revolution. At first glance, it might seem paradoxical to draw parallels between artists testing cutting-edge software and these seemingly primitivist, anti-technological gestures. Yet, as <a href="https://logicmag.io/commons/decelerate-now/" target="_blank" rel="noopener">Gavin Mueller reminds us</a>, Luddism (and its descendants) never opposed technology itself: “<em>The original Luddites—a movement of early nineteenth-century English weavers, who infamously smashed the new machines that transformed a skilled and well remunerated livelihood into low-grade piecework performed by children—did not oppose technology in its entirety. Indeed, as skilled craftspeople, they were adept users of it. Rather, they fought against what they referred to as “Machinery hurtful to Commonality,” which sought to break up the autonomy and social power that underpinned entire vibrant communities, so that a new class of factory owners might benefit.</em>”</p>
@@ -138,8 +131,7 @@
                     <p class="blk-text has-endmark">As predatory AI infrastructure descends on the world, these acts of creative resistance carve paths through contested digital territory. Alongside the crucial work of building <a href="https://huggingface.co/spaces/THUDM/CogVideoX-5B-Space" target="_blank" rel="noopener">open-source</a> <a href="https://huggingface.co/genmo/mochi-1-preview" target="_blank" rel="noopener">alternatives</a> and <a href="https://futureartecosystems.org/" target="_blank" rel="noopener">artist-led </a><a href="https://spawning.ai/about" target="_blank" rel="noopener">initiatives</a><a href="https://futureartecosystems.org/" target="_blank" rel="noopener">,</a> they remind us of something simple: in the face of seemingly unstoppable technological forces, strategic disruption still holds power. <em>Till we gain control again.</em></p>
                 </div>
             </div>
-            <a class="next-band is-spaced" href="drop-20-blue-skies-and-gilded-cages.html">
-                <span class="next-band__label">Next drop</span>
+            <a class="next-band is-spaced" href="drop-20-blue-skies-and-gilded-cages.html" aria-label="Next drop: Drop #20, Blue Skies and Gilded Cages">
                 <span class="next-band__title">Drop #20 Blue Skies and Gilded Cages</span>
             </a>
             <a class="next-cell is-spaced" href="drop-20-blue-skies-and-gilded-cages.html" aria-hidden="true" tabindex="-1"><svg viewBox="0 0 14 22" aria-hidden="true"><polyline points="2,2 11,11 2,20"/></svg></a>
@@ -178,7 +170,7 @@
     </footer>
 
 
-    <script src="../assets/js/site.js?v=single-squares-6" defer></script>
+    <script src="../assets/js/site.js?v=testata-b-20261106" defer></script>
     <script src="../assets/js/header.js?v=footer-final-20261106" defer></script>
 </body>
 </html>

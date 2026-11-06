@@ -517,9 +517,10 @@
     font-weight: 400;
 }
 
-/* A title row with no band (trial, drop #53): the title and its subtitle take
-   the band's place as a grey module over the reading column, both in
-   Redaction, one row tall; the line of metadata moves down into the dek. */
+/* The title row of every drop (testata B): no band — the title and its
+   subtitle take the band's place as a grey module over the reading column,
+   both in Redaction, one row tall where they fit (site.js rounds the module up
+   to whole rows when they don't); the line of metadata is the row under it. */
 .title-head {
     margin: 1px 0 0 1px;
     height: calc(var(--cell) - 1px);
@@ -1246,6 +1247,31 @@
 
     .year-nav[data-end="next"] > :nth-child(2) { grid-column: 3 / -2; }
     .year-nav[data-end="prev"] > :nth-child(2) { grid-column: 2 / -3; }
+
+    /* Testata B on one column: title module, byline, metadata — stacked on the
+       content width, each a whole number of rows (site.js), a grid line apart. */
+    .title-row--plain > .title-head {
+        grid-row: 1;
+        grid-column: 2 / -2;
+        padding: 6px var(--card-pad);
+    }
+
+    .title-row--plain > .title-authors {
+        grid-row: 2;
+        grid-column: 2 / -2;
+    }
+
+    /* A whole row of width: first name and surname on one line again. */
+    .title-row--plain .title-authors .name-first,
+    .title-row--plain .title-authors .name-last {
+        display: inline;
+    }
+
+    .title-row--plain > .title-meta {
+        grid-row: 3;
+        grid-column: 2 / -2;
+        padding: 6px var(--card-pad);
+    }
 
     /* One column: the byline runs under the title band instead of beside it. */
     .title-authors {

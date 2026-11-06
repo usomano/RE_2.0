@@ -15,7 +15,7 @@
     <link rel="preload" href="../assets/fonts/ApfelGrotezk-Mittel.woff2" as="font" type="font/woff2" crossorigin>
 
     <link rel="stylesheet" href="../assets/css/styles.css?v=type-scale-20261028">
-    <link rel="stylesheet" href="../assets/css/sections.css?v=drops-title-20261105i">
+    <link rel="stylesheet" href="../assets/css/sections.css?v=testata-b-20261106">
     <link rel="stylesheet" href="../assets/css/header.css?v=next-gap-20261106">
 
     <!-- Not deferred: applies the stored palette before first paint. -->
@@ -46,9 +46,13 @@
 
     <main id="main" tabindex="-1">
 
-        <div class="title-row grid-row">
+        <div class="title-row title-row--plain grid-row">
+            <p class="title-meta blk-kicker"><span>Drop #15</span> <span>June 6, 2024</span> <span>10 min read</span></p>
             <a class="back-cell" href="index.html" aria-label="Back to Writing"><svg viewBox="0 0 14 22" aria-hidden="true"><polyline points="12,2 3,11 12,20"/></svg></a>
-            <h1 class="title-band">Paths of Symmetry</h1>
+            <div class="title-head c-read">
+                <h1 class="blk-title">Paths of Symmetry</h1>
+                <p class="blk-lede">A Geometrical Revolution</p>
+            </div>
             <p class="title-authors"><span><span class="name-first">Alessandro</span> <span class="name-last">De Frenza</span></span></p>
         </div>
 
@@ -57,28 +61,16 @@
             <!-- The colourway switch, in the square under the byline cell. -->
             <button class="theme-switch theme-switch--inline" type="button" aria-pressed="false" aria-label="Acid mode" title="Acid mode">&#9791;</button>
 
-            <div class="blk-group c-read">
-                <div class="blk blk--rows blk-dek">
-                    <p class="blk-kicker">Drop #15 &#183; June 6, 2024 &#183; 10 min read</p>
-                    <p class="blk-lede">A Geometrical Revolution</p>
+            <div class="blk-group c-read is-spaced">
+                <div class="blk blk--rows">
+                    <p class="blk-text has-dropcap"><em>Welcome back to Drops, REINCANTAMENTO’s newsletter. Today we host a new text by Alessandro De Frenza, who authored <a href="https://reincantamentox.substack.com/p/drop-11-quantum-visions" target="_blank" rel="noopener">Drop #11 </a>some months ago. <br><br>Like Alessandro’s previous text, this DROP is a foray into a forest of mathematical and scientific concepts not so common on these pages. He guides us through the concept of symmetry, considering its manifold applications, from fractals to crystallography to new design patterns. The piece leads to consider a new perspective on the physical world, a harbinger of a geometric revolution.<br></em></p>
+                    <p class="blk-text"><em>Alessandro de Frenza is a PhD student in materials science at Sorbonne Université. He specializes in experiments in large-scale facilities, DFT simulations, and other computational chemistry tools. He works on the optical activity of X-rays and often deals with crystallography concepts. Alessandro is passionate about spreading scientific knowledge to a broader audience. If you want to be in contact, <a href="http://Alessandro.defrenza97@gmail.com/" target="_blank" rel="noopener">here’s </a>his <a href="http://Alessandro.defrenza97@gmail.com" target="_blank" rel="noopener">email address</a>.</em></p>
                 </div>
             </div>
+
             <div class="blk-group c-read is-spaced">
-                <details class="blk blk--row blk-intro">
-                    <summary class="blk-text blk-intro__toggle"><em>Hey everyone (▰˘◡˘▰)</em></summary>
-                    <p class="blk-text"><em>Welcome back to Drops, REINCANTAMENTO’s newsletter. Today we host a new text by Alessandro De Frenza, who authored <a href="https://reincantamentox.substack.com/p/drop-11-quantum-visions" target="_blank" rel="noopener">Drop #11 </a>some months ago. <br><br>Like Alessandro’s previous text, this DROP is a foray into a forest of mathematical and scientific concepts not so common on these pages. He guides us through the concept of symmetry, considering its manifold applications, from fractals to crystallography to new design patterns. The piece leads to consider a new perspective on the physical world, a harbinger of a geometric revolution.<br></em></p>
-                    <p class="blk-text"><em>Alessandro de Frenza is a PhD student in materials science at Sorbonne Université. He specializes in experiments in large-scale facilities, DFT simulations, and other computational chemistry tools. He works on the optical activity of X-rays and often deals with crystallography concepts. Alessandro is passionate about spreading scientific knowledge to a broader audience. If you want to be in contact, <a href="http://Alessandro.defrenza97@gmail.com/" target="_blank" rel="noopener">here’s </a>his <a href="http://Alessandro.defrenza97@gmail.com" target="_blank" rel="noopener">email address</a>.</em></p>
-                    <p class="blk-text"><em>If you want to propose an article for this newsletter send an email to reincantamento@gmail.com and consider <a href="https://ko-fi.com/reincantamento" target="_blank" rel="noopener">donating</a> or a discounted subscription to support our work ^_^</em></p>
-                </details>
-            </div>
-
-            <figure class="blk-group c-fig">
-                <div class="blk-figure blk-figure--auto" data-w="1400" data-h="1438" style="--fig-rows: 8; --fig-rows-m: 11;"><img src="../assets/images/articles/drop-15-paths-of-symmetry-1.webp" alt="" loading="lazy"></div>
-            </figure>
-
-            <div class="blk-group c-read">
                 <div class="blk blk--rows">
-                    <p class="blk-text has-dropcap">The study of symmetry operations and forms has always attracted researchers from different fields, particularly mathematicians, chemists, and computer scientists. Historically, human beings are fascinated by how geometrical figures can fulfill their sense of order and how they are interconnected to form repeating and non-repeating patterns. <br><br>One of the simplest examples is tiling a bathroom floor. By using square tiles, you can cover the entire floor without leaving any gaps, creating a '<strong>periodic</strong>' pattern where the same tile is repeated throughout the space.<br><br>However, not just periodic repetition is interesting (and useful too), but more recently, starting from the 1960s, scientists started to explore <strong>aperiodic</strong> tiles, and in general, the contrast between periodic and aperiodic structures. A periodic shape or, more generally speaking, a periodic entity is definable through a symmetry operation while you can’t do the same when dealing with aperiodic entities. <br><br>So, what is symmetry, or better, a symmetry operation? Although it is not easy to give a simple and clear definition, symmetry can be defined as “<em>the periodic repetition of an object in a space</em>”. We notice how symmetry is not a fixed property but one discovered through a procedure namely <em>by repeating an object in n-D space</em>. Indeed, mathematicians provide a striking elegant definition of the symmetry operation:</p>
+                    <p class="blk-text">The study of symmetry operations and forms has always attracted researchers from different fields, particularly mathematicians, chemists, and computer scientists. Historically, human beings are fascinated by how geometrical figures can fulfill their sense of order and how they are interconnected to form repeating and non-repeating patterns. <br><br>One of the simplest examples is tiling a bathroom floor. By using square tiles, you can cover the entire floor without leaving any gaps, creating a '<strong>periodic</strong>' pattern where the same tile is repeated throughout the space.<br><br>However, not just periodic repetition is interesting (and useful too), but more recently, starting from the 1960s, scientists started to explore <strong>aperiodic</strong> tiles, and in general, the contrast between periodic and aperiodic structures. A periodic shape or, more generally speaking, a periodic entity is definable through a symmetry operation while you can’t do the same when dealing with aperiodic entities. <br><br>So, what is symmetry, or better, a symmetry operation? Although it is not easy to give a simple and clear definition, symmetry can be defined as “<em>the periodic repetition of an object in a space</em>”. We notice how symmetry is not a fixed property but one discovered through a procedure namely <em>by repeating an object in n-D space</em>. Indeed, mathematicians provide a striking elegant definition of the symmetry operation:</p>
                 </div>
             </div>
 
@@ -130,7 +122,7 @@
             </div>
 
             <div class="blk-group c-read is-spaced">
-                <h2 class="blk blk--row blk-heading" id="s-a-fractal-design">A fractal design</h2>
+                <h2 class="blk blk--row blk-heading" id="s-a-fractal-design"><strong>A fractal design</strong></h2>
                 <div class="blk blk--rows">
                     <p class="blk-text">Nathan Cohen encountered fractals in 1988. At the time, he was immersed in the study of physics and radio astronomy but he rapidly directed his focus on fractal geometry. Cohen wanted to apply these new surfaces to tangible objects by turning them into design patterns. His efforts led to the invention of the <em><strong>fractal antenna</strong></em>.</p>
                     <p class="blk-text">After this invention, ‘Chip’ - as he liked to be called - founded, together with his team, a <a href="https://www.fractenna.com/our/antennatech.html" target="_blank" rel="noopener">company</a> with the same name as his discovery, which is still active and well-known globally. Relying on Mandelbrot’s ideas, the key aspect of this design pattern lies in the repetition of a motif over two or more scale sizes or "iterations". For this reason, fractal antennas are very compact, multiband, or wideband, and have useful applications in cellular telephone and microwave communications. A fractal antenna's response differs markedly from traditional antenna designs: it is capable of operating with good-to-excellent performance at many different frequencies simultaneously.</p>
@@ -165,8 +157,7 @@
                     <p class="blk-text has-endmark">The paths of symmetry are dispersed through different disciplines and observable everywhere, from philosophy to computer animation. Their new ramifications and evolutions will influence the planet’s fabric for the years to come.</p>
                 </div>
             </div>
-            <a class="next-band is-spaced" href="drop-14-the-drake-era-or-the-logic.html">
-                <span class="next-band__label">Next drop</span>
+            <a class="next-band is-spaced" href="drop-14-the-drake-era-or-the-logic.html" aria-label="Next drop: Drop #14, The Drake Era or the Logic of Cultural Fracking">
                 <span class="next-band__title">Drop #14 The Drake Era or the Logic of Cultural Fracking</span>
             </a>
             <a class="next-cell is-spaced" href="drop-14-the-drake-era-or-the-logic.html" aria-hidden="true" tabindex="-1"><svg viewBox="0 0 14 22" aria-hidden="true"><polyline points="2,2 11,11 2,20"/></svg></a>
@@ -205,7 +196,7 @@
     </footer>
 
 
-    <script src="../assets/js/site.js?v=single-squares-6" defer></script>
+    <script src="../assets/js/site.js?v=testata-b-20261106" defer></script>
     <script src="../assets/js/header.js?v=footer-final-20261106" defer></script>
 </body>
 </html>

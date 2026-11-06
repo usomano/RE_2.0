@@ -57,7 +57,7 @@
        the next whole row (minus the 1px that keeps its leading grid line
        visible). Without JS the CSS min-heights still give a sane layout — only
        the bottom edge of an unusually long block falls off the grid. */
-    const SNAP = '.blk, .card__body, .title-band, .next-band';
+    const SNAP = '.blk, .card__body, .title-band, .next-band, .title-head, .title-meta';
     const CLEARANCE = 4;    // px of breathing room required under the last line
 
     const snapBlocks = (cell) => {

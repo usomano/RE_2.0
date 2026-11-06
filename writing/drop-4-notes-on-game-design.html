@@ -15,7 +15,7 @@
     <link rel="preload" href="../assets/fonts/ApfelGrotezk-Mittel.woff2" as="font" type="font/woff2" crossorigin>
 
     <link rel="stylesheet" href="../assets/css/styles.css?v=type-scale-20261028">
-    <link rel="stylesheet" href="../assets/css/sections.css?v=drops-title-20261105i">
+    <link rel="stylesheet" href="../assets/css/sections.css?v=testata-b-20261106">
     <link rel="stylesheet" href="../assets/css/header.css?v=next-gap-20261106">
 
     <!-- Not deferred: applies the stored palette before first paint. -->
@@ -46,9 +46,13 @@
 
     <main id="main" tabindex="-1">
 
-        <div class="title-row grid-row">
+        <div class="title-row title-row--plain grid-row">
+            <p class="title-meta blk-kicker"><span>Drop #4</span> <span>August 4, 2023</span> <span>6 min read</span></p>
             <a class="back-cell" href="index.html" aria-label="Back to Writing"><svg viewBox="0 0 14 22" aria-hidden="true"><polyline points="12,2 3,11 12,20"/></svg></a>
-            <h1 class="title-band">Notes on Game Design</h1>
+            <div class="title-head c-read">
+                <h1 class="blk-title">Notes on Game Design</h1>
+                <p class="blk-lede">Behind-the-scenes of Tech Collapse</p>
+            </div>
             <p class="title-authors"><span><span class="name-first">Alessandro Y.</span> <span class="name-last">Longo</span></span></p>
         </div>
 
@@ -67,28 +71,17 @@
                 </ol>
             </nav>
 
-            <div class="blk-group c-read">
-                <div class="blk blk--rows blk-dek">
-                    <p class="blk-kicker">Drop #4 &#183; August 4, 2023 &#183; 6 min read</p>
-                    <p class="blk-lede">Behind-the-scenes of Tech Collapse</p>
+            <div class="blk-group c-read is-spaced">
+                <div class="blk blk--rows">
+                    <p class="blk-text has-dropcap"><em>July flew away feel without me even noticing. Weird. As far as this newsletter can be an impromptu, freestyle kind of thing, I’d like to maintain a minimum level of consistency. So, before a small summer break, one last Drop.</em></p>
+                    <p class="blk-text"><em>In June, I dedicated tons of energy to working on something unusual, a board game, as you may’ve guessed from recent spam <a href="https://www.instagram.com/re.incantamento/" target="_blank" rel="noopener">on Instagram</a>. This post will be dedicated to unpacking the project’s story and to sketching the lines for future development. Loyal to REINCANTAMENTO tagline, an open-source and work-in-progress meditation, I value the transparent disclosure of our (unfinished) creative process. I hope you don’t find it too boring.</em></p>
                 </div>
             </div>
-            <div class="blk-group c-read is-spaced">
-                <details class="blk blk--row blk-intro">
-                    <summary class="blk-text blk-intro__toggle">Hey everyone (▰˘◡˘▰)</summary>
-                    <p class="blk-text"><em>July flew away feel without me even noticing. Weird. As far as this newsletter can be an impromptu, freestyle kind of thing, I’d like to maintain a minimum level of consistency. So, before a small summer break, one last Drop.</em></p>
-                    <p class="blk-text"><em>In June, I dedicated tons of energy to working on something unusual, a board game, as you may’ve guessed from recent spam <a href="https://www.instagram.com/re.incantamento/" target="_blank" rel="noopener">on Instagram</a>. This post will be dedicated to unpacking the project’s story and to sketching the lines for future development. Loyal to REINCANTAMENTO tagline, an open-source and work-in-progress meditation, I value the transparent disclosure of our (unfinished) creative process. I hope you don’t find it too boring.</em></p>
-                </details>
-            </div>
-
-            <figure class="blk-group c-fig">
-                <div class="blk-figure blk-figure--auto" data-w="1400" data-h="1400" style="--fig-rows: 8; --fig-rows-m: 11;"><img src="../assets/images/articles/drop-4-notes-on-game-design-1.webp" alt="" loading="lazy"></div>
-            </figure>
 
             <div class="blk-group c-read is-spaced">
-                <h2 class="blk blk--row blk-heading" id="s-assembling-an-idea-january-march">Assembling an idea (January - March)</h2>
+                <h2 class="blk blk--row blk-heading" id="s-assembling-an-idea-january-march"><strong>Assembling an idea (January - March)</strong></h2>
                 <div class="blk blk--rows">
-                    <p class="blk-text has-dropcap">This journey started at the beginning of the year when we (me and my friend <a href="https://www.instagram.com/fasolatoanna95/" target="_blank" rel="noopener">Anna</a>) decided to apply for the <a href="https://48-stunden-neukoelln.de/de/festival" target="_blank" rel="noopener">48 Stunden Neukölln</a> (aka 48 Hours), a two-days art festival happening in the district of Neukölln in Berlin. Following the festival’s core theme, Play(GROUND), we decided to interpret it literally and propose an actual, <strong>board game prototype</strong> for the festival.</p>
+                    <p class="blk-text">This journey started at the beginning of the year when we (me and my friend <a href="https://www.instagram.com/fasolatoanna95/" target="_blank" rel="noopener">Anna</a>) decided to apply for the <a href="https://48-stunden-neukoelln.de/de/festival" target="_blank" rel="noopener">48 Stunden Neukölln</a> (aka 48 Hours), a two-days art festival happening in the district of Neukölln in Berlin. Following the festival’s core theme, Play(GROUND), we decided to interpret it literally and propose an actual, <strong>board game prototype</strong> for the festival.</p>
                     <p class="blk-text">That was easier said than done. In the following months, the perils of game design unfolded in front of our eyes, leaving us with a big fish to fry, with little (or no) experience in the field. While the game dynamics were hard to define, the theme of the project was clear from the very beginning.</p>
                 </div>
             </div>
@@ -120,7 +113,7 @@
             </div>
 
             <div class="blk-group c-read is-spaced">
-                <h2 class="blk blk--row blk-heading" id="s-designing-a-world-april-june">Designing a world (April - June)</h2>
+                <h2 class="blk blk--row blk-heading" id="s-designing-a-world-april-june"><strong>Designing a world (April - June)</strong></h2>
                 <div class="blk blk--rows">
                     <p class="blk-text">The answer to the first issue came spontaneously, in the form of <em>cards</em>. Through the collection of cards, the players get to know the different practices and stories that came from the research. This decision was vaguely inspired by the way you collect instructive cards in <em><a href="https://play.half.earth/" target="_blank" rel="noopener">Half-Earth Socialism </a></em><a href="https://play.half.earth/" target="_blank" rel="noopener">game</a> <em>- </em>another speculative game born out of the Berlin scene - as well as my experience with strategy games, especially Sid Meyer’s <em>Civilization</em>, where technological advancements are presented in the form of cards with a relatively short caption. Later on, I discovered that <a href="https://en.wikipedia.org/wiki/Deck-building_game" target="_blank" rel="noopener">deck-building game</a> is the appropriate definition for this category of games, to whom Tech Collapse belongs.</p>
                 </div>
@@ -175,7 +168,7 @@
             </div>
 
             <div class="blk-group c-read is-spaced">
-                <h2 class="blk blk--row blk-heading" id="s-squadding-up">Squadding up</h2>
+                <h2 class="blk blk--row blk-heading" id="s-squadding-up"><strong>Squadding up</strong></h2>
                 <div class="blk blk--rows">
                     <p class="blk-text">Besides me and Anna, this project required the help and professionality of other friends. The art direction of the project was taken over the last month by my friend <a href="https://www.instagram.com/g4rdn/" target="_blank" rel="noopener">Giorgio Craparo</a>, who upgraded the design of the cards and the board to the next level and overviewed the whole printing process. Matteo Gevi and Alessio Straub, two good nerdy friends, helped in smoothing the game’s rules, and <a href="https://twitter.com/jeein0" target="_blank" rel="noopener">Jeein Shin </a>preciously edited the various texts. Thanks also to <em><a href="https://offline.place/" target="_blank" rel="noopener">offline</a></em>, the space that hosted us in Berlin, a new cultural space intersecting hackers, artists, and activists.</p>
                 </div>
@@ -187,15 +180,13 @@
             </figure>
 
             <div class="blk-group c-read is-spaced">
-                <h2 class="blk blk--row blk-heading" id="s-what-the-future-looks-like-august">What the future looks like (August - ?)</h2>
+                <h2 class="blk blk--row blk-heading" id="s-what-the-future-looks-like-august"><strong>What the future looks like (August - ?)</strong></h2>
                 <div class="blk blk--rows">
                     <p class="blk-text">After this first test, we like to open source our game design process, engage with new people and expand the project. Many elements need refinement and the game rules need to be more adapted and tested</p>
-                    <p class="blk-text">This text is our first step forward, telling our part of the story so far. If you like to be engaged or just to stay updated, you can join the Telegram group at <a href="https://t.me/+-LnVy4p3qH03MDQ8" target="_blank" rel="noopener">this link</a>. We’re looking for illustrators, writers, game designers, board game nerds, green computation researchers, and generally curious individuals!</p>
-                    <p class="blk-text has-endmark">Also, if you like to support the game’s development as well as this newsletter, now you can <a href="https://ko-fi.com/reincantamento" target="_blank" rel="noopener">make a donation</a> on ko-fi to help us ^^</p>
+                    <p class="blk-text has-endmark">This text is our first step forward, telling our part of the story so far. If you like to be engaged or just to stay updated, you can join the Telegram group at <a href="https://t.me/+-LnVy4p3qH03MDQ8" target="_blank" rel="noopener">this link</a>. We’re looking for illustrators, writers, game designers, board game nerds, green computation researchers, and generally curious individuals!</p>
                 </div>
             </div>
-            <a class="next-band is-spaced" href="drop-3-notes-on-technic-and-magic.html">
-                <span class="next-band__label">Next drop</span>
+            <a class="next-band is-spaced" href="drop-3-notes-on-technic-and-magic.html" aria-label="Next drop: Drop #3, Notes on Technic and Magic">
                 <span class="next-band__title">Drop #3 Notes on Technic and Magic</span>
             </a>
             <a class="next-cell is-spaced" href="drop-3-notes-on-technic-and-magic.html" aria-hidden="true" tabindex="-1"><svg viewBox="0 0 14 22" aria-hidden="true"><polyline points="2,2 11,11 2,20"/></svg></a>
@@ -234,7 +225,7 @@
     </footer>
 
 
-    <script src="../assets/js/site.js?v=single-squares-6" defer></script>
+    <script src="../assets/js/site.js?v=testata-b-20261106" defer></script>
     <script src="../assets/js/header.js?v=footer-final-20261106" defer></script>
 </body>
 </html>

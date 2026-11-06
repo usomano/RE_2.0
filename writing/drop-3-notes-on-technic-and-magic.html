@@ -15,7 +15,7 @@
     <link rel="preload" href="../assets/fonts/ApfelGrotezk-Mittel.woff2" as="font" type="font/woff2" crossorigin>
 
     <link rel="stylesheet" href="../assets/css/styles.css?v=type-scale-20261028">
-    <link rel="stylesheet" href="../assets/css/sections.css?v=drops-title-20261105i">
+    <link rel="stylesheet" href="../assets/css/sections.css?v=testata-b-20261106">
     <link rel="stylesheet" href="../assets/css/header.css?v=next-gap-20261106">
 
     <!-- Not deferred: applies the stored palette before first paint. -->
@@ -46,9 +46,13 @@
 
     <main id="main" tabindex="-1">
 
-        <div class="title-row grid-row">
+        <div class="title-row title-row--plain grid-row">
+            <p class="title-meta blk-kicker"><span>Drop #3</span> <span>July 25, 2023</span> <span>8 min read</span></p>
             <a class="back-cell" href="index.html" aria-label="Back to Writing"><svg viewBox="0 0 14 22" aria-hidden="true"><polyline points="12,2 3,11 12,20"/></svg></a>
-            <h1 class="title-band">Notes on Technic and Magic</h1>
+            <div class="title-head c-read">
+                <h1 class="blk-title">Notes on Technic and Magic</h1>
+                <p class="blk-lede">On two modes of action</p>
+            </div>
             <p class="title-authors"><span><span class="name-first">Alessandro Y.</span> <span class="name-last">Longo</span></span></p>
         </div>
 
@@ -57,26 +61,15 @@
             <!-- The colourway switch, in the square under the byline cell. -->
             <button class="theme-switch theme-switch--inline" type="button" aria-pressed="false" aria-label="Acid mode" title="Acid mode">&#9791;</button>
 
-            <div class="blk-group c-read">
-                <div class="blk blk--rows blk-dek">
-                    <p class="blk-kicker">Drop #3 &#183; July 25, 2023 &#183; 8 min read</p>
-                    <p class="blk-lede">On two modes of action</p>
+            <div class="blk-group c-read is-spaced">
+                <div class="blk blk--rows">
+                    <p class="blk-text has-dropcap"><em>Sorry for the monthly radio silence. Once again, life happened. Anyway, I’m back with a more philosophical piece, bridging recent considerations with a more classic theoretical apparatus. I've been wanting to write about these ideas for a while now, and I couldn't hold back any longer. It's not a complete essay, just a beta version, but I wanted to get it out there and start a chat about it. Hope you enjoy reading it and spark a conversation!</em></p>
                 </div>
             </div>
+
             <div class="blk-group c-read is-spaced">
-                <details class="blk blk--row blk-intro">
-                    <summary class="blk-text blk-intro__toggle">Hey everyone (▰˘◡˘▰)</summary>
-                    <p class="blk-text"><em>Sorry for the monthly radio silence. Once again, life happened. Anyway, I’m back with a more philosophical piece, bridging recent considerations with a more classic theoretical apparatus. I've been wanting to write about these ideas for a while now, and I couldn't hold back any longer. It's not a complete essay, just a beta version, but I wanted to get it out there and start a chat about it. Hope you enjoy reading it and spark a conversation!</em></p>
-                </details>
-            </div>
-
-            <figure class="blk-group c-fig">
-                <div class="blk-figure blk-figure--auto" data-w="1400" data-h="1400" style="--fig-rows: 8; --fig-rows-m: 11;"><img src="../assets/images/articles/drop-3-notes-on-technic-and-magic-1.webp" alt="" loading="lazy"></div>
-            </figure>
-
-            <div class="blk-group c-read">
                 <div class="blk blk--rows">
-                    <p class="blk-text has-dropcap">When I started REINCANTAMENTO in the spring of 2020, my main inspiration was the book <em>Technic and Magic </em>by the Italian philosopher Federico Campagna. Later that year and up until ‘22, me and my friends wrote extensively about the ideas of the volume. You can find some examples - Italian only - <a href="https://reincantamento.xyz/REINCANTAMENTO-Episodio-1-La-Tecnica-e-la-Magia-prima-parte" target="_blank" rel="noopener">here</a>, <a href="https://reincantamento.xyz/REINCANTAMENTO-Episodio-2-La-Tecnica-e-la-Magia-seconda-parte" target="_blank" rel="noopener">here</a>, and <a href="https://reincantamento.xyz/Magia-e-Autonomia" target="_blank" rel="noopener">here</a>. <em>Tecnic and Magic </em>is a philosophical book, engaged in that ambitious effort that is metaphysics, and yet, it always maintained, in my eyes, a certain degree of accessibility. It’s a book that impacted my life, and I can’t say the same for the many theory volumes I went through in my student years. <br><br>Although, fortunately, I am not here to talk about Campagna’s book again, I want to use its title as an inspiration for some observations I accumulated last year, particularly since I moved back to Berlin.</p>
+                    <p class="blk-text">When I started REINCANTAMENTO in the spring of 2020, my main inspiration was the book <em>Technic and Magic </em>by the Italian philosopher Federico Campagna. Later that year and up until ‘22, me and my friends wrote extensively about the ideas of the volume. You can find some examples - Italian only - <a href="https://reincantamento.xyz/REINCANTAMENTO-Episodio-1-La-Tecnica-e-la-Magia-prima-parte" target="_blank" rel="noopener">here</a>, <a href="https://reincantamento.xyz/REINCANTAMENTO-Episodio-2-La-Tecnica-e-la-Magia-seconda-parte" target="_blank" rel="noopener">here</a>, and <a href="https://reincantamento.xyz/Magia-e-Autonomia" target="_blank" rel="noopener">here</a>. <em>Tecnic and Magic </em>is a philosophical book, engaged in that ambitious effort that is metaphysics, and yet, it always maintained, in my eyes, a certain degree of accessibility. It’s a book that impacted my life, and I can’t say the same for the many theory volumes I went through in my student years. <br><br>Although, fortunately, I am not here to talk about Campagna’s book again, I want to use its title as an inspiration for some observations I accumulated last year, particularly since I moved back to Berlin.</p>
                     <p class="blk-text">Most people around me or my extended network, which is inevitably a bubble, are unsatisfied with the current lifestyle promoted by late Western capitalism. Without over-analyzing the present moment, the combination of the climate crisis, economic uncertainty, tearing inequalities, and the fog of war that fell onto Europe, is not bringing up hopes for the future. It has been defined, somehow euphemistically, as <a href="https://www.ft.com/content/498398e7-11b1-494b-9cd3-6d669dc3de33" target="_blank" rel="noopener">Polycrisis</a>. Everything seems unstable and almost ready to fall while also appearing immutably equal. A runaway train heading toward a ravine; the passengers know they are moving there but they don’t know how to stop it. Talking about locomotives, Walter Benjamin once said: “<em>Perhaps revolutions are not the train ride, but the human race grabbing for the emergency brake</em>”. The funny thing is that, in the suspended spring of three years ago, grabbing that brake was considered an almost reasonable idea. We were saying: <em>no volveremos a la normalidad porque la normalidad era el problema </em>(we will not go back to normal)<em>. </em>It was a fair point, yet, here we are. <br>However, the train’s passengers are not standing still; they - we - are frenetically engaged in several activities fueled with the hope of making an impact, somehow affecting the path. It seems to me that all around me people who feel unease with the 'present state of things' are drawn to two main spheres of action, that we may define, inspired by Campagna’s book, <em>Technic</em> and <em>Magic</em>.</p>
                 </div>
             </div>
@@ -93,7 +86,6 @@
                     <p class="blk-text"><strong>Origin story: </strong>The mysterious identity of Satoshi Nakamoto and the untouched Bitcoin fortune contribute to the notion of purity and a founding narrative.</p>
                     <p class="blk-text">Building on these assumptions, crypto-technologists identify a technical artifact as a salvific tool that restores the ability to impact the world. The same process is visible in the AI industry, which produces multiple para-spiritual attitudes like Ray Kurzweil’s <a href="https://en.wikipedia.org/wiki/Technological_singularity" target="_blank" rel="noopener">Singularity</a>, a ‘<a href="https://www.wired.com/story/anthony-levandowski-artificial-intelligence-religion/" target="_blank" rel="noopener">church of AI</a>’ and <a href="https://www.vox.com/future-perfect/2019/9/9/20851753/ai-religion-robot-priest-mindar-buddhism-christianity" target="_blank" rel="noopener">robotic priests</a>. Especially since ChatGPT’s Conception, these beliefs are popularized and are trickling down in the general public. OpenAI’s chatbot has been used to produce<a href="https://www.blogmojo.de/chatgpt-plugin/feng-shui-divination/" target="_blank" rel="noopener"> Feng Shui divination</a> or to write sermons. More generally, the trust attached to ChatGPT, with people following its words on sensitive topics like health advice, shows how we quench our thirst for answers and meaning with the mediation of a technological artifact.</p>
                     <p class="blk-text">However, it’s necessary to ground these beliefs in their material context. As Alsindi puts it, the prophet motives are often <strong>obscuring </strong><em><strong>profit motives</strong></em><strong>. </strong>In a <a href="https://not.neroeditions.com/hype-iperstizione/" target="_blank" rel="noopener">hype-driven economy</a>, where expectations and promises find an equivalent in market capitalization, pushing innovation with religious fervor is also a business strategy. Self-fulfilling prophecies, or more philosophically <em><a href="https://www.orphandriftarchive.com/articles/hyperstition/" target="_blank" rel="noopener">hyperstitions</a></em>, are manifesting growth and market expansion without considering real-world conditions. An example of this, devoid of spiritual components, is Andreessen Horowitz’s report - a notorious venture capital firm - ‘State of Crypto 2023” that has been <a href="https://newsletter.mollywhite.net/p/andreessen-horowitzs-state-of-crypto" target="_blank" rel="noopener">brilliantly dissected</a> by journalist Molly White: “<em>They </em>[Andreessen Horowitz] <em>want people to keep buying crypto, and are not above publishing blatant falsehoods to convince them to do so”. </em>Horowitz’s predictions and analyses have no other meaning but to ensure the market’s trust. They work on what has been defined by sociologist Elena Esposito as<a href="http://bb9.berlinbiennale.de/the-construction-of-unpredictability/" target="_blank" rel="noopener"> </a><em><a href="http://bb9.berlinbiennale.de/the-construction-of-unpredictability/" target="_blank" rel="noopener">second-degree observations</a></em>: namely, not empirical estimates of a commodity, but calculations on the imagined valuations of other players in the market, which ultimately causes unpredictability.</p>
-                    <p class="blk-text"><a href="https://reincantamentox.substack.com/p/drops-3-notes-on-technic-and-magic?utm_source=substack&amp;utm_medium=email&amp;utm_content=share&amp;action=share" target="_blank" rel="noopener">Share</a></p>
                     <p class="blk-text">Although these beliefs can manipulate the economy, they also are an earnest attempt in creating communities. In an ever-atomized society, a shared interest, that we believe can improve our lives and the world, functions as a gravitational point, attracting different people and establishing relationships. As noticed by the anthropologist Elémire Zolla:</p>
                 </div>
             </div>
@@ -120,8 +112,7 @@
                     <p class="blk-text has-endmark"><em>If you like DROPS and you want to see it growing, please consider sharing and supporting ^_^</em></p>
                 </div>
             </div>
-            <a class="next-band is-spaced" href="drop-2-notes-on-yeezus.html">
-                <span class="next-band__label">Next drop</span>
+            <a class="next-band is-spaced" href="drop-2-notes-on-yeezus.html" aria-label="Next drop: Drop #2, Notes on Yeezus">
                 <span class="next-band__title">Drop #2 Notes on Yeezus</span>
             </a>
             <a class="next-cell is-spaced" href="drop-2-notes-on-yeezus.html" aria-hidden="true" tabindex="-1"><svg viewBox="0 0 14 22" aria-hidden="true"><polyline points="2,2 11,11 2,20"/></svg></a>
@@ -160,7 +151,7 @@
     </footer>
 
 
-    <script src="../assets/js/site.js?v=single-squares-6" defer></script>
+    <script src="../assets/js/site.js?v=testata-b-20261106" defer></script>
     <script src="../assets/js/header.js?v=footer-final-20261106" defer></script>
 </body>
 </html>

@@ -276,11 +276,46 @@ is whole without JS:
   copy that actually ships, and printed in the kicker — nothing shifts on load.
 - **The figure lightbox.** Figures are cut to whole grid rows, so clicking one
   lifts it out whole in a `<dialog>` over the page colour.
-- **The guest byline.** The title band stops one cell short of the right edge;
-  that cell carries `authors` from `drops.json`, one name per line, and stays
-  empty for pieces written in-house. Three names still fit inside the square, so
-  the row stays one cell tall — keep it that way when adding more. On mobile the
-  cell runs under the band instead.
+- **The byline.** The cell right after the reading column (`--read-end`)
+  carries `authors` from `drops.json`, first name over surname. Three names
+  still fit inside the square, so the row stays one cell tall — keep it that
+  way when adding more. On mobile it runs under the title, names on one line.
+
+### The drop rules — every drop, always
+
+Drops #52 and #53 set the model; every drop page follows it. `build.py`
+enforces all of it (`title_row_plain`, `editorial_cuts`, the `CHROME` /
+`BUTTONS` filters in `convert_body`, `next_band(..., aria=...)`), so new issues
+pulled by `fetch_drops.py` come out right — never hand-edit a drop back
+towards the old shape.
+
+1. **Title row B, no band.** Back cell · title + subtitle in Redaction on a
+   grey module over the reading column · byline cell. The metadata — `Drop #N`,
+   full date, `N min read`, no separators — is the row under it, three modules
+   from the column start. No dek block in the article. On mobile: title,
+   byline, metadata stacked on the content width (`site.js` rounds the title
+   and metadata modules to whole rows).
+2. **No cover artwork in the article.** The issue's first image (`<slug>-1`,
+   or without the `drop-N-` prefix, as #25) is the cover; it lives on the card.
+3. **No "Hey everyone".** The salutation goes; the editor's note after it
+   stays as plain copy opening the piece, and takes the drop cap. No
+   `<details>` fold. The note is a group of its own and the piece after it
+   opens on a whole empty row (`.is-spaced`), as in #53.
+4. **No support request.** Subscribe / donate / Ko-fi / "runs on voluntary
+   work" paragraphs, quotes and buttons never travel; a paragraph that ends on
+   one after a line break keeps the copy before it.
+5. **Section titles set whole in `<strong>`.** The export's partial bold is
+   cleared first (`Computational<strong> Prosopa</strong>` → whole).
+6. **Next band without the label.** The band carries `Drop #N Title` alone;
+   "Next drop" survives as its `aria-label`.
+7. **A whole empty row between the next band and the footer**
+   (`body:has(.next-band) .site-footer`, in `header.css`) — on publishing and
+   artworks pages too.
+
+The generated HTML and `build.py` drifted apart on the shared shell (head
+assets, footer markup). Until that is reconciled, regenerate drops by building
+in a copy and splicing only the `reading-progress` … `</main>` region into the
+committed pages, then check that nothing but the intended change moved.
 
 ## Layout — home
 

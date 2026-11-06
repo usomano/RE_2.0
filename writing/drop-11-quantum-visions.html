@@ -15,7 +15,7 @@
     <link rel="preload" href="../assets/fonts/ApfelGrotezk-Mittel.woff2" as="font" type="font/woff2" crossorigin>
 
     <link rel="stylesheet" href="../assets/css/styles.css?v=type-scale-20261028">
-    <link rel="stylesheet" href="../assets/css/sections.css?v=drops-title-20261105i">
+    <link rel="stylesheet" href="../assets/css/sections.css?v=testata-b-20261106">
     <link rel="stylesheet" href="../assets/css/header.css?v=next-gap-20261106">
 
     <!-- Not deferred: applies the stored palette before first paint. -->
@@ -46,9 +46,13 @@
 
     <main id="main" tabindex="-1">
 
-        <div class="title-row grid-row">
+        <div class="title-row title-row--plain grid-row">
+            <p class="title-meta blk-kicker"><span>Drop #11</span> <span>February 10, 2024</span> <span>8 min read</span></p>
             <a class="back-cell" href="index.html" aria-label="Back to Writing"><svg viewBox="0 0 14 22" aria-hidden="true"><polyline points="12,2 3,11 12,20"/></svg></a>
-            <h1 class="title-band">Quantum Visions</h1>
+            <div class="title-head c-read">
+                <h1 class="blk-title">Quantum Visions</h1>
+                <p class="blk-lede">Vast Machines and Climate Change</p>
+            </div>
             <p class="title-authors"><span><span class="name-first">Alessandro</span> <span class="name-last">De Frenza</span></span></p>
         </div>
 
@@ -57,28 +61,17 @@
             <!-- The colourway switch, in the square under the byline cell. -->
             <button class="theme-switch theme-switch--inline" type="button" aria-pressed="false" aria-label="Acid mode" title="Acid mode">&#9791;</button>
 
-            <div class="blk-group c-read">
-                <div class="blk blk--rows blk-dek">
-                    <p class="blk-kicker">Drop #11 &#183; February 10, 2024 &#183; 8 min read</p>
-                    <p class="blk-lede">Vast Machines and Climate Change</p>
-                </div>
-            </div>
             <div class="blk-group c-read is-spaced">
-                <details class="blk blk--row blk-intro">
-                    <summary class="blk-text blk-intro__toggle"><em>Hey everyone (▰˘◡˘▰)</em></summary>
+                <div class="blk blk--rows">
                     <p class="blk-text"><em>DROPS features a new writer, who participated in our open call: Alessandro De Frenza. </em></p>
                     <p class="blk-text"><em>Alessandro de Frenza is a PhD student in materials science at Sorbonne Université. He specializes in experiments in large-scale facilities, DFT simulations, and other computational chemistry tools. He works on the optical activity of X-rays and he often deals with concepts of crystallography. Alessandro is interested in the dissemination of science to a larger audience. If you want to be in contact, here’s his <a href="http://Alessandro.defrenza97@gmail.com" target="_blank" rel="noopener">email address</a>.<br><br>This week’s DROP is a scanning of the entangled relationship between computational tools and climate science and speculation on the impacts of quantum computing on it. How will it affect our epistemological prospects on the warming planet? In what ways can it expand the potentialities of the tools we use to understand the Earth?</em></p>
-                </details>
+                </div>
             </div>
 
-            <figure class="blk-group c-fig">
-                <div class="blk-figure blk-figure--auto" data-w="1400" data-h="1404" style="--fig-rows: 8; --fig-rows-m: 11;"><img src="../assets/images/articles/drop-11-quantum-visions-1.webp" alt="" loading="lazy"></div>
-            </figure>
-
             <div class="blk-group c-read is-spaced">
-                <h2 class="blk blk--row blk-heading" id="s-the-tech-climate-stack">The Tech Climate Stack</h2>
+                <h2 class="blk blk--row blk-heading" id="s-the-tech-climate-stack"><strong>The Tech Climate Stack</strong></h2>
                 <div class="blk blk--rows">
-                    <p class="blk-text has-dropcap">Climate change and computational tools have an entangled relationship. This interplay is examined in a fantastic and often overlooked book by Paul N. Edwards: <em>A Vast Machine: Computer Models, Climate Data, and the Politics of Global Warming. </em>In the volume, Edwards highlights the different aspects of what may be called the <em>Tech Climate Stack: </em>the vast array of technologies used to collect, store, and process data on climate and the models that try to predict future events. This infrastructure is ubiquitous and it includes networks of weather stations, satellites, ocean buoys, etc, that gather data on temperature, precipitation, atmospheric composition, and other variables.</p>
+                    <p class="blk-text">Climate change and computational tools have an entangled relationship. This interplay is examined in a fantastic and often overlooked book by Paul N. Edwards: <em>A Vast Machine: Computer Models, Climate Data, and the Politics of Global Warming. </em>In the volume, Edwards highlights the different aspects of what may be called the <em>Tech Climate Stack: </em>the vast array of technologies used to collect, store, and process data on climate and the models that try to predict future events. This infrastructure is ubiquitous and it includes networks of weather stations, satellites, ocean buoys, etc, that gather data on temperature, precipitation, atmospheric composition, and other variables.</p>
                 </div>
             </div>
 
@@ -105,7 +98,7 @@
             </div>
 
             <div class="blk-group c-read is-spaced">
-                <h2 class="blk blk--row blk-heading" id="s-a-quantum-shake">A Quantum Shake</h2>
+                <h2 class="blk blk--row blk-heading" id="s-a-quantum-shake"><strong>A Quantum Shake</strong></h2>
                 <div class="blk blk--rows">
                     <p class="blk-text">The advent of quantum computers may represent a significant earthquake in the field of climate science, due to the leap forward in computational power that these new machines promise. But what are exactly the features of these computers that make them suitable for studying new ways of restraining climate change? And what is the impact of this kind of technology on the research?</p>
                     <p class="blk-text">To answer those questions, one must first start focusing on a single word, that encompasses all the future expectations: <em>quantum</em>.</p>
@@ -140,8 +133,7 @@
                     <p class="blk-text has-endmark">The realization of these optimistic predictions remains uncertain for now. It's crucial to acknowledge that addressing climate change requires more than just technical solutions; it necessitates profound social, political, and economic transformations. Yet, it's also essential to recognize the pivotal role that computational infrastructure plays in our understanding of climate change. Without the "vast machine," we might not even perceive the magnitude of the problem. Looking ahead, quantum perspectives may offer deeper insights, potentially entwining us further within the complexities of the challenge. Peering into the future, quantum lenses beckon, promising to unveil new vistas, perhaps ensnaring us deeper within the enigmatic tapestry of our environmental plight.</p>
                 </div>
             </div>
-            <a class="next-band is-spaced" href="drop-10-tomorrow-belongs-to-the-spiritual.html">
-                <span class="next-band__label">Next drop</span>
+            <a class="next-band is-spaced" href="drop-10-tomorrow-belongs-to-the-spiritual.html" aria-label="Next drop: Drop #10, Tomorrow Belongs to the Spiritual Cyborg">
                 <span class="next-band__title">Drop #10 Tomorrow Belongs to the Spiritual Cyborg</span>
             </a>
             <a class="next-cell is-spaced" href="drop-10-tomorrow-belongs-to-the-spiritual.html" aria-hidden="true" tabindex="-1"><svg viewBox="0 0 14 22" aria-hidden="true"><polyline points="2,2 11,11 2,20"/></svg></a>
@@ -180,7 +172,7 @@
     </footer>
 
 
-    <script src="../assets/js/site.js?v=single-squares-6" defer></script>
+    <script src="../assets/js/site.js?v=testata-b-20261106" defer></script>
     <script src="../assets/js/header.js?v=footer-final-20261106" defer></script>
 </body>
 </html>

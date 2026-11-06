@@ -57,7 +57,7 @@ def head(title, desc, up):
     <link rel="preload" href="{up}assets/fonts/ApfelGrotezk-Mittel.woff2" as="font" type="font/woff2" crossorigin>
 
     <link rel="stylesheet" href="{up}assets/css/styles.css?v=type-scale-20261028">
-    <link rel="stylesheet" href="{up}assets/css/sections.css?v=drops-title-20261105i">
+    <link rel="stylesheet" href="{up}assets/css/sections.css?v=testata-b-20261106">
     <link rel="stylesheet" href="{up}assets/css/header.css?v=next-gap-20261106">
 
     <!-- Not deferred: applies the stored palette before first paint. -->
@@ -114,7 +114,7 @@ def footer(up, switch=True):
       <a class="footer-redesign__subscribe" href="https://reincantamentox.substack.com/subscribe" target="_blank" rel="noopener noreferrer">SUBSCRIBE TO DROPS</a>
     </footer>
 {corner}
-    <script src="{up}assets/js/site.js?v=drops-reading-20261105" defer></script>
+    <script src="{up}assets/js/site.js?v=testata-b-20261106" defer></script>
     <script src="{up}assets/js/header.js?v=footer-final-20261106" defer></script>
 </body>
 </html>
@@ -218,7 +218,20 @@ def plain_title(d):
     return True
 
 
-def next_band(label, title, href):
+def next_band(label, title, href, aria=None):
+    """The band to the next item. With aria (the drops, as #53) the visible
+    label goes and the band carries the title alone; the label survives for
+    screen readers in aria-label."""
+    if aria:
+        return f"""
+            <a class="next-band is-spaced" href="{href}" aria-label="{aria}">
+                <span class="next-band__title">{title}</span>
+            </a>
+            <a class="next-cell is-spaced" href="{href}" aria-hidden="true" tabindex="-1">{CHEV_R}</a>
+
+        </div>
+    </main>
+"""
     return f"""
             <a class="next-band is-spaced" href="{href}">
                 <span class="next-band__label">{label}</span>
@@ -521,6 +534,33 @@ def clean_inline(s):
     return re.sub(r'\s+', ' ', s).strip()
 
 
+def is_support(html, chrome):
+    """A support request — read on the text, so a link inside the sentence
+    does not hide it."""
+    t = re.sub(r'<[^>]+>', '', html).lower()
+    return any(c.lower() in t for c in chrome)
+
+
+def strip_support(html, chrome):
+    """A paragraph whose last lines, after a break, are a support request
+    keeps the lines before it; inline tags left open by the cut are closed."""
+    parts = re.split(r'((?:\s*<br\s*/?>)+)', html)
+    keep = []
+    for i in range(0, len(parts), 2):
+        if is_support(parts[i], chrome) and i > 0:
+            break
+        keep.append(parts[i])
+    if len(keep) * 2 - 1 >= len(parts):
+        return html
+    kept = ''.join(k if j == 0 else '<br><br>' + k for j, k in enumerate(keep))
+    kept = re.sub(r'(<br\s*/?>\s*)+$', '', kept)
+    opened = re.findall(r'<(em|strong|i|b)\b[^>]*>', kept)
+    for t in re.findall(r'</(em|strong|i|b)>', kept):
+        if t in opened:
+            opened.remove(t)
+    return kept + ''.join('</%s>' % t for t in reversed(opened))
+
+
 def convert_body(html_src):
     """Substack markup -> our blocks. Paragraphs gather into a text block, a
     heading opens a new group, quotes and figures become their own blocks.
@@ -567,7 +607,8 @@ def convert_body(html_src):
     CHROME = ('runs on voluntary work', 'paid subscriber', 'off forever',
               'one-time donation', 'Subscribers will get access', 'Leave a comment',
               'Share Reincantamento', 'Thanks for reading', 'Monthly:', 'Yearly:',
-              'continually shrinking', 'sustained by voluntary work', 'consider donating')
+              'continually shrinking', 'sustained by voluntary work', 'consider donating',
+              'ko-fi', 'support our work', 'continue supporting')
 
     # Substack's buttons arrive as one-link paragraphs of their own.
     BUTTONS = {'subscribe now', 'subscribe', 'share', 'leave a comment', 'donate',
@@ -583,11 +624,11 @@ def convert_body(html_src):
         elif q.strip():
             flush()
             t = clean_inline(q)
-            if not any(c in t for c in CHROME):
+            if not is_support(t, CHROME):
                 blocks.append(('quote', t))
         elif p.strip():
-            t = clean_inline(p)
-            if (t and t not in ('&nbsp;', '&#160;') and not any(c in t for c in CHROME)
+            t = strip_support(clean_inline(p), CHROME)
+            if (t and t not in ('&nbsp;', '&#160;') and not is_support(t, CHROME)
                     and plain(t).lower().rstrip('!. ') not in BUTTONS):
                 para.append(t)
     flush()
@@ -616,6 +657,12 @@ def is_greeting(p):
     return re.sub(r'<[^>]+>', '', p).strip().lower().startswith('hey everyone')
 
 
+class Intro(list):
+    """The paragraphs of the editor's note that opened with "Hey everyone":
+    a text block like any other, marked so the piece after it opens on a
+    whole empty row, as #53 does."""
+
+
 def editorial_cuts(blocks, slug):
     """What the newsletter carries and the site does not (design system):
 
@@ -626,15 +673,17 @@ def editorial_cuts(blocks, slug):
       introduction and stays, as plain copy opening the piece (drop #53);
       only the salutation goes. Only in the first text block — a greeting
       further down is copy."""
-    cover = re.compile(r'(^|/)%s-1\.[a-z]+$' % re.escape(slug))
+    stem = re.escape(re.sub(r'^drop-\d+-', '', slug))
+    cover = re.compile(r'(^|/)(drop-\d+-)?%s-1\.[a-z]+$' % stem)
     blocks = [b for b in blocks if not (b[0] == 'figure' and cover.search(b[1][0]))]
     for i, (kind, val) in enumerate(blocks):
         if kind == 'heading':
             break
         if kind != 'text':
             continue
-        if is_greeting(val[0]):
-            parts = re.split(r'<br\s*/?>', val[0], maxsplit=1)
+        lead = re.sub(r'^(\s*<br\s*/?>)+', '', val[0])
+        if is_greeting(lead):
+            parts = re.split(r'<br\s*/?>', lead, maxsplit=1)
             head, rest = parts[0], (parts[1] if len(parts) > 1 else '')
             paras = list(val[1:])
             if plain(rest):
@@ -647,7 +696,7 @@ def editorial_cuts(blocks, slug):
                         opened.remove(t)
                 rest = re.sub(r'^(\s*<br\s*/?>)+', '', rest)
                 paras.insert(0, ''.join('<%s>' % t for t in opened) + rest.strip())
-            blocks = blocks[:i] + ([('text', paras)] if paras else []) + blocks[i + 1:]
+            blocks = blocks[:i] + ([('text', Intro(paras))] if paras else []) + blocks[i + 1:]
         break
     return blocks
 
@@ -689,7 +738,12 @@ def render_blocks(blocks):
     out, group, toc = [], [], []
     first, last, refs = reading_marks(blocks)
 
+    after_intro = []    # set once the editor's note is out: the next group opens on an empty row
+
     def spaced(opens_section):
+        if after_intro:
+            del after_intro[:]
+            return ' is-spaced'
         return ' is-spaced' if opens_section or not out else ''
 
     def close():
@@ -719,6 +773,10 @@ def render_blocks(blocks):
             body = "\n".join(f'                    <p class="{c}">{p}</p>' for c, p in zip(cls, val))
             blk = 'blk blk--rows' + (' blk-refs' if n > refs else '')
             group.append(f'                <div class="{blk}">\n{body}\n                </div>')
+            if isinstance(val, Intro):
+                # The note is a group of its own; a whole row before the piece.
+                close()
+                after_intro.append(True)
         elif kind == 'quote':
             close()
             out.append(f'            <div class="blk-group c-read{spaced(False)}">\n'
@@ -791,7 +849,8 @@ for i, d in enumerate(drops):
             </div>
 """)
     main = (top + body + next_band('Next drop', nxt['number'] + ' ' + nxt['title'],
-                                        nxt['slug'] + '.html'))
+                                   nxt['slug'] + '.html',
+                                   aria='Next drop: %s, %s' % (nxt['number'], nxt['title'])))
     made.append(page('writing/%s.html' % d['slug'],
                      'REINCANTAMENTO &#8212; %s' % d['title'],
                      (d['subtitle'] or d['title'])[:150], 'Writings', '../', main, switch=False))

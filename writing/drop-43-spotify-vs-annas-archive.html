@@ -15,7 +15,7 @@
     <link rel="preload" href="../assets/fonts/ApfelGrotezk-Mittel.woff2" as="font" type="font/woff2" crossorigin>
 
     <link rel="stylesheet" href="../assets/css/styles.css?v=type-scale-20261028">
-    <link rel="stylesheet" href="../assets/css/sections.css?v=drops-title-20261105i">
+    <link rel="stylesheet" href="../assets/css/sections.css?v=testata-b-20261106">
     <link rel="stylesheet" href="../assets/css/header.css?v=next-gap-20261106">
 
     <!-- Not deferred: applies the stored palette before first paint. -->
@@ -46,9 +46,13 @@
 
     <main id="main" tabindex="-1">
 
-        <div class="title-row grid-row">
+        <div class="title-row title-row--plain grid-row">
+            <p class="title-meta blk-kicker"><span>Drop #43</span> <span>December 26, 2025</span> <span>10 min read</span></p>
             <a class="back-cell" href="index.html" aria-label="Back to Writing"><svg viewBox="0 0 14 22" aria-hidden="true"><polyline points="12,2 3,11 12,20"/></svg></a>
-            <h1 class="title-band">Spotify vs. Anna's Archive</h1>
+            <div class="title-head c-read">
+                <h1 class="blk-title">Spotify vs. Anna's Archive</h1>
+                <p class="blk-lede">Working Notes</p>
+            </div>
             <p class="title-authors"><span><span class="name-first">Alessandro Y.</span> <span class="name-last">Longo</span></span></p>
         </div>
 
@@ -57,31 +61,24 @@
             <!-- The colourway switch, in the square under the byline cell. -->
             <button class="theme-switch theme-switch--inline" type="button" aria-pressed="false" aria-label="Acid mode" title="Acid mode">&#9791;</button>
 
-            <div class="blk-group c-read">
-                <div class="blk blk--rows blk-dek">
-                    <p class="blk-kicker">Drop #43 &#183; December 26, 2025 &#183; 10 min read</p>
-                    <p class="blk-lede">Working Notes</p>
-                </div>
-            </div>
             <div class="blk-group c-read is-spaced">
-                <details class="blk blk--row blk-intro">
-                    <summary class="blk-text blk-intro__toggle"><em>Hey everyone (▰˘◡˘▰)</em></summary>
-                    <p class="blk-text"><em>On Christmas Eve morning, I quickly posted a small holiday greeting card on REINCANTAMENTO’s Instagram page. The card was also a somewhat celebratory comment on what I believe to be an important act of cultural activism that took place earlier this week: the action by Anna’s Archive team, the <a href="https://annas-archive.org/" target="_blank" rel="noopener">largest shadow library </a>in history, against Spotify. The operation led to the liberation of 86 million audio files totaling 300 terabytes, now publicly distributed via torrent.</em></p>
+                <div class="blk blk--rows">
+                    <p class="blk-text has-dropcap"><em>On Christmas Eve morning, I quickly posted a small holiday greeting card on REINCANTAMENTO’s Instagram page. The card was also a somewhat celebratory comment on what I believe to be an important act of cultural activism that took place earlier this week: the action by Anna’s Archive team, the <a href="https://annas-archive.org/" target="_blank" rel="noopener">largest shadow library </a>in history, against Spotify. The operation led to the liberation of 86 million audio files totaling 300 terabytes, now publicly distributed via torrent.</em></p>
                     <p class="blk-text"><em>To my surprise, the post had a wide reach: many people “celebrated” with us Anna’s Archive’s Christmas gift, but a debate also broke out on our page. Beyond Instagram’s algorithmic serendipity, I think Anna’s action catalyzes several important points about the state of culture today, which explains the attention it attracted.</em></p>
                     <p class="blk-text"><em>People’s (legitimate) concerns revolved around two axes:</em></p>
                     <p class="blk-text"><em>First, a general judgment on Anna’s Archive team action, and therefore the classic question about the legitimacy of piracy. Is it right to pirate artistic material without the authors’ authorization? Is it right to share it for free?</em></p>
                     <p class="blk-text"><em>Second, and far more interesting in my view, the question of what piracy means in the age of generative AI. Many are worried that the archives liberated by Anna’s will be used to train generative models without the permission of their original authors (as has already happened). At the end of 2025, the question seems to be, quoting our friend Simone Robutti: “Freedom of information always advantages those with more power to exploit it, and you can’t have open source genocide-free in this economic model.”</em></p>
                     <p class="blk-text"><em>Since I’m convinced that Instagram comments are not the right place to carry on such a discussion, I’m putting together this flash piece (interrupting my reading of Kafka’s letters, certainly more soothing for the soul). I’m trying to reflect the plurality of opinions within REINCANTAMENTO and friends, hoping to foster the conversation further and allow for a healthier debate space. Let’s go.</em></p>
-                </details>
+                </div>
             </div>
 
-            <figure class="blk-group c-fig">
+            <figure class="blk-group c-fig is-spaced">
                 <div class="blk-figure blk-figure--auto" data-w="1400" data-h="1750" style="--fig-rows: 10; --fig-rows-m: 14;"><img src="../assets/images/articles/drop-43-spotify-vs-annas-archive-2.webp" alt="" loading="lazy"></div>
             </figure>
 
             <div class="blk-group c-read">
                 <div class="blk blk--rows">
-                    <p class="blk-text has-dropcap">Let's start from the facts. On December 20th, the Anna's Archive team published an <a href="https://annas-archive.org/blog/backing-up-spotify.html" target="_blank" rel="noopener">article</a> announcing they had backed up Spotify. They say:</p>
+                    <p class="blk-text">Let's start from the facts. On December 20th, the Anna's Archive team published an <a href="https://annas-archive.org/blog/backing-up-spotify.html" target="_blank" rel="noopener">article</a> announcing they had backed up Spotify. They say:</p>
                 </div>
             </div>
 
@@ -108,7 +105,7 @@
             </div>
 
             <div class="blk-group c-read is-spaced">
-                <h2 class="blk blk--row blk-heading" id="s-the-pirate-ethics">The Pirate Ethics</h2>
+                <h2 class="blk blk--row blk-heading" id="s-the-pirate-ethics"><strong>The Pirate Ethics</strong></h2>
             </div>
 
             <figure class="blk-group c-fig">
@@ -157,7 +154,7 @@
             </div>
 
             <div class="blk-group c-read is-spaced">
-                <h2 class="blk blk--row blk-heading" id="s-openness-at-the-time-of-ai">Openness At the Time of AI</h2>
+                <h2 class="blk blk--row blk-heading" id="s-openness-at-the-time-of-ai"><strong>Openness At the Time of AI</strong></h2>
                 <div class="blk blk--rows">
                     <p class="blk-text">In a world dominated by data, those who possess the most powerful tools benefit the most from the free circulation of information. For corporations like Meta or OpenAI, a centralized, freely accessible database drastically reduces the labor required to train AI models. What once took years of painstaking data collection now takes a few days of downloading. The freedom of information, in other words, ends up advantaging those with more power to exploit it.</p>
                     <p class="blk-text">But then we must ask: is this really an advantage granted by Anna’s Archive intervention against Spotify? The streaming giant, which is notoriously under <a href="https://www.theguardian.com/technology/2025/oct/12/spotify-boycott-artists" target="_blank" rel="noopener">a boycott call</a> for its ties with the military industry and its underpayment of artists, is no stranger to the exploitation of AI tools itself. There’s an entire <a href="https://en.wikipedia.org/wiki/Controversy_over_fake_artists_on_Spotify" target="_blank" rel="noopener">Wikipedia entry</a> dedicated to the issue of “fake” (read: synthetic, AI-generated) artists on Spotify, and an exceptional report on <a href="https://harpers.org/archive/2025/01/the-ghosts-in-the-machine-liz-pelly-spotify-musicians/" target="_blank" rel="noopener">Harper’s Magazine</a> documented the platform’s Perfect Fit Content program, which floods the service with cheap, algorithmically optimized background music to reduce royalty payouts to real musicians.</p>
@@ -181,8 +178,7 @@
                     <p class="blk-text has-endmark">If the archive can survive the platform, what else might be possible? What we do with that question is up to us.</p>
                 </div>
             </div>
-            <a class="next-band is-spaced" href="drop-42-babe-we-got-gnomes-in-our-computer.html">
-                <span class="next-band__label">Next drop</span>
+            <a class="next-band is-spaced" href="drop-42-babe-we-got-gnomes-in-our-computer.html" aria-label="Next drop: Drop #42, Babe, We Got Gnomes in Our Computer!">
                 <span class="next-band__title">Drop #42 Babe, We Got Gnomes in Our Computer!</span>
             </a>
             <a class="next-cell is-spaced" href="drop-42-babe-we-got-gnomes-in-our-computer.html" aria-hidden="true" tabindex="-1"><svg viewBox="0 0 14 22" aria-hidden="true"><polyline points="2,2 11,11 2,20"/></svg></a>
@@ -221,7 +217,7 @@
     </footer>
 
 
-    <script src="../assets/js/site.js?v=single-squares-6" defer></script>
+    <script src="../assets/js/site.js?v=testata-b-20261106" defer></script>
     <script src="../assets/js/header.js?v=footer-final-20261106" defer></script>
 </body>
 </html>

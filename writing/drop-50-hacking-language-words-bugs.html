@@ -15,7 +15,7 @@
     <link rel="preload" href="../assets/fonts/ApfelGrotezk-Mittel.woff2" as="font" type="font/woff2" crossorigin>
 
     <link rel="stylesheet" href="../assets/css/styles.css?v=type-scale-20261028">
-    <link rel="stylesheet" href="../assets/css/sections.css?v=drops-title-20261105i">
+    <link rel="stylesheet" href="../assets/css/sections.css?v=testata-b-20261106">
     <link rel="stylesheet" href="../assets/css/header.css?v=next-gap-20261106">
 
     <!-- Not deferred: applies the stored palette before first paint. -->
@@ -46,9 +46,12 @@
 
     <main id="main" tabindex="-1">
 
-        <div class="title-row grid-row">
+        <div class="title-row title-row--plain grid-row">
+            <p class="title-meta blk-kicker"><span>Drop #50</span> <span>May 25, 2026</span> <span>10 min read</span></p>
             <a class="back-cell" href="index.html" aria-label="Back to Writing"><svg viewBox="0 0 14 22" aria-hidden="true"><polyline points="12,2 3,11 12,20"/></svg></a>
-            <h1 class="title-band">Hacking Language. Words, Bugs, and the Politics of the Sayable</h1>
+            <div class="title-head c-read">
+                <h1 class="blk-title">Hacking Language. Words, Bugs, and the Politics of the Sayable</h1>
+            </div>
             <p class="title-authors"><span><span class="name-first">Martina</span> <span class="name-last">Maccianti</span></span></p>
         </div>
 
@@ -57,26 +60,16 @@
             <!-- The colourway switch, in the square under the byline cell. -->
             <button class="theme-switch theme-switch--inline" type="button" aria-pressed="false" aria-label="Acid mode" title="Acid mode">&#9791;</button>
 
-            <div class="blk-group c-read">
-                <div class="blk blk--rows blk-dek">
-                    <p class="blk-kicker">Drop #50 &#183; May 25, 2026 &#183; 10 min read</p>
-                </div>
-            </div>
             <div class="blk-group c-read is-spaced">
-                <details class="blk blk--row blk-intro">
-                    <summary class="blk-text blk-intro__toggle"><em>Hey everyone (▰˘◡˘▰)</em></summary>
-                    <p class="blk-text"><em>For our fiftieth Drop (!), we are happy to share an excerpt from Martina Maccianti’s <strong>Hackerare il Linguaggio. Parole bug e politiche del dicibile (2026) </strong>published in Italian by <a href="https://www.krisispublishing.com/prodotto/hackerare-il-linguaggio/" target="_blank" rel="noopener">Krisis Publishing (a great independent publisher).</a></em></p>
+                <div class="blk blk--rows">
+                    <p class="blk-text has-dropcap"><em>For our fiftieth Drop (!), we are happy to share an excerpt from Martina Maccianti’s <strong>Hackerare il Linguaggio. Parole bug e politiche del dicibile (2026) </strong>published in Italian by <a href="https://www.krisispublishing.com/prodotto/hackerare-il-linguaggio/" target="_blank" rel="noopener">Krisis Publishing (a great independent publisher).</a></em></p>
                     <p class="blk-text"><em>"Language is not merely a tool for communication: it is the political infrastructure that defines what can exist and who deserves to be heard. In a world where words are being transformed into algorithmic functions, we risk becoming passive users of a code written by others. Maccianti issues a radical challenge: become hackers of our own language. The book democratizes the key concepts of contemporary linguistics, turning them into a shared toolkit for dismantling the 'cages of the sayable' that govern our digital present. Moving between computational metaphors and reflections on subjectivity, <strong>Hackerare il linguaggio</strong> leaves the boundaries of academia behind to build an open-source software in continuous evolution. An invitation to seek out the bug, to inhabit error, and to rediscover the value of the glitch as a space of freedom so that we can finally return to naming the future. Before someone else does it for us."</em></p>
                     <p class="blk-text"><em>I find Martina's hacking-inspired approach fascinating, as well as the idea of conceiving a theoretical book as an active toolkit against the standardization of language. In the excerpt, she dissects the entanglement between language and computation, a gesture that is itself fundamental to any philosophical discussion of Large Language Models. Code has always been instantiated through language, a fact we forget too often, and generative AI models only represent the culmination of a long journey. Martina depicts this scenario here with sculptural clarity and mobilizes the central category of the protocol to describe this dynamic.</em></p>
                     <p class="blk-text"><em><strong>Martina Maccianti</strong> writes to examine the present and imagine possible futures. Her work treats language as a political space, exploring the relationship between words, power, and the construction of reality. Moving between philosophy and critical theory, she investigates the structures that determine what can be said, thought, and legitimised. In her research, desire, imagination, and utopia become tools for opening up new worldviews and seeking alternative spaces of existence.</em></p>
-                </details>
+                </div>
             </div>
 
-            <figure class="blk-group c-fig">
-                <div class="blk-figure blk-figure--auto" data-w="1400" data-h="1750" style="--fig-rows: 10; --fig-rows-m: 14;"><img src="../assets/images/articles/drop-50-hacking-language-words-bugs-1.webp" alt="" loading="lazy"></div>
-            </figure>
-
-            <div class="blk-group c-read">
+            <div class="blk-group c-read is-spaced">
                 <div class="blk blk--rows">
                     <p class="blk-text">Words today cannot be conceived outside the systems that compute them.</p>
                     <p class="blk-text">One of the most profound transformations of contemporary language concerns its shift from a vehicle of meaning to an operational function. Traditionally, words have been understood as signs that refer to a meaning, that is, symbolic entities structured within cultural and grammatical codes, whose function is to establish a relationship between thought and the world. In the current digital condition, this conception is progressively being replaced or, more precisely, overlaid by a different one, whereby words are no longer merely what they represent because they are also, and above all, what makes something happen within the system. This transformation can be better understood by examining how platforms, linguistic models, and computer systems treat language. In the computational context, every linguistic unit is interpreted as input, that is, an element to be processed according to predefined instructions, to be mapped onto a semantic database, to be associated with categories, patterns, risk classes, or priorities. In other words, language is treated as a function.</p>
@@ -114,8 +107,7 @@
                     <p class="blk-text has-endmark">Consequently, articulating a different discourse implies the adoption of a mode of thought and language that stands in direct opposition to its systemic executability.</p>
                 </div>
             </div>
-            <a class="next-band is-spaced" href="drop-49-love-means-taking-action.html">
-                <span class="next-band__label">Next drop</span>
+            <a class="next-band is-spaced" href="drop-49-love-means-taking-action.html" aria-label="Next drop: Drop #49, Love Means Taking Action">
                 <span class="next-band__title">Drop #49 Love Means Taking Action</span>
             </a>
             <a class="next-cell is-spaced" href="drop-49-love-means-taking-action.html" aria-hidden="true" tabindex="-1"><svg viewBox="0 0 14 22" aria-hidden="true"><polyline points="2,2 11,11 2,20"/></svg></a>
@@ -154,7 +146,7 @@
     </footer>
 
 
-    <script src="../assets/js/site.js?v=single-squares-6" defer></script>
+    <script src="../assets/js/site.js?v=testata-b-20261106" defer></script>
     <script src="../assets/js/header.js?v=footer-final-20261106" defer></script>
 </body>
 </html>

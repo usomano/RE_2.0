@@ -15,7 +15,7 @@
     <link rel="preload" href="../assets/fonts/ApfelGrotezk-Mittel.woff2" as="font" type="font/woff2" crossorigin>
 
     <link rel="stylesheet" href="../assets/css/styles.css?v=type-scale-20261028">
-    <link rel="stylesheet" href="../assets/css/sections.css?v=drops-title-20261105i">
+    <link rel="stylesheet" href="../assets/css/sections.css?v=testata-b-20261106">
     <link rel="stylesheet" href="../assets/css/header.css?v=next-gap-20261106">
 
     <!-- Not deferred: applies the stored palette before first paint. -->
@@ -46,9 +46,12 @@
 
     <main id="main" tabindex="-1">
 
-        <div class="title-row grid-row">
+        <div class="title-row title-row--plain grid-row">
+            <p class="title-meta blk-kicker"><span>Drop #32</span> <span>April 23, 2025</span> <span>15 min read</span></p>
             <a class="back-cell" href="index.html" aria-label="Back to Writing"><svg viewBox="0 0 14 22" aria-hidden="true"><polyline points="12,2 3,11 12,20"/></svg></a>
-            <h1 class="title-band">At a Time Like This</h1>
+            <div class="title-head c-read">
+                <h1 class="blk-title">At a Time Like This</h1>
+            </div>
             <p class="title-authors"><span><span class="name-first">Alessandro Y.</span> <span class="name-last">Longo</span></span></p>
         </div>
 
@@ -57,27 +60,17 @@
             <!-- The colourway switch, in the square under the byline cell. -->
             <button class="theme-switch theme-switch--inline" type="button" aria-pressed="false" aria-label="Acid mode" title="Acid mode">&#9791;</button>
 
-            <div class="blk-group c-read">
-                <div class="blk blk--rows blk-dek">
-                    <p class="blk-kicker">Drop #32 &#183; April 23, 2025 &#183; 15 min read</p>
-                </div>
-            </div>
             <div class="blk-group c-read is-spaced">
-                <details class="blk blk--row blk-intro">
-                    <summary class="blk-text blk-intro__toggle"><em>Hey everyone (▰˘◡˘▰)</em></summary>
+                <div class="blk blk--rows">
                     <p class="blk-text"><em>Welcome back to DROPS, REINCANTAMENTO’s newsletter.</em></p>
                     <p class="blk-text"><em>In Drop #32, I wonder through Sarajevo's jagged memories, historical loops, trapped objects and a sparking aliveness. In an intra-temporal dialogue with Gaza, Sarajevo discloses itself as a city that refuses to be merely a symbol of someone else's moral lesson.</em></p>
                     <p class="blk-text"><em>I want to thank my family and Edin for their support in conceiving this piece. The piece is available in both Italian and English.</em></p>
-                </details>
+                </div>
             </div>
 
-            <figure class="blk-group c-fig">
-                <div class="blk-figure blk-figure--auto" data-w="1400" data-h="1750" style="--fig-rows: 10; --fig-rows-m: 14;"><img src="../assets/images/articles/drop-32-at-a-time-like-this-1.webp" alt="" loading="lazy"></div>
-            </figure>
-
-            <div class="blk-group c-read">
+            <div class="blk-group c-read is-spaced">
                 <div class="blk blk--rows">
-                    <p class="blk-text has-dropcap">Walking along the riverbank of Sarajevo's Miljacka, one notices objects trapped in the backwash of various drops in the water level. These small dips capture plastic bottles, soccer balls, even a tire, in their constant eddying, preventing them from moving beyond.</p>
+                    <p class="blk-text">Walking along the riverbank of Sarajevo's Miljacka, one notices objects trapped in the backwash of various drops in the water level. These small dips capture plastic bottles, soccer balls, even a tire, in their constant eddying, preventing them from moving beyond.</p>
                     <p class="blk-text">These objects at the mercy of the Miljacka's flow seem to speak to the condition of the city itself: capital of a country in rebirth, yes, but frozen in 1995 and those Dayton Accords that guarantee its Byzantine constitutional architecture.</p>
                     <p class="blk-text">Sarajevo had been for me, until these last few days, nothing more than a name in history books. Sarajevo is the signifier of that infamous <em>drop that made the cup overflow</em>, to quote the typical expression from history textbooks, referring to the shot fired by Gavrilo Princip, Serbian nationalist, at the Austro-Hungarian heir to the throne Franz Ferdinand and his wife. The assassination on June 28, 1914, that set the European continent ablaze and led to the point-of-no-return catastrophe of the First World War, the reckoning of the Imperial age and the end of the Belle Époque illusion.</p>
                     <p class="blk-text">Sarajevo is then the name of another story: the collapse of the Yugoslav Federation and the horrific civil war that followed, with the persecution of Bosnia's Muslim population and the siege—lasting more than 1,000 days (!)—of the capital itself. Events I know some</p>
@@ -148,7 +141,7 @@
             </div>
 
             <div class="blk-group c-read is-spaced">
-                <h2 class="blk blk--row blk-heading" id="s-versione-italiana">Versione Italiana</h2>
+                <h2 class="blk blk--row blk-heading" id="s-versione-italiana"><strong>Versione Italiana</strong></h2>
                 <div class="blk blk--rows">
                     <p class="blk-text">Passeggiando sul lungo fiume di Sarajevo, la Miljacka, si scorgono oggetti intrappolati nel riflusso d'acqua dei vari dislivelli. Questi piccoli dislivelli intrappolano bottiglie di plastica, palloni da calcio, persino uno pneumatico, nel loro costante riflusso, impedendo loro di muoversi oltre.</p>
                     <p class="blk-text">Gli oggetti in balia del flusso della Miljacka sembrano parlare della condizione della città stessa, capitale di un paese in rinascita sì, ma congelato al 1995 e a quegli Accordi di Dayton che ne garantiscono la bizantina architettura costituzionale.</p>
@@ -218,8 +211,7 @@
                     <p class="blk-text has-endmark">Fa male constatare che né la civiltà degli anni '20 del XXI secolo né gli artisti del mondo siano davvero cambiati. Quando smetteremo di stare seduti sulle nostre chiappe?</p>
                 </div>
             </div>
-            <a class="next-band is-spaced" href="drop-31-research-as-vocation-research.html">
-                <span class="next-band__label">Next drop</span>
+            <a class="next-band is-spaced" href="drop-31-research-as-vocation-research.html" aria-label="Next drop: Drop #31, Research as Vocation, Research as Politics">
                 <span class="next-band__title">Drop #31 Research as Vocation, Research as Politics</span>
             </a>
             <a class="next-cell is-spaced" href="drop-31-research-as-vocation-research.html" aria-hidden="true" tabindex="-1"><svg viewBox="0 0 14 22" aria-hidden="true"><polyline points="2,2 11,11 2,20"/></svg></a>
@@ -258,7 +250,7 @@
     </footer>
 
 
-    <script src="../assets/js/site.js?v=single-squares-6" defer></script>
+    <script src="../assets/js/site.js?v=testata-b-20261106" defer></script>
     <script src="../assets/js/header.js?v=footer-final-20261106" defer></script>
 </body>
 </html>

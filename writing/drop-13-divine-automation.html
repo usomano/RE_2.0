@@ -15,7 +15,7 @@
     <link rel="preload" href="../assets/fonts/ApfelGrotezk-Mittel.woff2" as="font" type="font/woff2" crossorigin>
 
     <link rel="stylesheet" href="../assets/css/styles.css?v=type-scale-20261028">
-    <link rel="stylesheet" href="../assets/css/sections.css?v=drops-title-20261105i">
+    <link rel="stylesheet" href="../assets/css/sections.css?v=testata-b-20261106">
     <link rel="stylesheet" href="../assets/css/header.css?v=next-gap-20261106">
 
     <!-- Not deferred: applies the stored palette before first paint. -->
@@ -46,9 +46,13 @@
 
     <main id="main" tabindex="-1">
 
-        <div class="title-row grid-row">
+        <div class="title-row title-row--plain grid-row">
+            <p class="title-meta blk-kicker"><span>Drop #13</span> <span>March 12, 2024</span> <span>12 min read</span></p>
             <a class="back-cell" href="index.html" aria-label="Back to Writing"><svg viewBox="0 0 14 22" aria-hidden="true"><polyline points="12,2 3,11 12,20"/></svg></a>
-            <h1 class="title-band">Divine Automation</h1>
+            <div class="title-head c-read">
+                <h1 class="blk-title">Divine Automation</h1>
+                <p class="blk-lede">Factorio and phantasies of mechanization</p>
+            </div>
             <p class="title-authors"><span><span class="name-first">Simone</span> <span class="name-last">Robutti</span></span></p>
         </div>
 
@@ -57,27 +61,16 @@
             <!-- The colourway switch, in the square under the byline cell. -->
             <button class="theme-switch theme-switch--inline" type="button" aria-pressed="false" aria-label="Acid mode" title="Acid mode">&#9791;</button>
 
-            <div class="blk-group c-read">
-                <div class="blk blk--rows blk-dek">
-                    <p class="blk-kicker">Drop #13 &#183; March 12, 2024 &#183; 12 min read</p>
-                    <p class="blk-lede">Factorio and phantasies of mechanization</p>
+            <div class="blk-group c-read is-spaced">
+                <div class="blk blk--rows">
+                    <p class="blk-text has-dropcap"><em>A new DROP from our friend Simone Robutti. This time Simone delves into the fairly unknown realm of automation games. What do these simulations of productivity and industriousness unveil about the contemporary dreams of automation? Can we use the sandbox offered in games like Factorio to learn and experiment with organization and process design? </em></p>
+                    <p class="blk-text"><em>Simone is a knot of flows and occasionally he's a person too. He engages in Tech Unionism, Algorithmic Accountability, Common Cybernetics, and Democratic Organizational Design. He works as a tech lead in AI Forensics, and a consultant/trainer on Organization and Process design. You can find his blog at <a href="https://blog.robutti.me/" target="_blank" rel="noopener">this link.</a></em></p>
                 </div>
             </div>
+
             <div class="blk-group c-read is-spaced">
-                <details class="blk blk--row blk-intro">
-                    <summary class="blk-text blk-intro__toggle"><em>Hey everyone (▰˘◡˘▰)</em></summary>
-                    <p class="blk-text"><em>A new DROP from our friend Simone Robutti. This time Simone delves into the fairly unknown realm of automation games. What do these simulations of productivity and industriousness unveil about the contemporary dreams of automation? Can we use the sandbox offered in games like Factorio to learn and experiment with organization and process design? </em></p>
-                    <p class="blk-text"><em>Simone is a knot of flows and occasionally he's a person too. He engages in Tech Unionism, Algorithmic Accountability, Common Cybernetics, and Democratic Organizational Design. He works as a tech lead in AI Forensics, and a consultant/trainer on Organization and Process design. You can find his blog at <a href="https://blog.robutti.me/" target="_blank" rel="noopener">this link.</a> <br><br>If you want to propose an article for this newsletter send an email to reincantamento@gmail.com and consider donating to support our work ^_^ <br><br>Thanks Adam Baste for becoming a supporter &lt;3 </em></p>
-                </details>
-            </div>
-
-            <figure class="blk-group c-fig">
-                <div class="blk-figure blk-figure--auto" data-w="1080" data-h="1080" style="--fig-rows: 8; --fig-rows-m: 11;"><img src="../assets/images/articles/drop-13-divine-automation-1.webp" alt="" loading="lazy"></div>
-            </figure>
-
-            <div class="blk-group c-read">
                 <div class="blk blk--rows">
-                    <p class="blk-text has-dropcap">Automation games are a relatively recent development in gaming. Published in 2015, <em><a href="https://store.steampowered.com/app/300570/Infinifactory/" target="_blank" rel="noopener">Infinifactory</a></em> can be considered the first game of the genre. Just one year later, <em><a href="https://www.factorio.com/" target="_blank" rel="noopener">Factorio</a></em> entered early access, soon to become the most known and successful automation game to date. After that, a wave of titles followed: Satisfactory, Shapez, Autonauts, Dyson Sphere Program, Mindustry, Desynced, and many others.</p>
+                    <p class="blk-text">Automation games are a relatively recent development in gaming. Published in 2015, <em><a href="https://store.steampowered.com/app/300570/Infinifactory/" target="_blank" rel="noopener">Infinifactory</a></em> can be considered the first game of the genre. Just one year later, <em><a href="https://www.factorio.com/" target="_blank" rel="noopener">Factorio</a></em> entered early access, soon to become the most known and successful automation game to date. After that, a wave of titles followed: Satisfactory, Shapez, Autonauts, Dyson Sphere Program, Mindustry, Desynced, and many others.</p>
                     <p class="blk-text">Taxonomically, automation games sit at the intersection of base-building games and management games, while inheriting several features from puzzle games, programming games, and sometimes survival games.</p>
                     <p class="blk-text">But what do you do in an automation game? With very few exceptions, all the games obey the same logic: Extract! Automate! Optimize! Grow! FOREVER!</p>
                     <p class="blk-text">In this article, Factorio will be our focus but its imprinting can be easily tracked across the whole genre.</p>
@@ -172,8 +165,7 @@
                     <p class="blk-text has-endmark">I dream of a future where endless, meaningless, factories grow in digital worlds, keeping sociopathic nerds like Musk busy and appeased, whos of their virtual hills. They share these worlds with well-meaning students of Complexity, who will eventually leave their safe bubble to venture into the world to reshape it. Their grand theories of economic growth will be confined to ritualized games, as relics of a distant past. Outside, machines are used to efficiently produce only what is needed. System theory is studied to do more with less. Engineering mutates into a science of naptime maximization. The Factory Must Grow; The Planet Must Heal!</p>
                 </div>
             </div>
-            <a class="next-band is-spaced" href="drop-12-time-trust-and-celluloid.html">
-                <span class="next-band__label">Next drop</span>
+            <a class="next-band is-spaced" href="drop-12-time-trust-and-celluloid.html" aria-label="Next drop: Drop #12, Time, Trust and Celluloid">
                 <span class="next-band__title">Drop #12 Time, Trust and Celluloid</span>
             </a>
             <a class="next-cell is-spaced" href="drop-12-time-trust-and-celluloid.html" aria-hidden="true" tabindex="-1"><svg viewBox="0 0 14 22" aria-hidden="true"><polyline points="2,2 11,11 2,20"/></svg></a>
@@ -212,7 +204,7 @@
     </footer>
 
 
-    <script src="../assets/js/site.js?v=single-squares-6" defer></script>
+    <script src="../assets/js/site.js?v=testata-b-20261106" defer></script>
     <script src="../assets/js/header.js?v=footer-final-20261106" defer></script>
 </body>
 </html>
