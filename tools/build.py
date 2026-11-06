@@ -26,11 +26,10 @@ CHEV_R = '<svg viewBox="0 0 14 22" aria-hidden="true"><polyline points="2,2 11,1
 # header, on every page. The logo is the way back to the home page.
 # Third field: the entries that drop out of the item on hover, if any. Writing
 # is two bodies of work on two pages, so the menu names them both.
-NAV = [('Writings', 'writing/index.html', (('Drops', 'writing/index.html'),
-                                           ('Archive', 'writing/archive.html'))),
+NAV = [('Drops', 'writing/index.html', ()),
        ('Publishing', 'publishing/index.html', ()),
        ('Artworks', 'artworks/index.html', ()),
-       ('Workshops', None, ()), ('Talks', None, ())]
+       ('Workshops', None, ()), ('Talks', None, ()), ('Learning', None, ())]
 
 
 def load(name):
@@ -58,7 +57,7 @@ def head(title, desc, up):
 
     <link rel="stylesheet" href="{up}assets/css/styles.css?v=type-scale-20261028">
     <link rel="stylesheet" href="{up}assets/css/sections.css?v=testata-b-20261106">
-    <link rel="stylesheet" href="{up}assets/css/header.css?v=next-gap-20261106">
+    <link rel="stylesheet" href="{up}assets/css/header.css?v=learning-next-gap-20261106">
 
     <!-- Not deferred: applies the stored palette before first paint. -->
     <script src="{up}assets/js/theme.js"></script>
@@ -82,7 +81,7 @@ def header(current, up):
         <a href="{up}writing/index.html">Drops</a>
         <a href="{up}publishing/index.html">Publishing</a>
         <a href="{up}artworks/index.html">Artworks</a>
-        <span>Workshops</span><span>Talks</span>
+        <span>Workshops</span><span>Talks</span><span>Learning</span>
       </nav>
       <a class="plugin-about" href="{up}about.html">About</a>
       <button class="plugin-menu" id="plugin-menu" type="button" aria-expanded="false" aria-controls="plugin-mobile-panel">Menu</button>
@@ -115,7 +114,7 @@ def footer(up, switch=True):
     </footer>
 {corner}
     <script src="{up}assets/js/site.js?v=testata-b-20261106" defer></script>
-    <script src="{up}assets/js/header.js?v=footer-final-20261106" defer></script>
+    <script src="{up}assets/js/header.js?v=learning-desktop-20261106" defer></script>
 </body>
 </html>
 """
