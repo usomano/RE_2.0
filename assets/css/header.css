@@ -213,3 +213,8 @@ body:has(.next-band) .site-footer {
     display:none !important;
   }
 }
+
+/* All desktop pages use the same header, square-cell grid and eye geometry. */
+@media(min-width:769px){.plugin-header .plugin-logo{left:0;top:0}}
+
+@media(max-width:768px){.plugin-mobile-panel .desktop-learning-only{display:none!important}}

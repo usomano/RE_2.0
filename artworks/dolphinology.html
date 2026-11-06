@@ -20,13 +20,19 @@
 
     <!-- Not deferred: applies the stored palette before first paint. -->
     <script src="../assets/js/theme.js"></script>
-    <link rel="stylesheet" href="../assets/css/header.css?v=learning-next-gap-20261106">
+    <link rel="stylesheet" href="../assets/css/header.css?v=canonical-desktop-20261106">
 </head>
-<body class="page">
+<body class="page has-legacy-header">
 
     <a class="skip-link" href="#main">Skip to content</a>
 
-    <header class="site-header">
+    <header class="plugin-header plugin-header--desktop-only">
+<a class="plugin-logo" href="../index.html" aria-label="Reincantamento home"><img class="plugin-logo__fallback" src="../assets/images/REINC-LOGO-2026.svg" alt="" aria-hidden="true"><canvas class="plugin-logo__canvas" id="blink-logo" aria-hidden="true"></canvas><video class="plugin-logo__source" id="blink-source" muted playsinline preload="auto" aria-hidden="true"><source src="../assets/videos/blink.mp4" type="video/mp4"></video></a>
+<nav class="plugin-nav" aria-label="Primary navigation"><a href="../writing/index.html">Drops</a><a href="../publishing/index.html">Publishing</a><a href="../artworks/index.html">Artworks</a><span>Workshops</span><span>Talks</span><span>Learning</span></nav>
+<a class="plugin-about" href="../about.html">About</a><button class="plugin-menu" id="plugin-menu" type="button" aria-expanded="false" aria-controls="plugin-mobile-panel">Menu</button>
+</header>
+<nav class="plugin-mobile-panel plugin-mobile-panel--desktop-only" id="plugin-mobile-panel" data-open="false" aria-label="Compact desktop navigation"><a href="../writing/index.html">Drops</a><a href="../publishing/index.html">Publishing</a><a href="../artworks/index.html">Artworks</a><span>Workshops</span><span>Talks</span><span>Learning</span><a href="../about.html">About</a></nav>
+<header class="site-header">
         <a class="brand" href="../index.html" aria-label="Reincantamento home">
             <img src="../assets/images/REINC-LOGO.svg" alt="Reincantamento" width="53" height="25">
         </a>
@@ -153,6 +159,6 @@
 
 
     <script src="../assets/js/site.js" defer></script>
-    <script src="../assets/js/header.js?v=learning-desktop-20261106" defer></script>
+    <script src="../assets/js/header.js?v=canonical-desktop-20261106" defer></script>
 </body>
 </html>

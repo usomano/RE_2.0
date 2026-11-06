@@ -1,47 +1,3 @@
-/* Desktop header harmonization. Run before the shared blink initializer.
-   Legacy pages retain their original mobile header pending its redesign. */
-(() => {
-  const header = document.querySelector('.plugin-header');
-  if (header) {
-    const nav = header.querySelector('.plugin-nav');
-    if (nav && !Array.from(nav.children).some(item => item.textContent.trim().toLowerCase() === 'learning')) {
-      const learning = document.createElement('span');
-      learning.textContent = 'Learning';
-      nav.append(learning);
-    }
-    return;
-  }
-
-  const legacy = document.querySelector('header.site-header');
-  if (!legacy) return;
-  const nested = location.pathname.split('/').some(part => ['writing', 'publishing', 'artworks'].includes(part));
-  const up = nested ? '../' : '';
-  document.body.classList.add('has-legacy-header');
-  const wrapper = document.createElement('div');
-  wrapper.innerHTML = `
-    <header class="plugin-header plugin-header--desktop-only">
-      <a class="plugin-logo" href="${up}index.html" aria-label="Reincantamento home">
-        <img class="plugin-logo__fallback" src="${up}assets/images/REINC-LOGO-2026.svg" alt="" aria-hidden="true">
-        <canvas class="plugin-logo__canvas" id="blink-logo" aria-hidden="true"></canvas>
-        <video class="plugin-logo__source" id="blink-source" muted playsinline preload="auto" aria-hidden="true"><source src="${up}assets/videos/blink.mp4" type="video/mp4"></video>
-      </a>
-      <nav class="plugin-nav" aria-label="Primary navigation">
-        <a href="${up}writing/index.html">Drops</a>
-        <a href="${up}publishing/index.html">Publishing</a>
-        <a href="${up}artworks/index.html">Artworks</a>
-        <span>Workshops</span><span>Talks</span><span>Learning</span>
-      </nav>
-      <a class="plugin-about" href="${up}about.html">About</a>
-      <button class="plugin-menu" id="plugin-menu" type="button" aria-expanded="false" aria-controls="plugin-mobile-panel">Menu</button>
-    </header>
-    <nav class="plugin-mobile-panel plugin-mobile-panel--desktop-only" id="plugin-mobile-panel" data-open="false" aria-label="Compact desktop navigation">
-      <a href="${up}writing/index.html">Drops</a>
-      <a href="${up}publishing/index.html">Publishing</a>
-      <a href="${up}artworks/index.html">Artworks</a>
-      <span>Workshops</span><span>Talks</span><span>Learning</span><a href="${up}about.html">About</a>
-    </nav>`;
-  legacy.before(...Array.from(wrapper.children));
-})();
 /* Shared header interaction: identical blink on each page. */
 (() => {
     const video = document.getElementById('blink-source');
@@ -221,4 +177,16 @@ document.addEventListener('DOMContentLoaded', () => {
     // outside that screen, not beside a switcher nested inside it.
     document.body.append(el);
   }
+});
+
+/* Learning is visible in the compact desktop navigation, but mobile remains unchanged. */
+document.addEventListener('DOMContentLoaded', () => {
+  const panel = document.getElementById('plugin-mobile-panel');
+  if (!panel || Array.from(panel.children).some(node => node.textContent.trim().toLowerCase() === 'learning')) return;
+  const item = document.createElement('span');
+  item.className = 'desktop-learning-only';
+  item.textContent = 'Learning';
+  const about = Array.from(panel.querySelectorAll('a')).find(node => node.textContent.trim().toLowerCase() === 'about');
+  if (about) about.before(item);
+  else panel.append(item);
 });

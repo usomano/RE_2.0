@@ -57,7 +57,7 @@ def head(title, desc, up):
 
     <link rel="stylesheet" href="{up}assets/css/styles.css?v=type-scale-20261028">
     <link rel="stylesheet" href="{up}assets/css/sections.css?v=testata-b-20261106">
-    <link rel="stylesheet" href="{up}assets/css/header.css?v=learning-next-gap-20261106">
+    <link rel="stylesheet" href="{up}assets/css/header.css?v=canonical-desktop-20261106">
 
     <!-- Not deferred: applies the stored palette before first paint. -->
     <script src="{up}assets/js/theme.js"></script>
@@ -90,7 +90,7 @@ def header(current, up):
       <a href="{up}writing/index.html">Drops</a>
       <a href="{up}publishing/index.html">Publishing</a>
       <a href="{up}artworks/index.html">Artworks</a>
-      <span>Workshops</span><span>Talks</span><a href="{up}about.html">About</a>
+      <span>Workshops</span><span>Talks</span><span class="desktop-learning-only">Learning</span><a href="{up}about.html">About</a>
     </nav>
 """
 
@@ -114,7 +114,7 @@ def footer(up, switch=True):
     </footer>
 {corner}
     <script src="{up}assets/js/site.js?v=testata-b-20261106" defer></script>
-    <script src="{up}assets/js/header.js?v=learning-desktop-20261106" defer></script>
+    <script src="{up}assets/js/header.js?v=canonical-desktop-20261106" defer></script>
 </body>
 </html>
 """
