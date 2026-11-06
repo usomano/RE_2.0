@@ -158,3 +158,33 @@ body:not(.home-video-test) .plugin-mobile-panel{z-index:200}
     gap:.35em;
   }
 }
+
+/* FINAL mobile footer from mobile(2).svg: 390 × 113.
+   Desktop remains exactly as in desktop(1).svg. */
+@media (max-width:768px) {
+  .site-footer.site-footer--redesign {
+    aspect-ratio:390 / 113;
+    min-height:0;
+  }
+  .site-footer--redesign .footer-redesign__eye {
+    left:50%;
+    top:19.25%;
+    width:11.03%;
+  }
+  .site-footer--redesign .footer-redesign__subscribe {
+    left:36.03%;
+    right:auto;
+    top:54.65%;
+    width:27.95%;
+    height:23.45%;
+    min-height:0;
+    padding:0 2px;
+    font-size:clamp(7px,2.05vw,8px);
+  }
+  .site-footer--redesign .footer-redesign__social {
+    left:50%;
+    top:83.4%;
+    font-size:clamp(7px,2.05vw,8px);
+    gap:.3em;
+  }
+}
