@@ -173,8 +173,8 @@ document.addEventListener('DOMContentLoaded', () => {
   `;
   if (oldFooter) oldFooter.replaceWith(el);
   else {
-    const switcher = document.querySelector('.theme-switch');
-    if (switcher) switcher.before(el);
-    else document.body.append(el);
+    // The homepage is a fixed-height, clipped screen. Insert the footer
+    // outside that screen, not beside a switcher nested inside it.
+    document.body.append(el);
   }
 });
