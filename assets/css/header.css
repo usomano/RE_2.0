@@ -188,3 +188,22 @@ body:not(.home-video-test) .plugin-mobile-panel{z-index:200}
     gap:.3em;
   }
 }
+
+/* Canonical seven-item desktop header: six individually square nav cells,
+   plus the existing square About cell. Logo geometry is shared unchanged. */
+@media (min-width:769px) {
+  .plugin-nav {
+    width:calc(6 * var(--test-cell));
+    grid-template-columns:repeat(6,minmax(0,var(--test-cell)));
+  }
+  body.has-legacy-header > header.site-header,
+  body.has-legacy-header header.site-header {
+    display:none !important;
+  }
+}
+@media (max-width:768px) {
+  body.has-legacy-header .plugin-header--desktop-only,
+  body.has-legacy-header .plugin-mobile-panel--desktop-only {
+    display:none !important;
+  }
+}
