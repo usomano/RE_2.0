@@ -180,6 +180,42 @@ def title_row(title, back_href, back_label, authors=()):
 """
 
 
+def title_row_plain(title, subtitle, facts, back_href, back_label, authors=()):
+    """The head of a drop with no band (trial: drops #52 and #53). Title and
+    subtitle take the band's place as a grey module over the reading column,
+    both in Redaction, one row tall; the byline closes the module in the cell
+    right after the column, and the line of metadata — number, date, length,
+    no separators — is the row under it, three modules from the column's start.
+    With the metadata up here, the article opens straight on the piece."""
+    names = "".join(byline_name(a) for a in authors)
+    byline = f'\n            <p class="title-authors">{names}</p>' if names else ''
+    sub = f'\n                <p class="blk-lede">{subtitle}</p>' if subtitle else ''
+    meta = " ".join(f'<span>{f}</span>' for f in facts)
+    return f"""
+    <div class="reading-progress" role="progressbar" aria-label="Reading progress"
+         aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span></span></div>
+
+    <main id="main" tabindex="-1">
+
+        <div class="title-row title-row--plain grid-row">
+            <p class="title-meta blk-kicker">{meta}</p>
+            <a class="back-cell" href="{back_href}" aria-label="{back_label}">{CHEV_L}</a>
+            <div class="title-head c-read">
+                <h1 class="blk-title">{title}</h1>{sub}
+            </div>{byline}
+        </div>
+
+        <div class="article grid-row">
+
+            <!-- The colourway switch, in the square under the byline cell. -->
+            <button class="theme-switch theme-switch--inline" type="button" aria-pressed="false" aria-label="Acid mode" title="Acid mode">&#9791;</button>
+"""
+
+
+# Drops set with the plain title row (design-system proposal, testata B).
+PLAIN_TITLE = {'Drop #52', 'Drop #53'}
+
+
 def next_band(label, title, href):
     return f"""
             <a class="next-band is-spaced" href="{href}">
@@ -523,9 +559,13 @@ def convert_body(html_src):
 
     # Substack appends the same subscription pitch to every issue; it is
     # newsletter chrome, not the piece, so it does not travel to the site.
+    # The support request — Substack's and REINCANTAMENTO's own, in a paragraph
+    # or set as a quote — never travels either (design system: no support
+    # request in a drop).
     CHROME = ('runs on voluntary work', 'paid subscriber', 'off forever',
               'one-time donation', 'Subscribers will get access', 'Leave a comment',
-              'Share Reincantamento', 'Thanks for reading', 'Monthly:', 'Yearly:')
+              'Share Reincantamento', 'Thanks for reading', 'Monthly:', 'Yearly:',
+              'continually shrinking', 'sustained by voluntary work', 'consider donating')
 
     for fig, h, q, p in tokens:
         if fig != '':
@@ -536,7 +576,9 @@ def convert_body(html_src):
             blocks.append(('heading', clean_inline(h)))
         elif q.strip():
             flush()
-            blocks.append(('quote', clean_inline(q)))
+            t = clean_inline(q)
+            if not any(c in t for c in CHROME):
+                blocks.append(('quote', t))
         elif p.strip():
             t = clean_inline(p)
             if t and t not in ('&nbsp;', '&#160;') and not any(c in t for c in CHROME):
@@ -567,6 +609,42 @@ def is_greeting(p):
     return re.sub(r'<[^>]+>', '', p).strip().lower().startswith('hey everyone')
 
 
+def editorial_cuts(blocks, slug):
+    """What the newsletter carries and the site does not (design system):
+
+    - The cover artwork. Every issue opens on its cover, exported as
+      <slug>-1; the site already shows it on the card, so inside the
+      article it would only repeat it.
+    - The "Hey everyone" line. The note that follows it is the editor's
+      introduction and stays, as plain copy opening the piece (drop #53);
+      only the salutation goes. Only in the first text block — a greeting
+      further down is copy."""
+    cover = re.compile(r'(^|/)%s-1\.[a-z]+$' % re.escape(slug))
+    blocks = [b for b in blocks if not (b[0] == 'figure' and cover.search(b[1][0]))]
+    for i, (kind, val) in enumerate(blocks):
+        if kind == 'heading':
+            break
+        if kind != 'text':
+            continue
+        if is_greeting(val[0]):
+            parts = re.split(r'<br\s*/?>', val[0], maxsplit=1)
+            head, rest = parts[0], (parts[1] if len(parts) > 1 else '')
+            paras = list(val[1:])
+            if plain(rest):
+                # the salutation ran on into the note: keep the note, and
+                # re-open whatever inline tags were open at the break
+                opened = [t for t in re.findall(r'<(em|strong|i|b)\b[^>]*>', head)]
+                closed = re.findall(r'</(em|strong|i|b)>', head)
+                for t in closed:
+                    if t in opened:
+                        opened.remove(t)
+                rest = re.sub(r'^(\s*<br\s*/?>)+', '', rest)
+                paras.insert(0, ''.join('<%s>' % t for t in opened) + rest.strip())
+            blocks = blocks[:i] + ([('text', paras)] if paras else []) + blocks[i + 1:]
+        break
+    return blocks
+
+
 def plain(html):
     return re.sub(r'<[^>]+>', '', html).replace('&nbsp;', ' ').strip()
 
@@ -582,7 +660,7 @@ def reading_marks(blocks):
     refs = next((i for i, (k, v) in enumerate(blocks)
                  if k == 'heading' and REFS.match(plain(v))), len(blocks))
     texts = [i for i, (k, v) in enumerate(blocks[:refs]) if k == 'text']
-    body = [i for i in texts if not (i == texts[0] and is_greeting(blocks[i][1][0]))]
+    body = texts
     first = None
     if body:
         p0 = plain(blocks[body[0]][1][0])
@@ -602,7 +680,6 @@ def render_blocks(blocks):
 
     Returns the HTML and the section index — (id, heading) for each heading."""
     out, group, toc = [], [], []
-    intro_done = False
     first, last, refs = reading_marks(blocks)
 
     def spaced(opens_section):
@@ -623,15 +700,6 @@ def render_blocks(blocks):
                 sid += '-%d' % n
             toc.append((sid, val))
             group.append(f'                <h2 class="blk blk--row blk-heading" id="{sid}">{val}</h2>')
-        elif kind == 'text' and not intro_done and is_greeting(val[0]):
-            # The "Hey everyone" note that opens most drops is preamble, not the
-            # piece: it folds behind its own first line, one row tall, and
-            # opens in place. Only the first one — a later greeting is copy.
-            intro_done = True
-            rest = "\n".join(f'                    <p class="blk-text">{p}</p>' for p in val[1:])
-            group.append('                <details class="blk blk--row blk-intro">\n'
-                         f'                    <summary class="blk-text blk-intro__toggle">{re.sub(r"(<br>)+$", "", val[0])}</summary>\n'
-                         f'{rest}\n                </details>')
         elif kind == 'text':
             cls = ['blk-text'] * len(val)
             if n == first:
@@ -679,6 +747,7 @@ src_dir = os.path.join(CONTENT, 'drops-source')
 for i, d in enumerate(drops):
     src_path = os.path.join(src_dir, d['slug'] + '.html')
     blocks = convert_body(io.open(src_path, encoding='utf-8').read()) if os.path.exists(src_path) else []
+    blocks = editorial_cuts(blocks, d['slug'])
     nxt = drops[(i + 1) % len(drops)]
     kicker = d['number'] + (' &#183; ' + d['date'] if d['date'] else '')
     if blocks:
@@ -697,13 +766,21 @@ for i, d in enumerate(drops):
                     '                <p class="toc__label">In this drop</p>\n'
                     f'                <ol>\n{items}\n                </ol>\n'
                     '            </nav>\n')
-    main = (title_row(d['title'], 'index.html', 'Back to Writing', d.get('authors', ())) + f"""{toc_html}
+    if d['number'] in PLAIN_TITLE:
+        facts = [d['number']] + ([d['date']] if d['date'] else [])
+        if blocks:
+            facts.append('%d min read' % reading_minutes(blocks))
+        top = (title_row_plain(d['title'], d['subtitle'], facts, 'index.html',
+                                'Back to Writing', d.get('authors', ())) + toc_html + '\n')
+    else:
+        top = (title_row(d['title'], 'index.html', 'Back to Writing', d.get('authors', ())) + f"""{toc_html}
             <div class="blk-group c-read">
                 <div class="blk blk--rows blk-dek">
                     <p class="blk-kicker">{kicker}</p>{lede}
                 </div>
             </div>
-""" + body + next_band('Next drop', nxt['number'] + ' ' + nxt['title'],
+""")
+    main = (top + body + next_band('Next drop', nxt['number'] + ' ' + nxt['title'],
                                         nxt['slug'] + '.html'))
     made.append(page('writing/%s.html' % d['slug'],
                      'REINCANTAMENTO &#8212; %s' % d['title'],
